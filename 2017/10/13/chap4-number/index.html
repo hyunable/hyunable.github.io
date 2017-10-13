@@ -10,10 +10,10 @@
 
     <!--Description-->
     
-        <meta name="description" content="CHAPTER4 / 수(number)정수(Integer)
+        <meta name="description" content="CHAPTER4 / 수(number)
+정수(Integer)
 macOS에서 Int는 64bit 정수이다.
-Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,최소값 확인이 가능하다.
-Int의 범위를 넘어선 값을 저장하면 over flow되기 ">
+Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,최소값 확인이 가능하다.Int의 범위를 넘어선 값을 저장하면 over flow되기 ">
     
 
     <!--Author-->
@@ -221,40 +221,32 @@ Int의 범위를 넘어선 값을 저장하면 over flow되기 ">
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="CHAPTER4-수-number"><a href="#CHAPTER4-수-number" class="headerlink" title="CHAPTER4 / 수(number)"></a>CHAPTER4 / 수(number)</h1><h2 id="정수-Integer"><a href="#정수-Integer" class="headerlink" title="정수(Integer)"></a>정수(Integer)</h2><hr>
+                <h1 id="CHAPTER4-수-number"><a href="#CHAPTER4-수-number" class="headerlink" title="CHAPTER4 / 수(number)"></a>CHAPTER4 / 수(number)</h1><p><br><br><br></p>
+<h2 id="정수-Integer"><a href="#정수-Integer" class="headerlink" title="정수(Integer)"></a>정수(Integer)</h2><hr>
 <p>macOS에서 Int는 64bit 정수이다.</p>
-<p>Int의 범위를 알아보려면 <code>\(Int.max)</code> 혹은 <code>\(Int.min)</code>으로 최대값,최소값 확인이 가능하다.</p>
-<p>Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 때문에 유의해야 한다.</p>
-<p>스위프트에서는 암묵적으로 정수값을 선언하면 Int 인스턴스로 판단하지만, 명시적으로 선언하면 다른 정수타입의 인스턴스도 만들 수 있다.</p>
+<p>Int의 범위를 알아보려면 <code>\(Int.max)</code> 혹은 <code>\(Int.min)</code>으로 최대값,최소값 확인이 가능하다.<br>Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 때문에 유의해야 한다.<br>스위프트에서는 암묵적으로 정수값을 선언하면 Int 인스턴스로 판단하지만, 명시적으로 선언하면 다른 정수타입의 인스턴스도 만들 수 있다.</p>
 <ul>
 <li>Int<bit크기> : 크기가 <bit크기>인 정수타입.</bit크기></bit크기></li>
 <li>UInt<bit크기> : 크기가 <bit크기>인 양의 정수타입.</bit크기></bit크기></li>
 </ul>
-<p>하지만 특별한 경우 아닌 이상 일반적으로 많이 사용되지는 않는다.</p>
-<p>또한 UInt로 선언된 변수에 음수값을 넣어주면 오류가 난다.</p>
+<p>하지만 특별한 경우 아닌 이상 일반적으로 많이 사용되지는 않는다.<br>또한 UInt로 선언된 변수에 음수값을 넣어주면 오류가 난다.</p>
+<p><br></p>
 <h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><hr>
 <ul>
 <li>기본적으로 <code>+ , - , /(몫) , % (나머지값)</code> 의 연산자를 제공한다.</li>
 <li>연산자는 모두 <code>+=</code> 과 <code>-=</code> 와 같은 형태로 줄여쓰기가 가능하다.</li>
 </ul>
-<h3 id="오버플로-언더플로-연산자"><a href="#오버플로-언더플로-연산자" class="headerlink" title="오버플로/언더플로 연산자"></a>오버플로/언더플로 연산자</h3><p>연산 후 결과가 저장되는 변수값의 범위를 벗어난다면(over/under flow), 컴파일러는 오류를 낸다.</p>
-<p>이러한 오류를 최소화하기 위해 <em>오버플로/언더플로 연산자</em>를 쓰면 범위 내에서 <strong>반대방향으로 되돌아가게</strong> 된다.</p>
+<p><br></p>
+<h3 id="오버플로-언더플로-연산자"><a href="#오버플로-언더플로-연산자" class="headerlink" title="오버플로/언더플로 연산자"></a>오버플로/언더플로 연산자</h3><p>연산 후 결과가 저장되는 변수값의 범위를 벗어난다면(over/under flow), 컴파일러는 오류를 낸다.<br>이러한 오류를 최소화하기 위해 <em>오버플로/언더플로 연산자</em>를 쓰면 범위 내에서 <strong>반대방향으로 되돌아가게</strong> 된다.</p>
 <h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import UIKit</div><div class="line">let y: Int8  = 120</div><div class="line">let z = y &amp;+ 10</div><div class="line">print(z)</div></pre></td></tr></table></figure>
-<p>Int8의 경우 <u>max값이 <strong>127</strong> / min값이 <strong>-128</strong></u>이다.</p>
-<p>위와 같은 경우 z또한 Int8로 인식되며, <em>120+10 = 130</em>은 범위를 초과하게 된다.</p>
-<p>그러나 위와 같이 오버프로 연산자 <code>&amp;+</code> 를  사용하면 범위의 초과되는 수 많큼 반대방향 범위로 넘어가게 된다.</p>
-<p>따라서 결과 값은 <strong>-126</strong> 이 된다.</p>
-<p>( 언더플로의 경우는 언더플로 연산자인 <code>&amp;-</code>를 사용한다. )</p>
+<p>Int8의 경우 <u>max값이 <strong>127</strong> / min값이 <strong>-128</strong></u>이다.<br>위와 같은 경우 z또한 Int8로 인식되며, <em>120+10 = 130</em>은 범위를 초과하게 된다.<br>그러나 위와 같이 오버프로 연산자 <code>&amp;+</code> 를  사용하면 범위의 초과되는 수 많큼 반대방향 범위로 넘어가게 된다.<br>따라서 결과 값은 <strong>-126</strong> 이 된다.<br>( 언더플로의 경우는 언더플로 연산자인 <code>&amp;-</code>를 사용한다. )</p>
+<p><br></p>
 <h2 id="부동소수점수"><a href="#부동소수점수" class="headerlink" title="부동소수점수"></a>부동소수점수</h2><hr>
 <ul>
-<li><p>스위프트에서는 부동소수점수 타입으로 <strong>Float</strong>(32bit)와 <strong>Double</strong>(64bit)를 제공한다.</p>
-</li>
-<li><p>부동소수점은 컴퓨터에 근사값으로 저장되므로 <u><strong>Float</strong>보다는 <strong>Double</strong>이 더 정확한 근삿값</u>을 저장한다.</p>
-</li>
-<li><p>부동소수점수의 default는 <strong>Double</strong>이며 , 정수처럼 명시적 선언이 가능하다.</p>
-</li>
-<li><p>단, 부동소수점수는 근사값이기 때문에 부동소수점수끼리 <code>==</code> 조건문은 불가능하다.</p>
-</li>
+<li>스위프트에서는 부동소수점수 타입으로 <strong>Float</strong>(32bit)와 <strong>Double</strong>(64bit)를 제공한다.</li>
+<li>부동소수점은 컴퓨터에 근사값으로 저장되므로 <u><strong>Float</strong>보다는 <strong>Double</strong>이 더 정확한 근삿값</u>을 저장한다.</li>
+<li>부동소수점수의 default는 <strong>Double</strong>이며 , 정수처럼 명시적 선언이 가능하다.</li>
+<li>단, 부동소수점수는 근사값이기 때문에 부동소수점수끼리 <code>==</code> 조건문은 불가능하다.</li>
 </ul>
 
 
