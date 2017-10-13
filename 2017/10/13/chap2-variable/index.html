@@ -230,75 +230,28 @@
 <li>변수에 엉뚱한 데이터 타입을 지정하지 않도록 <strong>type checking</strong> 기능을 제공한다.</li>
 <li><code>변수명: type</code> 과 같은 <strong>타입 어노테이션</strong> 문법을 사용하여 명시적 선언이 가능하다.</li>
 </ul>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre>
-<code>import UIKit
-
-var numberOfStoplights = "Six"
-numberOfStoplights += 2
-
-</code></pre>
-위와 같은 경우 *String과 Int*로 다른 타입의 인스턴스기 때문에 Error가 발생한다.
-
-
-<pre>
-<code>import UIKit
-
-var numberOfStoplights: Int = 6
-numberOfStoplights += 2
-</code></pre>
-위와 같이 변수의 데이터 타입을 통일시켜 줘야한다.
-
-
-
-### 2. 상수 vs 변수
-- - -
-* ``let``을 통해 상수를 선언한다. *String 타입도 선언 가능하다*.
-* ``var``을 통해 변수를 선언한다.
-* 항상 고정값인 인스턴스는 **상수(let)**, 가변적인 인스턴스는 **변수(var)** 로 선언한다.
-
-
-#### CODE
-<pre>
-<code>import UIKit
-
-let numberOfStoplights: Int = 6
-numberOfStoplights += 2
-</code></pre>
-
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight plain"><figcaption><span>UIKit</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var numberOfStoplights = &quot;Six&quot;</div><div class="line">numberOfStoplights += 2</div></pre></td></tr></table></figure>
+<p>위와 같은 경우 <em>String과 Int</em>로 다른 타입의 인스턴스기 때문에 Error가 발생한다.</p>
+<figure class="highlight plain"><figcaption><span>UIKit</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var numberOfStoplights: Int = 6</div><div class="line">numberOfStoplights += 2</div></pre></td></tr></table></figure>
+<p>위와 같이 변수의 데이터 타입을 통일시켜 줘야한다.  </p>
+<h3 id="2-상수-vs-변수"><a href="#2-상수-vs-변수" class="headerlink" title="2. 상수 vs 변수"></a>2. 상수 vs 변수</h3><hr>
+<ul>
+<li><code>let</code>을 통해 상수를 선언한다. <em>String 타입도 선언 가능하다</em>.</li>
+<li><code>var</code>을 통해 변수를 선언한다.</li>
+<li>항상 고정값인 인스턴스는 <strong>상수(let)</strong>, 가변적인 인스턴스는 <strong>변수(var)</strong> 로 선언한다.</li>
+</ul>
+<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight plain"><figcaption><span>UIKit</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">let numberOfStoplights: Int = 6</div><div class="line">numberOfStoplights += 2</div></pre></td></tr></table></figure>
 <p><code>numberOfStoplights</code>는 <strong>상수</strong>로 선언되었기 때문에<br>위 코드에서는 에러가 발생한다.</p>
 <h3 id="3-문자열-삽입"><a href="#3-문자열-삽입" class="headerlink" title="3. 문자열 삽입"></a>3. 문자열 삽입</h3><hr>
 <ul>
 <li><code>\()</code> 문법은 어떤 인스턴스 값에 엑세스하여 그값을 새 <em>String 인스턴스</em> 안에 삽입하는 것이다.</li>
 </ul>
-<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><pre>
-<code>import UIKit
-
-let car: Int = 4
-let townName: String = "Seoul"
-var population: Int = 1004
-
-let townDescription =
-"\(townName) has a populaion of \(population) and \(car) Cars."
-
-print(townDescription)
-</code></pre>
-
+<h4 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight plain"><figcaption><span>UIKit</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">let car: Int = 4</div><div class="line">let townName: String = &quot;Seoul&quot;</div><div class="line">var population: Int = 1004</div><div class="line"></div><div class="line">let townDescription =</div><div class="line">&quot;\(townName) has a populaion of \(population) and \(car) Cars.&quot;</div><div class="line"></div><div class="line">print(townDescription)</div></pre></td></tr></table></figure>
 <h5 id="RESULT"><a href="#RESULT" class="headerlink" title="RESULT"></a>RESULT</h5><blockquote>
 <p><strong>Seoul</strong> has a populaion of <strong>1004</strong> and <strong>4</strong> Cars.</p>
 </blockquote>
 <hr>
-<h3 id="4-Example"><a href="#4-Example" class="headerlink" title="4. Example"></a>4. Example</h3><pre><code>import UIKit
-
-let townName: String = "Seoul"
-var population: Int = 1004
-var  unemploymentRate: Int = 38
-
-let townDescription =
-"\(townName) 's unemployment rate is about \(unemploymentRate) percent ."
-
-print(townDescription)
-</code></pre>
-
+<h3 id="4-Example"><a href="#4-Example" class="headerlink" title="4. Example"></a>4. Example</h3><figure class="highlight plain"><figcaption><span>UIKit</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">let townName: String = &quot;Seoul&quot;</div><div class="line">var population: Int = 1004</div><div class="line">var  unemploymentRate: Int = 38</div><div class="line"></div><div class="line">let townDescription =</div><div class="line">&quot;\(townName) &apos;s unemployment rate is about \(unemploymentRate) percent .&quot;</div><div class="line"></div><div class="line">print(townDescription)</div></pre></td></tr></table></figure>
 <h4 id="RESULT-1"><a href="#RESULT-1" class="headerlink" title="RESULT"></a>RESULT</h4><blockquote>
 <p><strong>Seoul ‘s</strong> unemployment rate is about <strong>38</strong> percent .</p>
 </blockquote>
