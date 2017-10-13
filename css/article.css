@@ -22,7 +22,7 @@ article .container .row .video-container embed {
 }
 article .container .row blockquote {
   font-style: italic;
-  font-family: font-serif;
+  font-family: font-mono;
   font-size: 1.2em;
   padding: 0 30px 15px;
   text-align: center;
