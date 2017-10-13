@@ -10,6 +10,14 @@
 
     <!--Description-->
     
+        <meta name="description" content="#CHAPTER2
+타입 , 상수, 변수###1. 타입
+
+
+변수와 상수에는 데이터 타입이 있으며, 데이터 처리방식에 대한 정보를 컴파일러에 제공한다.
+변수에 엉뚱한 데이터 타입을 지정하지 않도록 type checking 기능을 제공한다.
+변수명: type 과 같은 타입 ">
+    
 
     <!--Author-->
     
@@ -18,7 +26,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Foood_List"/>
+        <meta property="og:title" content="CH2. Varialble"/>
     
 
     <!--Open Graph Description-->
@@ -40,7 +48,7 @@
 
     <!-- Title -->
     
-    <title>Foood_List - 현아의 IT COOK</title>
+    <title>CH2. Varialble - 현아의 IT COOK</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -161,51 +169,157 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('/img/cook1.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Foood_List</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/categories/SWIFT-candy/">
-        <h1 class="post-title archive">
-            SWIFT candy
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/categories/IT-pasta/">
-        <h1 class="post-title archive">
-            IT pasta
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>CH2. Varialble</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-10-13
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/iOS/">#iOS</a> <a href="/tags/스위프트/">#스위프트</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/SWIFT-candy/">SWIFT candy</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>#CHAPTER2</p>
+<h2 id="타입-상수-변수"><a href="#타입-상수-변수" class="headerlink" title="타입 , 상수, 변수"></a>타입 , 상수, 변수</h2><p>###1. 타입</p>
+<hr>
+<ul>
+<li>변수와 상수에는 데이터 타입이 있으며, 데이터 처리방식에 대한 정보를 컴파일러에 제공한다.</li>
+<li>변수에 엉뚱한 데이터 타입을 지정하지 않도록 <strong>type checking</strong> 기능을 제공한다.</li>
+<li><code>변수명: type</code> 과 같은 <strong>타입 어노테이션</strong> 문법을 사용하여 명시적 선언이 가능하다.</li>
+</ul>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><pre>
+<code>import UIKit
+
+var numberOfStoplights = "Six"
+numberOfStoplights += 2
+
+</code></pre>
+위와 같은 경우 *String과 Int*로 다른 타입의 인스턴스기 때문에 Error가 발생한다.
+
+<pre>
+<code>import UIKit
+
+var numberOfStoplights: Int = 6
+numberOfStoplights += 2
+</code></pre>
+위와 같이 변수의 데이터 타입을 통일시켜 줘야한다.
 
 
 
+###2. 상수 vs 변수
+- - -
+* ``let``을 통해 상수를 선언한다. *String 타입도 선언 가능하다*.
+* ``var``을 통해 변수를 선언한다.
+* 항상 고정값인 인스턴스는 **상수(let)**, 가변적인 인스턴스는 **변수(var)** 로 선언한다.
 
 
+#### CODE
+<pre>
+<code>import UIKit
+
+let numberOfStoplights: Int = 6
+numberOfStoplights += 2
+</code></pre>
+
+<p><code>numberOfStoplights</code>는 <strong>상수</strong>로 선언되었기 때문에<br>위 코드에서는 에러가 발생한다.</p>
+<p>###3. 문자열 삽입</p>
+<hr>
+<ul>
+<li><code>\()</code> 문법은 어떤 인스턴스 값에 엑세스하여 그값을 새 <em>String 인스턴스</em> 안에 삽입하는 것이다.</li>
+</ul>
+<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><pre>
+<code>import UIKit
+
+let car: Int = 4
+let townName: String = "Seoul"
+var population: Int = 1004
+
+let townDescription =
+"\(townName) has a populaion of \(population) and \(car) Cars."
+
+print(townDescription)
+</code></pre>
+
+<h5 id="RESULT"><a href="#RESULT" class="headerlink" title="RESULT"></a>RESULT</h5><blockquote>
+<p><strong>Seoul</strong> has a populaion of <strong>1004</strong> and <strong>4</strong> Cars.</p>
+</blockquote>
+<hr>
+<h3 id="4-Example"><a href="#4-Example" class="headerlink" title="4. Example"></a>4. Example</h3><pre><code>import UIKit
+
+let townName: String = "Seoul"
+var population: Int = 1004
+var  unemploymentRate: Int = 38
+
+let townDescription =
+"\(townName) 's unemployment rate is about \(unemploymentRate) percent ."
+
+print(townDescription)
+</code></pre>
+
+<h4 id="RESULT-1"><a href="#RESULT-1" class="headerlink" title="RESULT"></a>RESULT</h4><blockquote>
+<p><strong>Seoul ‘s</strong> unemployment rate is about <strong>38</strong> percent .</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr />
