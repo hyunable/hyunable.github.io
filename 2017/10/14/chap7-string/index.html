@@ -15,8 +15,7 @@
 
 문자열은 &amp;quot; &amp;quot;안에 넣어 선언한다.
 문자들의 배열이다. 그러나 인덱스로 문자열에 접근할 수 없다.
-
-아래와 같은 방법으로 구간추출이 가능하다12345678  let sentence = &amp;quot;hyunah, ">
+아래와 같은 방법으로 구간추출이 가능하다12345678  let sentence = &#34;hyunah, Prince">
     
 
     <!--Author-->
@@ -228,16 +227,15 @@
 <h2 id="문자열"><a href="#문자열" class="headerlink" title="문자열"></a>문자열</h2><hr>
 <ul>
 <li>문자열은 <code>&quot; &quot;</code>안에 넣어 선언한다.</li>
-<li><p>문자들의 배열이다. 그러나 인덱스로 문자열에 접근할 수 없다.</p>
-<ul>
-<li>아래와 같은 방법으로 <strong>구간추출</strong>이 가능하다<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  let sentence = &quot;hyunah, Princess&quot;</div><div class="line">let start = sentence.startIndex     //인덱스정보</div><div class="line">//출력: Index(_compoundOffset: 0, _cache: Swift.String.Index._Cache.utf16)</div><div class="line">let end = sentence.index(start, offsetBy: 4)  //인덱스정보</div><div class="line">//출력: Index(_compoundOffset: 16, _cache: Swift.String.Index._Cache.character(1))</div><div class="line">let fifthCharacter = sentence[end]      //출력: a</div><div class="line">let range = start...end</div><div class="line">let firstFive = sentence[range]     //출력:hyuna</div></pre></td></tr></table></figure>
+<li>문자들의 배열이다. 그러나 인덱스로 문자열에 접근할 수 없다.<ul>
+<li>아래와 같은 방법으로 <strong>구간추출</strong>이 가능하다<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">let</span> sentence = <span class="string">"hyunah, Princess"</span></div><div class="line"><span class="keyword">let</span> start = sentence.startIndex     <span class="comment">//인덱스정보</span></div><div class="line"><span class="comment">//출력: Index(_compoundOffset: 0, _cache: Swift.String.Index._Cache.utf16)</span></div><div class="line"><span class="keyword">let</span> end = sentence.index(start, offsetBy: <span class="number">4</span>)  <span class="comment">//인덱스정보</span></div><div class="line"><span class="comment">//출력: Index(_compoundOffset: 16, _cache: Swift.String.Index._Cache.character(1))</span></div><div class="line"><span class="keyword">let</span> fifthCharacter = sentence[end]      <span class="comment">//출력: a</span></div><div class="line"><span class="keyword">let</span> range = start...end</div><div class="line"><span class="keyword">let</span> firstFive = sentence[range]     <span class="comment">//출력:hyuna</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <p>start 와 end에 인덱스 정보를 담고, 그것을 통해서 <code>문자열변수[end]</code> 로 접근하여 구간추출을 한다.</p>
-<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import UIKit</div><div class="line"></div><div class="line">var name = &quot;hyuna&quot;</div><div class="line">name += &quot; jeong&quot;</div><div class="line">print(name)   //출력: hyuna jeong</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
+<p>다른방법으로는 메소드를 통해서 제어할 수 있다.</p>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"hyuna"</span></div><div class="line">name += <span class="string">" jeong"</span></div><div class="line"><span class="built_in">print</span>(name)   <span class="comment">//출력: hyuna jeong</span></div></pre></td></tr></table></figure>
 <h2 id="유니코드"><a href="#유니코드" class="headerlink" title="유니코드"></a>유니코드</h2><hr>
 <ul>
 <li>문자들을 같은 방식으로 처리하고 표현할 수 있도록 약속한 국제 표준이다.</li>

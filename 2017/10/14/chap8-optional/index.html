@@ -10,10 +10,18 @@
 
     <!--Description-->
     
-        <meta name="description" content="CHAPTER4 / 수(number)
-정수(Integer)
-macOS에서 Int는 64bit 정수이다.
-Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,최소값 확인이 가능하다.Int의 범위를 넘어선 값을 저장하면 over flow되기 ">
+        <meta name="description" content="CHAPTER8 / Optional
+옵셔널
+옵셔널(Optional)은 어떤 인스턴스 값이 없을 수도 있다는 일종의 안내다.
+
+인스턴스 값이 지정되어 있고 언제든 사용될 수 있다.
+인스턴스에 지정된 값이 없다.
+값이 없는 인스턴스를 nil 이라 한다.
+
+
+옵셔널 타입
+
+">
     
 
     <!--Author-->
@@ -23,7 +31,7 @@ Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,�
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="CH4. Number"/>
+        <meta property="og:title" content="CH8. Optional"/>
     
 
     <!--Open Graph Description-->
@@ -45,7 +53,7 @@ Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,�
 
     <!-- Title -->
     
-    <title>CH4. Number - 현아의 IT COOK</title>
+    <title>CH8. Optional - 현아의 IT COOK</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -174,13 +182,13 @@ Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,�
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>CH4. Number</h1>
+                    <h1>CH8. Optional</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
                         
                         
-                            2017-10-13
+                            2017-10-14
                         
                     </span>
                 </div>
@@ -201,7 +209,7 @@ Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,�
                         
 
 
-<a href="/tags/overflow/">#overflow</a> <a href="/tags/연산자/">#연산자</a> <a href="/tags/Integer/">#Integer</a>
+<a href="/tags/옵셔널/">#옵셔널</a> <a href="/tags/nil/">#nil</a>
 
 
                     
@@ -221,33 +229,40 @@ Int의 범위를 알아보려면 \(Int.max) 혹은 \(Int.min)으로 최대값,�
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="CHAPTER4-수-number"><a href="#CHAPTER4-수-number" class="headerlink" title="CHAPTER4 / 수(number)"></a>CHAPTER4 / 수(number)</h1><p><br><br><br></p>
-<h2 id="정수-Integer"><a href="#정수-Integer" class="headerlink" title="정수(Integer)"></a>정수(Integer)</h2><hr>
-<p>macOS에서 Int는 64bit 정수이다.</p>
-<p>Int의 범위를 알아보려면 <code>\(Int.max)</code> 혹은 <code>\(Int.min)</code>으로 최대값,최소값 확인이 가능하다.<br>Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 때문에 유의해야 한다.<br>스위프트에서는 암묵적으로 정수값을 선언하면 Int 인스턴스로 판단하지만, 명시적으로 선언하면 다른 정수타입의 인스턴스도 만들 수 있다.</p>
+                <h1 id="CHAPTER8-Optional"><a href="#CHAPTER8-Optional" class="headerlink" title="CHAPTER8 / Optional"></a>CHAPTER8 / Optional</h1><p><br><br><br></p>
+<h2 id="옵셔널"><a href="#옵셔널" class="headerlink" title="옵셔널"></a>옵셔널</h2><hr>
+<p>옵셔널(Optional)은 어떤 인스턴스 <em>값이 없을 수도 있다</em>는 일종의 안내다.</p>
 <ul>
-<li>Int<bit크기> : 크기가 <bit크기>인 정수타입.</bit크기></bit크기></li>
-<li>UInt<bit크기> : 크기가 <bit크기>인 양의 정수타입.</bit크기></bit크기></li>
-</ul>
-<p>하지만 특별한 경우 아닌 이상 일반적으로 많이 사용되지는 않는다.<br>또한 UInt로 선언된 변수에 음수값을 넣어주면 오류가 난다.</p>
-<p><br></p>
-<h2 id="연산자"><a href="#연산자" class="headerlink" title="연산자"></a>연산자</h2><hr>
-<ul>
-<li>기본적으로 <code>+ , - , /(몫) , % (나머지값)</code> 의 연산자를 제공한다.</li>
-<li>연산자는 모두 <code>+=</code> 과 <code>-=</code> 와 같은 형태로 줄여쓰기가 가능하다.</li>
+<li>인스턴스 값이 지정되어 있고 언제든 사용될 수 있다.</li>
+<li>인스턴스에 지정된 값이 없다.</li>
+<li>값이 없는 인스턴스를 <code>nil</code> 이라 한다.</li>
 </ul>
 <p><br></p>
-<h3 id="오버플로-언더플로-연산자"><a href="#오버플로-언더플로-연산자" class="headerlink" title="오버플로/언더플로 연산자"></a>오버플로/언더플로 연산자</h3><p>연산 후 결과가 저장되는 변수값의 범위를 벗어난다면(over/under flow), 컴파일러는 오류를 낸다.<br>이러한 오류를 최소화하기 위해 <em>오버플로/언더플로 연산자</em>를 쓰면 범위 내에서 <strong>반대방향으로 되돌아가게</strong> 된다.</p>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> y: <span class="type">Int8</span>  = <span class="number">120</span></div><div class="line"><span class="keyword">let</span> z = y &amp;+ <span class="number">10</span></div><div class="line"><span class="built_in">print</span>(z)</div></pre></td></tr></table></figure>
-<p>Int8의 경우 <u>max값이 <strong>127</strong> / min값이 <strong>-128</strong></u>이다.<br>위와 같은 경우 z또한 Int8로 인식되며, <em>120+10 = 130</em>은 범위를 초과하게 된다.<br>그러나 위와 같이 오버프로 연산자 <code>&amp;+</code> 를  사용하면 범위의 초과되는 수 많큼 반대방향 범위로 넘어가게 된다.<br>따라서 결과 값은 <strong>-126</strong> 이 된다.<br>( 언더플로의 경우는 언더플로 연산자인 <code>&amp;-</code>를 사용한다. )</p>
-<p><br></p>
-<h2 id="부동소수점수"><a href="#부동소수점수" class="headerlink" title="부동소수점수"></a>부동소수점수</h2><hr>
+<h2 id="옵셔널-타입"><a href="#옵셔널-타입" class="headerlink" title="옵셔널 타입"></a>옵셔널 타입</h2><hr>
 <ul>
-<li>스위프트에서는 부동소수점수 타입으로 <strong>Float</strong>(32bit)와 <strong>Double</strong>(64bit)를 제공한다.</li>
-<li>부동소수점은 컴퓨터에 근사값으로 저장되므로 <u><strong>Float</strong>보다는 <strong>Double</strong>이 더 정확한 근삿값</u>을 저장한다.</li>
-<li>부동소수점수의 default는 <strong>Double</strong>이며 , 정수처럼 명시적 선언이 가능하다.</li>
-<li>단, 부동소수점수는 근사값이기 때문에 부동소수점수끼리 <code>==</code> 조건문은 불가능하다.</li>
+<li>일종의 <u>안정장치</u>로써, <strong>nil</strong>이 될 수도 있는 인스턴스는 반드시 옵셔널 타입으로 선언해야한다.</li>
+<li>옵셔널 타입이 아니면 <em>nil이 될 수 없다</em>.</li>
+<li>옵셔널 이라고 명시함으로 인해서 코드의 가독성과 안정성이 높아진다.</li>
+<li>옵셔널 타입은 언래핑하지 않으면 변수에 지정하지 못한다. (wrapping되어 있음.)</li>
 </ul>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> yesOrNoString: <span class="type">String</span>?</div><div class="line">yesOrNoString = <span class="string">"옵셔널"</span></div><div class="line"></div><div class="line"><span class="comment">//출력: Optional("옵셔널")</span></div></pre></td></tr></table></figure>
+<p>만약 위 코드에서 <code>yesOrNoString</code>에 아무값도 넣어주지 않았다면, <code>nil</code>을 출력한다.<br>nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 옵셔널에 쌓여 출력된다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> yesOrNoString: <span class="type">String</span>?</div><div class="line"><span class="comment">//yesOrNoString = "옵셔널"</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> yesOrNoString != <span class="literal">nil</span> &#123;</div><div class="line">    <span class="keyword">let</span> <span class="type">String</span> = yesOrNoString!</div><div class="line">    <span class="built_in">print</span>(<span class="type">String</span>)</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"run-time error"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//출력: 옵셔널</span></div></pre></td></tr></table></figure>
+<p>위와 같이 강제 언래핑으로 (<code>yesOrNoString!</code> ) yesOrNoString에 강제 엑세스를 할 수 있다.<br>그러나 강제 언래핑 시에 해당 값이 nil 일 경우 run-time error로 crash 될수 있다.<br>때문에 반드시 <em>nil이 아닌지 검사 후</em> 언래핑 해야 한다.</p>
+<p><br></p>
+<h2 id="옵셔널-바인딩-binding"><a href="#옵셔널-바인딩-binding" class="headerlink" title="옵셔널 바인딩(binding)"></a>옵셔널 바인딩(binding)</h2><hr>
+<p>어떤 옵셔널 값의 유무를 판단할 수 있는 유용한 패턴이다.<br>옵셔널에 값이 있다면 상수나 변수에 그 값을 지정할 수 있다.<br>값이 있다면 변수에 넣고 해당 변수로 코드를 실행할 수 있다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box : <span class="type">String</span>? = <span class="string">"고양이"</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> object  = box &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(object)</span>가 들어있다"</span>)</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"nil이다"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="옵셔널-체이닝"><a href="#옵셔널-체이닝" class="headerlink" title="옵셔널 체이닝"></a>옵셔널 체이닝</h2><ul>
+<li>옵셔널에 값의 유무를 판단하는 할 수 있다.</li>
+<li>사슬처럼 연달아 이어서 조회할 수 있다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> errorCodeString: <span class="type">String</span>?</div><div class="line">errorCodeString = <span class="string">"404"</span></div><div class="line"><span class="keyword">var</span> errorDescription: <span class="type">String</span>?</div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> theError = errorCodeString, <span class="keyword">let</span> errorCodeInteger = <span class="type">Int</span>(theError),</div><div class="line">    errorCodeInteger == <span class="number">404</span> &#123;</div><div class="line">        errorDescription = <span class="string">"<span class="subst">\(errorCodeInteger + <span class="number">200</span>)</span>: resource was not found."</span></div><div class="line">    &#125;</div><div class="line"><span class="keyword">var</span> upCaseErrorDescription = errorDescription?.uppercased()</div><div class="line">errorDescription</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="nil-결합-연산자"><a href="#nil-결합-연산자" class="headerlink" title="nil 결합 연산자"></a>nil 결합 연산자</h2><ul>
+<li>옵셔널을 처리할 때는 값을 가져오거나 옵셔널이 nil일 때 기본값을 사용하는 것이 일반적이다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> description = errorDescription ?? <span class="string">"No error"</span></div></pre></td></tr></table></figure>
 
 
                 

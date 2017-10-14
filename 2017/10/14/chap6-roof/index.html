@@ -230,7 +230,7 @@ for 루프는 인스턴스의 특정 요소들을 반복 처리해야 하는 상
 <li>i대신 _(와일드카드)를 사용할 수 있다.</li>
 <li><strong>where</strong>를 사용하여 조건에 만족할 때만 루프코드가 실행되도록 할 수 있다.</li>
 </ul>
-<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var inning:Int = 0</div><div class="line"></div><div class="line">for i in 1...5 where i % 2 == 0&#123;</div><div class="line">    inning += 1</div><div class="line">    inning</div><div class="line">    print(inning)</div><div class="line">&#125;</div><div class="line">//출력: 1 2</div></pre></td></tr></table></figure>
+<h3 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> inning:<span class="type">Int</span> = <span class="number">0</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> <span class="keyword">where</span> i % <span class="number">2</span> == <span class="number">0</span>&#123;</div><div class="line">    inning += <span class="number">1</span></div><div class="line">    inning</div><div class="line">    <span class="built_in">print</span>(inning)</div><div class="line">&#125;</div><div class="line"><span class="comment">//출력: 1 2</span></div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="while-루프"><a href="#while-루프" class="headerlink" title="while 루프"></a>while 루프</h2><hr>
 <ul>
@@ -238,14 +238,14 @@ for 루프는 인스턴스의 특정 요소들을 반복 처리해야 하는 상
 <li>이터레이터를 초기화하고 , 조건을 판단하며, 조건이 유효할때 코드를 실행한다.</li>
 <li>조건을 잘 설정하여 <em>무한루프</em>에 빠지지 않도록 주의한다.</li>
 </ul>
-<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var i = 1</div><div class="line">while i &lt; 6 &#123;</div><div class="line">    inning += 1</div><div class="line">    print(inning)</div><div class="line">    i += 1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">1</span></div><div class="line"><span class="keyword">while</span> i &lt; <span class="number">6</span> &#123;</div><div class="line">    inning += <span class="number">1</span></div><div class="line">    <span class="built_in">print</span>(inning)</div><div class="line">    i += <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="repeat-while-루프"><a href="#repeat-while-루프" class="headerlink" title="repeat-while 루프"></a>repeat-while 루프</h2><hr>
 <ul>
 <li>타 언어의 <strong>do-while</strong> 문과 흡사하다.</li>
 <li>적어도 <strong>한 번 실행</strong>하고 조건을 판단한다.</li>
 </ul>
-<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">repeat &#123;</div><div class="line">    print(&quot;일어나&quot;)</div><div class="line">&#125; while inning &gt; 0</div></pre></td></tr></table></figure>
+<h3 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">repeat</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"일어나"</span>)</div><div class="line">&#125; <span class="keyword">while</span> inning &gt; <span class="number">0</span></div></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="제어권-전달문"><a href="#제어권-전달문" class="headerlink" title="제어권 전달문"></a>제어권 전달문</h2><hr>
 <ul>
