@@ -21,6 +21,7 @@ h2,
 h4,
 h5,
 h6,
+h3,
 .navbar-custom,
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading,
@@ -50,6 +51,7 @@ h6 {
   font-weight: 800;
 }
 h3 {
+  font-weight: 800;
   color: #e91e63;
 }
 a {
