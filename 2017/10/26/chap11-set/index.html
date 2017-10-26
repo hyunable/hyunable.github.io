@@ -18,7 +18,10 @@ Array와는 다르게 순서가 없으며 , 따라서 중복되는 요소도 허
 hashable 프로토콜을 준수해야 한다.
 
 Collection Type 비교
-| 컬렉션 타입 | ">
+
+
+컬렉션 타입
+순서">
     
 
     <!--Author-->
@@ -231,12 +234,38 @@ Collection Type 비교
 <ul>
 <li>서로 연관성이 없는 인스턴스들의 컬렉션 타입</li>
 <li>Array와는 다르게 <em>순서가 없으며</em> , 따라서 중복되는 요소도 허용되지 않는다.</li>
-<li><p>hashable 프로토콜을 준수해야 한다.</p>
-</li>
-<li><p>Collection Type 비교</p>
-<p>| 컬렉션 타입 | 순서 여부 | 고유 여부 | 저장 대상 |<br>|————-|———–|———–|———–|<br>| <code>Array</code>      | 있음      | 없음      | 요소      |<br>| <code>Dictionary</code>  | 없음      | 키        | 키-쌍     |<br>| <code>Set</code>         | 없음      | 요소      | 요소      |</p>
-</li>
+<li>hashable 프로토콜을 준수해야 한다.</li>
 </ul>
+<h3 id="Collection-Type-비교"><a href="#Collection-Type-비교" class="headerlink" title="Collection Type 비교"></a>Collection Type 비교</h3><table>
+<thead>
+<tr>
+<th>컬렉션 타입</th>
+<th>순서 여부</th>
+<th>고유 여부</th>
+<th>저장 대상</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td>있음</td>
+<td>없음</td>
+<td>요소</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>없음</td>
+<td>키</td>
+<td>키-쌍</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>없음</td>
+<td>요소</td>
+<td>요소</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <h4 id="CODE1-set-생성"><a href="#CODE1-set-생성" class="headerlink" title="CODE1 :: set 생성"></a>CODE1 :: set 생성</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">refrigerator.insert(<span class="string">"bread"</span>)</div><div class="line">refrigerator.insert(<span class="string">"fruits"</span>)</div><div class="line">refrigerator.insert(<span class="string">"water</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">for food in refrigerator &#123;</span></div><div class="line"><span class="string">    print(food)</span></div><div class="line"><span class="string">&#125;</span></div><div class="line"><span class="string">//출력 : fruits , bread , water</span></div></pre></td></tr></table></figure>
 <h4 id="CODE2-Array의-literal-문법-이용하여-생성"><a href="#CODE2-Array의-literal-문법-이용하여-생성" class="headerlink" title="CODE2 :: Array의 literal 문법 이용하여 생성"></a>CODE2 :: Array의 literal 문법 이용하여 생성</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>([<span class="string">"bread"</span>,<span class="string">"fruits"</span>,<span class="string">"water"</span>])</div><div class="line"></div><div class="line"><span class="keyword">for</span> food <span class="keyword">in</span> refrigerator &#123;</div><div class="line">    <span class="built_in">print</span>(food)</div><div class="line">&#125;</div><div class="line"><span class="comment">//출력 : 위와 상동</span></div></pre></td></tr></table></figure>
