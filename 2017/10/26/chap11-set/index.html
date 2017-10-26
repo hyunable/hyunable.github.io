@@ -20,9 +20,7 @@ hashable 프로토콜을 준수해야 한다.
 
 Collection Type 비교
 
-
-컬렉션 타입
-순">
+CODE1 :: ">
     
 
     <!--Author-->
@@ -238,36 +236,7 @@ Collection Type 비교
 <li>hashable 프로토콜을 준수해야 한다.</li>
 </ul>
 <p><br></p>
-<h3 id="Collection-Type-비교"><a href="#Collection-Type-비교" class="headerlink" title="Collection Type 비교"></a>Collection Type 비교</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">컬렉션 타입</th>
-<th style="text-align:center">순서 여부</th>
-<th style="text-align:center">고유 여부</th>
-<th style="text-align:center">저장 대상</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Array</td>
-<td style="text-align:center">있음</td>
-<td style="text-align:center">없음</td>
-<td style="text-align:center">요소</td>
-</tr>
-<tr>
-<td style="text-align:center">Dictionary</td>
-<td style="text-align:center">없음</td>
-<td style="text-align:center">키</td>
-<td style="text-align:center">키-쌍</td>
-</tr>
-<tr>
-<td style="text-align:center">Set</td>
-<td style="text-align:center">없음</td>
-<td style="text-align:center">요소</td>
-<td style="text-align:center">요소</td>
-</tr>
-</tbody>
-</table>
+<h3 id="Collection-Type-비교"><a href="#Collection-Type-비교" class="headerlink" title="Collection Type 비교"></a>Collection Type 비교</h3><p><img src="/image/set.png" alt="컬렉션비교"></p>
 <p><br></p>
 <h4 id="CODE1-set-생성"><a href="#CODE1-set-생성" class="headerlink" title="CODE1 :: set 생성"></a>CODE1 :: set 생성</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>&lt;<span class="type">String</span>&gt;()</div><div class="line">refrigerator.insert(<span class="string">"bread"</span>)</div><div class="line">refrigerator.insert(<span class="string">"fruits"</span>)</div><div class="line">refrigerator.insert(<span class="string">"water</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">for food in refrigerator &#123;</span></div><div class="line"><span class="string">    print(food)</span></div><div class="line"><span class="string">&#125;</span></div><div class="line"><span class="string">//출력 : fruits , bread , water</span></div></pre></td></tr></table></figure>
 <p><br></p>
