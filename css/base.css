@@ -62,7 +62,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #ffc0cb;
+  color: #e91e63;
 }
 a img:hover,
 a img:focus {
@@ -242,7 +242,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #ffc0cb;
+  color: #e91e63;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -272,7 +272,7 @@ hr.small {
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
-  color: #0085a1;
+  color: #e91e63;
   text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
@@ -429,12 +429,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: #fff;
   text-shadow: none;
-  background: #ffc0cb;
+  background: #e91e63;
 }
 ::selection {
   color: #fff;
   text-shadow: none;
-  background: #ffc0cb;
+  background: #e91e63;
 }
 img::selection {
   color: #fff;
