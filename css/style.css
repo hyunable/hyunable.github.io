@@ -62,7 +62,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0085a1;
+  color: #ffc0cb;
 }
 a img:hover,
 a img:focus {
@@ -429,12 +429,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: #fff;
   text-shadow: none;
-  background: #e91e63;
+  background: #ffc0cb;
 }
 ::selection {
   color: #fff;
   text-shadow: none;
-  background: #e91e63;
+  background: #ffc0cb;
 }
 img::selection {
   color: #fff;
