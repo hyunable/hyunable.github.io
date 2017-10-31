@@ -429,12 +429,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: #fff;
   text-shadow: none;
-  background: #0085a1;
+  background: #e91e63;
 }
 ::selection {
   color: #fff;
   text-shadow: none;
-  background: #0085a1;
+  background: #e91e63;
 }
 img::selection {
   color: #fff;
