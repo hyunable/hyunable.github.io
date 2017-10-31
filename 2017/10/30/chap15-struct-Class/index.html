@@ -232,18 +232,26 @@
 <li>데이터를 어떤 하나의 타입에 두고 싶을 때 사용한다.(하나의 타입으로 캡슐화 됨)</li>
 <li>구조체와 열거형은 <strong>값 타입</strong>이기 때문에 인스턴스의 프로퍼티 값을 변경할 메서드에는 <code>mutating</code> 키워드가 붙어야 한다.</li>
 </ul>
+<p><br></p>
 <h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Market</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> price = <span class="number">1500</span></div><div class="line">    <span class="keyword">var</span> product = <span class="string">"Beef"</span></div><div class="line"></div><div class="line">    <span class="comment">// 값 타입이기 때문에 mutating 키워드가 붙어야 한다.</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">changePrice</span><span class="params">(raise: Int)</span></span>  &#123;</div><div class="line">        price += raise</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> newMarket = <span class="type">Market</span>()</div><div class="line">newMarket.changePrice(raise: <span class="number">500</span>)</div><div class="line"><span class="built_in">print</span>(newMarket.product)    <span class="comment">// 출력 :beef</span></div><div class="line"><span class="built_in">print</span>(newMarket.price)      <span class="comment">// 출력 :2000</span></div></pre></td></tr></table></figure>
 <p><br></p>
 <h3 id="클래스-Class"><a href="#클래스-Class" class="headerlink" title="클래스(Class)"></a>클래스(Class)</h3><hr>
 <ul>
 <li>참조타입으로 서로 관련된 데이터를 구체화하는 데 사용된다.</li>
-<li>구조체와는 다르게 <strong>상속</strong> 으로 인해 매우 <em>일반적인 관점</em> 에서 정의된다.<ul>
+<li><p>구조체와는 다르게 <strong>상속</strong> 으로 인해 매우 <em>일반적인 관점</em> 에서 정의된다.</p>
+<ul>
 <li>상속(inheritance) : 한 클래스가 다른 클래스 안에서 정의되는 관계.</li>
 <li>상속으로 정의된 클래스는 <strong>서브클래스</strong> 라고 부르며, 이 서브클래스를 포함한 클래스를 <strong>슈퍼클래스</strong> 라고 부른다.</li>
 <li>서브클래스는 슈퍼클래스의 <em>프로퍼티와 메서드</em> 를 상속한다.</li>
 </ul>
 </li>
+<li><p>오버라이드 (<strong>override</strong>) : 슈퍼클래스에 정의된 메서드를 다시 정의한다는 뜻이다.</p>
+<ul>
+<li>오버라이드 막기 : 오버라이드를 금지해야 할 경우에 <strong>final</strong> 키워드나 <strong>static</strong> 키워드를 사용한다.</li>
 </ul>
+</li>
+</ul>
+<p><br></p>
 <h4 id="CODE-SuperClass"><a href="#CODE-SuperClass" class="headerlink" title="CODE :: SuperClass"></a>CODE :: SuperClass</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">getBaby</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> eyeColor: <span class="type">String</span> = <span class="string">"black"</span></div><div class="line">    <span class="keyword">var</span> age = <span class="string">"1"</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">born</span><span class="params">(Color:String)</span></span>  &#123;</div><div class="line">        eyeColor = <span class="type">Color</span></div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(eyeColor)</span> 눈동자인 <span class="subst">\(age)</span>살 애기가 태어났습니다."</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="CODE-Subclass"><a href="#CODE-Subclass" class="headerlink" title="CODE :: Subclass"></a>CODE :: Subclass</h4><pre><code class="swift"><span class="class"><span class="keyword">class</span> <span class="title">newBaby</span>: <span class="title">getBaby</span> </span>{ <span class="comment">//getBaby 클래스를 상속</span>
     <span class="comment">//name 프로퍼티를 추가</span>
@@ -264,12 +272,6 @@ hyun.born(<span class="type">Color</span>: <span class="string">"pink"</span>)
 <span class="comment">//출력 : pink색 눈동자 입니다.</span>
 <span class="comment">//ellow 눈동자인 1살 애기가 태어났습니다.</span>
 </code></pre>
-<ul>
-<li>오버라이드 (<strong>override</strong>) : 슈퍼클래스에 정의된 메서드를 다시 정의한다는 뜻이다.<ul>
-<li>오버라이드 막기 : 오버라이드를 금지해야 할 경우에 <strong>final</strong> 키워드나 <strong>static</strong> 키워드를 사용한다.</li>
-</ul>
-</li>
-</ul>
 
 
                 
