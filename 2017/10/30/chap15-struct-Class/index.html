@@ -230,16 +230,33 @@
 <ul>
 <li>구조체는 서로 연관된 데이터들을 한데 묶은 타입이다.</li>
 <li>데이터를 어떤 하나의 타입에 두고 싶을 때 사용한다.(하나의 타입으로 캡슐화 됨)</li>
+<li>객체(Object) 레퍼런스 타입을 정의하는 class 와는 다르다.</li>
 <li>구조체와 열거형은 <strong>값 타입</strong>이기 때문에 인스턴스의 프로퍼티 값을 변경할 메서드에는 <code>mutating</code> 키워드가 붙어야 한다.</li>
+<li>대입 명령 시 내용이 복사된다. (단 데이터 변동이 없으면 레퍼런스 대입 형태로 동작한다)</li>
+<li>참조 카운트가 없어서 메모리 관리에 안전하다.</li>
+<li>레퍼런스 형태가 아니기 때문에 공유가 불가능하다.</li>
+<li>불변성(Immutable) 구현에 유리하다.</li>
+<li>멀티스레딩에 안전하다.</li>
+<li>상속이 불가능하다. 하지만 프로토콜은 사용 할 수 있다.</li>
+<li>Object가 아니기 때문에 AnyObject로의 캐스팅이 되지 않는다.</li>
 </ul>
 <p><br></p>
 <h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Market</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> price = <span class="number">1500</span></div><div class="line">    <span class="keyword">var</span> product = <span class="string">"Beef"</span></div><div class="line"></div><div class="line">    <span class="comment">// 값 타입이기 때문에 mutating 키워드가 붙어야 한다.</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">changePrice</span><span class="params">(raise: Int)</span></span>  &#123;</div><div class="line">        price += raise</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> newMarket = <span class="type">Market</span>()</div><div class="line">newMarket.changePrice(raise: <span class="number">500</span>)</div><div class="line"><span class="built_in">print</span>(newMarket.product)    <span class="comment">// 출력 :beef</span></div><div class="line"><span class="built_in">print</span>(newMarket.price)      <span class="comment">// 출력 :2000</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="Struct를-쓰면-유리한-경우"><a href="#Struct를-쓰면-유리한-경우" class="headerlink" title="Struct를 쓰면 유리한 경우"></a>Struct를 쓰면 유리한 경우</h5><hr>
+<ul>
+<li>불변성(Immutable)이 필요한 데이터 타입</li>
+<li>적은 데이터, 즉 멤버 프로퍼티의 갯수나 차지하는 메모리 용량이 적은 타입</li>
+<li>대입 보다는 생성되는 경우가 많은 타입</li>
+<li>공유될 필요가 없는 타입</li>
+<li>클래스 타입 등 레퍼런스에 기반한 자료형을 저장용 프로퍼티로 쓰지 않는 경우</li>
+</ul>
 <p><br></p>
 <h3 id="클래스-Class"><a href="#클래스-Class" class="headerlink" title="클래스(Class)"></a>클래스(Class)</h3><hr>
 <ul>
 <li>참조타입으로 서로 관련된 데이터를 구체화하는 데 사용된다.</li>
 <li>구조체와는 다르게 <strong>상속</strong> 으로 인해 매우 <em>일반적인 관점</em> 에서 정의된다.<ul>
-<li>상속(inheritance) : 한 클래스가 다른 클래스 안에서 정의되는 관계.</li>
+<li>상속(inheritance) : 한 클래스가 다른 클래스 안에서 정의되는 관계. <strong><em>클래스 타입만이 상속이 가능하다</em></strong></li>
 <li>상속으로 정의된 클래스는 <strong>서브클래스</strong> 라고 부르며, 이 서브클래스를 포함한 클래스를 <strong>슈퍼클래스</strong> 라고 부른다.</li>
 <li>서브클래스는 슈퍼클래스의 <em>프로퍼티와 메서드</em> 를 상속한다.</li>
 <li>오버라이드 (<strong>override</strong>) : 슈퍼클래스에 정의된 메서드를 다시 정의한다는 뜻이다.<ul>
