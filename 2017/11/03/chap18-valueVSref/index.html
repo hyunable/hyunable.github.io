@@ -24,7 +24,7 @@ Array, Dictionary, Int, String 등은 모두 구조체로 구현되어 있으며
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="CH18."/>
+        <meta property="og:title" content="CH18. Value vs Reference"/>
     
 
     <!--Open Graph Description-->
@@ -46,7 +46,7 @@ Array, Dictionary, Int, String 등은 모두 구조체로 구현되어 있으며
 
     <!-- Title -->
     
-    <title>CH18. - 현아의 IT COOK</title>
+    <title>CH18. Value vs Reference - 현아의 IT COOK</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -175,7 +175,7 @@ Array, Dictionary, Int, String 등은 모두 구조체로 구현되어 있으며
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>CH18.</h1>
+                    <h1>CH18. Value vs Reference</h1>
                     
                     <span class="meta">
                         <!-- Date and Author -->
@@ -229,13 +229,13 @@ Array, Dictionary, Int, String 등은 모두 구조체로 구현되어 있으며
 <li><code>Array, Dictionary, Int, String</code> 등은 모두 구조체로 구현되어 있으며, 값 타입이다.</li>
 <li><p>값이 복사될 때 swift에서는 <strong>얕은 복사</strong>만을 지원한다.</p>
 <ul>
-<li><p><em>얕은 복사(shallow copy)</em> : 객체는 별도로 생성하지만, 그 안에 들어가는 내용은 원래 복사했던 객체를 가리키고 있다.<br><img src="/image/shallwCopy.png" alt="얕은복사"></p>
+<li><p><em>얕은 복사(shallow copy)</em> : 객체는 별도로 생성하지만, 그 안에 들어가는 내용은 원래 복사했던 객체를 가리키고 있다.<br><img src="/image/shallowCopy.png" alt="얕은복사"></p>
 </li>
 <li><p><em>깊은 복사(deep copy)</em> : 객체도 별도로 생성하고,그 안에 들어가는 내용까지 복사해온다.<br><img src="/image/deepCopy.png" alt="깊은복사"></p>
 </li>
 </ul>
 <blockquote>
-<p>shallow copy : 객체만 복사, 내용은 동일한 객체<br>deep copy : 객체 복사, 그 내용도 재귀적으로 복사</p>
+<p>shallow copy : 객체만 별도 생성, 내용은 동일한 객체<br>deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </blockquote>
 </li>
 </ul>
