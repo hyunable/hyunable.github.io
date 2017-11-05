@@ -10,7 +10,11 @@
 
     <!--Description-->
     
-        <meta name="description" content="Protocol프로토콜">
+        <meta name="description" content="Protocol프로토콜
+스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.
+
+프로토콜은 타입이 만족시킬 인터페이스를 정의할 때 필요한다.
+타입이 프로토콜을 만족시킬때 프로토콜을">
     
 
     <!--Author-->
@@ -218,7 +222,52 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h1><h2 id="프로토콜"><a href="#프로토콜" class="headerlink" title="프로토콜"></a>프로토콜</h2><p><br></p>
+                <h1 id="Protocol"><a href="#Protocol" class="headerlink" title="Protocol"></a>Protocol</h1><h2 id="프로토콜"><a href="#프로토콜" class="headerlink" title="프로토콜"></a>프로토콜</h2><hr>
+<p>스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.</p>
+<ul>
+<li>프로토콜은 타입이 만족시킬 인터페이스를 정의할 때 필요한다.</li>
+<li>타입이 프로토콜을 만족시킬때 프로토콜을 준수(<em>conform</em>)한다고 말한다.</li>
+<li>계산되는 프로퍼티나 함수의 정의가 모두 생략된채 정의된다. (틀을 잡아줌)</li>
+<li>프로토콜은 타입이 이런 프로퍼티와 메서드만큼은 가져야 한다는 최소 요건을 정의한다. (제시하는 요건을 모두 만족한다면 추가적으로 프로퍼티나 메서드를 추가할 수 있다.)</li>
+<li><code>:Protocol</code> 의 형태로 (superclass 선언하는 방식과 동일)</li>
+<li>프로퍼티나 메서드 뿐만 아니라 이니셜라이저도 가질 수 있다.</li>
+</ul>
+<blockquote>
+<p>맥이나 iOS 앱들은 기본적으로 <strong><em>데이터의 표현과 소스를 분리</em></strong>한다. 이러한 패턴은 데이터의 저장 방식을 전적으로 사용자에게 맡길 수 있다는 점에서 대단히 유용하다.</p>
+</blockquote>
+<p><br></p>
+<h3 id="프로토콜의-준수-conform"><a href="#프로토콜의-준수-conform" class="headerlink" title="프로토콜의 준수(conform)"></a>프로토콜의 준수(conform)</h3><hr>
+<ol>
+<li>타입은 모두 프로토콜을 준수할 수 있다.<ul>
+<li><em>열거형(enum), 구조체, 클래스에서 프로토콜을 준수할 수 있다</em>.</li>
+</ul>
+</li>
+<li>타입이 여러 프로토콜을 준수하는 것도 가능하다. (<code>,</code>로 연결하여 선언)</li>
+<li>슈퍼 클래스를 상속 받고도 프로토콜을 준수할 수 있다.<ul>
+<li>슈퍼클래스 이름이 먼저 오고 그 뒤에 프로토콜들이 온다.</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classname</span>: <span class="title">Superclass</span>, <span class="title">Protocol_1</span>,<span class="title">Protocol_1</span> </span>&#123;</div><div class="line">    <span class="comment">//소스구현..</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="프로토콜-상속"><a href="#프로토콜-상속" class="headerlink" title="프로토콜 상속"></a>프로토콜 상속</h3><hr>
+<ul>
+<li>프로토콜은 다른 프로토콜을 상속받을 수 있다.</li>
+<li>여러 프로토콜을 상속받을 수 있는 <strong>다중 프로토콜 상속</strong>을 지원한다.</li>
+<li>싱속받은 프로토콜에서 준수 타입이 이 두 프로토콜에 필요한 프로퍼티와 메서드를 구현해야 한다.</li>
+<li>클래스 상속에서는 슈퍼클래스와 서브클래스 사이의 밀접한 관계를 정의한다는 점에서 다르다.</li>
+</ul>
+<p><br></p>
+<h3 id="프로토콜-구성"><a href="#프로토콜-구성" class="headerlink" title="프로토콜 구성"></a>프로토콜 구성</h3><hr>
+<ul>
+<li>프로토콜 상속은 기존 프로토콜에 일정 요건이 더해진 새 프로토콜을 쉽게 만들 수 있는 강력한 도구라고 할 수 있지만, <em>타입을 만들 때 잘못된 선택</em>을 할 가능성이 농후해진다. 이를 해결하기 위한 방안이다.</li>
+<li>다중 프로토콜을 단일 요구사항인 프로토콜 구성으로 결합할 수 있다.</li>
+<li><code>&amp;</code> 중위 연산자를 사용하여 여러 프로토콜을 하나의 요건으로 결합한다.</li>
+</ul>
+<p><br></p>
+<h3 id="변경용-메서드"><a href="#변경용-메서드" class="headerlink" title="변경용 메서드"></a>변경용 메서드</h3><hr>
+<p>프로토콜의 메서드는 기본적으로 변형되지 않는다. 따라서 self를 수정하기 위해서는 <code>mutating</code> 키워드를 명시해 주어야 한다.</p>
 
 
                 
