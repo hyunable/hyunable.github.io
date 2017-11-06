@@ -286,12 +286,15 @@
 <p><br></p>
 <h3 id="Guard-함수에서-중도에-빠져나오기"><a href="#Guard-함수에서-중도에-빠져나오기" class="headerlink" title="Guard : 함수에서 중도에 빠져나오기"></a>Guard : 함수에서 중도에 빠져나오기</h3><hr>
 <ul>
-<li>어떤 조건이 만족되지 않았을 때 함수 실행 도중에 빠져나오기 위해 사용한다.</li>
-<li>부적절한 조건일 때 코드가 실행되지 않도록 보호하는 임무를 받은 것이다.</li>
-<li><code>if let</code>처럼 쓰인다고 생각하면 된다.</li>
+<li>함수의 시작부분에 써서 검사하여 <strong><em>부적절한 조건일 때</em></strong> 함수 실행 도중에 빠져나와 코드가 실행되지 않도록 할 때 사용한다.</li>
+<li><code>if let</code>처럼 쓰인다고 생각하면 된다. (if문의 subset 개념)</li>
+<li>if문을 쓰지 않고 guard를 쓰는 이유는, <em>가독성</em> 때문이다.</li>
+<li>문법은 <code>guard (조건) else</code> 와 같이 쓰며, 조건이 true 이면 guard문은 그냥 지나쳐가고, <u>false일 경우 else 구문을 수행한 뒤 함수를 바로 종료한다.</u></li>
+<li><code>return</code> 혹은 <code>throw</code> 등 종료하는 명령이 존재해야하며, 없을 경우 컴파일 에러가 발생된다.</li>
 </ul>
 <p><br></p>
 <h4 id="CODE-5"><a href="#CODE-5" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span> <span class="params">(fullName : <span class="params">(first:String, second: String?, third:String)</span></span></span>)  &#123;</div><div class="line"></div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> secondName = fullName.second <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"외자 이름"</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(secondName)</span>"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayHello(fullName: (<span class="string">"정"</span>,<span class="string">"현"</span>,<span class="string">"아"</span>))</div><div class="line"><span class="comment">//출력 : 현</span></div></pre></td></tr></table></figure>
+<p><br></p>
 
 
                 
