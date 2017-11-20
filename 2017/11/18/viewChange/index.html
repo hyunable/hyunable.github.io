@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="화면 전환 기법iOS에서의 화면 전환 개념
+
+뷰 컨트롤러의 뷰 위에 다르나 뷰를 가져와 바꿔치기하기 (특수사항/제한적으로 사용)
+뷰 컨트롤러에서 다른 뷰 컨트롤러를 호출하여 화면 전환하기
+네비게이션 컨트롤러를 사용하여 화면 전환하기
+화면 전환용 객체 세그웨이(Segue">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hyunah_princess">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iOS 화면 전환 기법"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="현아의 IT COOK"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>iOS 화면 전환 기법 - 현아의 IT COOK</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-107997042-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">COOKY Hyun</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                IT_Foood
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                foood_list
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                taste_tag
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/About">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iOS 화면 전환 기법</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-11-18
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/화면전환/">#화면전환</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/iOS-Cocoa/">iOS Cocoa</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="화면-전환-기법"><a href="#화면-전환-기법" class="headerlink" title="화면 전환 기법"></a>화면 전환 기법</h1><h2 id="iOS에서의-화면-전환-개념"><a href="#iOS에서의-화면-전환-개념" class="headerlink" title="iOS에서의 화면 전환 개념"></a>iOS에서의 화면 전환 개념</h2><hr>
+<ol>
+<li>뷰 컨트롤러의 뷰 위에 다르나 뷰를 가져와 바꿔치기하기 (특수사항/제한적으로 사용)</li>
+<li>뷰 컨트롤러에서 다른 뷰 컨트롤러를 호출하여 화면 전환하기</li>
+<li>네비게이션 컨트롤러를 사용하여 화면 전환하기</li>
+<li>화면 전환용 객체 세그웨이(SegueWay)를 사용하여 화면 전환하기</li>
+</ol>
+<p><br></p>
+<h4 id="iOS에서-화면-전환-특성"><a href="#iOS에서-화면-전환-특성" class="headerlink" title="iOS에서 화면 전환 특성"></a>iOS에서 화면 전환 특성</h4><hr>
+<ol>
+<li>다음 화면으로 이동하는 방법과 이전화면으로 되돌아가는 방법이 다름</li>
+<li>화면 전환 방식에 따라 이전 화면으로 되돌아가는 방법이 다름</li>
+</ol>
+<p><br></p>
+<h3 id="화면-전환-기법1-뷰를-이용한-화면-전환"><a href="#화면-전환-기법1-뷰를-이용한-화면-전환" class="headerlink" title="화면 전환 기법1 :: 뷰를 이용한 화면 전환"></a>화면 전환 기법1 :: 뷰를 이용한 화면 전환</h3><hr>
+<ul>
+<li>하나의 뷰 컨트롤러에 두개 이상의 루트 뷰를 준비한 다음, 상태에 따라 뷰를 적절히 교체해준다 (완전히 바꿔치기하거나, 기존뷰 위에 덮어쓰기 등)</li>
+<li>하지만 MVC패턴에 어긋나고 이전 화면으로 되돌아가는 방식에 대한 처리 등 고려해야할 사항이 많아 될수 있으면 지양하는 방법이다. (1뷰컨트롤러 - 1루트뷰)</li>
+<li>뷰를 이용한 화면전환을 하려면 <strong>커스텀 세그</strong>로 해결한다.</li>
+</ul>
+<p><br></p>
+<h3 id="화면-전환-기법2-뷰-컨트롤러-직접-호출에-의한-화면-전환"><a href="#화면-전환-기법2-뷰-컨트롤러-직접-호출에-의한-화면-전환" class="headerlink" title="화면 전환 기법2 :: 뷰 컨트롤러 직접 호출에 의한 화면 전환"></a>화면 전환 기법2 :: 뷰 컨트롤러 직접 호출에 의한 화면 전환</h3><hr>
+<ul>
+<li><p>현재의 뷰 컨트롤러에서 이동할 대상 뷰 컨트롤러를 직접 호출해서 화면에 표시한다. <strong><em>Presentation 방식</em></strong>이라고 부르기도한다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">present(&lt;새로운 뷰컨트롤러 인스턴스&gt;, animated:&lt;애니메이션 여부/boolean&gt;)</div><div class="line"><span class="comment">// 화면 전환이 완료되는 시점에 맞추어 특정 로직을 실행해 주어야 할 경우, 아래 메서드를 사용한다.</span></div><div class="line">present(<span class="number">_</span>:animated:completion:&lt;실행구문을 클로저나 함수형식으로 입력&gt;)</div><div class="line"></div><div class="line"><span class="comment">//이전 화면으로 복귀할 때 쓰는 복귀메서드</span></div><div class="line"><span class="comment">//이전화면으로 돌아가는 것이기 때문에 따로 인자값은 받지 않는다.</span></div><div class="line">dismiss(animated:completion:&lt;실행구문을 클로저나 함수형식으로 입력&gt;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>화면 전환은 <em>비동기 방식</em>으로 전환되기 때문에 화면 전환이 끝나기 전에 다음 코드를 실행한다. 따라서 위 메서드를 이용해야 한다.</p>
+<ul>
+<li>비동기 방식 : 하나의 처리가 끝나기를 기다리지 않고 다음 작업을 바로 이어서 수행하는 방식을 비동기 방식이라고 부른다. </li>
+</ul>
+</li>
+<li><p><em>present 메서드</em>를 이용한 화면 전환은 기존 뷰 컨트롤러를 유지한 채, 그 위에 새로운 뷰 컨트롤러의 화면을 덮는 방식이다.</p>
+</li>
+<li><p>dismiss 메서드에 의해서 걷어내진 viewcontroller화면은 운영체제에 의해 곧 메모리에서 해제된다.</p>
+</li>
+<li><p>dismiss 메서드를 써서 화면을 전환하면 화면을 걷어내는 주체가 자기자신viewcontorller가 아니라 <u>자신을 띄우고 있는 이전화면 viewcontroller 라는 점이다!</u>  (즉, 이전화면이 현재화면을 걷어내는것임.)</p>
+</li>
+<li><p>즉 viewcontroller가 주체가 되어서 메서드를 호출하는게 아니라 presentatingViewController를 통해서 메서드를 호출한다. (두 view의 관리자)</p>
+</li>
+<li><p>이전 뷰를 띄울 때 이전화면을 복귀가 아닌 PresentatingViewController를 통해서 이전화면을 새로 호출하면 안된다. 이유는 그럼 <strong><em>뷰가 계속 중복해서 쌓이게 되어  메모리상 비효율적</em></strong>이다.</p>
+</li>
+</ul>
+<p><br></p>
+<h4 id="CODE-예제"><a href="#CODE-예제" class="headerlink" title="CODE :: 예제"></a>CODE :: 예제</h4><hr>
+<p>moveNextAction 버튼을 누르면 화면전환이 된다.</p>
+<ul>
+<li>두번째 뷰 ID : secondView</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">moveNextAction</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</div><div class="line">        </div><div class="line">        <span class="comment">//이동할 뷰 컨트롤러 객체를 stroyboardID 정보를 이용하여 참조</span></div><div class="line">		<span class="comment">//let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> uvc = storyboard?.instantiateViewController(withIdentifier:<span class="string">"secondView"</span>) &#123;</div><div class="line">        </div><div class="line">        </div><div class="line">        <span class="comment">// 화면 전환할 때의 애니메이션 타입</span></div><div class="line">        <span class="comment">// UIModalTransitionStyle.&lt;변환스타일&gt;</span></div><div class="line">        <span class="comment">// 1. coverVertical : 모달형식으로 등장</span></div><div class="line">        <span class="comment">// 2. crossDissolve : 번인아웃되면서 화면변경</span></div><div class="line">        <span class="comment">// 3. partialCurl : 책넘김 효과</span></div><div class="line">        <span class="comment">// 4. flipHorizontal : 화면돌아가는 효과(flip)</span></div><div class="line">        uvc.modalTransitionStyle = <span class="type">UIModalTransitionStyle</span>.flipHorizontal</div><div class="line"></div><div class="line">        <span class="comment">//인자값으로 뷰 컨트롤러 인스턴스를 넣고 프레젠트 메서드 호출</span></div><div class="line">        <span class="comment">// 첫번째 인자 : 전환될 뷰</span></div><div class="line">        <span class="keyword">self</span>.present(uvc, animated: <span class="literal">true</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="Custom-Class-for-ViewController"><a href="#Custom-Class-for-ViewController" class="headerlink" title="Custom Class for ViewController"></a>Custom Class for ViewController</h4><hr>
+<p><em>하나의 뷰컨트롤러에는 하나의 뷰컨트롤러 <strong>클래스</strong>가 있어야 한다.</em></p>
+<ol>
+<li><code>customClass.swift</code> 파일 추가 (UIViewController 상속받아 생성)</li>
+<li>storyboard에서 해당 뷰컨트롤러를 클릭 후 인스펙터창에서 <code>Cumstom Class</code> 영역에서 만들어준 <code>customClass.swift</code> 를 class란에 써넣어준다.</li>
+<li>소스 - 뷰 연결 완료!</li>
+</ol>
+<p><br></p>
+<h3 id="화면-전환-기법2-네비게이션-컨트롤러를-이용한-화면-전환"><a href="#화면-전환-기법2-네비게이션-컨트롤러를-이용한-화면-전환" class="headerlink" title="화면 전환 기법2 :: 네비게이션 컨트롤러를 이용한 화면 전환"></a>화면 전환 기법2 :: 네비게이션 컨트롤러를 이용한 화면 전환</h3><hr>
+<ul>
+<li><p>navigationController </p>
+<ul>
+<li><p><strong><em>뷰 컨트롤러들의 계층적 구조를 관리하는 역할</em></strong>을 한다. 직접 컨텐츠를 담고 화면을 구성하지 않지만, 대신 다른 뷰를 포함하고 있으며 포함된 <u>모든 뷰 컨트롤러에 내비게이션 바를 생성하는 특징</u>이 있다. (스토리보드상 보이지 않더라도 빌드하면 포함되어져 있다.)</p>
+</li>
+<li><p>항상 컨텐츠 계층구조의 시작점 역할을 하는 뷰 컨트롤러와 함께 붙어 다니는데, 이를 <strong>Root View Controller</strong>라고 한다.</p>
+</li>
+<li><p>Stack 구조를 갖고 있다. </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//최상위에 뷰 컨트롤러를 추가할 때</span></div><div class="line">pushViewController(:animated:)</div><div class="line"></div><div class="line"><span class="comment">//최상위 뷰 컨트롤러를 제거할 때</span></div><div class="line">popViewController(animated:)</div></pre></td></tr></table></figure>
+</li>
+<li><p>도중에 네비게이션컨트롤러를 추가할 경우 [Editor] -&gt; [Embed in]-&gt;[Navigation Controller]를 눌러줘서 삽입시켜준다. 혹은 segue( -&gt; Root view controller)를 통해 지정해준다.</p>
+</li>
+<li><p>네비게이션 컨트롤러를 사용하여 화면을 전환시켜주지 않았을 경우,  <em>더이상 네이게이션 컨트롤러의 제어하에 있지 않게 된다</em>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="세그웨이를-이용한-화면-전환"><a href="#세그웨이를-이용한-화면-전환" class="headerlink" title="세그웨이를 이용한 화면 전환"></a>세그웨이를 이용한 화면 전환</h3><hr>
+<ul>
+<li><p>Manual Segue<br><code>performSegue(withIdentifier:sender:)</code> 메서드 사용하여 화면전환</p>
+</li>
+<li><p>Action Segue<br>버튼, 테이블 셀의 이벤트 트리거에 자동으로 연결하여 화면전환</p>
+</li>
+<li><p>[Show] 타입 세그웨이<br>네비게이션 컨트롤러를 통한 화면 이동이 발생함</p>
+</li>
+<li><p>[Present Modally]타입 세그웨이<br><code>present(:animate:)</code> 메서드를 이용한 화면이동과 동일한 효과</p>
+</li>
+<li><p><strong>Unwind Segue</strong><br>화면 전환되는 것을 Wind라고 한다면 , 반대로 돌아가는 것은 Unwind라고한다. </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 돌아올곳을 표기해놓은 이정표! (돌아갈곳에서 구현해주어야 한다.)</span></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">unwindToVC</span><span class="params">(<span class="number">_</span> sugue: UIStoryboardSegue)</span></span>&#123;</div><div class="line">  ..</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>위와 같이 돌아가고자 하는 곳에 <code>UIStoryboardSegue</code> 를 파라미터로 받는 함수를 구현한 후 , 돌아가려고했던 화면에서 [버튼 + Ctrl] -&gt; Exit 로 드래그해서 해당 함수를 지정해주면, 되돌아갈때 <em>그 해당함수가 있는 곳으로</em> (이정표) 돌아가게 된다.</p>
+<ul>
+<li>unwind를 통한 이동을 하면 사이에 있던 뷰들은 메모리에서 <strong>dealloc (해제)</strong>되게 된다. </li>
+</ul>
+</li>
+</ul>
+<h5 id="Custom-Segue"><a href="#Custom-Segue" class="headerlink" title="Custom Segue"></a>Custom Segue</h5><ul>
+<li>cumstom class 만드는 것과 같이 먼저 소스상으로 파일로 구현하고 (UIstoryboardSegue 상속) 스토리보드상에서 연결해주고 custom class로 지정할때 class부분에 custom class 명을 써주면 연결된다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">customSegue</span>: <span class="title">UIStoryboardSegue</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">perform</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="comment">//세그웨이의 출발지 뷰 컨트롤러</span></div><div class="line">        <span class="keyword">let</span> starVC = <span class="keyword">self</span>.source</div><div class="line">        </div><div class="line">        <span class="comment">//세그웨이의 도착지 뷰 컨트롤러</span></div><div class="line">        <span class="keyword">let</span> destVC = <span class="keyword">self</span>.destination</div><div class="line">        </div><div class="line">        <span class="comment">// duration : &lt;화면전환에 소요되는 시간(sec)&gt;</span></div><div class="line">        <span class="comment">// option : &lt;애니메이션 전환 옵션&gt;</span></div><div class="line">        <span class="type">UIView</span>.transition(from: starVC.view, to: destVC.view, duration: <span class="number">2</span>, options: .transitionCurlDown)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>prepare(for segue:UIStoryboardSegue, sender: Any?){…}</code> 과 같은 전처리 메서드도 있다. (세그웨이로 넘어가기 전 처리해야할 사항들을 체크하고 넘어간다.) </p>
+
+
+                
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
+
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/hyunnaa" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 hyunah_princess<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
