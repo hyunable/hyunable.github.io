@@ -249,10 +249,14 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 <p><br></p>
 <h3 id="비연결-지향-통신"><a href="#비연결-지향-통신" class="headerlink" title="비연결 지향 통신"></a>비연결 지향 통신</h3><hr>
 <ul>
-<li>비연결성 프로토콜은 요청이 들어오면 이에 맞는 응답을 보낸 후 바로 연결을 종료한다. 비연결 방식이라 아예 연결을 하지않는 것이 아니라 <strong>단지 연결을 유지하지 않는다는 뜻</strong>이다.</li>
-<li>소켓 방식에 비해 상대적으로 데이터를 주고 받는 속도에 제약이 있지만, 네트워크 대역 소모를 줄일 수 있고, 서버 부하도 낮출 수 있어서 모바일 서비스에 많이 사용된다.</li>
-<li>웹 서비스 : 웹페이지와 달리, 데이터만 주고받을 수 있도록 설계된 모듈<ol>
-<li><strong>SOAP (Simple Object Access Protocol) 방식</strong><ul>
+<li><p>비연결성 프로토콜은 요청이 들어오면 이에 맞는 응답을 보낸 후 바로 연결을 종료한다. 비연결 방식이라 아예 연결을 하지않는 것이 아니라 <strong>단지 연결을 유지하지 않는다는 뜻</strong>이다.</p>
+</li>
+<li><p>소켓 방식에 비해 상대적으로 데이터를 주고 받는 속도에 제약이 있지만, 네트워크 대역 소모를 줄일 수 있고, 서버 부하도 낮출 수 있어서 모바일 서비스에 많이 사용된다.</p>
+</li>
+<li><p>웹 서비스 : 웹페이지와 달리, 데이터만 주고받을 수 있도록 설계된 모듈</p>
+<ol>
+<li><p><strong>SOAP (Simple Object Access Protocol) 방식</strong></p>
+<ul>
 <li>HTTP / HTTPS / SMTP 등의 프로토콜을 통해 양쪽에서 XML 형태의 메세지를 주고 받도록 구현된 프로토콜</li>
 <li>RPC (Remote Procedure Call) 이라고 불리는 클리아언트-서버 구조의 메세지 패턴을 주로 사용한다.</li>
 <li>Envelope / Header / Body 의 세가지 영역으로 구분된다.<ul>
@@ -273,8 +277,12 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 </ol>
 </li>
 </ul>
+<p>​</p>
+<p><br></p>
+<p>​</p>
 </li>
-<li><strong>RESTful (Representational State Transfer)</strong> 방식<ul>
+<li><p><strong>RESTful (Representational State Transfer)</strong> 방식</p>
+<ul>
 <li>자원을 정의하고 자원에 대한 주소를 관리하는 방법, REST원리에 따라 구현된 시스템</li>
 <li>REST란 웹 형식을 빌려 데이터를 전송하되, SOAP나 쿠키 등 별도의 전송 프로토콜 없이 전송하기 위해 만들어진 간단한 형식의 인터페이스</li>
 <li>데이터를 요청하는 <strong>URI</strong> 를 네트워크를 통해 서버로 전달 -&gt; 서버에서는 그에 맞는 응답 데이터가 전송된다.</li>
@@ -298,10 +306,69 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 </ul>
 <ul>
 <li>GET 방식으로 데이터 전송도 가능하지만, URL뒤에 데이터를 줄줄이 붙여서 전송하므로 URL이 복잡해지고 보안에 취약하다.<br><img src="restfulMethod.png" alt="restful메서드"></li>
-<li><p>위 메서드를 URI헤더에 사용하여 처리할 액션을 구분할 수 있다.</p>
-<p>​</p>
+<li>위 메서드를 URI헤더에 사용하여 처리할 액션을 구분할 수 있다.</li>
+</ul>
+<p><br></p>
+<h3 id="XML-방식"><a href="#XML-방식" class="headerlink" title="XML 방식"></a>XML 방식</h3><hr>
+<ul>
+<li>SOAP 방식과 RESTful API 모두 XML 방식으로 결과를 제공할 수 있다.</li>
+<li>HTML의 한계를 극복학 목적으로 W3C에서 특수 목적의 마크업 언어, 태그라고 불리는 마크업과 내용으로 구성된다.</li>
+<li>XML은 태그로 구성된 마크업 형식을 기본 규격으로 사용하므로 <em>플랫폼에 의존적이지 않은 표준 데이터</em>를 제공할 수 있다.</li>
+<li>단, 데이터의 의미를 전달하기 위해 마크업 태그를 사용하므로 <strong>주고받아야 할 전체 데이터 용량이 지나치게 커진다는 단점</strong>이 있다.</li>
+</ul>
+<p><br></p>
+<h3 id="JSON-방식"><a href="#JSON-방식" class="headerlink" title="JSON 방식"></a>JSON 방식</h3><hr>
+<ul>
+<li><strong>JSON (JavaScript Object Notation)</strong> : 자바스크립트 언어에서 객체의 속성을 표현하기 위한 방법으로 처음 사용하기 시작했다. </li>
+<li>XML의 단점을 극복하기 위해 만들어진 <em>경량의 데이터 교환 형식</em></li>
+<li>복잡한 데이터 구조를 그룹으로 묶어 계층화 할 수 있다는 장점이 있다.</li>
+<li>데이터구조는 <strong>JSON객체, JSON배열</strong> 두 종류가 있다.<ol>
+<li>JSON 객체 <ul>
+<li><code>{ key : value}</code> 형태로 이루어진 사전(Dictionary)식 데이터 집합이다. 문자열은 <em>더블 쿼우팅(Quoting: “”)</em> 으로 처리해 준다.</li>
+<li>여러 속성을 정의하는 <strong><em>순서없는 집합</em></strong></li>
+</ul>
+</li>
+<li>JSON 배열 <ul>
+<li><code>[ 객체1, 객체2, 객체3 ...]</code>형태로 이루어져 있으며 JSON객체나, JSON배열 자체를 나열할 수 도 있다. </li>
+<li>비슷한 객체가 반복 나열되는 <strong><em>순서화된 리스트</em></strong></li>
+</ul>
+</li>
+</ol>
 </li>
 </ul>
+<p><br></p>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><hr>
+<ul>
+<li><strong>오픈 API</strong> : SOAP 프로토콜이나 RESTful 형식을 사용하여 공공 콘텐츠를 제공하는 것.</li>
+<li>Request URI : API를 호출하기 위한 네트워크상의 주소<br><code>기본URL ? key={조건}&amp;key2={조건2}</code> 의 형식으로 작성하여 Request (요청)한다.</li>
+</ul>
+<p><br></p>
+<h4 id="CODE-영화-API로-데이터-가져오기"><a href="#CODE-영화-API로-데이터-가져오기" class="headerlink" title="CODE :: 영화 API로 데이터 가져오기"></a>CODE :: 영화 API로 데이터 가져오기</h4><hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 요청 URI http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="키값"&amp;targetDt=20171116</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> url = <span class="string">"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="</span>키값<span class="string">"&amp;targetDt=20171116"</span></div><div class="line"></div><div class="line"><span class="comment">//URL 형식으로 변환</span></div><div class="line"><span class="keyword">let</span> apiURI : <span class="type">URL</span>! = <span class="type">URL</span>(string: url)</div><div class="line">        </div><div class="line"><span class="comment">//REST API 호출</span></div><div class="line"><span class="keyword">let</span> apiData = <span class="keyword">try</span>! <span class="type">Data</span>(contentsOf: apiURI) </div><div class="line"></div><div class="line"><span class="comment">//log 찍기</span></div><div class="line"><span class="comment">//let log = NSString(data: apiData, encoding: String.Encoding.utf8.rawValue) ?? ""</span></div><div class="line"><span class="comment">//NSLog("result = \(log)")</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>Data(:)</code> 는 기존 <code>NSData</code> 객체를 참조하여 만들어진 객체이다. 따라서 서로간의 타입 캐스팅도 가능하며,  캐스팅 시 nil을 반환하지 않는다.</p>
+</li>
+<li><p><code>App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure.</code> </p>
+<ul>
+<li>iOS9부터 외부 네트워크 관련된 <strong>ATS</strong> (App Transport Security) 라는 보안 규칙이 신설되었다. SSL 보안 프로토콜을 사용하지 않는 네트워크에 접속하려면 <strong>info,plist</strong> 파일에서 특정 설정을 추가로 해주어야 한다. 이때 발생된 에러는 https 가 아닌 보안이 적용되어 있지 않은 http 이기 때문에 발생된 에러 이다.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>설정 : [OpenAs] -&gt; [Source Code] 에서 아래 코드를 추가해준다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;key&gt;<span class="type">NSAppTransportSecurity</span>&lt;/key&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">    &lt;key&gt;<span class="type">NSAllowsArbitraryLoads</span>&lt;/key&gt;</div><div class="line">    &lt;<span class="literal">true</span>/&gt;</div><div class="line">&lt;/dict&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><br></p>
+<h4 id="CODE-파싱하기"><a href="#CODE-파싱하기" class="headerlink" title="CODE :: 파싱하기"></a>CODE :: 파싱하기</h4><hr>
+<ul>
+<li>가져온 데이터는 <code>Data 타입</code> 으로 바로 꺼내쓰기 어렵기 때문에 <code>NSDictionary</code> or <code>NSArray</code> 타입으로 변환시켜주어야 한다.</li>
+<li>파운데이션 프레임워크에서 제공하는 <code>JSONSerialization</code> 객체의 <code>.jsonObject()</code>메서드를 사용하여 파싱한다.</li>
+<li>화면이 로드될때 데이터를 불러오기 적합하므로 viewDidLoad 에 구현해준다.</li>
+<li><code>jsonObject()</code> 메서드는 파싱과정에서 오류가 발생하면 예외로 던지도록 설계되어 있기 때문에 <code>do ~ try ~ catch</code> 구문으로 감싸주어야 한다.</li>
+<li>데이터 구조에 따라서 <strong>알맞는 데이터 구조로 타입캐스팅</strong>을 해주며 읽어온다.</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    </div><div class="line">    <span class="keyword">let</span> url = <span class="string">"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=460956405726841da1ef0286a0945b34&amp;targetDt=20171116"</span></div><div class="line">    </div><div class="line">    <span class="comment">//URL 형식으로 변환</span></div><div class="line">    <span class="keyword">let</span> apiURI : <span class="type">URL</span>! = <span class="type">URL</span>(string: url)</div><div class="line">    </div><div class="line">    <span class="comment">//REST API 호출</span></div><div class="line">    <span class="keyword">let</span> apiData = <span class="keyword">try</span>! <span class="type">Data</span>(contentsOf: apiURI)</div><div class="line">    </div><div class="line">  	<span class="comment">//log 찍기</span></div><div class="line">    <span class="comment">//let log = NSString(data: apiData, encoding: String.Encoding.utf8.rawValue) ?? ""</span></div><div class="line">    <span class="comment">//NSLog("result = \(log)")</span></div><div class="line"> </div><div class="line">  <span class="keyword">do</span> &#123;</div><div class="line">        <span class="keyword">let</span> apiDictionary = <span class="keyword">try</span> <span class="type">JSONSerialization</span>.jsonObject(with: apiData, options: []) <span class="keyword">as</span>! <span class="type">NSDictionary</span></div><div class="line">        </div><div class="line">        <span class="comment">//데이터 구조에 따라 차례대로 캐스팅하며 읽어온다</span></div><div class="line">        <span class="keyword">let</span> result = apiDictionary[<span class="string">"boxOfficeResult"</span>] <span class="keyword">as</span>! <span class="type">NSDictionary</span></div><div class="line">        <span class="keyword">let</span> movies = result[<span class="string">"dailyBoxOfficeList"</span>] <span class="keyword">as</span>! <span class="type">NSArray</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> movies &#123;</div><div class="line">            <span class="keyword">let</span> info = row <span class="keyword">as</span>! <span class="type">NSDictionary</span></div><div class="line">            <span class="keyword">let</span> infoResult = dataObject(data: info)</div><div class="line">            </div><div class="line">            <span class="built_in">print</span>(<span class="string">"영화제목 : <span class="subst">\(infoResult.movieName)</span> , 영화랭킹: <span class="subst">\(infoResult.rank)</span> , 영화상영수 : <span class="subst">\(infoResult.showCnt)</span>"</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;<span class="keyword">catch</span>&#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"parsing error"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 
                 
