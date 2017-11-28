@@ -294,7 +294,14 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 <li>만약 입력된 아이디에 맞는 인스턴스 큐가 없다면 새로 생성하여 제공하는 방식으로 동작한다.</li>
 </ul>
 </li>
-<li>재사용 메커니즘 : </li>
+<li>재사용 메커니즘 <ol>
+<li>테이블 뷰가 화면에 나타낼 셀 객체를 자신의 데이터 소스에게 요청</li>
+<li>데이터 소스는 테이블 뷰의 재사용 큐 (ReUse Queue)에서 사용 가능한 셀이 있는지 확인하여 만일 있다면 그중 하나를 꺼내 전달하고 , 없으면 새로운 셀 생성</li>
+<li><code>tableView(_:cellForRowAt:)</code> 메서드가 셀의 콘텐츠를 구성한 다음 반환하면 테이블 뷰는 이 셀을 받아 화면에 표시한다. <em>(단, 셀이 화면에 표시되기 위해서는 위 메서드를 거쳐야 하므로 해당 메서드는 셀 갯수 만큼 호출된다.)</em></li>
+<li>사용자가 테이블 뷰를 스크롤함에 따라 화면을 벗어난 셀은 테이블 뷰에서 제거되지만 완전히 삭제하는 것이 아니라 재사용 큐에 추가된다.</li>
+<li><code>1~4</code> 과정 반복!</li>
+</ol>
+</li>
 </ul>
 <p><br></p>
 <h3 id="Self-Sizing-Cell"><a href="#Self-Sizing-Cell" class="headerlink" title="Self-Sizing Cell"></a>Self-Sizing Cell</h3><hr>
@@ -328,6 +335,13 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 </li>
 </ul>
 </li>
+</ol>
+<p><br></p>
+<h5 id="참고-iOS-프로그래밍-원칙"><a href="#참고-iOS-프로그래밍-원칙" class="headerlink" title="참고 :: iOS 프로그래밍 원칙"></a>참고 :: iOS 프로그래밍 원칙</h5><hr>
+<ol>
+<li>반복적으로 호출되는 메서드의 내부에는 네트워크 통신 등 처리 시간이 긴 로직을 포함하지 않아야 한다.</li>
+<li>네트워크 통신을 통해 읽어온 데이터는 재사용할 수 있도록 캐싱(Cashing) 처리하여 될 수 있으면 네트워크 통신 횟수를 줄이는 것이 좋습니다.</li>
+<li>네트워크 통신이나 시간이 오래 걸리는 코드를 사용할 때는 비동기(Asynchronize) 로 처리하는 것이 바람직하다.</li>
 </ol>
 
 
