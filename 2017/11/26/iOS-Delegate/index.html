@@ -10,6 +10,16 @@
 
     <!--Description-->
     
+        <meta name="description" content="Delegate Pattern델리게이트 패턴
+Design Pattern
+
+크리스토퍼 알렉산더가 고안한 것을 시초로 컴퓨터 프로그래밍에서 다양한 설계 문제를 합리적으로 해결하기 위한 목적으로 쓰인다.
+대표적 디자인 패턴
+팩토리 패턴
+옵저버 패턴
+데코레이터 패턴
+싱글톤 패">
+    
 
     <!--Author-->
     
@@ -216,7 +226,65 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
+                <h1 id="Delegate-Pattern"><a href="#Delegate-Pattern" class="headerlink" title="Delegate Pattern"></a>Delegate Pattern</h1><h2 id="델리게이트-패턴"><a href="#델리게이트-패턴" class="headerlink" title="델리게이트 패턴"></a>델리게이트 패턴</h2><p><br></p>
+<h3 id="Design-Pattern"><a href="#Design-Pattern" class="headerlink" title="Design Pattern"></a>Design Pattern</h3><hr>
+<ul>
+<li>크리스토퍼 알렉산더가 고안한 것을 시초로 컴퓨터 프로그래밍에서 다양한 설계 문제를 합리적으로 해결하기 위한 목적으로 쓰인다.</li>
+<li>대표적 디자인 패턴<ul>
+<li>팩토리 패턴</li>
+<li>옵저버 패턴</li>
+<li>데코레이터 패턴</li>
+<li>싱글톤 패턴</li>
+<li>어댑터 패턴</li>
+<li>이터레이터 패턴</li>
+<li>델리게이트 패턴</li>
+<li>그외 GoF(Gang of Foour) 선대 개발자들이 정의한 패턴들</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h3 id="델리게이트-패턴-1"><a href="#델리게이트-패턴-1" class="headerlink" title="델리게이트 패턴"></a>델리게이트 패턴</h3><hr>
+<ul>
+<li>객체 지향 프로그로그래밍에서 하나의 객체가 모든 일을 처리하는 것이 아니라 처리해야할 일 중 일부를 다른 객체에게 넘기는 것을 말한다. 이를 위임(delegate)한다고 하며, 효율성 관점에서 아주 중요한 역할을 한다. </li>
+<li>기능을 위임할 수 있는 객체가 있다는 것은 그만큼 직접 구현해야 하는 부분이 적어지기 때문에 큰 규모의 프로그램을 빠르게 작성할 수 있다.</li>
+<li>iOS 프로그래밍의 전반적으로 쓰이는 중요한 방법이다.</li>
+<li>주로 이벤트를 감지하고 알려주는 역할을 하며 , 델리게이트에 의해 위임된 본래의 객체로 전달해주는 역할을 한다.</li>
+<li>예 ) 웹뷰에서 이벤트를 캐치하는 (뷰가 로드될때, 뷰로드가 완료되었을때 등..) 메서드가 있는데 <em>웹뷰가 특정 시점을 알려줄</em> -&gt; 뷰 컨트롤러를 <strong>델리게이트로 위임</strong> 한다. <em>( 이때 뷰 컨트롤러가 웹뷰의 델리게이트 객체로 지정되었다고 한다. )</em></li>
+<li>프로토콜 이름은 항상 <strong>객체의 클래스명 + Delegate</strong>로 이루어 진다. (ex, <code>UITextFieldDelegate</code>)</li>
+<li>웹뷰가 자신의 델리게이트 객체에게 이벤트가 발생했음을 알려줄 때는 <strong>델리게이트 메서드</strong>를 이용한다.</li>
+</ul>
+<p><br></p>
+<h5 id="Logic"><a href="#Logic" class="headerlink" title="Logic"></a>Logic</h5><hr>
+<ol>
+<li>뷰컨트롤러에서  -&gt; 웹뷰에 대한 델리게이트 프로토콜을 구현한다. <ul>
+<li>클래스명 뒤에 해당 프로토콜을 준수한다고 선언한다.</li>
+<li>프로토콜에 정의된 메서드를 실질적으로 정의한다. <em>단, @optional 키워드가 붙은 메서드는 선택적구현</em> </li>
+</ul>
+</li>
+<li>웹뷰의 델리게이트 속성을 뷰컨트롤러에 연결한다 (<code>웹뷰.delegate = self</code>)<ul>
+<li>특정 이벤트가 발생하면 웹뷰는 이를 알려 주기 위해 델리게이트 메서드가 구현되어 있는 객체를 찾게 되는데, 이를 위한 참조 포인터가 저장되는 곳이 delegate 속성이다.</li>
+<li>Delegate 속성에 저장된 인스턴스는 델리게이트 메서드를 구현한 것으로 인식하고 <u>필요한 델리게이트 메서드를 호출</u>한다.</li>
+</ul>
+</li>
+</ol>
+<p><br></p>
+<h5 id="참조"><a href="#참조" class="headerlink" title="# 참조"></a># 참조</h5><hr>
+<p><strong>최초 응답자 (First Responder)</strong></p>
+<ul>
+<li><p>iOS에서 모바일 기기의 디스플레이에 앱 컨텐츠를 표현하기 위해 사용하는 <code>UIWindow</code>객체는 사용자로부터 발생하는 터치 관련 이벤트를 내부 객체로 전달하는 역할을 담당한다. 이를 위해 <code>UIWindow</code> 는 이벤트가 발생했을 때 우선적으로 응답할 객체를 가리키는 <strong>최초 응답자</strong>라는 포인터를 가지고 있다. 모바일 기기에서 발생하는 모션 이벤트는 <em>모두 최초 응답자 포인터에 연결된 객체로</em> 전달된다.</p>
+</li>
+<li><p>예시로 텍스트필드나 텍스트뷰가 최초응답자 객체가 되면, iOS에서 제공하는 가상 키보드가화면에 나타나 입력 가능한 상태가 된다. 만약 이들 객체가 <em>최초 응답자 상태를 잃게 되면</em> 키보드는 다시 사라진다. (Focus와 비슷한 개념)</p>
+</li>
+<li><p>대부분의 뷰들은 최초 응답자가 되기를 허용하지 않는다. ( 현재 선택된 텍스트 필드나 텍스트 뷰로 부터 포커스를 뺏고싶지 않기 때문에..)</p>
+</li>
+<li><p>화면에 키보드가 표시된 상태에서 다른 요소를 클릭해도 키보드가 사라지지 않는 것은 다른 요소를 터치하더라도 그 객체가 <code>UIResponder</code> 를 상속받지 않았다면 터치 이벤트만 발생할 뿐, <u>최초 응답자 포인터는 그대로 텍스트 필드를 가리키고 있기 때문</u>이다.</p>
+</li>
+<li><p>따라서 객체로 부터 최초 응답자 상태를 해제하고 싶을 때는 <code>resignFirstResponder()</code> 메서드를 호출하면 된다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> tf = <span class="type">UITextField</span>()</div><div class="line"></div><div class="line"><span class="comment">//최초 응답자 객체로 지정</span></div><div class="line"><span class="comment">//대신 도크바에 가운데 아이콘을 클릭해서 연결해도 최초 응답자로 지정된다.</span></div><div class="line">tf.becomeFirtstResponder()</div><div class="line"></div><div class="line">...(필요한 코드삽입)</div><div class="line"></div><div class="line"><span class="comment">//입력이 완료되면 최초 응답자 객체를 해제한다 </span></div><div class="line">tf.resignFirstResponder()</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+
 
                 
                     <!-- Go to www.addthis.com/dashboard to customize your tools -->

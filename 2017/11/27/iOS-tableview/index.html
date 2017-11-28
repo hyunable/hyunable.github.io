@@ -286,7 +286,7 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 <li>화면이동 및 상세 내용을 팝업으로 보여주는 등 다양한 기능구현가능</li>
 </ul>
 <p><br></p>
-<h3 id="ReusableCell-생성"><a href="#ReusableCell-생성" class="headerlink" title="ReusableCell 생성"></a>ReusableCell 생성</h3><hr>
+<h3 id="ReusableCell"><a href="#ReusableCell" class="headerlink" title="ReusableCell"></a>ReusableCell</h3><hr>
 <ul>
 <li><strong><em>재사용 큐(Queue)</em></strong> 란, iOS에서는 기기의 메모리와 배터리를 절약하기 위해서 데이터만큼의 셀을 만들어 놓지 않는다.<br>대신 화면에 표시되어야할 만큼만 셀을 만들어 놓고, 필요에 따라 셀을 그때그때 추가한다.<br>매번 새로운 셀을 생성하면 메모리적으로 부담이 되기 때문에, 샐 객체를 저장해두는 공간을 만들어 놓고 필요할때 꺼내어 사용하게 된다. 필요 없어진 셀 객체는 여기에 다시 저장되게 된다. </li>
 <li><code>.dequeueReusableCell(withIdentifier: &quot;customCell&quot;, for: indexPath)</code> <ul>
@@ -294,6 +294,7 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 <li>만약 입력된 아이디에 맞는 인스턴스 큐가 없다면 새로 생성하여 제공하는 방식으로 동작한다.</li>
 </ul>
 </li>
+<li>재사용 메커니즘 : </li>
 </ul>
 <p><br></p>
 <h3 id="Self-Sizing-Cell"><a href="#Self-Sizing-Cell" class="headerlink" title="Self-Sizing Cell"></a>Self-Sizing Cell</h3><hr>
