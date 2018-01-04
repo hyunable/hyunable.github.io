@@ -294,7 +294,7 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 <li>만약 입력된 아이디에 맞는 인스턴스 큐가 없다면 새로 생성하여 제공하는 방식으로 동작한다.</li>
 </ul>
 </li>
-<li>재사용 메커니즘 <ol>
+<li><strong>재사용 메커니즘</strong> <ol>
 <li>테이블 뷰가 화면에 나타낼 셀 객체를 자신의 데이터 소스에게 요청</li>
 <li>데이터 소스는 테이블 뷰의 재사용 큐 (ReUse Queue)에서 사용 가능한 셀이 있는지 확인하여 만일 있다면 그중 하나를 꺼내 전달하고 , 없으면 새로운 셀 생성</li>
 <li><code>tableView(_:cellForRowAt:)</code> 메서드가 셀의 콘텐츠를 구성한 다음 반환하면 테이블 뷰는 이 셀을 받아 화면에 표시한다. <em>(단, 셀이 화면에 표시되기 위해서는 위 메서드를 거쳐야 하므로 해당 메서드는 셀 갯수 만큼 호출된다.)</em></li>
@@ -329,8 +329,7 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 <li><p><code>viewDidLoad()</code> 는 아직 뷰가 화면에 구현되기 전 시점이므로 적절하지 않으며, 뷰를 그려줄때 호출되는 <code>viewWillAppear(_:)</code> 에 구현해 주는것이 적합하다.</p>
 </li>
 <li><p>해당 방법을 쓰면 위 <code>tableView(_:estimatedHeightForRowAt:)</code> 메서드는 삭제해준다. </p>
-</li>
-<li><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">160</span></div><div class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">160</span></div><div class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></div></pre></td></tr></table></figure>
 <p>​</p>
 </li>
 </ul>
@@ -396,7 +395,7 @@ UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
 
                     
                 </ul>
-                <p class="copyright text-muted">&copy; 2017 hyunah_princess<br></p>
+                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
                 <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
                 <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
             </div>
