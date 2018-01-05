@@ -207,7 +207,7 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
                         
 
 
-<a href="/tags/API/">#API</a> <a href="/tags/RESEful/">#RESEful</a>
+<a href="/tags/RESEful/">#RESEful</a> <a href="/tags/API/">#API</a>
 
 
                     
@@ -299,6 +299,20 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 <ul>
 <li>GET 방식으로 데이터 전송도 가능하지만, URL뒤에 데이터를 줄줄이 붙여서 전송하므로 URL이 복잡해지고 보안에 취약하다.<br><img src="restfulMethod.png" alt="restful메서드"></li>
 <li>위 메서드를 URI헤더에 사용하여 처리할 액션을 구분할 수 있다.</li>
+</ul>
+<p><br></p>
+<h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><hr>
+<p>웹 브라우저에서 서버로 보내는 모든 요청은 <strong><em>HTTP 메세지</em></strong> 형태로 전송된다. 서버는 메세지를 분석하여 원하는 바를 파악하고, 그에 맞는 처리를 한 다음에 응답 내용을 HTTP 메세지로 만들어 전송한다. 따라서 메세지를 만들고 변환하는 과정은 브라우저의 역활이다. </p>
+<p>하지만 iOS 앱이 서버와 연동하기 위해서는 서버에 요청할 HTTP 메세지를 직접 만들어서 전송해 주어야 한다. </p>
+<p><img src="http_message.png" alt="http_message"></p>
+<ul>
+<li><p>HTTP 메세지 구조</p>
+<ul>
+<li>POST<br><img src="HTTP_POST.png" alt="HTTP_POST"><br>수동으로 HTTP 메세지 작성을 하는 경우에는 URLEncoding 처리를 반드시 해주어야 한다.<br>​</li>
+<li>GET<br><img src="HTTP_GET.png" alt="HTTP_GET"></li>
+</ul>
+<p>​<br>​</p>
+</li>
 </ul>
 <p><br></p>
 <h3 id="XML-방식"><a href="#XML-방식" class="headerlink" title="XML 방식"></a>XML 방식</h3><hr>
