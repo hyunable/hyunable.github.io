@@ -240,9 +240,14 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 <li>연결이 유지되고 있는 상태 / 연결이 종료된 단계 / 연결이 이루어진 단계 로 각각 상태 구분을 하여 프로그래밍 한다.</li>
 <li>장점 : 종료하기 전까지는 한번 연결된 통신을 계속 유지하므로 재연결할 필요 없이 원하는 만큼 빠르게 메세지를 주고 받을 수 있다.</li>
 <li>단점 : 연결을 유지하기 위해 네트워크 대역을 많이 소모하고 , 서버 부하도 크다. 따라서 네트워크환경이 고르지 않은 모바일 서비스에서는 제한적으로 사용된다.</li>
-<li>연결 종류<ol>
-<li><strong>TCP 연결</strong><br>데이터 유실을 방지하고 <em>완전한 전송을 보장</em>하지만 상대적으로 느린 연결 방식</li>
-<li><strong>UDP 연결</strong><br>데이터의 완전한 전송을 보장하지 않지만 상대적으로 <em>빠른 연결</em> 방식</li>
+<li><p>연결 종류</p>
+<ol>
+<li><p><strong>TCP 연결</strong><br>데이터 유실을 방지하고 <em>완전한 전송을 보장</em>하지만 상대적으로 느린 연결 방식</p>
+</li>
+<li><p><strong>UDP 연결</strong><br>데이터의 완전한 전송을 보장하지 않지만 상대적으로 <em>빠른 연결</em> 방식</p>
+<p>​</p>
+<p>​</p>
+</li>
 </ol>
 </li>
 </ul>
@@ -311,8 +316,33 @@ HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
 <li>POST<br><img src="HTTP_POST.png" alt="HTTP_POST"><br>수동으로 HTTP 메세지 작성을 하는 경우에는 URLEncoding 처리를 반드시 해주어야 한다.<br>​</li>
 <li>GET<br><img src="HTTP_GET.png" alt="HTTP_GET"></li>
 </ul>
-<p>​<br>​</p>
 </li>
+<li><p>HTTP 패킷<br>클라이언트가 서버로 요청했을 때, 보내는 데이터를 HTTP 패킷이라고 한다.<br>패킷의 구조는 <strong>헤더</strong>와 <strong>바디</strong>로 나누어진다.<br>헤더에는 HTTP 메서드 / 클라이언트의 정보 / 브라우저 정보 / 접속할 URL 등 과 같은 클라이 언트 정보를 담는다.<br>바디는 보통 비어있으나, 특정 데이터를 담아서 서버에 요청할 수도 있다.</p>
+</li>
+<li><p>헤더 필드 중 컨텐츠 타입</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//GET방식과 마찬가지로 BODY에 key 와 value 쌍으로 데이터를 넣는다. 똑같이 구분자 &amp;를 쓴다.</div><div class="line">application/x-www-form-urlencoded</div><div class="line"></div><div class="line">//BODY에 단순 txt를 넣는다.</div><div class="line">text/plain</div><div class="line"></div><div class="line">//파일전송을 할때 많이 쓰는데 BODY의 데이터를 바이너리 데이터로 넣는다는걸 알려준다.</div><div class="line">multipart/form-data</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><hr>
+<ul>
+<li><p>요청하는 데이터르 URL 뒤에 붙여서 보낸다.  (데이터는 key와 value 쌍으로 요청해야 한다.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.example.com?id=mommoo&amp;pass=1234</div></pre></td></tr></table></figure>
+</li>
+<li><p>패킷의 헤더에 포함되어 서버에 요청한다. (따라서 바디에는 빈상태로 전송된다.)</p>
+</li>
+<li><p>따라서 간단한 데이터 밖에 넣을 수 없다. (전송 데이터량의 한계)</p>
+</li>
+<li><p>URL에 데이터가 표시되어  POST보다 보안에 더 취약하다.</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><hr>
+<ul>
+<li>데이터 전송을 기반으로 한 요청 메서드</li>
+<li>GET 방식과는 다르게 <strong><em>데이터를 바디에 넣어 전송</em></strong>한다. (단 ,  헤더 필드에 컨텐츠 타입을 꼭 명시해주어야 한다.)</li>
+<li>데이터가 URL에 표시되지 않더라도 보안에는 취약하므로 암호화 해야한다.</li>
 </ul>
 <p><br></p>
 <h3 id="XML-방식"><a href="#XML-방식" class="headerlink" title="XML 방식"></a>XML 방식</h3><hr>
