@@ -14,7 +14,7 @@
 클로저는 애플리케이션에서 특정 태스크를 수행하기 위해 사용 될 수 있는 각종 기능들의 개별 묶음을 말한다. 그 예로 함수는 클로저의 일종으로 ‘이름있는 클로저’라 할 수 있다.
 
 클로저는 문법 구조가 간결하다.
-온전한 선언 구조를 따">
+클로저는 일회용 함수이">
     
 
     <!--Author-->
@@ -226,17 +226,31 @@
 <p>클로저는 애플리케이션에서 특정 태스크를 수행하기 위해 사용 될 수 있는 각종 기능들의 개별 묶음을 말한다. 그 예로 함수는 클로저의 일종으로 <em>‘이름있는 클로저’</em>라 할 수 있다.</p>
 <ul>
 <li>클로저는 문법 구조가 간결하다.</li>
+<li>클로저는 일회용 함수이다.</li>
 <li>온전한 선언 구조를 따르지 않아도 함수와 비슷한 구조를 만들 수 있는 장점이 있다.</li>
 <li>유연성 높은 클로저의 구조 덕분에 함수의 인수나 리턴값을 쉽게 전달할 수 있다.</li>
+<li>타 언어에서는 <em>람다함수, 익명함수</em> 등으로 불린다.</li>
+</ul>
+<h5 id="클로저의-형식"><a href="#클로저의-형식" class="headerlink" title="클로저의 형식"></a>클로저의 형식</h5><ul>
+<li>전역함수 : 이름이 있으며, 주변 환경에서 캡쳐할 어떤 값도 없는 클로저</li>
+<li>중첩함수 : 이름이 있으며, 자신을 둘러싼 함수내부로부터 값을 캡쳐할 수 있는 클로저</li>
+<li>클로저 표현식 : 이름이 없으며, 주변 환경으로 부터 값을 캡쳐할 수 있는 경량 문법으로 작성된 클로저</li>
 </ul>
 <p><br></p>
-<h3 id="클로저의-구조"><a href="#클로저의-구조" class="headerlink" title="클로저의 구조"></a>클로저의 구조</h3><hr>
+<h3 id="클로저-표현식"><a href="#클로저-표현식" class="headerlink" title="클로저 표현식"></a>클로저 표현식</h3><hr>
 <ul>
 <li>기본적으로 <code>{}</code> 안에 클로저 수식을 두며, <code>in</code> 키워드를 기준으로 파라미터와 리턴 타입을 실행코드와 구별시킨다.</li>
 <li>클로저를 통해 밖에 따로 함수를 정의하고 사용하는 것이아니라, 인수 안에 인라인으로 정의하여 코드가 한결 간결해진다.</li>
+<li>반환값이 없을 경우 일반 함수처럼 생략하는 것이 아니라 <em>빈괄호()로 반환값이 없음을 명식적으로 표현</em>해주어야 한다.</li>
+<li>단, 파라미터와 반환값의 형식은 <strong>생략이 가능</strong>하다. ( 컴파일러가 클로저 구문을 통해 추론한다)</li>
+</ul>
+<ul>
+<li><p>할당된 내부 상수를 인자로 받을때 <code>$0, $1, $2 ...</code>등을 사용 가능하다. ( 단, 할당된 순서대로 매칭된다)</p>
+<p>​</p>
+</li>
 </ul>
 <p><br></p>
-<h4 id="CODE-Basic"><a href="#CODE-Basic" class="headerlink" title="CODE :: Basic"></a>CODE :: Basic</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 기본형태</span></div><div class="line">&#123;(parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></div><div class="line">    <span class="comment">//코드</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// sorted 함수에서의 클로저 사용예</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> unsortedNum = [<span class="number">10</span>,<span class="number">34</span>,<span class="number">22</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">25</span>, <span class="number">21</span>]</div><div class="line"><span class="keyword">let</span> unsortedName = [<span class="string">"hyunah"</span>,<span class="string">"hyunsik"</span>,<span class="string">"wooni"</span>,<span class="string">"alert"</span>]</div><div class="line"></div><div class="line"><span class="keyword">let</span> sortNum = unsortedNum.sorted(by: &#123;</div><div class="line">    (i:<span class="type">Int</span>, j:<span class="type">Int</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></div><div class="line">    <span class="keyword">return</span> i &lt; j</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="CODE-Basic"><a href="#CODE-Basic" class="headerlink" title="CODE :: Basic"></a>CODE :: Basic</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 기본형태</span></div><div class="line">&#123;(parameters) -&gt; <span class="keyword">return</span> type <span class="keyword">in</span></div><div class="line">    <span class="comment">//코드</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 표현1. 변수에 클로저 할당하기</span></div><div class="line"><span class="keyword">let</span> f = &#123; () -&gt; <span class="type">Void</span> <span class="keyword">in</span> </div><div class="line">  <span class="built_in">print</span>(<span class="string">"클로저"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">f()	<span class="comment">// 실행: 클로저</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//표현2. 전체를 소괄호로 묶어 함수호출연산자 ()를 붙여 실행한다.</span></div><div class="line">(&#123; () -&gt; <span class="type">Void</span> <span class="keyword">in</span> </div><div class="line">  <span class="built_in">print</span>(<span class="string">"클로저"</span>)</div><div class="line">&#125;)()	<span class="comment">//실행: 클로저</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// sorted 함수에서의 클로저 사용예</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> unsortedNum = [<span class="number">10</span>,<span class="number">34</span>,<span class="number">22</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">25</span>, <span class="number">21</span>]</div><div class="line"><span class="keyword">let</span> unsortedName = [<span class="string">"hyunah"</span>,<span class="string">"hyunsik"</span>,<span class="string">"wooni"</span>,<span class="string">"alert"</span>]</div><div class="line"></div><div class="line"><span class="comment">//true일경우 인자 위치를 바꾸지 않으며, false일 경우 인자 위치를 변경한다</span></div><div class="line"><span class="keyword">let</span> sortNum = unsortedNum.<span class="built_in">sort</span>(by: &#123;</div><div class="line">    (i:<span class="type">Int</span>, j:<span class="type">Int</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></div><div class="line">    <span class="keyword">return</span> i &lt; j</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//아래와 같이 간결화 할 수 있다!!</span></div><div class="line"><span class="keyword">let</span> sortNum = unsortedNum.<span class="built_in">sort</span>(by: &#123; <span class="keyword">return</span> $<span class="number">0</span> &lt; $<span class="number">1</span> &#125;)</div><div class="line"></div><div class="line"><span class="comment">//연산자 함수를 통해 아래와 같이 초 간결하게도 가능하다</span></div><div class="line"><span class="keyword">let</span> sortNum = unsortedNum.<span class="built_in">sort</span>(by: &lt; )</div></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="CODE-more-simple"><a href="#CODE-more-simple" class="headerlink" title="CODE :: more simple"></a>CODE :: more simple</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> sortNum = unsortedNum.sorted(by: &#123; i,j <span class="keyword">in</span> i &lt; j &#125;)</div></pre></td></tr></table></figure>
 <p>컴파일러가 자동으로 i,j를 인식하여 인수가 두개이며, 이 두 인수를 비교하여 수식의 결과가 Bool 인스턴스 임을 인식하기 때문에 위와 같이 생략 가능하다.<br>위와 같은 상황에서는 return 값이 하나이기 때문에 생략이 가능하다.</p>

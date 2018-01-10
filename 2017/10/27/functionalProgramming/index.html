@@ -246,6 +246,17 @@
 <li><strong>immutable값</strong>을 통해 여러 쓰레드에서 접근을 하더라도 <strong>sideEffect</strong>를 일으키지 않도록 한다.</li>
 <li>그러면 Lock, unLock 같은 보호 장치가 필요없다.</li>
 </ul>
+<h3 id="일급-함수-First-class-function-의-특성"><a href="#일급-함수-First-class-function-의-특성" class="headerlink" title="일급 함수(First-class-function)의 특성"></a>일급 함수(First-class-function)의 특성</h3><p>함수형 언어에서는 <strong>함수가 일급 객체로 대우</strong>받는다. 따라서 swift에서는 함수가 다음과 같은 특성을 갖게 된다.</p>
+<hr>
+<ul>
+<li>함수가 런타임에도 생성가능해야 한다.</li>
+<li>인자값으로 함수를 전달할 수 있어야 한다.</li>
+<li>리턴값으로 함수를 사용할 수 있어야 한다. (Ex, 콜백함수, 클로저)</li>
+<li>변수나 데이터 구조 안에 저장할 수 있어야 한다.</li>
+<li>할당에 사용된 이름과 관계없이 고유한 구별이 가능해야 한다.</li>
+</ul>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//특성 1. 리턴값으로 객체를 사용할 수 있어야 한다.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">go</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="string">"go리턴값입니다"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">pass</span><span class="params">()</span></span> -&gt; (<span class="type">Void</span>) -&gt; <span class="type">String</span> &#123;</div><div class="line">  <span class="keyword">return</span> go	<span class="comment">//함수를 리턴값으로 사용</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> p = pass()		<span class="comment">// 특성2. 함수를 변수에 저장</span></div><div class="line">p() <span class="comment">//"go리턴값입니다"</span></div></pre></td></tr></table></figure>
+<p><br></p>
 
 
                 
