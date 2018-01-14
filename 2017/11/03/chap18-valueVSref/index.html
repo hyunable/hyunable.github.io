@@ -1,352 +1,465 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CH18. Value vs Reference - undefined
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="Value vs Reference값 타입 VS 참조 타입
-값(Value)의 세만틱스
-
-인스턴스에 대입될 때 또는 함수의 인수로 전달될 때 항상 복사(copy) 된다.
-
-보이지 않는 곳에서 해당 데이터가 임의로 변경되지 않음을 보장할 수 있다.
-
-Array, Dictio">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="hyunah_princess">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="CH18. Value vs Reference"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="현아의 IT COOK"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>CH18. Value vs Reference - 현아의 IT COOK</title>
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/03/chap18-valueVSref/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-107997042-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">hyunAble</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Home
+                              <a class="tag" href="/tags/#참조타입" title="참조타입">참조타입</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
+                              <a class="tag" href="/tags/#값타입" title="값타입">값타입</a>
                             
-                                IT_Foood
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                foood_list
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                taste_tag
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/About">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>CH18. Value vs Reference</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
+                        </div>
+                        <h1>CH18. Value vs Reference</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunah_princess on
                             2017-11-03
-                        
-                    </span>
+                        </span>
+                    </div>
+                
+
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">현아의 IT COOK</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">IT_FOOOD</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Foood_List</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Taste_Tag</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<a href="/tags/참조타입/">#참조타입</a> <a href="/tags/값타입/">#값타입</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/SWIFT-candy/">SWIFT candy</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="Value-vs-Reference"><a href="#Value-vs-Reference" class="headerlink" title="Value vs Reference"></a>Value vs Reference</h1><h2 id="값-타입-VS-참조-타입"><a href="#값-타입-VS-참조-타입" class="headerlink" title="값 타입 VS 참조 타입"></a>값 타입 VS 참조 타입</h2><p><br></p>
-<h3 id="값-Value-의-세만틱스"><a href="#값-Value-의-세만틱스" class="headerlink" title="값(Value)의 세만틱스"></a>값(Value)의 세만틱스</h3><hr>
+                <h1><span id="value-vs-reference">Value vs Reference</span></h1>
+<h2><span id="값-타입-vs-참조-타입">값 타입 VS 참조 타입</span></h2>
+<p>&lt;br&gt;</p>
+<h3><span id="값value의-세만틱스">값(Value)의 세만틱스</span></h3>
+<hr>
 <ul>
-<li><p>인스턴스에 대입될 때 또는 함수의 인수로 전달될 때 항상 <strong><em>복사(copy)</em></strong> 된다.</p>
+<li>
+<p>인스턴스에 대입될 때 또는 함수의 인수로 전달될 때 항상 <strong><em>복사(copy)</em></strong> 된다.</p>
 </li>
-<li><p>보이지 않는 곳에서 해당 데이터가 임의로 변경되지 않음을 보장할 수 있다.</p>
+<li>
+<p>보이지 않는 곳에서 해당 데이터가 임의로 변경되지 않음을 보장할 수 있다.</p>
 </li>
-<li><p><code>Array, Dictionary, Int, String</code> 등은 모두 구조체로 구현되어 있으며, 값 타입이다.</p>
+<li>
+<p><code>Array, Dictionary, Int, String</code> 등은 모두 구조체로 구현되어 있으며, 값 타입이다.</p>
 </li>
-<li><p>값이 복사될 때 swift에서는 <strong>얕은 복사</strong>만을 지원한다.</p>
+<li>
+<p>값이 복사될 때 swift에서는 <strong>얕은 복사</strong>만을 지원한다.</p>
 <ul>
-<li><p><em>얕은 복사(shallow copy)</em> : 객체는 별도로 생성하지만, 그 안에 들어가는 내용은 원래 복사했던 객체를 가리키고 있다.<br><img src="/image/shallowCopy.png" alt="얕은복사"></p>
+<li>
+<p><em>얕은 복사(shallow copy)</em> : 객체는 별도로 생성하지만, 그 안에 들어가는 내용은 원래 복사했던 객체를 가리키고 있다.
+<img src="/image/shallowCopy.png" alt="얕은복사"></p>
 </li>
-<li><p><em>깊은 복사(deep copy)</em> : 객체도 별도로 생성하고,그 안에 들어가는 내용까지 복사해온다.<br><img src="/image/deepCopy.png" alt="깊은복사"></p>
+<li>
+<p><em>깊은 복사(deep copy)</em> : 객체도 별도로 생성하고,그 안에 들어가는 내용까지 복사해온다.<br>
+<img src="/image/deepCopy.png" alt="깊은복사"></p>
 </li>
 </ul>
 <blockquote>
-<p>shallow copy : 객체만 별도 생성, 내용은 동일한 객체<br>deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
+<p>shallow copy : 객체만 별도 생성, 내용은 동일한 객체
+deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </blockquote>
 </li>
 </ul>
-<p><br></p>
-<h3 id="참조-Reference-의-세만틱스"><a href="#참조-Reference-의-세만틱스" class="headerlink" title="참조(Reference)의 세만틱스"></a>참조(Reference)의 세만틱스</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="참조reference의-세만틱스">참조(Reference)의 세만틱스</span></h3>
+<hr>
 <ul>
 <li>값 타입과 달리 참조타입의 인스턴스는 <strong><em>같은 인스턴스를 가리키는 참조</em></strong>가 하나 더 만들어진다.</li>
 <li>따라서 같은 인스턴스를 가리키는 참조 중 한쪽에서 그 값을 변경하면 <em>다른쪽에서도 영향을 받게 된다</em>.</li>
 </ul>
-<p><br></p>
-<h3 id="동일성-vs-정체성"><a href="#동일성-vs-정체성" class="headerlink" title="동일성 vs 정체성"></a>동일성 vs 정체성</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="동일성-vs-정체성">동일성 vs 정체성</span></h3>
+<hr>
 <ul>
 <li>동일성(equality) : 두 인스턴스가 <strong><em>동일한 값</em></strong>을 가질 때</li>
 <li>정체성(identity) : 두 변수나 상수가 <strong><em>메모리에서 같은 인스턴스</em></strong>를 가리킬 때</li>
 <li><code>==</code>는 동일성 비교함수이다.</li>
 <li><code>===</code> 는 정체성 비교함수이다.</li>
 </ul>
-<p><br></p>
-<h3 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h3><hr>
-<h5 id="Value-Type"><a href="#Value-Type" class="headerlink" title="Value Type"></a>Value Type</h5><ul>
+<p>&lt;br&gt;</p>
+<h3><span id="use-case">Use Case</span></h3>
+<hr>
+<h5><span id="value-type">Value Type</span></h5>
+<ul>
 <li><code>==</code> 를 사용하여 인스턴스를 비교하는 것이 합당한 경우</li>
 <li>독립적인 상태로 각각의 사본을 만들고자 하는 경우</li>
-<li>여러 스레드에서 사용될 데이터인 경우<br>​</li>
+<li>여러 스레드에서 사용될 데이터인 경우
+​</li>
 </ul>
-<h5 id="Reference-Type"><a href="#Reference-Type" class="headerlink" title="Reference Type"></a>Reference Type</h5><ul>
+<h5><span id="reference-type">Reference Type</span></h5>
+<ul>
 <li><code>===</code> 를 사용하여 인스턴스(포인터)를 비교하는 것이 합당한 경우</li>
 <li>공유된 상태, 변경이 가능한 상태를 원하는 경우</li>
 </ul>
 
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/03/chap19-protocol/" data-toggle="tooltip" data-placement="top" title="CH19. Protocol">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/02/chap17-initializer/" data-toggle="tooltip" data-placement="top" title="CH17. Initializer">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
                 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/hyunnaa" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunah_princess 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

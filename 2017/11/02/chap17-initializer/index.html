@@ -1,269 +1,274 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CH17. Initializer - undefined
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="Initializer초기화
-
-인스턴스를 설정하는 과정으로 Init (Initializer) 키워드로 시작한다.
-인스턴스가 만들어질 때 저장형 프로퍼티가 값을 가지도록 하는 방법이다.
-초기화가 완료되었을 때, 타입의 프로퍼티에 값이 있다는 것을 보장하는 데 목적이 있다.">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="hyunah_princess">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="CH17. Initializer"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="현아의 IT COOK"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>CH17. Initializer - 현아의 IT COOK</title>
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/02/chap17-initializer/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-107997042-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">hyunAble</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Home
+                              <a class="tag" href="/tags/#프로퍼티" title="프로퍼티">프로퍼티</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
+                              <a class="tag" href="/tags/#getter" title="getter">getter</a>
                             
-                                IT_Foood
+                              <a class="tag" href="/tags/#setter" title="setter">setter</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
+                              <a class="tag" href="/tags/#static" title="static">static</a>
                             
-                                foood_list
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                taste_tag
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/About">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>CH17. Initializer</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
+                        </div>
+                        <h1>CH17. Initializer</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunah_princess on
                             2017-11-02
-                        
-                    </span>
+                        </span>
+                    </div>
+                
+
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">현아의 IT COOK</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">IT_FOOOD</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Foood_List</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Taste_Tag</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<a href="/tags/프로퍼티/">#프로퍼티</a> <a href="/tags/getter/">#getter</a> <a href="/tags/setter/">#setter</a> <a href="/tags/static/">#static</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/SWIFT-candy/">SWIFT candy</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="Initializer"><a href="#Initializer" class="headerlink" title="Initializer"></a>Initializer</h1><h2 id="초기화"><a href="#초기화" class="headerlink" title="초기화"></a>초기화</h2><hr>
+                <h1><span id="initializer">Initializer</span></h1>
+<h2><span id="초기화">초기화</span></h2>
+<hr>
 <ul>
 <li>인스턴스를 설정하는 과정으로 <code>Init</code> (Initializer) 키워드로 시작한다.</li>
 <li>인스턴스가 만들어질 때 <em>저장형 프로퍼티</em>가 값을 가지도록 하는 방법이다.</li>
-<li>초기화가 완료되었을 때, <u>타입의 프로퍼티에 값이 있다는 것을 보장</u>하는 데 목적이 있다.</li>
+<li>초기화가 완료되었을 때, &lt;U&gt;타입의 프로퍼티에 값이 있다는 것을 보장&lt;/U&gt;하는 데 목적이 있다.</li>
 </ul>
-<p><br></p>
-<h3 id="구조체-초기화-기본-이니셜라이저"><a href="#구조체-초기화-기본-이니셜라이저" class="headerlink" title="구조체 초기화 :: 기본 이니셜라이저"></a>구조체 초기화 :: 기본 이니셜라이저</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="구조체-초기화-기본-이니셜라이저">구조체 초기화 :: 기본 이니셜라이저</span></h3>
+<hr>
 <ul>
 <li>빈 이니셜라이저를 호출하면 지정한 기본값이 새 인스턴스의 프로퍼티로 설정된다.</li>
 <li><strong>멤버와이즈 이니셜라이저</strong>는 값이 필요한 모든 저장형 프로퍼티의 인수를 담당한다. 자동으로 처리된다.</li>
 </ul>
-<p><br></p>
-<h3 id="구조체-초기화-커스텀-이니셜라이저"><a href="#구조체-초기화-커스텀-이니셜라이저" class="headerlink" title="구조체 초기화 :: 커스텀 이니셜라이저"></a>구조체 초기화 :: 커스텀 이니셜라이저</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="구조체-초기화-커스텀-이니셜라이저">구조체 초기화 :: 커스텀 이니셜라이저</span></h3>
+<hr>
 <ul>
 <li>초기화 과정을 세부적으로 건드려야 할 상황일때 사용한다.</li>
 <li>커스텀 이니셜라이저를 사용하면 기존 <em>빈 이니셜라이저는 제공되지 않는다</em>.</li>
 <li><code>init</code>키워드를 통해</li>
 </ul>
-<p><br></p>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomInit</span> </span>&#123; <span class="comment">//참조타임</span></div><div class="line">    <span class="keyword">var</span> name:<span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name:<span class="type">String</span>) &#123; <span class="comment">//parameter</span></div><div class="line">        <span class="comment">//statement</span></div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="클래스-초기화-기본"><a href="#클래스-초기화-기본" class="headerlink" title="클래스 초기화 :: 기본"></a>클래스 초기화 :: 기본</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomInit</span> </span>&#123; <span class="comment">//참조타임</span></span><br><span class="line">    <span class="keyword">var</span> name:<span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name:<span class="type">String</span>) &#123; <span class="comment">//parameter</span></span><br><span class="line">        <span class="comment">//statement</span></span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3><span id="클래스-초기화-기본">클래스 초기화 :: 기본</span></h3>
+<hr>
 <ul>
 <li>빈 기본 이니셜라이저를 가진다. <code>let mem = Member()</code></li>
 <li>구조체와 다르게 멤버와이즈 <em>이니셜라이저를 가지지 않는다</em>. 참조타입이기 때문이다. 따라서 클래스는 기본값을 지정해야한다.</li>
-<li>일반적으로 클래스는 <u>슈퍼클래스의 이니셜라이저를 상속하지 않는다</u>. (새로 추가된 서브클래스 타입의 프로퍼티가 값을 갖지 않은 채로 제공되지 않게 하기 위해서!)</li>
-<li><p>하지만 <strong>부분적으로</strong> 이니셜라이저를 상속하는 경우가 있다.</p>
+<li>일반적으로 클래스는 &lt;U&gt;슈퍼클래스의 이니셜라이저를 상속하지 않는다&lt;/U&gt;. (새로 추가된 서브클래스 타입의 프로퍼티가 값을 갖지 않은 채로 제공되지 않게 하기 위해서!)</li>
+<li>하지만 <strong>부분적으로</strong> 이니셜라이저를 상속하는 경우가 있다.
 <ul>
 <li>서브 클래스에 지정형 이니셜라이저가 정의되어 있지 않다면, 슈퍼클래스의 지정형 이니셜라이저를 상속한다.</li>
 <li>서브 클래스에 슈퍼클래스의 모든 지정형 이니셜라이저가 구현되어 있다면 명시적인 방법이든 상속을 통해서든 슈퍼클래스의 모든 편의성 이니셜라이저를 상속한다.</li>
 </ul>
-<p><br></p>
 </li>
 </ul>
-<h3 id="클래스-초기화-지정형-이니셜라이저"><a href="#클래스-초기화-지정형-이니셜라이저" class="headerlink" title="클래스 초기화 :: 지정형 이니셜라이저"></a>클래스 초기화 :: 지정형 이니셜라이저</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="클래스-초기화-지정형-이니셜라이저">클래스 초기화 :: 지정형 이니셜라이저</span></h3>
+<hr>
 <ul>
 <li>클래스의 주 이니셜라이저 형태이다. 모두 초기화 완료 전에 값을 받는지 확인한다.</li>
-<li><p>슈퍼클래스가 지정된 클래스의 지정형 이니셜라이저는 <u>슈퍼클래스의 지정형 이니셜라이저도 함께 호출</u>해야 한다.</p>
-<p><br></p>
-</li>
+<li>슈퍼클래스가 지정된 클래스의 지정형 이니셜라이저는 &lt;U&gt;슈퍼클래스의 지정형 이니셜라이저도 함께 호출&lt;/U&gt;해야 한다.</li>
 </ul>
-<h3 id="클래스-초기화-편의성-이니셜라이저"><a href="#클래스-초기화-편의성-이니셜라이저" class="headerlink" title="클래스 초기화 :: 편의성 이니셜라이저"></a>클래스 초기화 :: 편의성 이니셜라이저</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="클래스-초기화-편의성-이니셜라이저">클래스 초기화 :: 편의성 이니셜라이저</span></h3>
+<hr>
 <ul>
 <li><code>convenience</code> 키워드를 사용한다.</li>
 <li>다른 이니셜라이저에 자신이 정의된 목적 등을 전달한다.</li>
@@ -271,25 +276,29 @@
 <li>클래스의 저장형 프로퍼티가 초깃값을 받는 방법의 정의라 할 수 있다.</li>
 </ul>
 <p><img src="/image/convenience.png" alt="편의성이니셜라이저"></p>
-<p><br></p>
-<h3 id="클래스-초기화-요구형-이니셜라이저"><a href="#클래스-초기화-요구형-이니셜라이저" class="headerlink" title="클래스 초기화 :: 요구형 이니셜라이저"></a>클래스 초기화 :: 요구형 이니셜라이저</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="클래스-초기화-요구형-이니셜라이저">클래스 초기화 :: 요구형 이니셜라이저</span></h3>
+<hr>
 <ul>
 <li><code>required</code>키워드를 붙여 이 타입의 모든 서브클래스에서 해당 이니셜라이저를 제공할 수 있다.</li>
 <li>서브클래스들은 요구형으로 지정된 이니셜라이저를 구현해야 한다.</li>
 <li><code>override</code> 키워드를 붙일 수 없다.</li>
 </ul>
-<p><br></p>
-<h3 id="해제-Deinitializer"><a href="#해제-Deinitializer" class="headerlink" title="해제(Deinitializer)"></a>해제(Deinitializer)</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="해제deinitializer">해제(Deinitializer)</span></h3>
+<hr>
 <ul>
 <li>해제는 인스턴스가 더 이상 필요하지 않을 때 <em>메모리에서 제거하는 과정</em>을 가리킨다.</li>
 <li>디이니셜라이저는 인스턴스가 메모리에서 <strong><em>제거되기 바로 직전</em></strong>에 호출된다. 메모리 할당이 취소되기 전에 최종 관리를 위한 여유를 제공하는 것으로 생각할 수 있다.</li>
 <li><code>deinit</code> 키워드로 정의되며, class 안에서 쓰인다.</li>
 <li>해제될 수 있는 인스턴스는 옵셔널로 지정한다. (삭제되면 nil이 되므로)</li>
 </ul>
-<p><br></p>
-<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">deinit</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>'s memory is Deinitialized"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="실패-기능-이니셜라이저-failable"><a href="#실패-기능-이니셜라이저-failable" class="headerlink" title="실패 기능 이니셜라이저 (failable)"></a>실패 기능 이니셜라이저 (failable)</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>'s memory is Deinitialized"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="실패-기능-이니셜라이저-failable">실패 기능 이니셜라이저 (failable)</span></h3>
+<hr>
 <ul>
 <li>인스턴스를 <em>초기화할 수 없다</em>는 사실을 알리는 기능을 한다.</li>
 <li>쓰이는 이유는 nil로 설정된 인스턴스가 프로퍼티에 잘못된 데이터가 채워진 인스턴스보다 훨씬 낫기 때문이다.</li>
@@ -297,92 +306,198 @@
 <li><code>init?</code> 키워드로 표기한다.</li>
 <li><code>init!</code> 키워드는 암묵적으로 언래핑되는 옵셔널을 리턴하는 페일어블 이니셜라이저를 만들 수도 있다. (단, 안정성이 떨어지므로 주의요함)</li>
 </ul>
-<p><br></p>
-<h3 id="초기화의-과정"><a href="#초기화의-과정" class="headerlink" title="초기화의 과정"></a>초기화의 과정</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="초기화의-과정">초기화의 과정</span></h3>
+<hr>
 <p>1단계. 최종적으로 클래스의 지정형 이니셜라이저가 호출된다.</p>
 <ul>
 <li>선언된 모든 프로퍼티가 지정형 이니셜라이저의 정의 내 적절한 값으로 초기화 되도록 담보한다.</li>
 <li>그 지정형 이니셜라이저는 자신의 슈퍼클래스의 지정형 이니셜라이저에 위임을 한다.</li>
 <li>슈퍼클래스의 지정형 이니셜라이저는 자신의 모든 지정형 프로퍼티가 적절한 값으로 초기화되도록 담보한다.</li>
 </ul>
-<p>2단계. 클래스에 그 저장형 프로퍼티의 값을 이렇게 저렇게 다룰 수 있는 기회를 제공한다.<br>3최종단계. 두 단계를 거치며 온전하게 초기화되며, 모든 프로퍼티와 메소드는 사용될 준비를 끝낸다.</p>
-<p><br></p>
-
+<p>2단계. 클래스에 그 저장형 프로퍼티의 값을 이렇게 저렇게 다룰 수 있는 기회를 제공한다.
+3최종단계. 두 단계를 거치며 온전하게 초기화되며, 모든 프로퍼티와 메소드는 사용될 준비를 끝낸다.</p>
+<p>&lt;br&gt;</p>
 
                 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/03/chap18-valueVSref/" data-toggle="tooltip" data-placement="top" title="CH18. Value vs Reference">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/01/chap16-property/" data-toggle="tooltip" data-placement="top" title="CH16. Property">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/hyunnaa" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunah_princess 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

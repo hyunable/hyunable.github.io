@@ -1,263 +1,275 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CH16. Property - undefined
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="CHAPTER16 / Property프로퍼티
-
-값과 타입을 연계 내지 연동하는 방식으로 타입이 나타내는 엔터티(entity) 특징을 구체화한다.
-저장형 프로퍼티는 기본값을 가진다.
-계산형 프로퍼티는 사용 가능한 정보에 따라 계산한 결과를 리턴한다.
-프로퍼티 가시성에 관">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="hyunah_princess">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="CH16. Property"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="현아의 IT COOK"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>CH16. Property - 현아의 IT COOK</title>
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/01/chap16-property/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-107997042-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">hyunAble</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Home
+                              <a class="tag" href="/tags/#프로퍼티" title="프로퍼티">프로퍼티</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
+                              <a class="tag" href="/tags/#getter" title="getter">getter</a>
                             
-                                IT_Foood
+                              <a class="tag" href="/tags/#setter" title="setter">setter</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
+                              <a class="tag" href="/tags/#static" title="static">static</a>
                             
-                                foood_list
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                taste_tag
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/About">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>CH16. Property</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
+                        </div>
+                        <h1>CH16. Property</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunah_princess on
                             2017-11-01
-                        
-                    </span>
+                        </span>
+                    </div>
+                
+
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">현아의 IT COOK</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">IT_FOOOD</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Foood_List</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Taste_Tag</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<a href="/tags/프로퍼티/">#프로퍼티</a> <a href="/tags/getter/">#getter</a> <a href="/tags/setter/">#setter</a> <a href="/tags/static/">#static</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/SWIFT-candy/">SWIFT candy</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="CHAPTER16-Property"><a href="#CHAPTER16-Property" class="headerlink" title="CHAPTER16 / Property"></a>CHAPTER16 / Property</h1><h2 id="프로퍼티"><a href="#프로퍼티" class="headerlink" title="프로퍼티"></a>프로퍼티</h2><hr>
+                <h1><span id="chapter16-property">CHAPTER16 / Property</span></h1>
+<h2><span id="프로퍼티">프로퍼티</span></h2>
+<hr>
 <ul>
 <li>값과 타입을 연계 내지 연동하는 방식으로 타입이 나타내는 엔터티(entity) 특징을 구체화한다.</li>
 <li><strong>저장형 프로퍼티</strong>는 기본값을 가진다.</li>
 <li><strong>계산형 프로퍼티</strong>는 사용 가능한 정보에 따라 계산한 결과를 리턴한다.</li>
 <li>프로퍼티 가시성에 관해 규칙을 세울 수도 있다.</li>
 </ul>
-<p><br></p>
-<h3 id="저장형-프로퍼티"><a href="#저장형-프로퍼티" class="headerlink" title="저장형 프로퍼티"></a>저장형 프로퍼티</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="저장형-프로퍼티">저장형 프로퍼티</span></h3>
+<hr>
 <ul>
 <li><strong>저장형 프로퍼티</strong>가 하는 일은 데이터 저장이다.</li>
 <li><code>let</code>(상수)는 읽기전용 프로퍼티이다.</li>
 <li><code>var</code>(변수)는 읽기/쓰기용 프로퍼티이다.</li>
 <li>중첩타입은 어떤 타입 안에서 정의된 타입이다. 주로 어떤 타입의 기능을 지원할 목적으로 사용된다.</li>
 </ul>
-<p><br></p>
-<h3 id="지연-저장형-프로퍼티-lazy"><a href="#지연-저장형-프로퍼티-lazy" class="headerlink" title="지연 저장형 프로퍼티 (lazy)"></a>지연 저장형 프로퍼티 (lazy)</h3><hr>
-<p>경우에 따라서 저장형 프로퍼티의 값이 곧바로 지정될 수 없을 때도 있다.<br>혹은 만약 해당 프로퍼티의 인스턴스가 메모리를 많이 먹는다면 필요할 때 생성되도록(lazy) 선언해 두면 <strong>메모리 관리 효율</strong>이 좋아질 것이다.</p>
+<p>&lt;br&gt;</p>
+<h3><span id="지연-저장형-프로퍼티-lazy">지연 저장형 프로퍼티 (lazy)</span></h3>
+<hr>
+<p>경우에 따라서 저장형 프로퍼티의 값이 곧바로 지정될 수 없을 때도 있다.
+혹은 만약 해당 프로퍼티의 인스턴스가 메모리를 많이 먹는다면 필요할 때 생성되도록(lazy) 선언해 두면 <strong>메모리 관리 효율</strong>이 좋아질 것이다.</p>
 <ul>
 <li>곧 바로 프로퍼티의 값을 계산하려면 메모리나 시간적 측면에서 낭비일 경우.</li>
-<li>인스턴스가 만들어져야 알 수 있는 타입의 외적 요소에 프로퍼티가 의존하는 경우.<br>위 와 같은 경우를 <strong>지연로딩(lazy loading)</strong> 이라고 부른다.<ul>
-<li>프로퍼티의 값이 필요해야 계산한다. 따라서 <u>인스턴스가 초기화되고 나서야 계산</u>되며, 추후에 값이 변경되므로 <code>var</code>로 정의해야 한다.</li>
+<li>인스턴스가 만들어져야 알 수 있는 타입의 외적 요소에 프로퍼티가 의존하는 경우.
+위 와 같은 경우를 <strong>지연로딩(lazy loading)</strong> 이라고 부른다.
+<ul>
+<li>프로퍼티의 값이 필요해야 계산한다. 따라서 &lt;U&gt;인스턴스가 초기화되고 나서야 계산&lt;/U&gt;되며, 추후에 값이 변경되므로 <code>var</code>로 정의해야 한다.</li>
 </ul>
 </li>
 </ul>
-<p><br></p>
-<h4 id="CODE-Basic"><a href="#CODE-Basic" class="headerlink" title="CODE :: Basic"></a>CODE :: Basic</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Beef</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> price = <span class="number">3000</span></div><div class="line">    <span class="keyword">var</span> weight = <span class="number">30</span></div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Size</span> </span>&#123;</div><div class="line">        <span class="keyword">case</span> small</div><div class="line">        <span class="keyword">case</span> medium</div><div class="line">        <span class="keyword">case</span> large</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//지연 프로퍼티</span></div><div class="line">    <span class="comment">// 클로저를 이용하여 값 할당</span></div><div class="line">    <span class="comment">// ()로 끝남으로써 beefSize가 처음 엑세스될 때 클로저가 리턴한 결과를 beefSize에 지정한다.</span></div><div class="line"></div><div class="line">     <span class="built_in">lazy</span> <span class="keyword">var</span> beefSize: <span class="type">Size</span> = &#123;</div><div class="line">        <span class="keyword">switch</span> <span class="keyword">self</span>.weight &#123;</div><div class="line">        <span class="keyword">case</span> <span class="number">0</span>...<span class="number">20</span>:</div><div class="line">            <span class="keyword">return</span> <span class="type">Size</span>.small</div><div class="line">        <span class="keyword">case</span> <span class="number">21</span>...<span class="number">40</span>:</div><div class="line">            <span class="keyword">return</span> <span class="type">Size</span>.medium</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            <span class="keyword">return</span> <span class="type">Size</span>.large</div><div class="line">        &#125;</div><div class="line">    &#125;()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>클로저는 <code>self.</code>를 참조해야 내부에서 인스턴스의 <code>weight</code> 프로퍼티에 액세스가 가능하다.<br><code>lazy</code>를 생략하고 <code>self.</code>를 사용할 시에는, 컴파일에러가 나는데,<br>그 이유는 클로저가 안전하게 <code>self.</code>에 엑세스하기 위해서 <em>컴파일러는 <code>self.</code>가 온전히 초기화되었는지</em> 알고 있어야 한다.<br><code>lazy</code>를 붙이므로써 지금 당장 <code>self.</code>에 해당하는 값이 만들어질 필요가 없으며, 처음 엑세스 될 때 만들어 져야한다고 파악하여 <strong>ready</strong>상태에 있게 된다.</p>
-<p><br></p>
-<h4 id="CODE-액세스"><a href="#CODE-액세스" class="headerlink" title="CODE :: 액세스"></a>CODE :: 액세스</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newBeef = <span class="type">Beef</span>()</div><div class="line"><span class="keyword">var</span> newBeefWeight = newBeef.weight</div><div class="line">newBeefWeight = <span class="number">50</span></div><div class="line"><span class="built_in">print</span>(newBeef.beefSize)     <span class="comment">//출력 : medium</span></div></pre></td></tr></table></figure>
-<p>위 와 같이 생성후 인스턴스의 <code>weight</code>값을 변경 시켜 주었으나,<br>이미 첫 초기화 될 때 <code>beefSize</code>프로퍼티가 지정되었다.</p>
-<p><br></p>
-<h4 id="CODE-새-값으로-초기화-후-재설정"><a href="#CODE-새-값으로-초기화-후-재설정" class="headerlink" title="CODE :: 새 값으로 초기화 후 재설정"></a>CODE :: 새 값으로 초기화 후 재설정</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> secondBeef = <span class="type">Beef</span>.<span class="keyword">init</span>(price: <span class="number">2000</span>, weight: <span class="number">50</span>, beefSize: <span class="literal">nil</span>)</div><div class="line"><span class="built_in">print</span>(secondBeef.beefSize) <span class="comment">//출력 : large</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="계산형-프로퍼티"><a href="#계산형-프로퍼티" class="headerlink" title="계산형 프로퍼티"></a>계산형 프로퍼티</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code-basic">CODE :: Basic</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Beef</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price = <span class="number">3000</span></span><br><span class="line">    <span class="keyword">var</span> weight = <span class="number">30</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> small</span><br><span class="line">        <span class="keyword">case</span> medium</span><br><span class="line">        <span class="keyword">case</span> large</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//지연 프로퍼티</span></span><br><span class="line">    <span class="comment">// 클로저를 이용하여 값 할당</span></span><br><span class="line">    <span class="comment">// ()로 끝남으로써 beefSize가 처음 엑세스될 때 클로저가 리턴한 결과를 beefSize에 지정한다.</span></span><br><span class="line"></span><br><span class="line">     <span class="built_in">lazy</span> <span class="keyword">var</span> beefSize: <span class="type">Size</span> = &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span>.weight &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>...<span class="number">20</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.small</span><br><span class="line">        <span class="keyword">case</span> <span class="number">21</span>...<span class="number">40</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.medium</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.large</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>클로저는 <code>self.</code>를 참조해야 내부에서 인스턴스의 <code>weight</code> 프로퍼티에 액세스가 가능하다.<br>
+<code>lazy</code>를 생략하고 <code>self.</code>를 사용할 시에는, 컴파일에러가 나는데,
+그 이유는 클로저가 안전하게 <code>self.</code>에 엑세스하기 위해서 <em>컴파일러는 <code>self.</code>가 온전히 초기화되었는지</em> 알고 있어야 한다.<br>
+<code>lazy</code>를 붙이므로써 지금 당장 <code>self.</code>에 해당하는 값이 만들어질 필요가 없으며, 처음 엑세스 될 때 만들어 져야한다고 파악하여 <strong>ready</strong>상태에 있게 된다.</p>
+<p>&lt;br&gt;</p>
+<h4><span id="code-액세스">CODE :: 액세스</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newBeef = <span class="type">Beef</span>()</span><br><span class="line"><span class="keyword">var</span> newBeefWeight = newBeef.weight</span><br><span class="line">newBeefWeight = <span class="number">50</span></span><br><span class="line"><span class="built_in">print</span>(newBeef.beefSize)     <span class="comment">//출력 : medium</span></span><br></pre></td></tr></table></figure></p>
+<p>위 와 같이 생성후 인스턴스의 <code>weight</code>값을 변경 시켜 주었으나,
+이미 첫 초기화 될 때 <code>beefSize</code>프로퍼티가 지정되었다.</p>
+<p>&lt;br&gt;</p>
+<h4><span id="code-새-값으로-초기화-후-재설정">CODE :: 새 값으로 초기화 후 재설정</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> secondBeef = <span class="type">Beef</span>.<span class="keyword">init</span>(price: <span class="number">2000</span>, weight: <span class="number">50</span>, beefSize: <span class="literal">nil</span>)</span><br><span class="line"><span class="built_in">print</span>(secondBeef.beefSize) <span class="comment">//출력 : large</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="계산형-프로퍼티">계산형 프로퍼티</span></h3>
+<hr>
 <ul>
 <li>값을 저장하지 않으며 <strong>게터(getter)</strong>,<strong>세터(setter)</strong> 라는 것을 제공한다.</li>
 <li><strong>게터</strong>는 프로퍼티의 값을 가져온다. (읽기용)</li>
@@ -266,49 +278,59 @@
 <li>getter,setter 모두 함수와 같이 상속시 <code>override</code>가 가능하다.</li>
 <li>반드시 <strong>타입 정보를 명시</strong>해야 한다. 컴파일러가 게터가 <em>무엇을 리턴</em> 해야 하는지를 파악할 수 있게 하기 위해!</li>
 </ul>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Doubling</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> b = <span class="number">0</span></div><div class="line">    <span class="comment">//반드시 타입어노테이션을 해줘야 한다.</span></div><div class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">return</span> a + b</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span> (value)&#123;</div><div class="line">            <span class="comment">//self를 통해서 엑세스</span></div><div class="line">            <span class="keyword">self</span>.a = value / <span class="number">2</span></div><div class="line">            <span class="keyword">self</span>.b = value / <span class="number">2</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> doubling = <span class="type">Doubling</span>()</div><div class="line">doubling.data = <span class="number">80</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"a:<span class="subst">\(doubling.a)</span> , b: <span class="subst">\(doubling.b)</span>"</span>)</div><div class="line"></div><div class="line"><span class="comment">//출력 : a:40 , b: 40</span></div></pre></td></tr></table></figure>
-<h4 id="CODE-축약형-getter-setter"><a href="#CODE-축약형-getter-setter" class="headerlink" title="CODE :: 축약형 getter, setter"></a>CODE :: 축약형 getter, setter</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// getter 축약형</span></div><div class="line">lass <span class="type">Doubling</span> &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> b = <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> a + b</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// setter 축약형 : newValue</span></div><div class="line">lass <span class="type">Doubling</span> &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span></div><div class="line">    <span class="keyword">var</span> b = <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">return</span> a + b</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span> &#123;</div><div class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></div><div class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line">    <span class="comment">//반드시 타입어노테이션을 해줘야 한다.</span></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> (value)&#123;</span><br><span class="line">            <span class="comment">//self를 통해서 엑세스</span></span><br><span class="line">            <span class="keyword">self</span>.a = value / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = value / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 클로저를 통해 인스턴스가 생성될 때 함께 실해오디어 초기값을 반환하며, 이후 재실행되지 않는다.</span></span><br><span class="line"><span class="keyword">var</span> age :<span class="type">Int</span> = &#123;</span><br><span class="line">  <span class="keyword">let</span> number = now() - birthDate()</span><br><span class="line">  <span class="keyword">return</span> number</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doubling = <span class="type">Doubling</span>()</span><br><span class="line">doubling.data = <span class="number">80</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"a:<span class="subst">\(doubling.a)</span> , b: <span class="subst">\(doubling.b)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : a:40 , b: 40</span></span><br></pre></td></tr></table></figure></p>
+<h4><span id="code-축약형-getter-setter">CODE :: 축약형 getter, setter</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// getter 축약형</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// setter 축약형 : newValue</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>getter 축약조건 : read-only로 정의하려는 경우</li>
 <li>setter 축약조건 : 새 값에 명시적 이름을 붙이는 것 대신, <code>set</code>코드 내부에서 정의된 <code>newValue</code>라는 심볼이 쓰일 수 있다.</li>
 </ul>
-<p><br></p>
-<h4 id="CODE-overriding"><a href="#CODE-overriding" class="headerlink" title="CODE :: overriding"></a>CODE :: overriding</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubDoubling</span>: <span class="title">Doubling</span> </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="keyword">var</span> data: <span class="type">Int</span>&#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">return</span> (a + b) * <span class="number">2</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span> &#123;</div><div class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></div><div class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> subDoubling = <span class="type">SubDoubling</span>()</div><div class="line"><span class="built_in">print</span>(subDoubling.data)</div><div class="line"><span class="comment">// 출력 : 4</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="프로퍼티-관찰자-Property-Observer"><a href="#프로퍼티-관찰자-Property-Observer" class="headerlink" title="프로퍼티 관찰자(Property Observer)"></a>프로퍼티 관찰자(Property Observer)</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code-overriding">CODE :: overriding</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubDoubling</span>: <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> data: <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (a + b) * <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> subDoubling = <span class="type">SubDoubling</span>()</span><br><span class="line"><span class="built_in">print</span>(subDoubling.data)</span><br><span class="line"><span class="comment">// 출력 : 4</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="프로퍼티-관찰자property-observer">프로퍼티 관찰자(Property Observer)</span></h3>
+<hr>
 <ul>
 <li>프로퍼티의 변화를 추적해서 실시간으로 대응하고자 할 때 사용한다.</li>
-<li><code>willSet</code> : 프로퍼티가 <strong>변경될 때</strong> 실행된다. 즉, 프로퍼티의 이전값을 처리할 수 있는 방법</li>
+<li><code>willSet</code> : 프로퍼티가 <strong>변경되기 직전에</strong> 실행된다. 즉, 프로퍼티의 이전값을 처리할 수 있는 방법</li>
 <li><code>didSet</code> : 프로퍼티가 <strong>변경된 후</strong> 실행된다. 즉, 프로퍼티의 새 값을 처리할 수 있는 방법</li>
-<li>옵저버 기능을 이용하면 <em>getter,setter 사용이 불가능</em> 한데, 이는 <u>getter,setter에서 옵저버 기능을 구현할 수 있기 때문</u>이다.</li>
+<li>옵저버 기능을 이용하면 <em>getter,setter 사용이 불가능</em> 한데, 이는 &lt;U&gt;getter,setter에서 옵저버 기능을 구현할 수 있기 때문&lt;/U&gt;이다.</li>
 </ul>
-<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObserverbingClass</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> a: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">willSet</span>(value) &#123;</div><div class="line">            <span class="built_in">println</span>(<span class="string">".a will change to <span class="subst">\(value)</span>"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">didSet</span> &#123;</div><div class="line">            <span class="built_in">println</span>(<span class="string">".a did changed to <span class="subst">\(<span class="keyword">self</span>.a)</span>"</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = <span class="type">ObserverbingClass</span>()</div><div class="line">obj.a = <span class="number">10</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="타입-프로퍼티"><a href="#타입-프로퍼티" class="headerlink" title="타입 프로퍼티"></a>타입 프로퍼티</h3><hr>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObserverbingClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(value) &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a will change to <span class="subst">\(value)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a did changed to <span class="subst">\(<span class="keyword">self</span>.a)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="type">ObserverbingClass</span>()</span><br><span class="line">obj.a = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="타입-프로퍼티-정적-프로퍼티">타입 프로퍼티 (정적 프로퍼티)</span></h3>
+<hr>
 <ul>
-<li>타입 메서드처럼 <code>static</code>으로 시작한다.</li>
+<li>인스턴스에 소속되지 않고 <strong>클래스와 구조체 자체에 소속</strong>되어 값을 가지는 프로퍼티.</li>
+<li>모든 인스턴스들이 공유하고 있는 값으로 하나의 값이다.</li>
+<li>타입 메서드가 참조할 수 있는 프로퍼티는 오직 타입 프로퍼티 뿐이다. (메모리상 같은 위치에 있기 때문! -&gt; Data Segment)</li>
+<li>타입 프로퍼티는 메모리 내의 static 공간에 정의되어 있기 때문에</li>
+<li>인스턴스에 소속되어있지 않기 때문에 <code>.</code> 구문으로 접근 불가능하다.</li>
+<li>이름앞에 <code>static</code> 키워드를 붙여준다.</li>
 <li>타입 프로퍼티의 값들은 타입의 인스턴스들 사이에서 모두 똑같이 취급될 정보를 저장한다.</li>
-<li>타입은 이니셜라이저를 가지지 않기 때문에 <em>자신의 값을 콜러에게 전달하기 위해 필요한 모든 정보</em>를 가져야 한다.</li>
-</ul>
-<p><br></p>
-<h3 id="정적-프로퍼티"><a href="#정적-프로퍼티" class="headerlink" title="정적 프로퍼티"></a>정적 프로퍼티</h3><hr>
+<li>타입은 이니셜라이저를 가지지 않기 때문에 <em>자신의 값을 콜러에게 전달하기 위해 필요한 모든 정보</em>를 가져야 한다.(초기값을 반드시 할당해야한다는 뜻)</li>
+<li>정적 프로퍼티에는 <strong>정적 타입 프로퍼티</strong><code>static func</code> 와 <strong>클래스 타입 프로퍼티</strong><code>class func</code>가 존재한다.
 <ul>
-<li>class는 정적(static) 프로퍼티를 가질 수 있다.</li>
-<li>정적 프로퍼티에는 <strong>정적 타입 프로퍼티</strong><code>static func</code> 와 <strong>클래스 타입 프로퍼티</strong><code>class func</code>가 존재한다.<ul>
 <li><code>static</code>타입 : 인스턴스화 없이 호출가능. <code>override</code> 불가능</li>
-<li><code>class</code>타입 : 인스턴스화 없이 호출가능. <code>override</code> <strong>가능</strong><ul>
+<li><code>class</code>타입 : 인스턴스화 없이 호출가능. <code>override</code> <strong>가능</strong> , 클래스의 프로퍼티에서만 사용 가능.
+<ul>
+<li><strong>클래스</strong>에서 연산 프로퍼티에만 붙일 수 있는 키워드.</li>
 <li>즉, class 타입은 <strong>오버라이드가 가능한</strong> 정적 프로퍼티이다.<em>(class final = static 개념)</em></li>
 <li>반면 값 타입(<code>enum</code>, <code>struct</code>)은 class 타입 프로퍼티를 쓸 수 없다. (상속할수 없기 때문에 <code>override</code> 불가)</li>
-<li>class 내부에서는 static 메서드나 class 메서드가 같은 의미로 인식되기 때문에 <u> static 메서드 -&gt; class 메서드 , class 메서드 -&gt; static 메서드로 오버라이드 </u>는 가능하다.</li>
+<li>class 내부에서는 static 메서드나 class 메서드가 같은 의미로 인식되기 때문에 &lt;U&gt; static 메서드 -&gt; class 메서드 , class 메서드 -&gt; static 메서드로 오버라이드 &lt;/U&gt;는 가능하다.</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p><br></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//swift에는 세가지 메서드 타입이 존재한다.</span></div><div class="line"><span class="comment">// 인스턴스 메서드, 스태틱메서드, 클래스 매서드</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">KindOfClass</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">instanceMethod</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"instanceMethod"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"staticMethod"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"classMethod"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="type">KindOfClass</span>.instanceMethod()      <span class="comment">//컴파일에러 -&gt; 인스턴스생성없이 접근불가.</span></div><div class="line"><span class="type">KindOfClass</span>.staticMethod()      <span class="comment">//출력 : staticMethod</span></div><div class="line"><span class="type">KindOfClass</span>.classMethod()        <span class="comment">//출력 : classMethod</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//override 가능유무</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">subClass</span>: <span class="title">KindOfClass</span> </span>&#123;</div><div class="line">    <span class="keyword">override</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;       <span class="comment">// compile error : Cannot override static method</span></div><div class="line">        <span class="built_in">print</span>(<span class="string">"subClass :staticMethod : override성공! "</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">override</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"subClass :classMethod : override성공! "</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">subClass.classMethod()      <span class="comment">//출력 : subClass :classMethod : override성공!</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="엑세스-제어"><a href="#엑세스-제어" class="headerlink" title="엑세스 제어"></a>엑세스 제어</h3><hr>
+<p>&lt;br&gt;</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//swift에는 세가지 메서드 타입이 존재한다.</span></span><br><span class="line"><span class="comment">// 인스턴스 메서드, 스태틱메서드, 클래스 매서드</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">instanceMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"instanceMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"staticMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"classMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">KindOfClass</span>.instanceMethod()      <span class="comment">//컴파일에러 -&gt; 인스턴스생성없이 접근불가.</span></span><br><span class="line"><span class="type">KindOfClass</span>.staticMethod()      <span class="comment">//출력 : staticMethod</span></span><br><span class="line"><span class="type">KindOfClass</span>.classMethod()        <span class="comment">//출력 : classMethod</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//override 가능유무</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">subClass</span>: <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;       <span class="comment">// compile error : Cannot override static method</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :staticMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :classMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">subClass.classMethod()      <span class="comment">//출력 : subClass :classMethod : override성공!</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="엑세스-제어">엑세스 제어</span></h3>
+<hr>
 <ul>
 <li>필요에 따라 프로퍼티의 가시성을 제어하여 숨기거나 드러낼 수 있다.</li>
 <li>프로퍼티의 데이터를 <strong><em>캡슐화</em></strong>하여 외부 코드에서 건드리지 못하게 된다.</li>
@@ -317,17 +339,18 @@
 <li>엑세스 제어는 소스와 모듈 중심으로 구성된다.</li>
 <li>모듈은 <code>import</code>키워드를 통해 가져온다.</li>
 </ul>
-<p><br></p>
+<p>&lt;br&gt;</p>
 <p><img src="/image/access.png" alt="접근제어"></p>
-<p><br></p>
+<p>&lt;br&gt;</p>
 <ul>
 <li>일반적으로 어떤 타입의 엑세스 수준은 그 프로퍼티나 메서드의 액세스 수준과 일관되야 한다.</li>
 <li><em>상위타입 접근 제한성</em> &gt; 타입의 프로퍼티의 접근 제한성</li>
 <li>스위프트의 기본 제어 수준은 <strong><em>internal</em></strong> 이다. (선언생략 가능)</li>
 <li>게터와 세터에 가시성을 따로따로 제어할 수 있다. BUT, 세터는 게터보다 가시성이 높을 수 없다.</li>
 </ul>
-<p><br></p>
-<h3 id="타입-캐스팅"><a href="#타입-캐스팅" class="headerlink" title="타입 캐스팅"></a>타입 캐스팅</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="타입-캐스팅">타입 캐스팅</span></h3>
+<hr>
 <p>제한된 범위 내에서 타입을 캐스팅할 수 있다.</p>
 <ol>
 <li>실제로 할당된 인스턴스 타입</li>
@@ -335,95 +358,203 @@
 <li>클래스가 상속을 받았을 경우 모든 상위 클래스</li>
 <li>프로토콜 타입이 상속을 받았을 경우 모든 상위 프로토콜</li>
 </ol>
-<p><br></p>
-<h3 id="클래스-전용-프로토콜"><a href="#클래스-전용-프로토콜" class="headerlink" title="클래스 전용 프로토콜"></a>클래스 전용 프로토콜</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="클래스-전용-프로토콜">클래스 전용 프로토콜</span></h3>
+<hr>
 <ul>
 <li><code>class</code> 키워드를 사용하여 클래스 전용 프로토콜임을 컴파일러에 알려주면 된다.</li>
 </ul>
-<p><br></p>
-<h3 id="optional"><a href="#optional" class="headerlink" title="optional"></a>optional</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="optional">optional</span></h3>
+<hr>
 <ul>
 <li>프로토콜 앞에 <code>@obj</code> 어노테이션을 붙인후 <code>optional</code> 키워드를 붙인다.</li>
 </ul>
-<p><br></p>
+<p>&lt;br&gt;</p>
 <hr>
-<p><a href="https://medium.com/ios-development-with-swift/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-get-set-didset-willset-in-ios-a8f2d4da5514" target="_blank" rel="external">참조1</a><br><a href="http://seorenn.blogspot.kr/2014/06/swift-properties.html" target="_blank" rel="external">참조2</a><br><a href="https://medium.com/@miles3898/swift%EC%9D%98-static-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-class-%EB%A9%94%EC%84%9C%EB%93%9C-975d367c4c19" target="_blank" rel="external">static메서드와 class메서드</a></p>
-
+<p><a href="https://medium.com/ios-development-with-swift/%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-get-set-didset-willset-in-ios-a8f2d4da5514" target="_blank" rel="noopener">참조1</a>
+<a href="http://seorenn.blogspot.kr/2014/06/swift-properties.html" target="_blank" rel="noopener">참조2</a>
+<a href="https://medium.com/@miles3898/swift%EC%9D%98-static-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-class-%EB%A9%94%EC%84%9C%EB%93%9C-975d367c4c19" target="_blank" rel="noopener">static메서드와 class메서드</a></p>
 
                 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/02/chap17-initializer/" data-toggle="tooltip" data-placement="top" title="CH17. Initializer">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/01/sort-quick/" data-toggle="tooltip" data-placement="top" title="분할정복">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/hyunnaa" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunah_princess 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

@@ -1,252 +1,247 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
 
 <!-- Head tag -->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CH12. Function - undefined
+        
+    </title>
 
-    <!--Description-->
-    
-        <meta name="description" content="CHAPTER12 / Function
-함수
-
-구체적인 어떤 task를 수행하는 코드 집합이다.
-파라미터는 함수 안에서 반드시 사용되어야 한다.
-파라미터에 이름을 사용할 경우, 외부에서 호출 되었을때 이름을 반드시 참조해야 한다.
-
-
-인수(argument) : 함수가 호">
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="hyunah_princess">
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="CH12. Function"/>
-    
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="현아의 IT COOK"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>CH12. Function - 현아의 IT COOK</title>
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/10/26/chap12-function/">
 
     <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-107997042-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-	
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
 
-<body>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">hyunAble</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <li>
-                        <a href="/">
+                    <div class="post-heading">
+                        <div class="tags">
                             
-                                Home
+                              <a class="tag" href="/tags/#함수" title="함수">함수</a>
                             
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                IT_Foood
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                foood_list
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                taste_tag
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/About">
-                            
-                                About
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>CH12. Function</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
+                        </div>
+                        <h1>CH12. Function</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunah_princess on
                             2017-10-26
-                        
-                    </span>
+                        </span>
+                    </div>
+                
+
+
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">현아의 IT COOK</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/About/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">IT_FOOOD</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">Foood_List</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Taste_Tag</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<a href="/tags/함수/">#함수</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/SWIFT-candy/">SWIFT candy</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="CHAPTER12-Function"><a href="#CHAPTER12-Function" class="headerlink" title="CHAPTER12 / Function"></a>CHAPTER12 / Function</h1><p><br><br><br></p>
-<h2 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h2><hr>
+                <h1><span id="chapter12-function">CHAPTER12 / Function</span></h1>
+<p>&lt;br&gt;
+&lt;br&gt;</p>
+<h2><span id="함수">함수</span></h2>
+<hr>
 <ul>
-<li>구체적인 어떤 <u>task를 수행하는 <strong>코드 집합</strong></u>이다.</li>
+<li>구체적인 어떤 &lt;U&gt;task를 수행하는 <strong>코드 집합</strong>&lt;/U&gt;이다.</li>
 <li>파라미터는 함수 안에서 반드시 사용되어야 한다.</li>
 <li>파라미터에 이름을 사용할 경우, 외부에서 호출 되었을때 <em>이름을 반드시 참조</em>해야 한다.</li>
 </ul>
 <ul>
 <li><strong>인수(argument)</strong> : 함수가 호출되었을 때 사용되는 일련의 값 자체.</li>
-<li><strong>파라미터(parameter)</strong> : 함수를 정의할 때(함수의 입장), 외부로 부터 받아들이는 값.<br>-&gt; <em>함수에서 <strong>argument</strong>가 <strong>parameter</strong>로써 대입되었다.</em></li>
+<li><strong>파라미터(parameter)</strong> : 함수를 정의할 때(함수의 입장), 외부로 부터 받아들이는 값.<br>
+-&gt; <em>함수에서 <strong>argument</strong>가 <strong>parameter</strong>로써 대입되었다.</em></li>
 </ul>
-<p><br></p>
-<h3 id="파라미터"><a href="#파라미터" class="headerlink" title="파라미터"></a>파라미터</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="파라미터">파라미터</span></h3>
+<hr>
 <ul>
 <li>파라미터는 <strong>외부 파라미터(extenal parameter)</strong>, **내부 파라미터(inner parameter) 두가지가 있다. 둘다 함께 사용 가능하며 생략도 가능하다.</li>
 <li>외부 파라미터는 함수를 호출시 이떤 인수를 넣어야 할지 가독성을 높이기 위해서 사용되며, 내부 파라미터는 함수 내부에서 사용될 때 가독성을 높이기 위해 사용된다.</li>
 </ul>
-<p><br></p>
-<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int)</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">3</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//external parameter를 사용할 경우</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(to name: String, <span class="number">_</span> ea: Int)</span></span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sendService(to: <span class="string">"현아공주"</span>, <span class="number">4</span>)</div><div class="line"></div><div class="line"><span class="comment">//출력 : 현아공주에게 딸기를 4개 보낸다.</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="가변-파라미터"><a href="#가변-파라미터" class="headerlink" title="가변 파라미터"></a>가변 파라미터</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//external parameter를 사용할 경우</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(to name: String, <span class="number">_</span> ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(to: <span class="string">"현아공주"</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아공주에게 딸기를 4개 보낸다.</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="가변-파라미터">가변 파라미터</span></h3>
+<hr>
 <ul>
 <li>인수에 해당하는 값을 하나도 전달받지 않을 수도 있고, 여러 개를 받을 수도 있다.</li>
 <li>인수로 전달받은 값들은 함수 안에서 <strong>배열의 형태</strong>로 사용된다.</li>
@@ -254,20 +249,25 @@
 <li>입력받은 인자들은 배열로 저장되며, 함수내부에서 <code>for~in</code> 구문으로 사용가능하다.</li>
 <li><code>파라미터이름 : String...</code> 형식으로 표현한다.</li>
 </ul>
-<p><br></p>
-<h4 id="CODE-1"><a href="#CODE-1" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(ea: Int, name: String...)</span></span> &#123;</div><div class="line">    <span class="keyword">for</span> names <span class="keyword">in</span> name &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(names)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">sendService(name: <span class="string">"현아"</span>,<span class="string">"화투"</span>,<span class="string">"병운"</span>,<span class="string">"재석"</span>, ea: <span class="number">7</span>)</div><div class="line"></div><div class="line"><span class="comment">//출력:</span></div><div class="line">현아에게 딸기를 <span class="number">7</span>개 보낸다.</div><div class="line">화투에게 딸기를 <span class="number">7</span>개 보낸다.</div><div class="line">병운에게 딸기를 <span class="number">7</span>개 보낸다.</div><div class="line">재석에게 딸기를 <span class="number">7</span>개 보낸다.</div></pre></td></tr></table></figure>
-<p><br></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">avg</span><span class="params">(grade: Int...)</span></span> -&gt; <span class="type">Int</span>&#123;</div><div class="line">  <span class="keyword">var</span> total = <span class="number">0</span></div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> grade &#123;	<span class="comment">//입력받은 학점들을 for문을 돌면서 저장한다</span></div><div class="line">    total += i</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">return</span> (total / grade.<span class="built_in">count</span>) 	<span class="comment">//평균학점</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="파라미터의-기본값"><a href="#파라미터의-기본값" class="headerlink" title="파라미터의 기본값"></a>파라미터의 기본값</h3><hr>
-<p>파라미터에는 기본값을 지정할 수 있다. 함수를 호출할 때 <em>인수를 생략</em>해도 된다. (따라서 입력된 인수가 없으면 설정한 default값으로 설정한다.)<br><code>ea: Int=10</code> 와 같이 기본값을 설정 가능하다.</p>
-<p><br></p>
-<h4 id="CODE-2"><a href="#CODE-2" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int=<span class="number">10</span>)</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sendService(name: <span class="string">"현아"</span>)</div><div class="line"></div><div class="line"><span class="comment">//출력 : 현아에게 딸기를 10개 보낸다.</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="인아웃-파라미터"><a href="#인아웃-파라미터" class="headerlink" title="인아웃 파라미터"></a>인아웃 파라미터</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(ea: Int, name: String...)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> names <span class="keyword">in</span> name &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(names)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>,<span class="string">"화투"</span>,<span class="string">"병운"</span>,<span class="string">"재석"</span>, ea: <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력:</span></span><br><span class="line">현아에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">화투에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">병운에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">재석에게 딸기를 <span class="number">7</span>개 보낸다.</span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">avg</span><span class="params">(grade: Int...)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> grade &#123;	<span class="comment">//입력받은 학점들을 for문을 돌면서 저장한다</span></span><br><span class="line">    total += i</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (total / grade.<span class="built_in">count</span>) 	<span class="comment">//평균학점</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3><span id="파라미터의-기본값">파라미터의 기본값</span></h3>
+<hr>
+<p>파라미터에는 기본값을 지정할 수 있다. 함수를 호출할 때 <em>인수를 생략</em>해도 된다. (따라서 입력된 인수가 없으면 설정한 default값으로 설정한다.)<br>
+<code>ea: Int=10</code> 와 같이 기본값을 설정 가능하다.</p>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int=<span class="number">10</span>)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아에게 딸기를 10개 보낸다.</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="인아웃-파라미터">인아웃 파라미터</span></h3>
+<hr>
 <p>파라미터값은 변경할 수 없는 상수(<code>let</code>)로 값이 복사되어 전달된다. (값에 의한 전달)</p>
 <p>만약 <strong>인아웃 파라미터</strong>를 사용하지 않으면 immutable 값이라 변경불가능하다고 컴파일 에러가 뜬다.</p>
-<p>따라서 직접 값을 변경 할 수 없으며 내부에서 값을 변경하여 사용하려면 다른 변수로 값을 복사하여 사용해야 한다. </p>
-<p>하지만 <strong>inout 파라미터</strong>를 통해서 파라미터의 실제 값을 변경가능하다. (<strong>참조에 의한 전달</strong>) </p>
+<p>따라서 직접 값을 변경 할 수 없으며 내부에서 값을 변경하여 사용하려면 다른 변수로 값을 복사하여 사용해야 한다.</p>
+<p>하지만 <strong>inout 파라미터</strong>를 통해서 파라미터의 실제 값을 변경가능하다. (<strong>참조에 의한 전달</strong>)</p>
 <p>inout 파라미터가 붙은 매개변수는 일반 파라미터와 달리 인자값이 전달될 때 새로운 내부 상수를 만들어 복사하는 대신, <strong><em>인자값 자체를 내부로 전달한다.</em></strong>(저장된 메모리주소를 전달)</p>
 <ol>
 <li>가변 파라미터에는 <code>inout</code>을 적용할 수 없다.</li>
@@ -276,50 +276,58 @@
 <li><code>파라미터이름: inout String</code> 의 형식으로 사용한다.호출된 후 인자 앞에는 <code>&amp;(엠퍼샌드)</code>를 붙어야한다.</li>
 </ol>
 <p>** <code>&amp;(엠퍼샌드)</code> : 주소 추출 연산자로, 변수나 상수 앞에 붙어 저장된 메모리의 주소를 읽어오는 역활을 한다.</p>
-<p><br></p>
-<h4 id="CODE-3"><a href="#CODE-3" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">inoutParam</span> <span class="params">(param: <span class="keyword">inout</span> Int)</span></span> &#123;</div><div class="line">       param += <span class="number">1</span> </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">1</span></div><div class="line">inoutParam(param: &amp;<span class="built_in">count</span>)	</div><div class="line"></div><div class="line"><span class="comment">// count = 1 -&gt; count = 2</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="return값-지정하기"><a href="#return값-지정하기" class="headerlink" title="return값 지정하기"></a>return값 지정하기</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inoutParam</span> <span class="params">(param: <span class="keyword">inout</span> Int)</span></span> &#123;</span><br><span class="line">       param += <span class="number">1</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">1</span></span><br><span class="line">inoutParam(param: &amp;<span class="built_in">count</span>)	</span><br><span class="line"></span><br><span class="line"><span class="comment">// count = 1 -&gt; count = 2</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="return값-지정하기">return값 지정하기</span></h3>
+<hr>
 <ul>
 <li>return type은 파라미터 옆에 <code>-&gt; String</code> 과 같이 나타내고, return 값은 함수 내부에서 정의한다.</li>
 <li>복수 리턴값이 가능하며 <code>-&gt; (파라미터이름1:[type] ,파라미터이름2: [type])</code> 와 같이 표현 가능하다.</li>
 <li>복수 리턴값은 <strong>튜플</strong>의 형태로 저장된다.</li>
 </ul>
-<p><br></p>
-<h4 id="CODE-4"><a href="#CODE-4" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int, soldOut:  String)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line"></div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>님, <span class="subst">\(soldOut)</span> 매진 되었습니다."</span>)</div><div class="line">        <span class="keyword">return</span> ea</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">10</span>, soldOut: <span class="string">"마카롱"</span>)</div><div class="line"></div><div class="line"><span class="built_in">print</span>(result)</div><div class="line"></div><div class="line"><span class="comment">//출력: 현아공주님, 마카롱 매진 되었습니다. / 10</span></div><div class="line"><span class="comment">// return 값이 있기 때문에, 변수에 담아서 사용해야 한다.</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//1개 이상의 리턴값을 튜플로 묶어 반환하기.</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (<span class="type">Int</span>,<span class="type">String</span>)&#123;</div><div class="line">  <span class="keyword">let</span> age = <span class="number">27</span></div><div class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></div><div class="line">  </div><div class="line">  <span class="keyword">return</span> (age,name) 	<span class="comment">//튜플 순서에 맞게 반환해 주면 된다.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//튜플로 된 리턴값을 대입받은 변수사용</span></div><div class="line"><span class="comment">//방법 1</span></div><div class="line"><span class="keyword">var</span> service = sendService()	<span class="comment">//service에 튜블로 된 리턴값이 담긴다.</span></div><div class="line">sevice.<span class="number">0</span>	<span class="comment">// 27</span></div><div class="line">service.<span class="number">1</span>	<span class="comment">// hyunable</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 방법 2 : 튜플에 파싱하기</span></div><div class="line"><span class="keyword">var</span> (a,b) = sendService()	<span class="comment">//튜플에 리턴값이 파싱되어 저장된다.</span></div><div class="line">sevice.a	<span class="comment">// 27</span></div><div class="line">service.b	<span class="comment">// hyunable</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//방법 3 : 외부변수명으로 불러오기</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (a: <span class="type">Int</span>, n: <span class="type">String</span>)&#123;</div><div class="line">  <span class="keyword">let</span> age = <span class="number">27</span></div><div class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></div><div class="line">  </div><div class="line">  <span class="keyword">return</span> (age,name)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> service = sendService()</div><div class="line">sevice.a	<span class="comment">// 27</span></div><div class="line">service.n	<span class="comment">// hyunable</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//튜플에 다른곳에서 여러번 재사용 될 경우엔 편의를 위해서 typealias를 통해서 정의 할 수 있다.</span></div><div class="line"></div><div class="line"><span class="keyword">typealias</span> info = (<span class="type">Int</span>,<span class="type">String</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; info&#123;</div><div class="line">  <span class="keyword">let</span> age = <span class="number">27</span></div><div class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></div><div class="line">  </div><div class="line">  <span class="keyword">return</span> (age,name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="함수의-중첩"><a href="#함수의-중첩" class="headerlink" title="함수의 중첩"></a>함수의 중첩</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int, soldOut:  String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>님, <span class="subst">\(soldOut)</span> 매진 되었습니다."</span>)</span><br><span class="line">        <span class="keyword">return</span> ea</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">10</span>, soldOut: <span class="string">"마카롱"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력: 현아공주님, 마카롱 매진 되었습니다. / 10</span></span><br><span class="line"><span class="comment">// return 값이 있기 때문에, 변수에 담아서 사용해야 한다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//1개 이상의 리턴값을 튜플로 묶어 반환하기.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (<span class="type">Int</span>,<span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name) 	<span class="comment">//튜플 순서에 맞게 반환해 주면 된다.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플로 된 리턴값을 대입받은 변수사용</span></span><br><span class="line"><span class="comment">//방법 1</span></span><br><span class="line"><span class="keyword">var</span> service = sendService()	<span class="comment">//service에 튜블로 된 리턴값이 담긴다.</span></span><br><span class="line">sevice.<span class="number">0</span>	<span class="comment">// 27</span></span><br><span class="line">service.<span class="number">1</span>	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 방법 2 : 튜플에 파싱하기</span></span><br><span class="line"><span class="keyword">var</span> (a,b) = sendService()	<span class="comment">//튜플에 리턴값이 파싱되어 저장된다.</span></span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.b	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//방법 3 : 외부변수명으로 불러오기</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (a: <span class="type">Int</span>, n: <span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> service = sendService()</span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.n	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플에 다른곳에서 여러번 재사용 될 경우엔 편의를 위해서 typealias를 통해서 정의 할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> info = (<span class="type">Int</span>,<span class="type">String</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; info&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="함수의-중첩">함수의 중첩</span></h3>
+<hr>
 <ul>
 <li>내부 함수와 외부 함수로 구분할 수 있다.</li>
 </ul>
 <ul>
 <li>내수함수의 개수에 제한이 없다.</li>
-<li>내부함수는 <u>외부함수가 실행되는 시점에서 생성되고, 종료되는순간 소멸</u>된다. (내부함수의 Life Cycle) </li>
+<li>내부함수는 &lt;u&gt;외부함수가 실행되는 시점에서 생성되고, 종료되는순간 소멸&lt;/u&gt;된다. (내부함수의 Life Cycle)</li>
 <li>이 때문에 내부 함수는 외부로 부터 차단될 수 있다. (함수의 <strong>은닉성</strong>이 높아진다.)</li>
 <li>외부 함수 내부에 변수와 인스턴스를 공유가능하다. (함수의 <code>{}</code> 시야안에 포함되기 때문이다.)</li>
 <li>​</li>
 </ul>
-<p><br></p>
-<h3 id="Guard-함수에서-중도에-빠져나오기"><a href="#Guard-함수에서-중도에-빠져나오기" class="headerlink" title="Guard : 함수에서 중도에 빠져나오기"></a>Guard : 함수에서 중도에 빠져나오기</h3><hr>
+<p>&lt;br&gt;</p>
+<h3><span id="guard-함수에서-중도에-빠져나오기">Guard : 함수에서 중도에 빠져나오기</span></h3>
+<hr>
 <ul>
 <li>함수의 시작부분에 써서 검사하여 <strong><em>부적절한 조건일 때</em></strong> 함수 실행 도중에 빠져나와 코드가 실행되지 않도록 할 때 사용한다.</li>
 <li><code>if let</code>처럼 쓰인다고 생각하면 된다. (if문의 subset 개념)</li>
 <li>if문을 쓰지 않고 guard를 쓰는 이유는, <em>가독성</em> 때문이다.</li>
-<li>문법은 <code>guard (조건) else</code> 와 같이 쓰며, 조건이 true 이면 guard문은 그냥 지나쳐가고, <u>false일 경우 else 구문을 수행한 뒤 함수를 바로 종료한다.</u></li>
+<li>문법은 <code>guard (조건) else</code> 와 같이 쓰며, 조건이 true 이면 guard문은 그냥 지나쳐가고, &lt;U&gt;false일 경우 else 구문을 수행한 뒤 함수를 바로 종료한다.&lt;/U&gt;</li>
 <li><code>return</code> 혹은 <code>throw</code> 등 종료하는 명령이 존재해야하며, 없을 경우 컴파일 에러가 발생된다.</li>
 </ul>
-<p><br></p>
-<h4 id="CODE-5"><a href="#CODE-5" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span> <span class="params">(fullName : <span class="params">(first:String, second: String?, third:String)</span></span></span>)  &#123;</div><div class="line"></div><div class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> secondName = fullName.second <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"외자 이름"</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(secondName)</span>"</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">sayHello(fullName: (<span class="string">"정"</span>,<span class="string">"현"</span>,<span class="string">"아"</span>))</div><div class="line"><span class="comment">//출력 : 현</span></div></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="함수형-프로그래밍의-장점"><a href="#함수형-프로그래밍의-장점" class="headerlink" title="함수형 프로그래밍의 장점"></a>함수형 프로그래밍의 장점</h3><hr>
+<p>&lt;br&gt;</p>
+<h4><span id="code">CODE</span></h4>
+<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span> <span class="params">(fullName : <span class="params">(first:String, second: String?, third:String)</span></span></span>)  &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> secondName = fullName.second <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"외자 이름"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(secondName)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(fullName: (<span class="string">"정"</span>,<span class="string">"현"</span>,<span class="string">"아"</span>))</span><br><span class="line"><span class="comment">//출력 : 현</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;br&gt;</p>
+<h3><span id="함수형-프로그래밍의-장점">함수형 프로그래밍의 장점</span></h3>
+<hr>
 <ol>
 <li>동일한 코드가 여러곳에서 사용될 때 재작성할 필요 없이 함수 호출만으로 처리가 가능하다.</li>
 <li>전체 프로세스를 하나의 소스코드에서 연속적으로 작성하는 것 보다 기능 단위로 함수화하면 가독성이 좋아지고, 코드와 로직을 이해하기 쉬워진다.</li>
 <li>로직을 변경해야할 때 함수 내부만 수정하면 되므로 유지보수가 용이하다.</li>
 </ol>
-<p><br></p>
-<h3 id="defer-Block-지연블록"><a href="#defer-Block-지연블록" class="headerlink" title="defer Block (지연블록)"></a>defer Block (지연블록)</h3><hr>
-<p>메서드에서 코드의 흐름과 상관없이 가장 마지막에 실행되는 블록이다. 작성된 위치와 상관없이 함수의 종료 직전에 실행된다. 종료 시점에 맞추어 처리할 구문이 있다면 <code>defer</code> 구문에 넣어두면 된다. </p>
+<p>&lt;br&gt;</p>
+<h3><span id="defer-block-지연블록">defer Block (지연블록)</span></h3>
+<hr>
+<p>메서드에서 코드의 흐름과 상관없이 가장 마지막에 실행되는 블록이다. 작성된 위치와 상관없이 함수의 종료 직전에 실행된다. 종료 시점에 맞추어 처리할 구문이 있다면 <code>defer</code> 구문에 넣어두면 된다.</p>
 <ul>
 <li>작성된 위치와 상관없이 함수 종료 직전에 실행된다.</li>
 <li><code>defer</code>구문을 읽기 전 함수구문이 종료될 경우 <code>defer</code>구문은 실행되지 않는다.</li>
@@ -327,81 +335,185 @@
 <li>중첩해서 사용 가능하다. 가장 바깥쪽 <code>defer</code>구문부터 안쪽 구문까지 순차적으로 실행된다.</li>
 </ul>
 
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/10/26/chap13-closure/" data-toggle="tooltip" data-placement="top" title="CH13. Closure">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/10/26/chap11-set/" data-toggle="tooltip" data-placement="top" title="CH11. Set">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
                 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-                    <div class="addthis_sharing_toolbox"></div>
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
         </div>
     </div>
 </article>
 
-    <!-- Footer -->
-    <hr />
 
-<!-- Footer -->
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                    
+                
+                
+                
 
-                    
+                
 
-                    
-                        <li>
-                            <a href="https://github.com/hyunnaa" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
+                
 
-                    
+                
 
-                    
+                
 
-                    
                 </ul>
-                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunah_princess 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
             </div>
         </div>
     </div>
 </footer>
 
-
-    <!-- After footer scripts -->
-    
 <!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
 
 
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 
