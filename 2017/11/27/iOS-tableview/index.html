@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Let&#39;s Play IT">
+    <meta name="keyword"  content="swift">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          TableView - 현아의 IT Playground
+        
+    </title>
+
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/27/iOS-tableview/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../../../css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../../../css/widget.css">
+
+    <link rel="stylesheet" href="../../../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../../../css/signature.css">
+
+    <link rel="stylesheet" href="../../../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#tableview" title="tableview">tableview</a>
+                            
+                              <a class="tag" href="/tags/#cell" title="cell">cell</a>
+                            
+                        </div>
+                        <h1>TableView</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunAble on
+                            2017-11-27
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">IT Playground</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About Me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="tableview">TableView</span></h1>
+<h2><span id="테이블뷰">테이블뷰</span></h2>
+<hr>
+<ul>
+<li>UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.</li>
+<li>테이블뷰<strong>컨트롤러</strong> &gt; <strong>테이블뷰</strong> &gt; 여러개의 테이블뷰 <strong>섹션</strong> &gt; 테이블뷰 <strong>셀</strong> &gt; <strong>컨텐츠 뷰</strong></li>
+</ul>
+<br>
+<h3><span id="프로토타입-셀">프로토타입 셀</span></h3>
+<hr>
+<ul>
+<li>테이블 뷰의 셀을 원하는 대로 쉽게 디자인할 수 있도록 해주는 객체. Cell content 부분과 Accessory view부분으로 나뉜다.</li>
+</ul>
+<ul>
+<li>프로토타입 셀은 실제로 화면에 표시되는 컨트롤이 아니기 때문에 소스에서 <strong><em>Cell identity</em></strong> 를 통해 참조가 이루어진다.</li>
+<li>배열 형태의 데이터 소스를 테이블 뷰 각 행에 연결 (Data Binding) 하면 동적생성이 가능하다.</li>
+</ul>
+<br>
+<h5><span id="value-object-pattern-vo">Value Object Pattern (VO)</span></h5>
+<blockquote>
+<p>데이터 저장을 전담하는 클래스를 별도로 분리하는 설계 방식. 데이터저장을 위한 클래스임을 쉽게 식별하기 위해서</p>
+<p>클래스 명명시 VO를 붙여주기도한다. VO class에 담기는 각종 변수들은 해당 데이터를 담는 역할을 하며,</p>
+<p>클래스 인스턴스 전체가 전달되기 때문에 내부 변수에 저장된 값도 함께 전달되어 용이하다.</p>
+</blockquote>
+<br>
+<h3><span id="require-protocol">Require Protocol</span></h3>
+<h5><span id="uitableviewdatasource">UITableViewDataSource</span></h5>
+<hr>
+<ol>
+<li>
+<p><code>tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int</code></p>
+<blockquote>
+<p>테이블이 몇개의 행으로 구성되는가?</p>
+</blockquote>
+<ul>
+<li>테이블 뷰가 <strong>생성해야 할 행(row)의 개수</strong> 반환</li>
+<li>iOS 시스템에게 알려주기 위한 메서드 . <em>이 메서드에 의해서 행의 갯수가 결정됨</em></li>
+<li>Pamameter
+<ol>
+<li><code>tableView</code> : 하나의 테이블뷰컨트롤러 안에 두개 이상의 테이블뷰가 존재할 경우, 프로토콜에 의해 설계되어 모두 같은 메서드를 호출하게 된다. 이때 <strong><em>어떤 테이블 뷰에서 자신을 호출하는지</em></strong>를 알려주기 위한 파라미터</li>
+<li><code>section</code> : 섹션에 대한 정보. 각 섹션마다 갖고있는 행의 수를 다르게 하기 위해서 설정해 준다.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><code>func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell</code></p>
+<blockquote>
+<p>각 행의 내용은 어떻게 구성되는가?</p>
+</blockquote>
+<ul>
+<li>각 행이 화면에 표현해야 할 내용을 구성하는 데 사용된다. 화면에 표현해야 할 목록의 수만큼 이 메서드가 반복적으로 호출된다.</li>
+<li>이 함수에서 재사용 셀을 생성하는 구문을 넣어준다.</li>
+<li>Pamameter
+<ol>
+<li><code>tableView</code> : 구성하고자하는 테이블뷰</li>
+<li><code>IndexPath</code>  :  선택된 행에 대한 관련 속성들을 제공. <code>.row</code> 를 통해서 행의 번호를 알 수 있다.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<h3><span id="delegate">Delegate</span></h3>
+<h5><span id="uitableviewdelegate-optional">UITableViewDelegate / optional</span></h5>
+<hr>
+<p>func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)`</p>
+<ul>
+<li>사용자가 목록 중 <strong><em>특정 행을 선택했을 때</em></strong> 호출된다.</li>
+<li>화면이동 및 상세 내용을 팝업으로 보여주는 등 다양한 기능구현가능</li>
+</ul>
+<br>
+<h3><span id="reusablecell">ReusableCell</span></h3>
+<hr>
+<ul>
+<li><strong><em>재사용 큐(Queue)</em></strong> 란, iOS에서는 기기의 메모리와 배터리를 절약하기 위해서 데이터만큼의 셀을 만들어 놓지 않는다.<br>
+대신 화면에 표시되어야할 만큼만 셀을 만들어 놓고, 필요에 따라 셀을 그때그때 추가한다.<br>
+매번 새로운 셀을 생성하면 메모리적으로 부담이 되기 때문에, 샐 객체를 저장해두는 공간을 만들어 놓고 필요할때 꺼내어 사용하게 된다. 필요 없어진 셀 객체는 여기에 다시 저장되게 된다.</li>
+<li><code>.dequeueReusableCell(withIdentifier: &quot;customCell&quot;, for: indexPath)</code>
+<ul>
+<li>이 메서드를 입력받은 아이디(<code>withIdentifier</code>)를 이용하여 스토리보드에 정의된 <strong>프로토타입 셀</strong>을 찾고, 이를 인스턴스로 생성하여 제공한다.</li>
+<li>만약 입력된 아이디에 맞는 인스턴스 큐가 없다면 새로 생성하여 제공하는 방식으로 동작한다.</li>
+</ul>
+</li>
+<li><strong>재사용 메커니즘</strong>
+<ol>
+<li>테이블 뷰가 화면에 나타낼 셀 객체를 자신의 데이터 소스에게 요청</li>
+<li>데이터 소스는 테이블 뷰의 재사용 큐 (ReUse Queue)에서 사용 가능한 셀이 있는지 확인하여 만일 있다면 그중 하나를 꺼내 전달하고 , 없으면 새로운 셀 생성</li>
+<li><code>tableView(_:cellForRowAt:)</code> 메서드가 셀의 콘텐츠를 구성한 다음 반환하면 테이블 뷰는 이 셀을 받아 화면에 표시한다. <em>(단, 셀이 화면에 표시되기 위해서는 위 메서드를 거쳐야 하므로 해당 메서드는 셀 갯수 만큼 호출된다.)</em></li>
+<li>사용자가 테이블 뷰를 스크롤함에 따라 화면을 벗어난 셀은 테이블 뷰에서 제거되지만 완전히 삭제하는 것이 아니라 재사용 큐에 추가된다.</li>
+<li><code>1~4</code> 과정 반복!</li>
+</ol>
+</li>
+</ul>
+<br>
+<h3><span id="self-sizing-cell">Self-Sizing Cell</span></h3>
+<hr>
+<ol>
+<li>
+<p><code>func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -&gt; CGFloat</code></p>
+<ul>
+<li>
+<p>행에 대한 인자를 받고 , 그 행의 높이를 얼마로 해줄지 계산하여 반환하는 메서드</p>
+</li>
+<li>
+<p>Ex.) CGFloat 타입의 리턴값을 사용하므로, 타입캐스팅을 해주고 기본값 160높이로 지정 후 데이타의 글자수가 30을 넘을 때마다 20씩 늘려준다.</p>
+<p>​</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> row = <span class="keyword">self</span>.listData[indexPath.row]  </span><br><span class="line"><span class="keyword">let</span> height = <span class="type">CGFloat</span>(<span class="number">160</span> + (row.description.<span class="built_in">count</span> / <span class="number">30</span>) * <span class="number">20</span>)</span><br><span class="line"><span class="keyword">return</span> height</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>이때 행의 높이는 늘어났으나 [ ……] 으로 텍스트가 짤리는 경우가 생기는데, 텍스트 레이블의 행 수가 default값인 1로 지정되어 한줄로밖에 표현안되기 때문이다. <code>cell.textLable?numberOfLines = 0</code> 으로 설정해주면 라인 제한이 없어진다.</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>
+<p>위 방법 대신 간단한 코드로 셀프사이징 셀을 구현할 수 있다.</p>
+<ul>
+<li>
+<p><code>estimatedRowHeight</code> 프로퍼티 : 셀 전체의 임의 높이값을 설정해 준다.</p>
+</li>
+<li>
+<p><code>UITableViewAutomaticDimension</code> 객체 : rowHeight 속성에 대입되어 높이값이 동적으로 설정될 것을 테이블 뷰에 알려주는 역할을 한다.</p>
+</li>
+<li>
+<p><code>viewDidLoad()</code> 는 아직 뷰가 화면에 구현되기 전 시점이므로 적절하지 않으며, 뷰를 그려줄때 호출되는 <code>viewWillAppear(_:)</code> 에 구현해 주는것이 적합하다.</p>
+</li>
+<li>
+<p>해당 방법을 쓰면 위 <code>tableView(_:estimatedHeightForRowAt:)</code> 메서드는 삭제해준다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">160</span></span><br><span class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="type">UITableViewAutomaticDimension</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<h5><span id="참고-ios-프로그래밍-원칙">참고 :: iOS 프로그래밍 원칙</span></h5>
+<hr>
+<ol>
+<li>반복적으로 호출되는 메서드의 내부에는 네트워크 통신 등 처리 시간이 긴 로직을 포함하지 않아야 한다.</li>
+<li>네트워크 통신을 통해 읽어온 데이터는 재사용할 수 있도록 캐싱(Cashing) 처리하여 될 수 있으면 네트워크 통신 횟수를 줄이는 것이 좋습니다.</li>
+<li>네트워크 통신이나 시간이 오래 걸리는 코드를 사용할 때는 비동기(Asynchronize) 로 처리하는 것이 바람직하다.</li>
+</ol>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/27/iOS-api/" data-toggle="tooltip" data-placement="top" title="네트워크 통신과 API">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/26/iOS-Delegate/" data-toggle="tooltip" data-placement="top" title="Deletage Pattern">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#tableview" title="tableview">tableview</a>
+                        
+                          <a class="tag" href="/tags/#cell" title="cell">cell</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hyunnaa">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunAble 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

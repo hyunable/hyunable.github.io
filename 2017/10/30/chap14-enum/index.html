@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Let&#39;s Play IT">
+    <meta name="keyword"  content="swift">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          CH14. Enumeration - 현아의 IT Playground
+        
+    </title>
+
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/10/30/chap14-enum/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../../../css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../../../css/widget.css">
+
+    <link rel="stylesheet" href="../../../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../../../css/signature.css">
+
+    <link rel="stylesheet" href="../../../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#enum" title="enum">enum</a>
+                            
+                        </div>
+                        <h1>CH14. Enumeration</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunAble on
+                            2017-10-30
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">IT Playground</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About Me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="chapter14-enumeration">CHAPTER14 / Enumeration</span></h1>
+<h2><span id="열거형">열거형</span></h2>
+<hr>
+<p>swift가 제공하는 자신만의 타입을 만들 수 있는 기능으로 줄여서 <code>enum</code>으로 표기한다.<br>
+<u>리스트 형태로 정의된 여러 케이스(case)로 인스턴스</u>를 만들 수 있는 방법이다.</p>
+<ul>
+<li>열거형 타입의 이름은 <strong>대문자</strong>로 시작하는 것이 관례! ( 변수,함수, 열거형 케이스는 소문자로 시작 )</li>
+<li><strong>케멀케이스</strong>로 네이밍을 한다.</li>
+<li>컴파일러가 타입추론이 가능할 경우 타입을 생략 가능하다</li>
+</ul>
+<br>
+<h3><span id="switch를-사용한-enum">switch를 사용한 Enum</span></h3>
+<hr>
+<ul>
+<li>모든 경우의 수에 케이스를 하나씩 포함하여 소모적인 <code>switch</code>로 작성하는 것을 권장한다.</li>
+<li>열거형의 <code>switch</code>문에서는 <code>default</code>가 필수가 아니다. 컴파일러가 이미 모든 가능한 값을 알고 있기 때문이다.</li>
+<li>열거형 타입에는 <code>default</code>를 쓰지 않는 것을 권장한다. 모든 논리적 허점을 막아줄 수 없기 때문이다.</li>
+<li>새로 케이스를 추가할 경우 컴파일러는 자동으로 업데이트 할 곳을 모두 표시해준다.</li>
+</ul>
+<br>
+<h3><span id="원시값raw-value">원시값(raw Value)</span></h3>
+<hr>
+<ul>
+<li>변수에 일일히 열거형을 담아 처리하는 함수를 만들지 않아도 <code>rawValue</code>를 사용하면 변수를 해당 원시값으로전환할 수 있다.</li>
+<li>원시값을 통해서 Enum을 생성가능하다.</li>
+<li>컴파일러가 자동으로 지정된 값을 기준으로 +1씩 증가되어 rawValue값이 지정된다.</li>
+<li>원시값이 <em>Int형</em>인데 원시값이 생략되었을 경우, 0,1,2… 순으로 rawValue값이 지정된다.</li>
+<li>원시값이 <em>String형</em>인데 원시값이 생략되었을 경우 <em>케이스 자체의 이름</em>이 rawValue값이 지정된다.</li>
+</ul>
+<br>
+<h4><span id="code-basic">CODE :: Basic</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Month</span>: <span class="title">Int</span> </span>&#123;  <span class="comment">//타입은 반드시 기재안해도 됨.</span></span><br><span class="line">    <span class="keyword">case</span> january = <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> feburary</span><br><span class="line">    <span class="keyword">case</span> march</span><br><span class="line">    <span class="keyword">case</span> april</span><br><span class="line">    <span class="keyword">case</span> may</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">toString</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123; <span class="comment">//self = Month 객체자신</span></span><br><span class="line">        <span class="keyword">case</span> .january:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"1월"</span></span><br><span class="line">        <span class="keyword">case</span> .feburary:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"2월"</span></span><br><span class="line">        <span class="keyword">case</span> .march:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"3월"</span></span><br><span class="line">        <span class="keyword">case</span> .april:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"4월"</span></span><br><span class="line">        <span class="keyword">case</span> .may:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"5월"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> whatMonth: <span class="type">Month</span> = .feburary</span><br><span class="line"><span class="built_in">print</span>(whatMonth)    <span class="comment">//출력 : feburary</span></span><br><span class="line"><span class="built_in">print</span>(whatMonth.rawValue)     <span class="comment">//출력 : 2 (원시값)</span></span><br><span class="line"><span class="built_in">print</span>(whatMonth.<span class="built_in">toString</span>())  <span class="comment">// 출력: 2월</span></span><br></pre></td></tr></table></figure>
+<br>
+<h4><span id="code-원시값-gt-enum-case로-전환">CODE :: 원시값 -&gt; Enum Case로 전환</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 원시값 생성</span></span><br><span class="line"><span class="keyword">let</span> turnToCase = <span class="number">5</span></span><br><span class="line"><span class="comment">// 생성된 원시값에 해당하는 case가 없을 수 있으므로 옵셔널 바인딩</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> toCase = <span class="type">Month</span>(rawValue: turnToCase) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"case : <span class="subst">\(toCase)</span>"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"전환실패"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반 열거형 생성</span></span><br><span class="line"><span class="keyword">let</span> whatMonth: <span class="type">Month</span> = .may</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"case : <span class="subst">\(whatMonth)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 결과상동 : case : may</span></span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="값타입value-type-메서드">값타입(value type) 메서드</span></h3>
+<hr>
+<p>swift에서 열거형은 <strong>값 타입</strong>이며, 값 타입의 메서드는 <em>self를 변경 불가능</em>하다.<br>
+따라서 메서드가 self를 변경하려고 하면 <code>Cannot assign to value : self is immutable</code> 이라는 컴파일 에러가 발생한다. 즉, 메서드에 <code>mutating</code> 이라는 키워드를 붙여야 한다.</p>
+<h4><span id="code">CODE</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">button</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> on</span><br><span class="line">    <span class="keyword">case</span> off</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">surfaceTemperature</span> <span class="params">(temp: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .on:</span><br><span class="line">            <span class="keyword">return</span> temp + <span class="number">36.5</span></span><br><span class="line">        <span class="keyword">case</span> .off:</span><br><span class="line">            <span class="keyword">return</span> temp * <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// on,off케이스를 전환해주는 함수 생성</span></span><br><span class="line">    <span class="comment">// 값자체를 변경 가능하도록 mutating을 붙여줘야 한다.</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span> <span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span>  <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .on:</span><br><span class="line">            <span class="keyword">self</span> = .off</span><br><span class="line">        <span class="keyword">case</span> .off:</span><br><span class="line">            <span class="keyword">self</span> = .on</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 값이 변경 가능하도록 let이 아닌 var로 선언</span></span><br><span class="line"><span class="keyword">var</span> bulb:button = .on</span><br><span class="line">bulb.toggle()</span><br><span class="line"><span class="built_in">print</span>(bulb) <span class="comment">// case : on -&gt; off</span></span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="연관값associated-values">연관값(Associated Values)</span></h3>
+<hr>
+<p>데이터를 열거형의 인스턴스에 연동할 수 있고, 그럼으로써 케이스마다 다른 연동값을 가질 수 있다.</p>
+<h4><span id="code">CODE</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//연관값</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">dimension</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 점은 연동값이 없다.</span></span><br><span class="line">    <span class="keyword">case</span> point</span><br><span class="line">    <span class="keyword">case</span> square(side: <span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> rectangle(width: <span class="type">Int</span>, height: <span class="type">Int</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">area</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">          <span class="comment">// self의 연동값을 새 변수들에 바인딩 했다.</span></span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> .square(side: side):</span><br><span class="line">            <span class="keyword">return</span> side * side</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> .rectangle(width: w, height:h):</span><br><span class="line">            <span class="keyword">return</span> w * h</span><br><span class="line">        <span class="keyword">case</span> .point:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rectangleObj:dimension = .rectangle(width: <span class="number">5</span>, height: <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(rectangleObj.area())</span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="재귀적-열거형">재귀적 열거형</span></h3>
+<hr>
+<p>데이터 구조 중 트리(Tree)에서 쓰일 수 있다.<br>
+case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러는 Enum의 크기를 가늠하기 어려워 지며, <em>메모리를 무한대로 요구</em>하게 된다.<br>
+대신 <u> <code>indirect</code>키워드가 붙게 되면, 열거형의 데이터가 포인터 뒤에 저장</u>된다.<br>
+즉, 열거형의 인스턴스에 데이터가 담길 충분한 메모리를 제공하지 않고 메모리 내 다른 공간에 데이터를 둔다. 메모리 관리 차원에서 반드시 필요한 부분이다.<br>
+또한 <code>indirect</code> 키워드는 case에 개별적으로 붙일 수있다.</p>
+<br>
+<h3><span id="옵셔널과-enum">옵셔널과 Enum</span></h3>
+<hr>
+<p>옵셔널은 Enum이다.<br>
+옵셔널의 구조를 보면 아래와 같다.</p>
+<h4><span id="code-옵셔널-내부구조">CODE :: 옵셔널 내부구조</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Optional</span>&lt;<span class="title">wrapped</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">case</span> some(wrapped)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h4><span id="code-옵셔널에서-enum구조-활용">CODE :: 옵셔널에서 Enum구조 활용</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> height:<span class="type">Int</span>? = <span class="number">165</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> height &#123;</span><br><span class="line"><span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"nothing"</span>)</span><br><span class="line"><span class="keyword">case</span> .some(<span class="keyword">let</span> x) <span class="keyword">where</span> x &lt; <span class="number">150</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 작습니다"</span>)</span><br><span class="line"><span class="keyword">case</span> .some(<span class="keyword">let</span> x) <span class="keyword">where</span> x &lt; <span class="number">170</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 적당합니다"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 큽니다"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>따라서 옵셔널은 Enum 타입이기 때문에 위와 같이 <code>switch</code>문 적용이 가능하다.</p>
+<br>
+<br>
+<p><a href="https://devxoul.gitbooks.io/ios-with-swift-in-40-hours/content/Chapter-3/enums.html" target="_blank" rel="noopener">참고 사이트</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/10/30/chap15-struct-Class/" data-toggle="tooltip" data-placement="top" title="CH15. Structure & Class">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/10/27/functionalProgramming/" data-toggle="tooltip" data-placement="top" title="함수형 프로그래밍">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#enum" title="enum">enum</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hyunnaa">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunAble 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

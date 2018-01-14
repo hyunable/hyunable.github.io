@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>https://hyunnaa.github.io/post-sitemap.xml</loc>
-        <lastmod>2018-01-14T18:56:35.689Z</lastmod>
+        <lastmod>2018-01-14T20:13:14.704Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,8 +12,13 @@
     </sitemap>
 
     <sitemap>
+        <loc>https://hyunnaa.github.io/category-sitemap.xml</loc>
+        <lastmod>2018-01-14T20:08:20.634Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>https://hyunnaa.github.io/tag-sitemap.xml</loc>
-        <lastmod>2018-01-14T18:53:23.902Z</lastmod>
+        <lastmod>2018-01-14T20:03:23.339Z</lastmod>
     </sitemap>
 
 </sitemapindex>

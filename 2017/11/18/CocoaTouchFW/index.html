@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Let&#39;s Play IT">
+    <meta name="keyword"  content="swift">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Cocoa Touch FrameWork - 현아의 IT Playground
+        
+    </title>
+
+    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/18/CocoaTouchFW/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="../../../../css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../../../css/widget.css">
+
+    <link rel="stylesheet" href="../../../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../../../css/signature.css">
+
+    <link rel="stylesheet" href="../../../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('undefined')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                            
+                              <a class="tag" href="/tags/#Framework" title="Framework">Framework</a>
+                            
+                        </div>
+                        <h1>Cocoa Touch FrameWork</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by hyunAble on
+                            2017-11-18
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">IT Playground</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About Me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="cocoa-touch-framework">Cocoa Touch FrameWork</span></h1>
+<h2><span id="코코아-터치-프레임워크">코코아 터치 프레임워크</span></h2>
+<hr>
+<p>애플 환경에서 터치 기반의 애플리케이션을 제작하기 위한 도구들의 모음이다.</p>
+<br>
+<h3><span id="프레임-워크-framework">프레임 워크 (Framework)</span></h3>
+<hr>
+<p>&quot;뼈대, 기본구조&quot;를 의미한다.  소프트웨어에서 사용하는 프레임워크는 애플리케이션 제작을 빠르고 편리하게 할 수 있도록 <strong><em>미리 뼈대를 이루는 각종 코드를 제작하여 모아둔 것</em></strong>이다. 따라서 프레임워크를 사용하면 몇 줄의 코드만으로 손쉽게 버튼을 구현할 수 있다.</p>
+<p>집을 짓는 과정으로 예를 들면,  <strong>Framwork</strong>는 철근, 콘크리트, 유리 , 문, 배선 등이고 반면 <strong>Swift</strong>는</p>
+<p>망치, 드라이버, 톱과 같은 도구에 해당한다.</p>
+<br>
+<h4><span id="주요-frameworks">주요 Frameworks</span></h4>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation	<span class="comment">//앱의 핵심 객체와 네트워크, 문자열 처리 등의 서비스를 제공하는 프레임워크(내부)</span></span><br><span class="line"><span class="keyword">import</span> UIkit		<span class="comment">//애플 App에서 실행되는 유저인터페이스를 제공하는 프레임워크(외부)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> AddressBookUI	<span class="comment">//</span></span><br><span class="line"><span class="keyword">import</span> UserNotifications	<span class="comment">//사용자 알림 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> GameKit	<span class="comment">//게임을 만들기위한 프레임워크 </span></span><br><span class="line"><span class="keyword">import</span> iAd	<span class="comment">//앱 내에 베너형태 또는 팝업 형태의 광고를 삽입할 수 있도록 해주는 광고 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> MapKit	<span class="comment">//위치정보나 지도 관련 서비스를 이용할 수 있도록 해주는 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> EventKitUI	<span class="comment">//이벤트 처리에 필요한 유저 인터페이스를 제공하는 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> MessageUI	<span class="comment">//문자관련 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> UserNotifications	<span class="comment">//사용자 알림을 처리하기 위해 필요한 객체들을 제공하는 프레임워크</span></span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="프레임워크-계층관계">프레임워크 계층관계</span></h3>
+<hr>
+<p>하위계층으로 갈수록 추상적이고 하드웨어 쪽에 가까워 우리가 다루기에는 다소 번거롭기 때문에 사용자에 가깝고 구체적으로 구현되어 있는 상위계층 프레임워크를 통해 간접적으로 하드웨어를 제어 가능하게 된다. 상위 프레임워크는 하위 프레임워크에 의존적이며, 하위 프레임워크를 통해 구현된 기능에 보다 구체적인 기능만 붙여진 것이다.</p>
+<p>iOS 프레임워크는 다음과 같다.</p>
+<ul>
+<li>
+<p>Cocoa Touch (최상위 &lt;—&gt; Application)<br>
+어플리케이션 프레임워크 계층. 어플리케이션을 직접 지원하는 역활을 한다.  모든 애플리케이션은 코코아 터치 프레임워크를 통해 구현되고 동작한다.</p>
+</li>
+<li>
+<p>Media<br>
+코코아 터치 프레임워크에 그래픽 관련 서비스나 멀티미디어 관련 서비스를 제공한다. 코어 그래픽스, 코어 텍스트, 코어 오디오, AV파운데이션 등이 있다.<br>
+쉽게 말해서 mp4 와 같은 비디오 파일을 아이폰에서 재생할 때 미디어 계층이 관여한다.</p>
+</li>
+<li>
+<p>Core Service<br>
+문자열 처리, 데이터 집합관리, 네트워크, 주소록 관리, 환경설정 등 핵심적인 서비스들을 제공한다.  GPS, 가속도 센서 등 디바이스의 하드웨어 특성에 기반한 서비스도 제공한다.<br>
+예로 <em>코어 파운데이션 프레임워크</em>가 이에 속한다.</p>
+</li>
+<li>
+<p>Core OS (최하위 &lt;—&gt; HardWare)</p>
+<p>커널, 파일 시스템, 네트워크, 보안, 전원관리 , 디바이스 드라이버 등이 포함되어있다. <em>iOS가 운영체제로서 기능</em>을 하기 위한 핵심적인 영역이라고 할 수 있다.</p>
+</li>
+</ul>
+<br>
+<h3><span id="프레임워크의-접두어">프레임워크의 접두어</span></h3>
+<hr>
+<p>주요 프레임워크들은 자신들에게 속해있는 <strong><em>객체의 이름에 특정 접두어를 붙이는 경향</em></strong>이 있다. 이를 통해 객체가 어떤 프레임워크에 속해 있는지 쉽게 파악할 수 있다.</p>
+<ul>
+<li>Foundation : NS</li>
+<li>UIKit : UI</li>
+<li>UserNotifications : UN</li>
+<li>MapKit : MK</li>
+<li>Core Foundation : CF</li>
+<li>Core Graphics : CG</li>
+<li>AVFoundation : AV</li>
+</ul>
+<br>
+<h3><span id="view와-window">View와 Window</span></h3>
+<hr>
+<p>iOS에서 실행되는 모든 애플리케이션은 최소한 하나 이상의 윈도우와 뷰를 가진다. 계층상 Window객체가 최상위에 위치하며 여러 view들이 중첩되어 화면을 구성한다.</p>
+<blockquote>
+<p>Window &gt; Tab bar View &gt; Navigation View &gt; Custom View</p>
+</blockquote>
+<br>
+<h4><span id="view-controller">View Controller</span></h4>
+<hr>
+<p>Window와 View는 항상 뷰 컨트롤러를 통해 연결된다. 뷰 컨트롤러는 뷰의 계층을 관리하여 윈도우에 전달하고 , 모바일 디바이스에서 감지된 터치 이벤트를 윈도우로부터 전달받아 처리하는 역할을 한다. 또한 화면과 데이터 사이의 상호 작용까지 관리한다.  이와 같이 뷰 컨트롤러가 중재를 해주는 덕분에 <u>윈도우 객체에 커스텀 코드가 난입하는 것을 차단하며, 뷰를 관리해야하는 불상사를 막아준다.</u><br>
+뷰 컨트롤러는 각자 하나씩의 화면을 담당하며 이를 **씬(Scene)**이라는 용어로 부른다.</p>
+<br>
+<h4><span id="view">View</span></h4>
+<hr>
+<p>뷰들은 자기 자신을 스크린상에 표시하기도 하지만, 동시에 다른 뷰 객체를 포함하는 컨테이너 역할도 수행한다. 이를***뷰의 계층구조 (View hierachy)***라고 한다. 따라서 다른 뷰를 포함하는 뷰는 <strong>Superview</strong>라고 하며 속해있는 뷰는 <strong>Subview</strong> 가 된다. 뷰의 계층 구조상에서 뷰들은 서로 상대적인 레이아웃을 이룬다.</p>
+<ul>
+<li>뷰계층 구조 상 최상위에는 하나의 뷰가 존재하는데 이를 <strong>Root View</strong> 또는 <strong>Contents View</strong> 라고 한다.</li>
+</ul>
+<br>
+<h4><span id="navigation-controller">Navigation Controller</span></h4>
+<hr>
+<p><strong><em>앱의 화면 이동에 대한 관리와 그에 연관된 처리를 담당해주는 컨트롤러</em></strong> . 내부적으로 다른 컨트롤러를 포함하면서 컨트롤러끼리의 <u>화면 이동을 처리해주고, 현재 페이지 위치에 대한 네비게이션 역활</u>을 한다. UINavigationController 클래스를 상속받아 구현한다.</p>
+<br>
+<h4><span id="table-view-controller">Table View Controller</span></h4>
+<hr>
+<p>내부에 <strong><em>리스트 형식의 테이블 뷰를 포함하고 있어 여러 항목이나 데이터를 화면에 나열</em></strong>하기 위한 목적으로 사용되는 컨트롤러.  UITableViewController 클래스를 상속받아 구현한다</p>
+<br>
+<h4><span id="tab-bar-controller">Tab Bar Controller</span></h4>
+<hr>
+<p>화면을 나타내는 여러 개의 탭이 있고,<strong><em>탭을 터치하면 화면이 전환되는 형태의 앱</em></strong>을 만들고자 할 때 사용되는 컨트롤러.  UITabbarController 클래스를 상속받아 구현한다</p>
+<br>
+<h4><span id="split-view-controller">Split View Controller</span></h4>
+<hr>
+<p>Master-Detail Application 템플릿을 선택하면 생성되는 기본 컨트롤러. 목록을 나열하는 마스터 페이지와 그 목록 각각에 대한 세부 내용을 보여주는 디테일 페이지로 구성되는 스플릿 뷰 컨트롤러는 <strong><em>화면 크기에 따라 두 페이지를 하나의 화면에 조합하여 보여줄 것인지 아니면 두 개의 화면으로 나누어 보여줄 것인지 자동으로 처리</em></strong>해주는 특징이 있다. 직접 화면을 구현하지는 않으나 화면의 크기에 따라 적절히 조합해주는 역할을 한다.</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/18/App-lifeCycle/" data-toggle="tooltip" data-placement="top" title="App Life Cycle">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/03/chap19-protocol/" data-toggle="tooltip" data-placement="top" title="CH19. Protocol">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Framework" title="Framework">Framework</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hyunnaa">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunAble 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

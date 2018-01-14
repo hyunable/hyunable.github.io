@@ -7,16 +7,288 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/2018/01/15/asdf/</loc>
-        <lastmod>2018-01-14T18:56:35.689Z</lastmod>
+        <loc>https://hyunnaa.github.io/2017/10/27/functionalProgramming/</loc>
+        <lastmod>2018-01-14T20:13:14.704Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/2017/03/18/hexo-theme-beantech/</loc>
-        <lastmod>2018-01-14T18:53:23.902Z</lastmod>
+        <loc>https://hyunnaa.github.io/2017/11/18/viewChange/</loc>
+        <lastmod>2018-01-14T20:12:52.586Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/20/view-dataTrade/</loc>
+        <lastmod>2018-01-14T20:12:45.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/21/sort-selection-insertion/</loc>
+        <lastmod>2018-01-14T20:12:26.522Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/01/sort-quick/</loc>
+        <lastmod>2018-01-14T20:12:19.190Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/27/iOS-tableview/</loc>
+        <lastmod>2018-01-14T20:12:09.361Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/25/iOS-alert/</loc>
+        <lastmod>2018-01-14T20:12:02.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/26/iOS-Localpush/</loc>
+        <lastmod>2018-01-14T20:11:50.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2018/01/06/iOS-GCD/</loc>
+        <lastmod>2018-01-14T20:11:36.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/27/iOS-api/</loc>
+        <lastmod>2018-01-14T20:11:18.584Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/26/iOS-Delegate/</loc>
+        <lastmod>2018-01-14T20:11:12.266Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2018/01/13/Git-GitFlow/</loc>
+        <lastmod>2018-01-14T20:10:40.940Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/18/CocoaTouchFW/</loc>
+        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2018/01/08/chap20-errorHandle/</loc>
+        <lastmod>2018-01-14T20:08:20.634Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/03/chap19-protocol/</loc>
+        <lastmod>2018-01-14T20:08:16.554Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/03/chap18-valueVSref/</loc>
+        <lastmod>2018-01-14T20:08:09.031Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/02/chap17-initializer/</loc>
+        <lastmod>2018-01-14T20:08:01.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/01/chap16-property/</loc>
+        <lastmod>2018-01-14T20:07:29.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/30/chap15-struct-Class/</loc>
+        <lastmod>2018-01-14T20:07:20.148Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/30/chap14-enum/</loc>
+        <lastmod>2018-01-14T20:07:18.708Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/26/chap13-closure/</loc>
+        <lastmod>2018-01-14T20:07:17.113Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/26/chap12-function/</loc>
+        <lastmod>2018-01-14T20:07:15.657Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/26/chap11-set/</loc>
+        <lastmod>2018-01-14T20:06:13.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/21/chap10-Dictionary/</loc>
+        <lastmod>2018-01-14T20:05:59.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/19/chap9-Array/</loc>
+        <lastmod>2018-01-14T20:05:38.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/14/chap8-optional/</loc>
+        <lastmod>2018-01-14T20:05:26.439Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/14/chap7-string/</loc>
+        <lastmod>2018-01-14T20:05:15.886Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/14/chap6-roof/</loc>
+        <lastmod>2018-01-14T20:05:11.550Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
+        <lastmod>2018-01-14T20:04:40.597Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/17/algorithm2/</loc>
+        <lastmod>2018-01-14T20:04:27.383Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/18/App-lifeCycle/</loc>
+        <lastmod>2018-01-14T20:04:06.352Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/13/chap1-Swift/</loc>
+        <lastmod>2018-01-14T20:03:56.410Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/13/chap2-variable/</loc>
+        <lastmod>2018-01-14T20:03:49.606Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/13/chap3-conditional/</loc>
+        <lastmod>2018-01-14T20:03:39.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/13/chap4-number/</loc>
+        <lastmod>2018-01-14T20:03:31.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/14/chap5-switch/</loc>
+        <lastmod>2018-01-14T20:03:23.339Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -21,21 +21,21 @@
     <link rel="canonical" href="https://hyunnaa.github.io/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
+    <link rel="stylesheet" href="css/beantech.min.css">
     
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="css/highlight.css">
 
-    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="css/widget.css">
 
-    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="css/rocket.css">
 
-    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="css/signature.css">
 
-    <link rel="stylesheet" href="/css/toc.css">
+    <link rel="stylesheet" href="css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -209,23 +209,30 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/15/asdf/">
+    <a href="/2018/01/13/Git-GitFlow/">
         <h2 class="post-title">
-            asdf
+            Git Flow
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            ...
+            Git Flow
+브랜칭 관리 전략
+Main Branch
+배포 :: master 브랜치
+먼저 배포됬거나 배포준비(production-ready)된 코드는 origin/master에 두고 관리한다.
+master 브랜치에 병합 한다는 것은 새버전을 배포한다는 것을 의미한다. master 브랜치에서 커밋될 때 git hook 스크립트를 걸어서 자동으로 빌드하......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by hyunAble on
-            2018-01-15
+            2018-01-13
         </p>
         <div class="tags">
+            
+              <a href="/tags/#브랜칭전략" title="브랜칭전략">브랜칭전략</a>
             
         </div>
     
@@ -235,36 +242,354 @@
 
 <div class="post-preview">
 
-    <a href="/2017/03/18/hexo-theme-beantech/">
+    <a href="/2018/01/08/chap20-errorHandle/">
         <h2 class="post-title">
-            [Hexo] Theme BeanTech
+            CH20. Error Handling
         </h2>
         <h3 class="post-subtitle">
-            This is hexo theme Demo.
+            
         </h3>
         <div class="post-content-preview">
-            
-Ported Theme of Hux Blog, Thank Huxpro for designing such a flawless theme.
-This BeanTech theme created by YuHsuan modified from the original Porter Kaijun
+            Error Handling
+오류처리
+
+스위프트에서 오류를 처리하는 방법은 크게 두가지가 있다.
+
+옵셔널
+잘못된 처리의 결과나 실행 도중 실패했을 때 그 결과를 오류로 발생시키는 대신 nill 값으로 반환하여 개발자가 이를 적절히 알아서 처리
+오류 처리 구문
 
 
+오류 처리 구문
 
-
-Usage
-
-I publish the whole project f......
+초반 스위프트에서는 옵셔널만으로 오류를 충분히 처리할 수 있다고 여겨졌으나......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by hyunAble on
-            2017-03-18
+            2018-01-08
         </p>
         <div class="tags">
             
-              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
+              <a href="/tags/#오류처리" title="오류처리">오류처리</a>
             
-              <a href="/tags/#Blog" title="Blog">Blog</a>
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/06/iOS-GCD/">
+        <h2 class="post-title">
+            Swift GCD
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            GCD (Grand Central Dispatch)
+swift 기반 GCD
+
+GCD는 멀티코어 프로세스를 위한 Thread 프로그래밍 방법이다. 기존의 쓰레드 관리 기법은 개발자가 직접 쓰레드풀을 관리하는 등 수고가 들었지만 GCD에서는 Thread를 OS가 자동 관리 및 분배를 해준다.
+기존에는 쓰레드를 직접 생성하고 관리했으나 GCD를 통해서 Di......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2018-01-06
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#GCD" title="GCD">GCD</a>
+            
+              <a href="/tags/#멀티스레드" title="멀티스레드">멀티스레드</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/27/iOS-api/">
+        <h2 class="post-title">
+            네트워크 통신과 API
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            네트워크 통신과 API
+네트워크 통신
+
+
+TCP/UDP를 사용하는 소켓 방식의 연결성 통신
+HTTP , HTTPS , SMTP 등 프로토콜을 이용한 비연결성 통신
+
+
+소켓 방식의 연결 지향 통신
+
+
+저수준 통신을 통하여 구현된다
+서버와 클라이언트가 연결되면 한쪽에서 명시적으로 끊을 때까지 계속 지속해서 연결을 유지하는 방식이다.
+연결이 유지되고 있는 ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#RESEful" title="RESEful">RESEful</a>
+            
+              <a href="/tags/#API" title="API">API</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/27/iOS-tableview/">
+        <h2 class="post-title">
+            TableView
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            TableView
+테이블뷰
+
+
+UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.
+테이블뷰컨트롤러 &gt; 테이블뷰 &gt; 여러개의 테이블뷰 섹션 &gt; 테이블뷰 셀 &gt; 컨텐츠 뷰
+
+
+프로토타입 셀
+
+
+테이블 뷰의 셀을 원하는 대로 쉽게 디자인할 수 있도록 해주는 객체. Cell content 부분과 Acc......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#tableview" title="tableview">tableview</a>
+            
+              <a href="/tags/#cell" title="cell">cell</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/iOS-Delegate/">
+        <h2 class="post-title">
+            Deletage Pattern
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Delegate Pattern
+델리게이트 패턴
+
+Design Pattern
+
+
+크리스토퍼 알렉산더가 고안한 것을 시초로 컴퓨터 프로그래밍에서 다양한 설계 문제를 합리적으로 해결하기 위한 목적으로 쓰인다.
+대표적 디자인 패턴
+
+팩토리 패턴
+옵저버 패턴
+데코레이터 패턴
+싱글톤 패턴
+어댑터 패턴
+이터레이터 패턴
+델리게이트 패턴
+그외 GoF(Gang of F......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#delegate" title="delegate">delegate</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/iOS-Localpush/">
+        <h2 class="post-title">
+            iOS Local Push
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Local Notification
+로컬 알림
+
+
+앱 내부에서 만든 특정 메세지를 iOS의 알림 센터를 통해 전달하는 방법이다.
+iOS 스케쥴러에 의해 발송되고 관리된다.
+알림 센터에 표시된 메시지를 클릭해서 앱을 실행시키고, 원하는 기능이나 특정 화면으로 이동하게 끔 처리할 수 있다.
+앱 실행 여부와 상관없이 사용가능하기 때문에 사용자의 관심으로부터 ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#push" title="push">push</a>
+            
+              <a href="/tags/#alert" title="alert">alert</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/25/iOS-alert/">
+        <h2 class="post-title">
+            iOS Alert
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Alert Message
+사용자에게 메세지 전달하기
+
+
+메세지창 (알림창)
+앱이 실행 중일 때만 동작한다
+Local Notification (로컬 푸시)
+앱 내부에서 특정 프로세스에 의해서 등록된 메세지를 iOS가 전달하는 방식
+Server Notification (서버 푸시)
+별도의 서버를 통해 APNs(Apple Push Notification S......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-25
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Alert" title="Alert">Alert</a>
+            
+              <a href="/tags/#message" title="message">message</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/20/view-dataTrade/">
+        <h2 class="post-title">
+            iOS 화면간 데이터 전달
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            iOS View to View
+화면전환시 Data 전달법
+
+
+직접전달 방식 (동기 방식)
+
+뷰 컨트롤러에 직접 값을 전달하는 방식으로 영속적으로 값을 저장할 필요가 없는 화면 전환에서 사용된다. ( 예: 테이블뷰 -&gt; 디테일뷰 )
+전달 받는 쪽의 뷰컨트롤러가 전달 받을 값의 명세를 모두 파악하고, 대입할 변수를 미리 준비해두어야한다.
+
+
+간접 전......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#화면전환" title="화면전환">화면전환</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/18/viewChange/">
+        <h2 class="post-title">
+            iOS 화면 전환 기법
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            화면 전환 기법
+iOS에서의 화면 전환 개념
+
+
+뷰 컨트롤러의 뷰 위에 다르나 뷰를 가져와 바꿔치기하기 (특수사항/제한적으로 사용)
+뷰 컨트롤러에서 다른 뷰 컨트롤러를 호출하여 화면 전환하기
+네비게이션 컨트롤러를 사용하여 화면 전환하기
+화면 전환용 객체 세그웨이(SegueWay)를 사용하여 화면 전환하기
+
+
+iOS에서 화면 전환 특성
+
+
+다음 화면으로......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#화면전환" title="화면전환">화면전환</a>
             
         </div>
     
@@ -278,6 +603,10 @@ I publish the whole project f......
 
 <ul class="pager">
     
+    
+        <li class="next">
+            <a href="/archives/2/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -302,6 +631,192 @@ I publish the whole project f......
     <!-- no hr -->
     <h5><a href="/tags/">FEATURED TAGS</a></h5>
     <div class="tags">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#조건문" title="조건문" rel="2">조건문</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#sort" title="sort" rel="2">sort</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#화면전환" title="화면전환" rel="2">화면전환</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#collection" title="collection" rel="2">collection</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#function" title="function" rel="2">function</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
         
@@ -359,11 +874,23 @@ I publish the whole project f......
     <ul>
       
         <li>
-          <a href="/2018/01/15/asdf/">asdf</a>
+          <a href="2018/01/13/Git-GitFlow/">Git Flow</a>
         </li>
       
         <li>
-          <a href="/2017/03/18/hexo-theme-beantech/">[Hexo] Theme BeanTech</a>
+          <a href="2018/01/08/chap20-errorHandle/">CH20. Error Handling</a>
+        </li>
+      
+        <li>
+          <a href="2018/01/06/iOS-GCD/">Swift GCD</a>
+        </li>
+      
+        <li>
+          <a href="2017/11/27/iOS-api/">네트워크 통신과 API</a>
+        </li>
+      
+        <li>
+          <a href="2017/11/27/iOS-tableview/">TableView</a>
         </li>
       
     </ul>
@@ -371,23 +898,12 @@ I publish the whole project f......
 
         <hr>
     
-        <!-- Friends Blog -->
-
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-        <li><a href="http://hsp1116.tistory.com/" target="_blank">WHATU</a></li>
-    
-        <li><a href="https://hoyuo.github.io/" target="_blank">Hoyuo</a></li>
-    
-        <li><a href="http://nanamare.tistory.com/" target="_blank">Nanamare</a></li>
-    
-</ul>
-
-        <hr>
-    
         <!-- Categories -->
+
+    <h5>categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/ALGORITHM/">ALGORITHM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="categories/SWIFT/">SWIFT</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="categories/Technology/">Technology</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="categories/iOS/">iOS</a><span class="category-list-count">9</span></li></ul>
+    </div>
 
         <hr>
     
@@ -447,13 +963,13 @@ I publish the whole project f......
 </footer>
 
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+<script src="js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
