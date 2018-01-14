@@ -23,9 +23,9 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
-    <!-- Custom CSS --> 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/beantech.min.css">
-    
+
     <!-- Pygments Highlight CSS -->
     <link rel="stylesheet" href="../css/highlight.css">
 
@@ -59,6 +59,9 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
+
+    <link rel="stylesheet" href="../assets/css/search.css">
+    
 </head>
 
 
@@ -150,7 +153,7 @@
                         </li>
                         
                     
-                    
+
                 </ul>
             </div>
         </div>
@@ -185,6 +188,15 @@
             $navbar.className += " in";
         }
     }
+</script>
+
+<script type="text/javascript">
+     var search_path = "search.xml";
+     if (search_path.length == 0) {
+     	search_path = "search.xml";
+     }
+     var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 
 
@@ -294,10 +306,6 @@
             
         
             
-        
-            
-        
-            
             <a href="/tags/#조건문" title="조건문" rel="2">조건문</a>
             
         
@@ -346,7 +354,11 @@
             
         
             
+        
+            
             <a href="/tags/#sort" title="sort" rel="2">sort</a>
+            
+        
             
         
             
@@ -413,6 +425,10 @@
     <ul>
       
         <li>
+          <a href="../2018/01/15/test/">Test</a>
+        </li>
+      
+        <li>
           <a href="../2018/01/13/Git-GitFlow/">Git Flow</a>
         </li>
       
@@ -426,10 +442,6 @@
       
         <li>
           <a href="../2017/11/27/iOS-api/">네트워크 통신과 API</a>
-        </li>
-      
-        <li>
-          <a href="../2017/11/27/iOS-tableview/">TableView</a>
         </li>
       
     </ul>

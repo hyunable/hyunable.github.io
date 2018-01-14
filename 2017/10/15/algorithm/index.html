@@ -23,9 +23,9 @@
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
 
-    <!-- Custom CSS --> 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../../../../css/beantech.min.css">
-    
+
     <!-- Pygments Highlight CSS -->
     <link rel="stylesheet" href="../../../../css/highlight.css">
 
@@ -59,6 +59,9 @@
 
     <!-- ga & ba script hoook -->
     <script></script>
+
+    <link rel="stylesheet" href="../../../../assets/css/search.css">
+    
 </head>
 
 
@@ -162,7 +165,7 @@
                         </li>
                         
                     
-                    
+
                 </ul>
             </div>
         </div>
@@ -197,6 +200,15 @@
             $navbar.className += " in";
         }
     }
+</script>
+
+<script type="text/javascript">
+     var search_path = "search.xml";
+     if (search_path.length == 0) {
+     	search_path = "search.xml";
+     }
+     var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 
 
