@@ -60,8 +60,17 @@
     <!-- ga & ba script hoook -->
     <script></script>
 
+    <script type="text/javascript">
+         var search_path = "search.xml";
+         if (search_path.length == 0) {
+         	search_path = "search.xml";
+         }
+         var path = "/" + search_path;
+         searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
     <link rel="stylesheet" href="../../assets/css/search.css">
-    
+
 </head>
 
 
@@ -188,15 +197,6 @@
             $navbar.className += " in";
         }
     }
-</script>
-
-<script type="text/javascript">
-     var search_path = "search.xml";
-     if (search_path.length == 0) {
-     	search_path = "search.xml";
-     }
-     var path = "/" + search_path;
-     searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 
 
