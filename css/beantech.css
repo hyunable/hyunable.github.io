@@ -80,8 +80,15 @@ h6 {
   line-height: 1.1;
   font-weight: bold;
 }
+
+/* insert color - custom */
+h3 {
+  color: #ec407a
+}
+
 h4 {
   font-size: 21px;
+  color: #00acc1
 }
 a {
   color: #404040;
@@ -164,7 +171,7 @@ pre code {
 }
 .post-container a:hover,
 .post-container a:focus {
-  color: #0085a1;
+  color: #ec407a;
 }
 .post-container h1,
 .post-container h2,
