@@ -1,285 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <!-- Head tag -->
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="null">
-    <meta name="keyword"  content="undefined">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <title>
-        
-          iOS Alert - undefined
-        
-    </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/25/iOS-alert/">
+    <!--Description-->
+    
+        <meta name="description" content="Alert Message사용자에게 메세지 전달하기
+
+메세지창 (알림창)앱이 실행 중일 때만 동작한다
+Local Notification (로컬 푸시)앱 내부에서 특정 프로세스에 의해서 등록된 메세지를 iOS가 전달하는 방식
+Server Notification (서버 푸시">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hyunah_princess">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="iOS Alert"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="현아의 IT COOK"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>iOS Alert - 현아의 IT COOK</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
-    
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <link rel="stylesheet" href="/css/widget.css">
-
-    <link rel="stylesheet" href="/css/rocket.css">
-
-    <link rel="stylesheet" href="/css/signature.css">
-
-    <link rel="stylesheet" href="/css/toc.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-107997042-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+	
 </head>
 
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        
-            background-image: url('undefined')
-            /*post*/
-        
-    }
-    
-</style>
+<body>
 
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">hyunAble</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
                 
-                    <div class="post-heading">
-                        <div class="tags">
+                    <li>
+                        <a href="/">
                             
-                              <a class="tag" href="/tags/#Alert" title="Alert">Alert</a>
+                                Home
                             
-                              <a class="tag" href="/tags/#메세지창" title="메세지창">메세지창</a>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
                             
-                        </div>
-                        <h1>iOS Alert</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by hyunah_princess on
+                                IT_Foood
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                foood_list
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                taste_tag
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/About">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iOS Alert</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
                             2017-11-25
-                        </span>
-                    </div>
-                
-
-
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-	
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">현아의 IT COOK</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                        <li>
-                            <a href="/About/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">IT_FOOOD</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">Foood_List</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Taste_Tag</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-    <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
-
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
 
-                <h1><span id="alert-message">Alert Message</span></h1>
-<h2><span id="사용자에게-메세지-전달하기">사용자에게 메세지 전달하기</span></h2>
-<hr>
+
+<a href="/tags/Alert/">#Alert</a> <a href="/tags/메세지창/">#메세지창</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/iOS-Cocoa/">iOS Cocoa</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Alert-Message"><a href="#Alert-Message" class="headerlink" title="Alert Message"></a>Alert Message</h1><h2 id="사용자에게-메세지-전달하기"><a href="#사용자에게-메세지-전달하기" class="headerlink" title="사용자에게 메세지 전달하기"></a>사용자에게 메세지 전달하기</h2><hr>
 <ul>
-<li><strong>메세지창 (알림창)</strong>
-앱이 실행 중일 때만 동작한다</li>
-<li><strong>Local Notification (로컬 푸시)</strong>
-앱 내부에서 특정 프로세스에 의해서 등록된 메세지를 iOS가 전달하는 방식</li>
-<li><strong>Server Notification (서버 푸시)</strong>
-별도의 서버를 통해 APNs(Apple Push Notification Service) 라는 애플 고유의 메시징 시스템에게 보낸 메세지가 네트워크를 통해 전달되는 방식</li>
+<li><strong>메세지창 (알림창)</strong><br>앱이 실행 중일 때만 동작한다</li>
+<li><strong>Local Notification (로컬 푸시)</strong><br>앱 내부에서 특정 프로세스에 의해서 등록된 메세지를 iOS가 전달하는 방식</li>
+<li><strong>Server Notification (서버 푸시)</strong><br>별도의 서버를 통해 APNs(Apple Push Notification Service) 라는 애플 고유의 메시징 시스템에게 보낸 메세지가 네트워크를 통해 전달되는 방식</li>
 </ul>
 <p><img src="/image/serverPush.png" alt="서버푸쉬"></p>
-<p>&lt;br&gt;</p>
-<h3><span id="메세지-알림창">메세지 알림창</span></h3>
-<h5><span id="uialertcontroller">UIAlertController</span></h5>
-<hr>
-<p>메시지 창은 앱 실행 도중에 <strong><em>사용자에게 메세지를 전달하고 의사를 입력받기 위한 목적</em></strong>으로 제공되는 객체이며 <em>두가지</em> 형태로 제공된다.</p>
+<p><br></p>
+<h3 id="메세지-알림창"><a href="#메세지-알림창" class="headerlink" title="메세지 알림창"></a>메세지 알림창</h3><h5 id="UIAlertController"><a href="#UIAlertController" class="headerlink" title="UIAlertController"></a>UIAlertController</h5><hr>
+<p>메시지 창은 앱 실행 도중에 <strong><em>사용자에게 메세지를 전달하고 의사를 입력받기 위한 목적</em></strong>으로 제공되는 객체이며 <em>두가지</em> 형태로 제공된다. </p>
 <ul>
-<li>
-<p><strong>알림창</strong></p>
+<li><p><strong>알림창</strong></p>
 <ol>
 <li>모달(modal) 방식으로 화면에 표시되며, 따라서 사용자가 알림창에 표시된 버튼 중 어느 하나를 선택하기 전에는 다른 어떤 기능도 사용할 수 없다.</li>
 <li>긍정/부정 or 허용/비허용과 같은 사용자의 선택을 입력받는 용도</li>
 <li>텍스트 필드 추가 <em>가능</em></li>
-<li><s>이전 버전에서 <code>UIAlertView</code> 클래스에서 담당했었다. (현재 <code>UIAlertController</code>로 통합)</s></li>
+<li><del>이전 버전에서 <code>UIAlertView</code> 클래스에서 담당했었다. (현재 <code>UIAlertController</code>로 통합)</del></li>
 </ol>
 </li>
-<li>
-<p><strong>액션시트</strong></p>
+<li><p><strong>액션시트</strong></p>
 <ol>
 <li>모달방식이 아니여서 메세지 창이 아는 다른 부분을 건드릴 수 있으며 그 것으로 인해서 창이 닫히게 된다.</li>
 <li>여러개의 항목 중에서 사용자가 고를 수 있도록 할 때 사용</li>
 <li>텍스트 필드 추가 <em>불가능</em></li>
-<li><s>이전 버전에서 <code>UIActionSheet</code>클래스가 담당했었다.</s></li>
+<li><del>이전 버전에서 <code>UIActionSheet</code>클래스가 담당했었다.</del></li>
 </ol>
 <p><img src="/image/alertForm.png" alt="알림창"></p>
 </li>
 </ul>
-<p>&lt;br&gt;</p>
-<h4><span id="code">CODE</span></h4>
-<hr>
-<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Alert Property */</span></span><br><span class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultAlertLable: <span class="type">UILabel</span>!</span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">alert</span><span class="params">(<span class="number">_</span> sender: UIButton)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 1. 컨트롤러 초기화</span></span><br><span class="line"><span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"프로그램 실행"</span>, message: <span class="string">"실행하시겠습니까?"</span>, preferredStyle: .alert)</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 2. 버튼 생성</span></span><br><span class="line"><span class="comment">// 클로져나 함수로 해당 액션이 선택되었을때 실행될 삽입 가능하다. (생략가능)</span></span><br><span class="line"><span class="keyword">let</span> cancelAcion = <span class="type">UIAlertAction</span>(title: <span class="string">"취소"</span>, style: .cancel)</span><br><span class="line"><span class="keyword">let</span> okAction = <span class="type">UIAlertAction</span>(title: <span class="string">"확인"</span>, style: .<span class="keyword">default</span>) &#123; (<span class="number">_</span>) <span class="keyword">in</span>                                                           <span class="built_in">print</span>(<span class="string">"확인버튼이 눌렸습니다."</span>)</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">let</span> absoluteAction = <span class="type">UIAlertAction</span>(title: <span class="string">"강제종료"</span>, style: .destructive) &#123; (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"강제종료되었습니다"</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 3. 버튼을 컨트롤러에 등록</span></span><br><span class="line">alert.addAction(cancelAcion)</span><br><span class="line">alert.addAction(okAction)</span><br><span class="line">alert.addAction(absoluteAction)</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 4. 메세지 창 실행</span></span><br><span class="line"><span class="comment">// 하나의 ViewController로 간주하기 때문에 presenting 형식으로 화면을 전환해준다. (자동으로 닫히기 때문에 dismiss 메서드는 구현할 필요X)</span></span><br><span class="line"><span class="keyword">self</span>.present(alert, animated: <span class="literal">true</span>)</span><br><span class="line">        </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* Alert Property */</span></div><div class="line"><span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultAlertLable: <span class="type">UILabel</span>!</div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">alert</span><span class="params">(<span class="number">_</span> sender: UIButton)</span></span> &#123;</div><div class="line">        </div><div class="line"><span class="comment">// 1. 컨트롤러 초기화</span></div><div class="line"><span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"프로그램 실행"</span>, message: <span class="string">"실행하시겠습니까?"</span>, preferredStyle: .alert)</div><div class="line">        </div><div class="line"><span class="comment">// 2. 버튼 생성</span></div><div class="line"><span class="comment">// 클로져나 함수로 해당 액션이 선택되었을때 실행될 삽입 가능하다. (생략가능)</span></div><div class="line"><span class="keyword">let</span> cancelAcion = <span class="type">UIAlertAction</span>(title: <span class="string">"취소"</span>, style: .cancel)</div><div class="line"><span class="keyword">let</span> okAction = <span class="type">UIAlertAction</span>(title: <span class="string">"확인"</span>, style: .<span class="keyword">default</span>) &#123; (<span class="number">_</span>) <span class="keyword">in</span>                                                           <span class="built_in">print</span>(<span class="string">"확인버튼이 눌렸습니다."</span>)</div><div class="line"> &#125;</div><div class="line"><span class="keyword">let</span> absoluteAction = <span class="type">UIAlertAction</span>(title: <span class="string">"강제종료"</span>, style: .destructive) &#123; (<span class="number">_</span>) <span class="keyword">in</span></div><div class="line">    <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"강제종료되었습니다"</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line"><span class="comment">// 3. 버튼을 컨트롤러에 등록</span></div><div class="line">alert.addAction(cancelAcion)</div><div class="line">alert.addAction(okAction)</div><div class="line">alert.addAction(absoluteAction)</div><div class="line">        </div><div class="line"><span class="comment">// 4. 메세지 창 실행</span></div><div class="line"><span class="comment">// 하나의 ViewController로 간주하기 때문에 presenting 형식으로 화면을 전환해준다. (자동으로 닫히기 때문에 dismiss 메서드는 구현할 필요X)</span></div><div class="line"><span class="keyword">self</span>.present(alert, animated: <span class="literal">true</span>)</div><div class="line">        </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><strong>preferredStyle</strong> 의 경우 알림창이냐 액션시트냐를 결정해 주는 인자값인데, 따로 설정하지 않을 경우 액션시트가 디폴트 값으로 생성된다. <code>.alert</code> or <code>.actionSheet</code>  를 인자값으로 넣어준다.
-( 축<em>약형으로써 열거형 타입으로 변수나 상수가 이미 정의되어 있다면, 값을 대입할 때 열거형 객체의 이름을 생략하고 값만 선택해서 입력가능하다.</em>)</li>
+<li><strong>preferredStyle</strong> 의 경우 알림창이냐 액션시트냐를 결정해 주는 인자값인데, 따로 설정하지 않을 경우 액션시트가 디폴트 값으로 생성된다. <code>.alert</code> or <code>.actionSheet</code>  를 인자값으로 넣어준다.<br>( 축<em>약형으로써 열거형 타입으로 변수나 상수가 이미 정의되어 있다면, 값을 대입할 때 열거형 객체의 이름을 생략하고 값만 선택해서 입력가능하다.</em>)</li>
 <li><code>style: .destructive</code> 의 경우 중요한 내용을 변경하거나 삭제해서 되돌릴 수 없는 결정을 하는 버튼에 주로 적용된다. <em>적용된 버튼은 빨간색으로 강조된다</em>.</li>
 </ul>
-<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ID와 PW 입력받기</span></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">loginAlert</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</span><br><span class="line"><span class="keyword">let</span> msg = <span class="string">"Login"</span></span><br><span class="line"><span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="literal">nil</span>, message: msg, preferredStyle: .alert)</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 버튼추가</span></span><br><span class="line"><span class="keyword">let</span> cancel = <span class="type">UIAlertAction</span>(title: <span class="string">"cancel"</span>, style: .cancel)</span><br><span class="line"><span class="keyword">let</span> submit = <span class="type">UIAlertAction</span>(title: <span class="string">"submit"</span>, style: .destructive) &#123;</span><br><span class="line">    (<span class="number">_</span>) <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">    <span class="comment">// 제출 버튼을 누르면 ID값과 PW값을 체크한다</span></span><br><span class="line">    <span class="comment">// textField는 생성되어 배열로 처리되기 때문에 아래와 같이 접근한다.</span></span><br><span class="line">    <span class="keyword">let</span> userID = alert.textFields?[<span class="number">0</span>].text</span><br><span class="line">    <span class="keyword">let</span> userPW = alert.textFields?[<span class="number">1</span>].text</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">if</span> userID == <span class="string">"user"</span> &amp;&amp; userPW == <span class="string">"1234"</span> &#123;</span><br><span class="line">       <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"인증완료"</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"인증실패"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">        </span><br><span class="line">      alert.addAction(cancel)</span><br><span class="line">      alert.addAction(submit)</span><br><span class="line">        </span><br><span class="line">      <span class="comment">//텍스트 필드 추가 - 아이디</span></span><br><span class="line">      alert.addTextField &#123; (tf) <span class="keyword">in</span></span><br><span class="line">      <span class="comment">// 텍스트 필드의 속성 설정하는 클로저</span></span><br><span class="line">        tf.placeholder = <span class="string">"ID"</span></span><br><span class="line">        tf.isSecureTextEntry = <span class="literal">false</span></span><br><span class="line">    	&#125;</span><br><span class="line">        </span><br><span class="line">      <span class="comment">//텍스트 필드 추가 - 비밀번호</span></span><br><span class="line">      alert.addTextField &#123; (tf) <span class="keyword">in</span></span><br><span class="line">          tf.placeholder = <span class="string">"PassWord"</span></span><br><span class="line">          tf.isSecureTextEntry = <span class="literal">true</span></span><br><span class="line">       &#125;</span><br><span class="line">        </span><br><span class="line">      <span class="comment">//마지막으로 화면전환</span></span><br><span class="line">     <span class="keyword">self</span>.present(alert, animated: <span class="literal">true</span>)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>&lt;br&gt;</p>
-<h3><span id="local-notification">Local Notification</span></h3>
-<hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ID와 PW 입력받기</span></div><div class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">loginAlert</span><span class="params">(<span class="number">_</span> sender: Any)</span></span> &#123;</div><div class="line"><span class="keyword">let</span> msg = <span class="string">"Login"</span></div><div class="line"><span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="literal">nil</span>, message: msg, preferredStyle: .alert)</div><div class="line">        </div><div class="line"><span class="comment">// 버튼추가</span></div><div class="line"><span class="keyword">let</span> cancel = <span class="type">UIAlertAction</span>(title: <span class="string">"cancel"</span>, style: .cancel)</div><div class="line"><span class="keyword">let</span> submit = <span class="type">UIAlertAction</span>(title: <span class="string">"submit"</span>, style: .destructive) &#123;</div><div class="line">    (<span class="number">_</span>) <span class="keyword">in</span></div><div class="line">            </div><div class="line">    <span class="comment">// 제출 버튼을 누르면 ID값과 PW값을 체크한다</span></div><div class="line">    <span class="comment">// textField는 생성되어 배열로 처리되기 때문에 아래와 같이 접근한다.</span></div><div class="line">    <span class="keyword">let</span> userID = alert.textFields?[<span class="number">0</span>].text</div><div class="line">    <span class="keyword">let</span> userPW = alert.textFields?[<span class="number">1</span>].text</div><div class="line">            </div><div class="line">    <span class="keyword">if</span> userID == <span class="string">"user"</span> &amp;&amp; userPW == <span class="string">"1234"</span> &#123;</div><div class="line">       <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"인증완료"</span></div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">self</span>.resultAlertLable.text = <span class="string">"인증실패"</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">        </div><div class="line">      alert.addAction(cancel)</div><div class="line">      alert.addAction(submit)</div><div class="line">        </div><div class="line">      <span class="comment">//텍스트 필드 추가 - 아이디</span></div><div class="line">      alert.addTextField &#123; (tf) <span class="keyword">in</span></div><div class="line">      <span class="comment">// 텍스트 필드의 속성 설정하는 클로저</span></div><div class="line">        tf.placeholder = <span class="string">"ID"</span></div><div class="line">        tf.isSecureTextEntry = <span class="literal">false</span></div><div class="line">    	&#125;</div><div class="line">        </div><div class="line">      <span class="comment">//텍스트 필드 추가 - 비밀번호</span></div><div class="line">      alert.addTextField &#123; (tf) <span class="keyword">in</span></div><div class="line">          tf.placeholder = <span class="string">"PassWord"</span></div><div class="line">          tf.isSecureTextEntry = <span class="literal">true</span></div><div class="line">       &#125;</div><div class="line">        </div><div class="line">      <span class="comment">//마지막으로 화면전환</span></div><div class="line">     <span class="keyword">self</span>.present(alert, animated: <span class="literal">true</span>)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Local-Notification"><a href="#Local-Notification" class="headerlink" title="Local Notification"></a>Local Notification</h3><hr>
 <ul>
 <li>앱 내부에서 만든 특정 메세지를 iOS의 알림 센터를 통해 전달하는 방법이다.</li>
 <li>iOS 스케쥴러에 의해 발송되고 관리된다.</li>
 <li>알림 센터에 표시된 메시지를 클릭해서 앱을 실행시키고, 원하는 기능이나 특정 화면으로 이동하게 끔 처리할 수 있다.</li>
 <li><strong>앱 실행 여부와 상관없이 사용가능</strong>하기 때문에 사용자의 관심으로부터 멀어지는 상황에서 앱에 대한 주의 환기 목적으로 사용하기 적합하다.</li>
-<li><strong>로컬 알림 처리</strong>
-<ul>
+<li><strong>로컬 알림 처리</strong><ul>
 <li>iOS 10 이전버전 <code>UILocalNotification</code> 로컬알림용 객체가 사용됨</li>
 <li>iOS 11 이후버전 <code>USerNotification</code> 프레임워크에 의해서 관리됨.</li>
 </ul>
 </li>
-<li>로컬 알림 등록과정
-<ol>
+<li>로컬 알림 등록과정<ol>
 <li><code>UIUserNotificationSettings</code> 객체를 이용하여 미리 알림 설정 환경을 <strong>정의</strong></li>
 <li>이것을 어플리 케이션 객체에 <strong>등록</strong></li>
 </ol>
@@ -287,192 +279,86 @@
 <li>주로 앱이 처음 실행될 때 동의를 받는 것이 가장 자연스러우므로 <code>AppDelegate</code> 의 <code>application(_:, didFinishLaunchingWithOptions:)</code> 메서드 내에서 구현한다</li>
 <li><code>UILocalNotification</code> 객체를 생성후 설정해야할 속성은 <em>발송시각/타임존/메시지/버튼명/배지/사운드/사용자 정의 데이터</em> 등이 있다.</li>
 </ul>
-<p>&lt;br&gt;</p>
-<h4><span id="code-알림-등록하기-for-ios-10-이하">CODE :: 알림 등록하기 (for iOS 10 이하)</span></h4>
-<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 앱이 처음 실행될때 런치 스크린이 표시되고 있는 동안 호출되는 메서드</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 알림 환경 설정 : 경고창, 배지, 사운드를 통해 알림을 표시해도 되는지 사용자로부터 확인을 받는다.</span></span><br><span class="line">    <span class="keyword">let</span> setting = <span class="type">UIUserNotificationSettings</span>(types: [.alert, .badge, .sound], categories: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 애플리케이션에 설정 저장</span></span><br><span class="line">    application.registerUserNotificationSettings(setting)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//앱이 활성화를 잃었을때 실행되는 메서드 (ex, 전화가 오거나 홈버튼을 눌러 백그라운드로 진입햇을 때)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//if 문으로 플랫폼 버전에 따라서 구분히여 check!!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> #available(iOS <span class="number">11.0</span>, *) &#123;</span><br><span class="line">        <span class="comment">// 새 방식의로컬 알림 구현 코드</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 알림 설정 check</span></span><br><span class="line">        <span class="keyword">let</span> setting = application.currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*  알림이 설정이 거부되면 UIUserNotificationType.none 으로 설정되어 있음</span></span><br><span class="line"><span class="comment">         알림 설정이 되어 있지 않다면 로컬 알림을 보내도 받을 수 없으므로 종료 */</span></span><br><span class="line">        <span class="keyword">guard</span> setting?.types != .<span class="keyword">none</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"can't Schedule"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 로컬 알람 인스턴스 생성</span></span><br><span class="line">        <span class="keyword">let</span> noti = <span class="type">UILocalNotification</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//noti.fireDate = Data(timeIntervalSinceNow :10) //10초후 발송, 메서드 사라짐</span></span><br><span class="line">        noti.timeZone = <span class="type">TimeZone</span>.autoupdatingCurrent    <span class="comment">// 현재위치에 따라 타임존 설정</span></span><br><span class="line">        noti.alertBody = <span class="string">"어서 다시 접속하세요!!"</span>    <span class="comment">//표시될 메세지</span></span><br><span class="line">        noti.alertAction = <span class="string">"접속하기"</span>   <span class="comment">//잠금상태 일때 표시될 액션</span></span><br><span class="line">        noti.applicationIconBadgeNumber = <span class="number">1</span> <span class="comment">//모서리에 표시될 배지</span></span><br><span class="line">        noti.soundName = <span class="type">UILocalNotificationDefaultSoundName</span>    <span class="comment">//로컬 알람 도착시 사운드</span></span><br><span class="line">        noti.userInfo = [<span class="string">"name"</span>:<span class="string">"정현아"</span>]  <span class="comment">//로컬 알람 실행시 함께 전달하고 싶은 값!! (화면에는 표시되지 않음)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알람 객체를 스케쥴러에 등록</span></span><br><span class="line">        <span class="comment">//application.scheduledLocalNotifications(noti)     //메서드 사라짐</span></span><br><span class="line">        application.presentLocalNotificationNow(noti)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>&lt;br&gt;</p>
-<h4><span id="code-메서드-정리">CODE :: 메서드 정리</span></h4>
-<p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIApplication</span>.shared( <span class="comment">//앱 델리겡트에서는 application 매개변수)</span></span><br><span class="line">    <span class="comment">//  알림 허용 여부를 사용자에게 확인받고, 선택을 어플리케이션에 등록하는 역할</span></span><br><span class="line">    .registerUserNotificationSettings(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 현재 설정된 알림 허용 여부 정보를 읽어온다</span></span><br><span class="line">        .currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체를 iOS 스케쥴러에 등록한다. 등록된 알림 객체는 fireDate 속성에 설정된 시간에 맞게 발송된다 (iOS 10)</span></span><br><span class="line">        .scheduleLocalNotification(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체의 fireDate 속성을무시하고 즉각 발송한다</span></span><br><span class="line">        .presentLocalNotificationNow(<span class="number">_</span>:)</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h4 id="CODE-알림-등록하기-for-iOS-10-이하"><a href="#CODE-알림-등록하기-for-iOS-10-이하" class="headerlink" title="CODE :: 알림 등록하기 (for iOS 10 이하)"></a>CODE :: 알림 등록하기 (for iOS 10 이하)</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 앱이 처음 실행될때 런치 스크린이 표시되고 있는 동안 호출되는 메서드</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 알림 환경 설정 : 경고창, 배지, 사운드를 통해 알림을 표시해도 되는지 사용자로부터 확인을 받는다.</span></div><div class="line">    <span class="keyword">let</span> setting = <span class="type">UIUserNotificationSettings</span>(types: [.alert, .badge, .sound], categories: <span class="literal">nil</span>)</div><div class="line">    </div><div class="line">    <span class="comment">// 애플리케이션에 설정 저장</span></div><div class="line">    application.registerUserNotificationSettings(setting)</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//앱이 활성화를 잃었을때 실행되는 메서드 (ex, 전화가 오거나 홈버튼을 눌러 백그라운드로 진입햇을 때)</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</div><div class="line">    </div><div class="line">    <span class="comment">//if 문으로 플랫폼 버전에 따라서 구분히여 check!!</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> #available(iOS <span class="number">11.0</span>, *) &#123;</div><div class="line">        <span class="comment">// 새 방식의로컬 알림 구현 코드</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 알림 설정 check</span></div><div class="line">        <span class="keyword">let</span> setting = application.currentUserNotificationSettings</div><div class="line">        </div><div class="line">        </div><div class="line">        </div><div class="line">        <span class="comment">/*  알림이 설정이 거부되면 UIUserNotificationType.none 으로 설정되어 있음</span></div><div class="line"><span class="comment">         알림 설정이 되어 있지 않다면 로컬 알림을 보내도 받을 수 없으므로 종료 */</span></div><div class="line">        <span class="keyword">guard</span> setting?.types != .<span class="keyword">none</span> <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"can't Schedule"</span>)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">// 로컬 알람 인스턴스 생성</span></div><div class="line">        <span class="keyword">let</span> noti = <span class="type">UILocalNotification</span>()</div><div class="line">        </div><div class="line">        <span class="comment">//noti.fireDate = Data(timeIntervalSinceNow :10) //10초후 발송, 메서드 사라짐</span></div><div class="line">        noti.timeZone = <span class="type">TimeZone</span>.autoupdatingCurrent    <span class="comment">// 현재위치에 따라 타임존 설정</span></div><div class="line">        noti.alertBody = <span class="string">"어서 다시 접속하세요!!"</span>    <span class="comment">//표시될 메세지</span></div><div class="line">        noti.alertAction = <span class="string">"접속하기"</span>   <span class="comment">//잠금상태 일때 표시될 액션</span></div><div class="line">        noti.applicationIconBadgeNumber = <span class="number">1</span> <span class="comment">//모서리에 표시될 배지</span></div><div class="line">        noti.soundName = <span class="type">UILocalNotificationDefaultSoundName</span>    <span class="comment">//로컬 알람 도착시 사운드</span></div><div class="line">        noti.userInfo = [<span class="string">"name"</span>:<span class="string">"정현아"</span>]  <span class="comment">//로컬 알람 실행시 함께 전달하고 싶은 값!! (화면에는 표시되지 않음)</span></div><div class="line">        </div><div class="line">        <span class="comment">// 생성된 알람 객체를 스케쥴러에 등록</span></div><div class="line">        <span class="comment">//application.scheduledLocalNotifications(noti)     //메서드 사라짐</span></div><div class="line">        application.presentLocalNotificationNow(noti)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="CODE-메서드-정리"><a href="#CODE-메서드-정리" class="headerlink" title="CODE :: 메서드 정리"></a>CODE :: 메서드 정리</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="type">UIApplication</span>.shared( <span class="comment">//앱 델리겡트에서는 application 매개변수)</span></div><div class="line">    <span class="comment">//  알림 허용 여부를 사용자에게 확인받고, 선택을 어플리케이션에 등록하는 역할</span></div><div class="line">    .registerUserNotificationSettings(<span class="number">_</span>:)</div><div class="line">        </div><div class="line">        <span class="comment">// 현재 설정된 알림 허용 여부 정보를 읽어온다</span></div><div class="line">        .currentUserNotificationSettings</div><div class="line">        </div><div class="line">        <span class="comment">// 생성된 알림 객체를 iOS 스케쥴러에 등록한다. 등록된 알림 객체는 fireDate 속성에 설정된 시간에 맞게 발송된다 (iOS 10)</span></div><div class="line">        .scheduleLocalNotification(<span class="number">_</span>:)</div><div class="line">        </div><div class="line">        <span class="comment">// 생성된 알림 객체의 fireDate 속성을무시하고 즉각 발송한다</span></div><div class="line">        .presentLocalNotificationNow(<span class="number">_</span>:)</div></pre></td></tr></table></figure>
+
 
                 
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2017/11/26/iOS-Localpush/" data-toggle="tooltip" data-placement="top" title="iOS Local Push">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2017/11/20/view-dataTrade/" data-toggle="tooltip" data-placement="top" title="iOS 화면간 데이터 전달">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <!-- duoshuo Share start -->
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
                 
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
             </div>
+
+            <!-- Comments -->
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
 
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
 
-                <!-- Featured Tags -->
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
+                </div>
+            
         </div>
     </div>
 </article>
 
-
-
-
-
-
-
-
-
     <!-- Footer -->
-    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                
-                
-                
+                    
 
-                
+                    
 
-                
+                    
+                        <li>
+                            <a href="https://github.com/hyunnaa" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
 
-                
+                    
 
-                
+                    
 
+                    
                 </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; hyunah_princess 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
-                    </iframe>
-                </p>
+                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
             </div>
         </div>
     </div>
 </footer>
 
+
+    <!-- After footer scripts -->
+    
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+<!-- Disqus Comments -->
 
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-
-
-
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 

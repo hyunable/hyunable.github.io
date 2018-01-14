@@ -1,319 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
 <!-- Head tag -->
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="null">
-    <meta name="keyword"  content="undefined">
-    <link rel="shortcut icon" href="/img/ironman-draw.png">
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <title>
-        
-          자료구조 - undefined
-        
-    </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2017/10/17/algorithm2/">
+    <!--Description-->
+    
+        <meta name="description" content="A. 자료구조
+
+프로그램에서 사용하는 자료를 기억장치의 공간 내에 저장하는 방법과 저장된 그룹 내에 존재하는 자료간의 관계,처리 방법 등을 연구 및 분석하기 위해 쓰인다.
+sort(정렬), 검색(search), 파일 편성 등에 사용된다.
+
+
+배열(Array)
+순서대로 ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hyunah_princess">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="자료구조"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="현아의 IT COOK"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>자료구조 - 현아의 IT COOK</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/css/beantech.min.css">
-    
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <link rel="stylesheet" href="/css/widget.css">
-
-    <link rel="stylesheet" href="/css/rocket.css">
-
-    <link rel="stylesheet" href="/css/signature.css">
-
-    <link rel="stylesheet" href="/css/toc.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
-
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-107997042-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+	
 </head>
 
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        
-            background-image: url('undefined')
-            /*post*/
-        
-    }
-    
-</style>
+<body>
 
-<header class="intro-header" >
-    <!-- Signature -->
-    <div id="signature">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">hyunAble</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
                 
-                    <div class="post-heading">
-                        <div class="tags">
+                    <li>
+                        <a href="/">
                             
-                              <a class="tag" href="/tags/#자료구조" title="자료구조">자료구조</a>
+                                Home
                             
-                              <a class="tag" href="/tags/#list" title="list">list</a>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
                             
-                              <a class="tag" href="/tags/#stack" title="stack">stack</a>
+                                IT_Foood
                             
-                              <a class="tag" href="/tags/#Queue" title="Queue">Queue</a>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
                             
-                              <a class="tag" href="/tags/#Tree" title="Tree">Tree</a>
+                                foood_list
                             
-                        </div>
-                        <h1>자료구조</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by hyunah_princess on
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                taste_tag
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/About">
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/cook1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>자료구조</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
                             2017-10-17
-                        </span>
-                    </div>
-                
-
-
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-	
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">현아의 IT COOK</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-
-                    
-
-                        
-                        <li>
-                            <a href="/About/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">IT_FOOOD</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">Foood_List</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Taste_Tag</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-    <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
-
 <!-- Post Content -->
 <article>
     <div class="container">
         <div class="row">
 
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
 
-                <h1><span id="a-자료구조">A. 자료구조</span></h1>
-<hr>
+
+<a href="/tags/자료구조/">#자료구조</a> <a href="/tags/list/">#list</a> <a href="/tags/stack/">#stack</a> <a href="/tags/Queue/">#Queue</a> <a href="/tags/Tree/">#Tree</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/ALGORITHM-Oil/">ALGORITHM Oil</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="A-자료구조"><a href="#A-자료구조" class="headerlink" title="A. 자료구조"></a>A. 자료구조</h1><hr>
 <ul>
 <li>프로그램에서 사용하는 자료를 기억장치의 공간 내에 <strong>저장하는 방법</strong>과 저장된 그룹 내에 존재하는 <strong>자료간의 관계,처리 방법</strong> 등을 연구 및 분석하기 위해 쓰인다.</li>
 <li>sort(정렬), 검색(search), 파일 편성 등에 사용된다.</li>
 </ul>
-<p>&lt;br&gt;</p>
-<h2><span id="배열array">배열(Array)</span></h2>
-<hr>
-<p>순서대로 번호가 붙어 있는 <em>원소들이 연속적인 형태</em>로 구성되어 있는 형태로 정적인 데이터를 저장하기 위한 가장 기초적인 자료구조이다.
-각 원소에 index라는 번호가 붙는데 이를 통해 데이터를 쉽게 다룰 수 있다는 장점이 있다. 다차원 배열도 구성가능하다.</p>
+<p><br></p>
+<h2 id="배열-Array"><a href="#배열-Array" class="headerlink" title="배열(Array)"></a>배열(Array)</h2><hr>
+<p>순서대로 번호가 붙어 있는 <em>원소들이 연속적인 형태</em>로 구성되어 있는 형태로 정적인 데이터를 저장하기 위한 가장 기초적인 자료구조이다.<br>각 원소에 index라는 번호가 붙는데 이를 통해 데이터를 쉽게 다룰 수 있다는 장점이 있다. 다차원 배열도 구성가능하다.</p>
 <ul>
 <li>배열은 접근속도가 빠르지만 삭제와 삽입이 번거롭다. (새로 생성해서 통으로 옮겨야 한다.)</li>
 </ul>
-<p>&lt;br&gt;</p>
-<h2><span id="연결된-리스트linked-list">연결된 리스트(Linked List)</span></h2>
-<hr>
+<p><br></p>
+<h2 id="연결된-리스트-Linked-List"><a href="#연결된-리스트-Linked-List" class="headerlink" title="연결된 리스트(Linked List)"></a>연결된 리스트(Linked List)</h2><hr>
 <p><strong>리스트(List)</strong> 는 가장 단순한 자료구조중 하나로 데이터들이 차례대로 연결되어 있는 <strong>선형구조</strong>로 <em>배열 , 스택, 큐, 트리 , 그래프</em> 등을 구현하는 데 사용할 수 있다.</p>
-<p>연결 리스트(Linked List)는 &lt;U&gt;노드를 선형으로 연결&lt;/U&gt;해 놓은 구조이다.</p>
+<p>연결 리스트(Linked List)는 <u>노드를 선형으로 연결</u>해 놓은 구조이다.</p>
 <ul>
 <li>노드는 <code>[데이터]-[포인터]</code> 로 이루어져 있는데 포인터(다음데이터에 대한 주소값)를 이용하여 연결되기 때문에 배열과 다르게 물리적 메모리상에 연속적으로 위치할 필요가 없고 <em>입력,삭제가 편하다</em>.</li>
 <li>하지만 첫 노드부터 원하는 위치의 노드까지 검색해야 하기 때문에 접근 속도는 느린 편이다.</li>
-<li>희소행렬을 Linked List로 구성하면 메모리 절약에 효율적이다.
-<ul>
+<li>희소행렬을 Linked List로 구성하면 메모리 절약에 효율적이다.<ul>
 <li>희소행렬 : 행렬의 값이 대부분 0 으로 이루어져 있는 경우.</li>
 </ul>
 </li>
 <li><code>A-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삽입</strong>하고자 하는 경우에는 A의 포인터는 C를 가리키고 C는 B를 가리키게 하면 노드가 삽입되어 <code>A-C-B</code> 형태의 연결리스트가 된다.</li>
-<li><code>A-C-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삭제</strong>하고자 하는 경우에는 <em>삭제전에 A의 포인터는 B를 가리켜</em> &lt;U&gt;연결이 끊어지지 않게&lt;/U&gt; 하는 것이 중요하다.</li>
+<li><code>A-C-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삭제</strong>하고자 하는 경우에는 <em>삭제전에 A의 포인터는 B를 가리켜</em> <u>연결이 끊어지지 않게</u> 하는 것이 중요하다.  </li>
 </ul>
-<h5><span id="이중연결리스트">이중연결리스트</span></h5>
-<ul>
+<h5 id="이중연결리스트"><a href="#이중연결리스트" class="headerlink" title="이중연결리스트"></a>이중연결리스트</h5><ul>
 <li>데이터의 앞,뒤를 가리키는 <strong>선포인터</strong>와 <strong>후포인터</strong>를 갖는다.</li>
 <li><em>탐색,삽입,삭제가 용이</em>하지만 포인터가 두개씩 있어서 <em>메모리를 많이 차지</em>하는 단점이 있다.</li>
 </ul>
-<h5><span id="원형-연결리스트">원형 연결리스트</span></h5>
-<ul>
-<li>이중연결리스트에서 마지막 노드의 포인터가 리스트의 종료가 아닌 &lt;U&gt;처음 노드를 다시 가리키는 구조&lt;/U&gt;이다.</li>
+<h5 id="원형-연결리스트"><a href="#원형-연결리스트" class="headerlink" title="원형 연결리스트"></a>원형 연결리스트</h5><ul>
+<li>이중연결리스트에서 마지막 노드의 포인터가 리스트의 종료가 아닌 <u>처음 노드를 다시 가리키는 구조</u>이다.</li>
 <li>이중연결리스트에 비해 모든 성능이 뛰어나지만 <em>구현이 어렵다는 단점</em>이 있다.</li>
 </ul>
 <p><img src="/image/struct_list.png" alt="리스트구조"></p>
-<p>&lt;br&gt;</p>
-<h2><span id="스택stack">스택(Stack)</span></h2>
-<hr>
+<p><br></p>
+<h2 id="스택-Stack"><a href="#스택-Stack" class="headerlink" title="스택(Stack)"></a>스택(Stack)</h2><hr>
 <ul>
 <li>쌓여있는 더미라는 뜻으로 자료구조적인 특징은 <strong>한쪽끝에서만 데이터를 삽입하고 삭제할 수 있다</strong>는 것이다.</li>
 <li><strong>LIFO</strong>(Last-in,First-out) 방식을 따른다.</li>
-<li>사용되는 명령어로는 &lt;U&gt;Push(데이터 삽입) , Pop(데이터 꺼내기), Top(스택의 가장 위에 위치한 데이터를 봄)&lt;/U&gt;이 있다.</li>
+<li>사용되는 명령어로는 <u>Push(데이터 삽입) , Pop(데이터 꺼내기), Top(스택의 가장 위에 위치한 데이터를 봄)</u>이 있다.</li>
 </ul>
 <p><img src="/image/struct_stack.png" alt="스택구조"></p>
-<p>&lt;br&gt;</p>
-<h2><span id="큐queue">큐(Queue)</span></h2>
-<hr>
+<p><br></p>
+<h2 id="큐-Queue"><a href="#큐-Queue" class="headerlink" title="큐(Queue)"></a>큐(Queue)</h2><hr>
 <ul>
 <li>양쪽 끝이 뚫려있는 형태로 한쪽은 들어가기만하고, 한쪽은 나오기만 한다.</li>
 <li><strong>FIFO</strong>(First-in, First-out) 방식을 따른다.</li>
 <li>데이터가 들어오는 쪽을 <strong>Head or Front</strong> 라고 부르며 데이터가 나오는 쪽을 <strong>tail or Rear</strong>라고 부른다.</li>
 <li>큐에 데이터를 집어 넣은 것을 <strong>Enqueue</strong> 라고 하며, 큐에서 데이터를 빼는 것을 <strong>Dequeue</strong>라고 한다.</li>
-<li><strong><em>환형 큐</em></strong>는 길이가 n인 1차원 배열의 큐를 원형으로 만든것으로 배열의 처음과 끝을 연결하여 만든다.
-<ul>
+<li><strong><em>환형 큐</em></strong>는 길이가 n인 1차원 배열의 큐를 원형으로 만든것으로 배열의 처음과 끝을 연결하여 만든다.<ul>
 <li>오버플로우가 발생했을 경우 <strong>rear의 위치를 이동</strong>시켜 추가로 공간을 확보할 수 있는 장점이 있으며, 포인터만 이동하여 소요시간도 줄일수 있다.</li>
 </ul>
 </li>
 </ul>
 <p><img src="/image/struct_queue.png" alt="큐의구조"></p>
-<p>&lt;br&gt;</p>
-<h2><span id="트리tree">트리(Tree)</span></h2>
-<hr>
+<p><br></p>
+<h2 id="트리-Tree"><a href="#트리-Tree" class="headerlink" title="트리(Tree)"></a>트리(Tree)</h2><hr>
 <ul>
-<li>
-<p>구조중에서 <strong>계층적 구조</strong>를 가진 데이터를 표현할 때 유용하게 쓸 수 있다.</p>
-</li>
-<li>
-<p>tree는 <strong>root</strong>와 <strong>하위 tree</strong>, 자식 노드가 존재하지 않는<strong>leaf</strong>로 이루어지며 상위 데이터를 <strong>parent</strong>, 하위 데이터를 <strong>children</strong>이라고 부른다.</p>
-<h4><span id="이진트리binary-tree">이진트리(Binary Tree)</span></h4>
-<ul>
+<li>구조중에서 <strong>계층적 구조</strong>를 가진 데이터를 표현할 때 유용하게 쓸 수 있다.</li>
+<li><p>tree는 <strong>root</strong>와 <strong>하위 tree</strong>, 자식 노드가 존재하지 않는<strong>leaf</strong>로 이루어지며 상위 데이터를 <strong>parent</strong>, 하위 데이터를 <strong>children</strong>이라고 부른다.</p>
+<h4 id="이진트리-Binary-Tree"><a href="#이진트리-Binary-Tree" class="headerlink" title="이진트리(Binary Tree)"></a>이진트리(Binary Tree)</h4><ul>
 <li>어떤 노드의 자식 노드의 수는 최대 <strong>2개</strong>인 이진트리</li>
 <li>모든 노드들이 2개의 자식노드를 갖는 트리를 <strong><em>완전이진트리</em></strong> 라고 한다.</li>
 </ul>
-<h4><span id="이진탐색트리binary-search-treebst">이진탐색트리(Binary Search Tree,BST)</span></h4>
-<ul>
-<li>
-<p>부모 노드를 기준으로 &lt;U&gt;왼쪽 노드들의 값은 더 작고 오른쪽 노드들의 값은 더 크게&lt;/U&gt; 만들어 놓은 트리형태이다.</p>
-</li>
-<li>
-<p>이진탐색트리를 생성하는 방법은 들어오는 입력값을 root로 부터 차례대로 저장하되 &lt;U&gt;현재 위치의 노드값보다 큰지 작은지&lt;/U&gt; 추적하며 저장하면 된다.</p>
-</li>
-<li>
-<p>이때 주의할 점은 root 값이 <em>전체 원소의 중간값이 아닌 경우</em>에는 &lt;U&gt;한쪽으로 크게 기울어진 트리형태&lt;/U&gt;가 될 수 있기 때문에 이를 보정해야할 필요가 있다.</p>
-</li>
-<li>
-<p>삭제할 경우 주의해야 할 case가 있다.</p>
+<h4 id="이진탐색트리-Binary-Search-Tree-BST"><a href="#이진탐색트리-Binary-Search-Tree-BST" class="headerlink" title="이진탐색트리(Binary Search Tree,BST)"></a>이진탐색트리(Binary Search Tree,BST)</h4><ul>
+<li>부모 노드를 기준으로 <u>왼쪽 노드들의 값은 더 작고 오른쪽 노드들의 값은 더 크게</u> 만들어 놓은 트리형태이다.</li>
+<li>이진탐색트리를 생성하는 방법은 들어오는 입력값을 root로 부터 차례대로 저장하되 <u>현재 위치의 노드값보다 큰지 작은지</u> 추적하며 저장하면 된다.</li>
+<li>이때 주의할 점은 root 값이 <em>전체 원소의 중간값이 아닌 경우</em>에는 <u>한쪽으로 크게 기울어진 트리형태</u>가 될 수 있기 때문에 이를 보정해야할 필요가 있다.</li>
+<li><p>삭제할 경우 주의해야 할 case가 있다.</p>
 <ul>
 <li>삭제할 노드의 자식이 없는 경우 : 노드만 삭제가능</li>
 <li>삭제할 노드의 자식이 1개인 경우 : 노드를 삭제하고 자식을 부모로 올린다.</li>
@@ -325,185 +305,81 @@
 </ul>
 <p><img src="/image/struct_tree.png" alt="트리구조"></p>
 
-                
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2017/10/19/chap9-Array/" data-toggle="tooltip" data-placement="top" title="CH9. Array">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2017/10/15/algorithm/" data-toggle="tooltip" data-placement="top" title="알고리즘의 정의">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <!-- duoshuo Share start -->
                 
-                <!-- 多说 Share end-->
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=aare1213"></script>
 
-                <!-- 多说评论框 start -->
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="addthis_sharing_toolbox"></div>
                 
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
             </div>
+
+            <!-- Comments -->
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
 
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
 
-                <!-- Featured Tags -->
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
+                </div>
+            
         </div>
     </div>
 </article>
 
-
-
-
-
-
-
-
-
     <!-- Footer -->
-    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
-                
-                
-                
+                    
 
-                
+                    
 
-                
+                    
+                        <li>
+                            <a href="https://github.com/hyunnaa" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
 
-                
+                    
 
-                
+                    
 
+                    
                 </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; hyunah_princess 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
-                    </iframe>
-                </p>
+                <p class="copyright text-muted">&copy; 2018 hyunah_princess<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
             </div>
         </div>
     </div>
 </footer>
 
+
+    <!-- After footer scripts -->
+    
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+<!-- Disqus Comments -->
 
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-<!-- Google Analytics -->
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-
-
-
-
-	<a id="rocket" href="#top" class=""></a>
-	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
-<!-- Image to hack wechat -->
-<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
 
