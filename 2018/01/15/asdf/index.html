@@ -14,28 +14,28 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About Me - 현아의 IT Playground
+          바보멍청아 - 현아의 IT Playground
         
     </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/about/">
+    <link rel="canonical" href="https://hyunnaa.github.io/2018/01/15/asdf/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="../css/beantech.min.css">
+    <link rel="stylesheet" href="../../../../css/beantech.min.css">
     
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../../../../css/highlight.css">
 
-    <link rel="stylesheet" href="../css/widget.css">
+    <link rel="stylesheet" href="../../../../css/widget.css">
 
-    <link rel="stylesheet" href="../css/rocket.css">
+    <link rel="stylesheet" href="../../../../css/rocket.css">
 
-    <link rel="stylesheet" href="../css/signature.css">
+    <link rel="stylesheet" href="../../../../css/signature.css">
 
-    <link rel="stylesheet" href="../css/toc.css">
+    <link rel="stylesheet" href="../../../../css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -69,8 +69,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('img/header_img/tag.jpeg')
+            /*post*/
         
     }
     
@@ -83,10 +83,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About Me</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">1day 1commit and 1% growth</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>바보멍청아</h1>
+                        <h2 class="subheading">바보입니다만</h2>
+                        <span class="meta">
+                            Posted by hyunAble on
+                            2018-01-15
+                        </span>
                     </div>
                 
 
@@ -189,268 +195,147 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="app-life-cycle">App Life Cycle</span></h1>
+<h2><span id="앱의-생명주기">앱의 생명주기</span></h2>
+<hr>
+<p>앱의 상태변화는 다음과 같이 나눌 수 있다.</p>
+<ul>
+<li>Not Running : 앱이 시작되지 않았거나 실행되었지만 시스템에 의해 종료된 상태</li>
+<li>Inactive : 앱이 전면에서 실행 중이지만, 아무런 <strong>이벤트를 받지 않고 있는 상태</strong></li>
+<li>Active : 앱이 전면에서 실행 중이며, 이벤트를 받고 있는 상태</li>
+<li>Background : 앱이 백그라운드에 있지만 여전히 코드가 실행되고 있는 상태. 대부분의 앱은 <strong><em>Suspended</em></strong> 상태로 이행하는 도중에 일시적으로 이 상태에 진입하지만, 파일 다운로드나 업로드, 연산처리 등 여분의 실행 시간이 필요한 앱일 경우 특정 시간동안 이 상태로 남아 있게 되는 경우도 있다.</li>
+<li>Suspended : 앱이 메모리에 유지되지만 <strong>실행되는 코드가 없는 상태</strong>. 메모리가 부족한 상황이 오게되면 iOS시스템은 포그라운드에 있는 앱의 여유 메모리 공간을 확보하기 위해 <u>Suspended 상태에 있는 앱들을 특별한 알림 없이 정리</u>한다.</li>
+</ul>
+<p>앱이 Not Running 상태에서 Suspended를 거처 다시 Not Running 상태로 돌아가기 까지의 과정을 <strong><em>앱 라이프사이클(App Life Cycle, 앱 생명주기)</em></strong> 라고 한다.</p>
+<br>
+<p>뷰 컨트롤러는 다음과 같이 네 가지 상태로 나눌 수 있다.</p>
+<ul>
+<li>Appearing : 뷰 컨트롤러가 스크린에 등장하기 시작한 순간부터 등장을 완료하기 직전까지의 상태. 퇴장 중인 다른 뷰 컨트롤러와 교차하기도 하며 , 이때 퇴장중인 다른 뷰 컨트롤러의 상태는 Disappering가 된다.</li>
+<li>Appeared : 뷰 컨트롤러가 스크린 전체에 완전히 등장한 상태</li>
+<li>Disappearing : 뷰 컨트롤러가 스크린에서 가려지기 시작해서 완전히 가려지기 직전까지의 상태, 또는 퇴장하기 시작해서 완전히 퇴장하기 진전까지의 상태.</li>
+<li>Disappeared : 뷰 컨트롤러가 스크린에서 완전히 가려졌거나 혹은 퇴장한 상태를 나타낸다.</li>
+</ul>
+<br>
+<p><img src="/image/applifecycle.png" alt="앱생명주기"></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/01/13/Git-GitFlow/" data-toggle="tooltip" data-placement="top" title="Git Flow">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+            </div>
             
-                <style type="text/css">
-    header.intro-header{
-        background-position: right; 
-    }
-</style>
-<!-- Chinese Version -->
-<div class="zh post-container">
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
     
-</div>
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">App Life Cycle</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">앱의 생명주기</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
 
-
-
-
-
-
-                <!-- 如果开启评论功能 -->
+                <!-- Friends Blog -->
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#collection" title="collection" rel="2">collection</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#function" title="function" rel="2">function</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#조건문" title="조건문" rel="2">조건문</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#sort" title="sort" rel="2">sort</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#화면전환" title="화면전환" rel="2">화면전환</a>
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/profile.jpg" />
-        
 
-        
-            <p>Hello, I&#39;m iOS Developer</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/hyunnaa">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="../2018/01/15/asdf/">바보멍청아</a>
-        </li>
-      
-        <li>
-          <a href="../2018/01/13/Git-GitFlow/">Git Flow</a>
-        </li>
-      
-        <li>
-          <a href="../2018/01/08/chap20-errorHandle/">CH20. Error Handling</a>
-        </li>
-      
-        <li>
-          <a href="../2018/01/06/iOS-GCD/">Swift GCD</a>
-        </li>
-      
-        <li>
-          <a href="../2017/11/27/iOS-api/">네트워크 통신과 API</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Categories -->
-
-    <h5>categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/ALGORITHM/">ALGORITHM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="../categories/SWIFT/">SWIFT</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="../categories/Technology/">Technology</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="../categories/iOS/">iOS</a><span class="category-list-count">9</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
@@ -502,13 +387,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="../js/jquery.min.js"></script>
+<script src="../../../../js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="../../../../js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../js/hux-blog.min.js"></script>
+<script src="../../../../js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
