@@ -309,7 +309,7 @@
 <h4><span id="code-meseodeu-jeongri">CODE :: 메서드 정리</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIApplication</span>.shared( <span class="comment">//앱 델리겡트에서는 application 매개변수)</span></span><br><span class="line">    <span class="comment">//  알림 허용 여부를 사용자에게 확인받고, 선택을 어플리케이션에 등록하는 역할</span></span><br><span class="line">    .registerUserNotificationSettings(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 현재 설정된 알림 허용 여부 정보를 읽어온다</span></span><br><span class="line">        .currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체를 iOS 스케쥴러에 등록한다. 등록된 알림 객체는 fireDate 속성에 설정된 시간에 맞게 발송된다 (iOS 10)</span></span><br><span class="line">        .scheduleLocalNotification(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체의 fireDate 속성을무시하고 즉각 발송한다</span></span><br><span class="line">        .presentLocalNotificationNow(<span class="number">_</span>:)</span><br></pre></td></tr></table></figure>
 
-                
+
 
                 <hr>
                 <!-- Pager -->
@@ -342,11 +342,12 @@
                 
                 <!-- disqus comment end -->
             </div>
-            
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
 
-                
+            <!-- Tabe of Content -->
+            <!-- <!-- Table of Contents -->
+ -->
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.</span> <span class="post-toc-text">Alert Message</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">사용자에게 메세지 전달하기</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">메세지 알림창</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.1.0.1.</span> <span class="post-toc-text">UIAlertController</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">CODE</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Local Notification</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">CODE :: 알림 등록하기 (for iOS 10 이하)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">CODE :: 메서드 정리</span></a></li></ol></li></ol></li></ol></li></ol>
+
             <!-- Sidebar Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
