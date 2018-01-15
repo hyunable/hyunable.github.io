@@ -233,8 +233,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter16-property">CHAPTER16 / Property</span><a href="#chapter16-property" class="header-anchor">#</a></h1>
-<h2><span id="peuropeoti">프로퍼티</span><a href="#peuropeoti" class="header-anchor">#</a></h2>
+                <h1><span id="chapter16-property">CHAPTER16 / Property</span></h1>
+<h2><span id="프로퍼티">프로퍼티</span></h2>
 <hr>
 <ul>
 <li>값과 타입을 연계 내지 연동하는 방식으로 타입이 나타내는 엔터티(entity) 특징을 구체화한다.</li>
@@ -243,7 +243,7 @@
 <li>프로퍼티 가시성에 관해 규칙을 세울 수도 있다.</li>
 </ul>
 <br>
-<h3><span id="jeojanghyeong-peuropeoti">저장형 프로퍼티</span><a href="#jeojanghyeong-peuropeoti" class="header-anchor">#</a></h3>
+<h3><span id="저장형-프로퍼티">저장형 프로퍼티</span></h3>
 <hr>
 <ul>
 <li><strong>저장형 프로퍼티</strong>가 하는 일은 데이터 저장이다.</li>
@@ -252,7 +252,7 @@
 <li>중첩타입은 어떤 타입 안에서 정의된 타입이다. 주로 어떤 타입의 기능을 지원할 목적으로 사용된다.</li>
 </ul>
 <br>
-<h3><span id="jiyeon-jeojanghyeong-peuropeoti-lazy">지연 저장형 프로퍼티 (lazy)</span><a href="#jiyeon-jeojanghyeong-peuropeoti-lazy" class="header-anchor">#</a></h3>
+<h3><span id="지연-저장형-프로퍼티-lazy">지연 저장형 프로퍼티 (lazy)</span></h3>
 <hr>
 <p>경우에 따라서 저장형 프로퍼티의 값이 곧바로 지정될 수 없을 때도 있다.<br>
 혹은 만약 해당 프로퍼티의 인스턴스가 메모리를 많이 먹는다면 필요할 때 생성되도록(lazy) 선언해 두면 <strong>메모리 관리 효율</strong>이 좋아질 것이다.</p>
@@ -266,22 +266,22 @@
 </li>
 </ul>
 <br>
-<h4><span id="code-basic">CODE :: Basic</span><a href="#code-basic" class="header-anchor">#</a></h4>
+<h4><span id="code-basic">CODE :: Basic</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Beef</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price = <span class="number">3000</span></span><br><span class="line">    <span class="keyword">var</span> weight = <span class="number">30</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> small</span><br><span class="line">        <span class="keyword">case</span> medium</span><br><span class="line">        <span class="keyword">case</span> large</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//지연 프로퍼티</span></span><br><span class="line">    <span class="comment">// 클로저를 이용하여 값 할당</span></span><br><span class="line">    <span class="comment">// ()로 끝남으로써 beefSize가 처음 엑세스될 때 클로저가 리턴한 결과를 beefSize에 지정한다.</span></span><br><span class="line"></span><br><span class="line">     <span class="built_in">lazy</span> <span class="keyword">var</span> beefSize: <span class="type">Size</span> = &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span>.weight &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>...<span class="number">20</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.small</span><br><span class="line">        <span class="keyword">case</span> <span class="number">21</span>...<span class="number">40</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.medium</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Size</span>.large</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>클로저는 <code>self.</code>를 참조해야 내부에서 인스턴스의 <code>weight</code> 프로퍼티에 액세스가 가능하다.<br>
 <code>lazy</code>를 생략하고 <code>self.</code>를 사용할 시에는, 컴파일에러가 나는데,<br>
 그 이유는 클로저가 안전하게 <code>self.</code>에 엑세스하기 위해서 <em>컴파일러는 <code>self.</code>가 온전히 초기화되었는지</em> 알고 있어야 한다.<br>
 <code>lazy</code>를 붙이므로써 지금 당장 <code>self.</code>에 해당하는 값이 만들어질 필요가 없으며, 처음 엑세스 될 때 만들어 져야한다고 파악하여 <strong>ready</strong>상태에 있게 된다.</p>
 <br>
-<h4><span id="code-aegseseu">CODE :: 액세스</span><a href="#code-aegseseu" class="header-anchor">#</a></h4>
+<h4><span id="code-액세스">CODE :: 액세스</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newBeef = <span class="type">Beef</span>()</span><br><span class="line"><span class="keyword">var</span> newBeefWeight = newBeef.weight</span><br><span class="line">newBeefWeight = <span class="number">50</span></span><br><span class="line"><span class="built_in">print</span>(newBeef.beefSize)     <span class="comment">//출력 : medium</span></span><br></pre></td></tr></table></figure>
 <p>위 와 같이 생성후 인스턴스의 <code>weight</code>값을 변경 시켜 주었으나,<br>
 이미 첫 초기화 될 때 <code>beefSize</code>프로퍼티가 지정되었다.</p>
 <br>
-<h4><span id="code-sae-gabseuro-cogihwa-hu-jaeseoljeong">CODE :: 새 값으로 초기화 후 재설정</span><a href="#code-sae-gabseuro-cogihwa-hu-jaeseoljeong" class="header-anchor">#</a></h4>
+<h4><span id="code-새-값으로-초기화-후-재설정">CODE :: 새 값으로 초기화 후 재설정</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> secondBeef = <span class="type">Beef</span>.<span class="keyword">init</span>(price: <span class="number">2000</span>, weight: <span class="number">50</span>, beefSize: <span class="literal">nil</span>)</span><br><span class="line"><span class="built_in">print</span>(secondBeef.beefSize) <span class="comment">//출력 : large</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="gyesanhyeong-peuropeoti">계산형 프로퍼티</span><a href="#gyesanhyeong-peuropeoti" class="header-anchor">#</a></h3>
+<h3><span id="계산형-프로퍼티">계산형 프로퍼티</span></h3>
 <hr>
 <ul>
 <li>값을 저장하지 않으며 <strong>게터(getter)</strong>,<strong>세터(setter)</strong> 라는 것을 제공한다.</li>
@@ -291,19 +291,19 @@
 <li>getter,setter 모두 함수와 같이 상속시 <code>override</code>가 가능하다.</li>
 <li>반드시 <strong>타입 정보를 명시</strong>해야 한다. 컴파일러가 게터가 <em>무엇을 리턴</em> 해야 하는지를 파악할 수 있게 하기 위해!</li>
 </ul>
-<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
+<h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line">    <span class="comment">//반드시 타입어노테이션을 해줘야 한다.</span></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> (value)&#123;</span><br><span class="line">            <span class="comment">//self를 통해서 엑세스</span></span><br><span class="line">            <span class="keyword">self</span>.a = value / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = value / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 클로저를 통해 인스턴스가 생성될 때 함께 실해오디어 초기값을 반환하며, 이후 재실행되지 않는다.</span></span><br><span class="line"><span class="keyword">var</span> age :<span class="type">Int</span> = &#123;</span><br><span class="line">  <span class="keyword">let</span> number = now() - birthDate()</span><br><span class="line">  <span class="keyword">return</span> number</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doubling = <span class="type">Doubling</span>()</span><br><span class="line">doubling.data = <span class="number">80</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"a:<span class="subst">\(doubling.a)</span> , b: <span class="subst">\(doubling.b)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : a:40 , b: 40</span></span><br></pre></td></tr></table></figure>
-<h4><span id="code-cugyaghyeong-getter-setter">CODE :: 축약형 getter, setter</span><a href="#code-cugyaghyeong-getter-setter" class="header-anchor">#</a></h4>
+<h4><span id="code-축약형-getter-setter">CODE :: 축약형 getter, setter</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// getter 축약형</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// setter 축약형 : newValue</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>getter 축약조건 : read-only로 정의하려는 경우</li>
 <li>setter 축약조건 : 새 값에 명시적 이름을 붙이는 것 대신, <code>set</code>코드 내부에서 정의된 <code>newValue</code>라는 심볼이 쓰일 수 있다.</li>
 </ul>
 <br>
-<h4><span id="code-overriding">CODE :: overriding</span><a href="#code-overriding" class="header-anchor">#</a></h4>
+<h4><span id="code-overriding">CODE :: overriding</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubDoubling</span>: <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> data: <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (a + b) * <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> subDoubling = <span class="type">SubDoubling</span>()</span><br><span class="line"><span class="built_in">print</span>(subDoubling.data)</span><br><span class="line"><span class="comment">// 출력 : 4</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="peuropeoti-gwancalja-property-observer">프로퍼티 관찰자(Property Observer)</span><a href="#peuropeoti-gwancalja-property-observer" class="header-anchor">#</a></h3>
+<h3><span id="프로퍼티-관찰자property-observer">프로퍼티 관찰자(Property Observer)</span></h3>
 <hr>
 <ul>
 <li>프로퍼티의 변화를 추적해서 실시간으로 대응하고자 할 때 사용한다.</li>
@@ -311,10 +311,10 @@
 <li><code>didSet</code> : 프로퍼티가 <strong>변경된 후</strong> 실행된다. 즉, 프로퍼티의 새 값을 처리할 수 있는 방법</li>
 <li>옵저버 기능을 이용하면 <em>getter,setter 사용이 불가능</em> 한데, 이는 <u>getter,setter에서 옵저버 기능을 구현할 수 있기 때문</u>이다.</li>
 </ul>
-<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
+<h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObserverbingClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(value) &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a will change to <span class="subst">\(value)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a did changed to <span class="subst">\(<span class="keyword">self</span>.a)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="type">ObserverbingClass</span>()</span><br><span class="line">obj.a = <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="taib-peuropeoti-jeongjeog-peuropeoti">타입 프로퍼티 (정적 프로퍼티)</span><a href="#taib-peuropeoti-jeongjeog-peuropeoti" class="header-anchor">#</a></h3>
+<h3><span id="타입-프로퍼티-정적-프로퍼티">타입 프로퍼티 (정적 프로퍼티)</span></h3>
 <hr>
 <ul>
 <li>인스턴스에 소속되지 않고 <strong>클래스와 구조체 자체에 소속</strong>되어 값을 가지는 프로퍼티.</li>
@@ -342,7 +342,7 @@
 <br>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//swift에는 세가지 메서드 타입이 존재한다.</span></span><br><span class="line"><span class="comment">// 인스턴스 메서드, 스태틱메서드, 클래스 매서드</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">instanceMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"instanceMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"staticMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"classMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">KindOfClass</span>.instanceMethod()      <span class="comment">//컴파일에러 -&gt; 인스턴스생성없이 접근불가.</span></span><br><span class="line"><span class="type">KindOfClass</span>.staticMethod()      <span class="comment">//출력 : staticMethod</span></span><br><span class="line"><span class="type">KindOfClass</span>.classMethod()        <span class="comment">//출력 : classMethod</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//override 가능유무</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">subClass</span>: <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;       <span class="comment">// compile error : Cannot override static method</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :staticMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :classMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">subClass.classMethod()      <span class="comment">//출력 : subClass :classMethod : override성공!</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="egseseu-jeeo">엑세스 제어</span><a href="#egseseu-jeeo" class="header-anchor">#</a></h3>
+<h3><span id="엑세스-제어">엑세스 제어</span></h3>
 <hr>
 <ul>
 <li>필요에 따라 프로퍼티의 가시성을 제어하여 숨기거나 드러낼 수 있다.</li>
@@ -362,7 +362,7 @@
 <li>게터와 세터에 가시성을 따로따로 제어할 수 있다. BUT, 세터는 게터보다 가시성이 높을 수 없다.</li>
 </ul>
 <br>
-<h3><span id="taib-kaeseuting">타입 캐스팅</span><a href="#taib-kaeseuting" class="header-anchor">#</a></h3>
+<h3><span id="타입-캐스팅">타입 캐스팅</span></h3>
 <hr>
 <p>제한된 범위 내에서 타입을 캐스팅할 수 있다.</p>
 <ol>
@@ -372,13 +372,13 @@
 <li>프로토콜 타입이 상속을 받았을 경우 모든 상위 프로토콜</li>
 </ol>
 <br>
-<h3><span id="keulraeseu-jeonyong-peurotokol">클래스 전용 프로토콜</span><a href="#keulraeseu-jeonyong-peurotokol" class="header-anchor">#</a></h3>
+<h3><span id="클래스-전용-프로토콜">클래스 전용 프로토콜</span></h3>
 <hr>
 <ul>
 <li><code>class</code> 키워드를 사용하여 클래스 전용 프로토콜임을 컴파일러에 알려주면 된다.</li>
 </ul>
 <br>
-<h3><span id="optional">optional</span><a href="#optional" class="header-anchor">#</a></h3>
+<h3><span id="optional">optional</span></h3>
 <hr>
 <ul>
 <li>프로토콜 앞에 <code>@obj</code> 어노테이션을 붙인후 <code>optional</code> 키워드를 붙인다.</li>

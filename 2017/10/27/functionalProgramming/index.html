@@ -231,10 +231,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="functional-programming">Functional Programming</span><a href="#functional-programming" class="header-anchor">#</a></h1>
-<h2><span id="hamsuhyeong-peurogeuraemingiran">함수형 프로그래밍이란?</span><a href="#hamsuhyeong-peurogeuraemingiran" class="header-anchor">#</a></h2>
+                <h1><span id="functional-programming">Functional Programming</span></h1>
+<h2><span id="함수형-프로그래밍이란">함수형 프로그래밍이란?</span></h2>
 <br>
-<h3><span id="mutatable-han-sangtaereul-immutableyi-sangtaero-mandeuleo-sideeffectreul-eobsaeja"># mutatable 한 상태를 immutable의 상태로 만들어 sideEffect를 없애자</span><a href="#mutatable-han-sangtaereul-immutableyi-sangtaero-mandeuleo-sideeffectreul-eobsaeja" class="header-anchor">#</a></h3>
+<h3><span id="mutatable-한-상태를-immutable의-상태로-만들어-sideeffect를-없애자"># mutatable 한 상태를 immutable의 상태로 만들어 sideEffect를 없애자</span></h3>
 <hr>
 <ul>
 <li>값이 변경되지 않도록 변수(var)보다는 **상수(let)**를 선호한다.</li>
@@ -242,7 +242,7 @@
 결과값이 달리지면 안된다.</li>
 </ul>
 <br>
-<h3><span id="modeungeoseun-gaegceida"># 모든것은 객체이다</span><a href="#modeungeoseun-gaegceida" class="header-anchor">#</a></h3>
+<h3><span id="모든것은-객체이다"># 모든것은 객체이다</span></h3>
 <hr>
 <ul>
 <li>
@@ -262,15 +262,15 @@
 </li>
 </ul>
 <br>
-<h3><span id="kodeureul-gangyeolhage-hago-gadogseongeul-nopyeo-rojige-jibjungsikyeoya-handa"># 코드를 간결하게 하고 가독성을 높여 로직에 집중시켜야 한다.</span><a href="#kodeureul-gangyeolhage-hago-gadogseongeul-nopyeo-rojige-jibjungsikyeoya-handa" class="header-anchor">#</a></h3>
+<h3><span id="코드를-간결하게-하고-가독성을-높여-로직에-집중시켜야-한다"># 코드를 간결하게 하고 가독성을 높여 로직에 집중시켜야 한다.</span></h3>
 <br>
-<h3><span id="dongsiseong-jageobeul-boda-swibgo-anjeonhage-guhyeonhaja"># 동시성 작업을 보다 쉽고 안전하게 구현하자.</span><a href="#dongsiseong-jageobeul-boda-swibgo-anjeonhage-guhyeonhaja" class="header-anchor">#</a></h3>
+<h3><span id="동시성-작업을-보다-쉽고-안전하게-구현하자"># 동시성 작업을 보다 쉽고 안전하게 구현하자.</span></h3>
 <hr>
 <ul>
 <li><strong>immutable값</strong>을 통해 여러 쓰레드에서 접근을 하더라도 <strong>sideEffect</strong>를 일으키지 않도록 한다.</li>
 <li>그러면 Lock, unLock 같은 보호 장치가 필요없다.</li>
 </ul>
-<h3><span id="ilgeub-hamsu-first-class-function-yi-teugseong">일급 함수(First-class-function)의 특성</span><a href="#ilgeub-hamsu-first-class-function-yi-teugseong" class="header-anchor">#</a></h3>
+<h3><span id="일급-함수first-class-function의-특성">일급 함수(First-class-function)의 특성</span></h3>
 <p>함수형 언어에서는 <strong>함수가 일급 객체로 대우</strong>받는다. 따라서 swift에서는 함수가 다음과 같은 특성을 갖게 된다.</p>
 <hr>
 <ul>
@@ -280,7 +280,7 @@
 <li>변수나 데이터 구조 안에 저장할 수 있어야 한다.</li>
 <li>할당에 사용된 이름과 관계없이 고유한 구별이 가능해야 한다.</li>
 </ul>
-<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
+<h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//특성 1. 리턴값으로 객체를 사용할 수 있어야 한다.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">go</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"go리턴값입니다"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pass</span><span class="params">()</span></span> -&gt; (<span class="type">Void</span>) -&gt; <span class="type">String</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> go	<span class="comment">//함수를 리턴값으로 사용</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p = pass()		<span class="comment">// 특성2. 함수를 변수에 저장</span></span><br><span class="line">p() <span class="comment">//"go리턴값입니다"</span></span><br></pre></td></tr></table></figure>
 <br>
 

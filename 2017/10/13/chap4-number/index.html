@@ -229,10 +229,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter4-su-number">CHAPTER4 / 수(number)</span><a href="#chapter4-su-number" class="header-anchor">#</a></h1>
+                <h1><span id="chapter4-수number">CHAPTER4 / 수(number)</span></h1>
 <br>
 <br>
-<h2><span id="jeongsu-integer">정수(Integer)</span><a href="#jeongsu-integer" class="header-anchor">#</a></h2>
+<h2><span id="정수integer">정수(Integer)</span></h2>
 <hr>
 <p>macOS에서 Int는 64bit 정수이다.</p>
 <p>Int의 범위를 알아보려면 <code>\(Int.max)</code> 혹은 <code>\(Int.min)</code>으로 최대값,최소값 확인이 가능하다.<br>
@@ -252,10 +252,10 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <li>연산자는 모두 <code>+=</code> 과 <code>-=</code> 와 같은 형태로 줄여쓰기가 가능하다.</li>
 </ul>
 <br>
-<h3><span id="obeopeulro-eondeopeulro-yeonsanja">오버플로/언더플로 연산자</span><a href="#obeopeulro-eondeopeulro-yeonsanja" class="header-anchor">#</a></h3>
+<h3><span id="오버플로언더플로-연산자">오버플로/언더플로 연산자</span></h3>
 <p>연산 후 결과가 저장되는 변수값의 범위를 벗어난다면(over/under flow), 컴파일러는 오류를 낸다.<br>
 이러한 오류를 최소화하기 위해 <em>오버플로/언더플로 연산자</em>를 쓰면 범위 내에서 <strong>반대방향으로 되돌아가게</strong> 된다.</p>
-<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
+<h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> y: <span class="type">Int8</span>  = <span class="number">120</span></span><br><span class="line"><span class="keyword">let</span> z = y &amp;+ <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(z)</span><br></pre></td></tr></table></figure>
 <p>Int8의 경우 <u>max값이 <strong>127</strong> / min값이 <strong>-128</strong></u>이다.<br>
 위와 같은 경우 z또한 Int8로 인식되며, <em>120+10 = 130</em>은 범위를 초과하게 된다.<br>
@@ -263,7 +263,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 따라서 결과 값은 <strong>-126</strong> 이 된다.<br>
 ( 언더플로의 경우는 언더플로 연산자인 <code>&amp;-</code>를 사용한다. )</p>
 <br>
-<h2><span id="budongsosujeomsu">부동소수점수</span><a href="#budongsosujeomsu" class="header-anchor">#</a></h2>
+<h2><span id="부동소수점수">부동소수점수</span></h2>
 <hr>
 <ul>
 <li>스위프트에서는 부동소수점수 타입으로 <strong>Float</strong>(32bit)와 <strong>Double</strong>(64bit)를 제공한다.</li>

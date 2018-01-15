@@ -231,14 +231,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter5-switch">CHAPTER5 / SWITCH</span><a href="#chapter5-switch" class="header-anchor">#</a></h1>
+                <h1><span id="chapter5-switch">CHAPTER5 / SWITCH</span></h1>
 <br>
 <br>
-<h2><span id="switch-gibonmunbeob">Switch 기본문법</span><a href="#switch-gibonmunbeob" class="header-anchor">#</a></h2>
+<h2><span id="switch-기본문법">Switch 기본문법</span></h2>
 <hr>
 <p>if/else는 조건을 boolean값으로만 판단했다면,<br>
 switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단한다.</p>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"beef"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> food &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"vagitable"</span>,<span class="string">"fruit"</span>:</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"beef"</span>:</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="keyword">fallthrough</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"기타등등"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(food)     <span class="comment">//출력 : beef</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>
@@ -260,39 +260,39 @@ switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단�
 </li>
 </ul>
 <br>
-<h2><span id="gabs-bainding">값 바인딩</span><a href="#gabs-bainding" class="header-anchor">#</a></h2>
+<h2><span id="값-바인딩">값 바인딩</span></h2>
 <hr>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"soil"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> food &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"vagitable"</span>:</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"beef"</span>:</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> unkownFood:</span><br><span class="line">    message = <span class="string">"<span class="subst">\(unkownFood)</span> 는 존재하지 않는 음식입니다."</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"음식아님"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)     <span class="comment">//출력 : soil 는 존재하지 않는 음식입니다.</span></span><br></pre></td></tr></table></figure>
 <p>아랫줄에 <code>let unkownFood:</code>와 같이 조건절에 변수를 선언하여 실행절에서 대조되는 기준값을 변수에 <strong>묶을(bind)</strong> 수 있다. 단, 변수는 해당 case안에서만 사용가능 하다.</p>
 <p>그러나 위와 같은 방법도 있으나, default 실행절에서 대조되는 값의 변수명(ex,food)을 <code>\(food)</code> 로 바인딩하여 위 구문을 대체할 수 있다.</p>
 <br>
-<h2><span id="where">WHERE</span><a href="#where" class="header-anchor">#</a></h2>
+<h2><span id="where">WHERE</span></h2>
 <hr>
 <p>조건절에 where을 이용하여 조건절을 쓸 수 있다</p>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"candy"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> food &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"vagitable"</span>:</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"beef"</span>:</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> unkownFood <span class="keyword">where</span> unkownFood == <span class="string">"candy"</span> || unkownFood == <span class="string">"coffee"</span>:</span><br><span class="line">    message = <span class="string">"<span class="subst">\(unkownFood)</span> 는 존재하지 않는 음식입니다."</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"음식아님"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)     <span class="comment">//출력 : candy 는 존재하지 않는 음식입니다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="tyupeulgwa-paeteon-daejo">튜플과 패턴 대조</span><a href="#tyupeulgwa-paeteon-daejo" class="header-anchor">#</a></h2>
+<h2><span id="튜플과-패턴-대조">튜플과 패턴 대조</span></h2>
 <hr>
 <ul>
 <li><strong>튜플</strong>은 논리적 <em>연관성이 있는 둘 이상의 값</em>을 한데 묶은 일종의 유한 집합이다. 리턴값은 순서 리스트의 구조를 갖는다.</li>
 <li>논리적 연관성을 드러내기 위해 사용한다.</li>
 <li>튜플 요소에 이름을 붙일 수 있다.</li>
 </ul>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"candy"</span></span><br><span class="line"><span class="keyword">var</span> foodNumber:<span class="type">Int</span> = <span class="number">3</span></span><br><span class="line"><span class="keyword">let</span> foodType = (type:food, number: foodNumber)          <span class="comment">//튜플</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> foodType &#123;</span><br><span class="line"><span class="keyword">case</span> (<span class="string">"vagitable"</span>,<span class="number">_</span>),(<span class="string">"fruit"</span>,<span class="number">_</span>):</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> (<span class="string">"beef"</span>,<span class="number">2</span>):</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"음식아님"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(foodType.number)     <span class="comment">//출력 : 3</span></span><br></pre></td></tr></table></figure>
 <p>위와 같이 튜플의 값에 <code>foodType.number</code>와 같이 <em>[튜플변수명.요소이름]</em> 으로 접근하며,<br>
 (_)는 빈칸의 뜻으로 <em>아무 값이 와도 상관없다</em>는 와일드카드다.</p>
 <br>
-<h2><span id="if-case-mun">if-case 문</span><a href="#if-case-mun" class="header-anchor">#</a></h2>
+<h2><span id="if-case-문">if-case 문</span></h2>
 <hr>
 <ul>
 <li>if문의 조건절에 패턴대조를 사용한다.</li>
 <li>조건절에 콤마로 구분하여 한개 이상의 조건을 넣을 수 있다.</li>
 <li>swtich문의 default를 쓰지 않아도 되며, if문처럼 한가지 조건만 다루지 않아도 된다.</li>
 </ul>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">case</span> <span class="number">2</span>...<span class="number">10</span> = foodNumber, foodNumber &lt; <span class="number">5</span>   &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"suitable !!"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//출력 : suitable !!</span></span><br></pre></td></tr></table></figure>
 
                 

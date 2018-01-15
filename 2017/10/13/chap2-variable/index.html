@@ -229,10 +229,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter2-taib-sangsu-byeonsu">CHAPTER2 / 타입 , 상수, 변수</span><a href="#chapter2-taib-sangsu-byeonsu" class="header-anchor">#</a></h1>
+                <h1><span id="chapter2-타입-상수-변수">CHAPTER2 / 타입 , 상수, 변수</span></h1>
 <br>
 <br>
-<h2><span id="taib">타입</span><a href="#taib" class="header-anchor">#</a></h2>
+<h2><span id="타입">타입</span></h2>
 <hr>
 <ul>
 <li>변수와 상수에는 데이터 타입이 있으며, 데이터 처리방식에 대한 정보를 컴파일러에 제공한다.</li>
@@ -240,13 +240,13 @@
 <li><code>변수명: type</code> 과 같은 <strong>타입 어노테이션</strong> 문법을 사용하여 명시적 선언이 가능하다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
+<h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> numberOfStoplights = <span class="string">"Six"</span></span><br><span class="line">numberOfStoplights += <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>위와 같은 경우 <em>String과 Int</em>로 다른 타입의 인스턴스기 때문에 Error가 발생한다.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> numberOfStoplights: <span class="type">Int</span> = <span class="number">6</span></span><br><span class="line">numberOfStoplights += <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>위와 같이 변수의 데이터 타입을 통일시켜 줘야한다.</p>
 <br>
-<h2><span id="sangsu-vs-byeonsu">상수 vs 변수</span><a href="#sangsu-vs-byeonsu" class="header-anchor">#</a></h2>
+<h2><span id="상수-vs-변수">상수 vs 변수</span></h2>
 <hr>
 <ul>
 <li><code>let</code>을 통해 상수를 선언한다. <em>String 타입도 선언 가능하다</em>.</li>
@@ -254,27 +254,27 @@
 <li>항상 고정값인 인스턴스는 <strong>상수(let)</strong>, 가변적인 인스턴스는 <strong>변수(var)</strong> 로 선언한다.</li>
 </ul>
 <br>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> numberOfStoplights: <span class="type">Int</span> = <span class="number">6</span></span><br><span class="line">numberOfStoplights += <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p><code>numberOfStoplights</code>는 <strong>상수</strong>로 선언되었기 때문에 위 코드에서는 에러가 발생한다.</p>
 <br>
-<h2><span id="munjayeol-sabib">문자열 삽입</span><a href="#munjayeol-sabib" class="header-anchor">#</a></h2>
+<h2><span id="문자열-삽입">문자열 삽입</span></h2>
 <hr>
 <ul>
 <li><code>\()</code> 문법은 어떤 인스턴스 값에 엑세스하여 그값을 새 <em>String 인스턴스</em> 안에 삽입하는 것이다.</li>
 </ul>
 <br>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> car: <span class="type">Int</span> = <span class="number">4</span></span><br><span class="line"><span class="keyword">let</span> townName: <span class="type">String</span> = <span class="string">"Seoul"</span></span><br><span class="line"><span class="keyword">var</span> population: <span class="type">Int</span> = <span class="number">1004</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> townDescription =</span><br><span class="line"><span class="string">"<span class="subst">\(townName)</span> has a populaion of <span class="subst">\(population)</span> and <span class="subst">\(car)</span> Cars."</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(townDescription)</span><br></pre></td></tr></table></figure>
-<h3><span id="result">RESULT</span><a href="#result" class="header-anchor">#</a></h3>
+<h3><span id="result">RESULT</span></h3>
 <blockquote>
 <p><strong>Seoul</strong> has a populaion of <strong>1004</strong> and <strong>4</strong> Cars.</p>
 </blockquote>
 <hr>
 <br>
-<h2><span id="example">Example</span><a href="#example" class="header-anchor">#</a></h2>
+<h2><span id="example">Example</span></h2>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> townName: <span class="type">String</span> = <span class="string">"Seoul"</span></span><br><span class="line"><span class="keyword">var</span> population: <span class="type">Int</span> = <span class="number">1004</span></span><br><span class="line"><span class="keyword">var</span>  unemploymentRate: <span class="type">Int</span> = <span class="number">38</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> townDescription =</span><br><span class="line"><span class="string">"<span class="subst">\(townName)</span> 's unemployment rate is about <span class="subst">\(unemploymentRate)</span> percent ."</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(townDescription)</span><br></pre></td></tr></table></figure>
-<h3><span id="result">RESULT</span><a href="#result" class="header-anchor">#</a></h3>
+<h3><span id="result">RESULT</span></h3>
 <blockquote>
 <p><strong>Seoul 's</strong> unemployment rate is about <strong>38</strong> percent .</p>
 </blockquote>

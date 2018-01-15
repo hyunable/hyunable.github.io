@@ -229,10 +229,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter7-string">CHAPTER7 / String</span><a href="#chapter7-string" class="header-anchor">#</a></h1>
+                <h1><span id="chapter7-string">CHAPTER7 / String</span></h1>
 <br>
 <br>
-<h2><span id="munjayeol">문자열</span><a href="#munjayeol" class="header-anchor">#</a></h2>
+<h2><span id="문자열">문자열</span></h2>
 <hr>
 <ul>
 <li>문자열은 <code>&quot; &quot;</code>안에 넣어 선언한다.</li>
@@ -244,9 +244,9 @@
   <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">let</span> sentence = <span class="string">"hyunah, Princess"</span></span><br><span class="line"><span class="keyword">let</span> start = sentence.startIndex     <span class="comment">//인덱스정보</span></span><br><span class="line"><span class="comment">//출력: Index(_compoundOffset: 0, _cache: Swift.String.Index._Cache.utf16)</span></span><br><span class="line"><span class="keyword">let</span> end = sentence.index(start, offsetBy: <span class="number">4</span>)  <span class="comment">//인덱스정보</span></span><br><span class="line"><span class="comment">//출력: Index(_compoundOffset: 16, _cache: Swift.String.Index._Cache.character(1))</span></span><br><span class="line"><span class="keyword">let</span> fifthCharacter = sentence[end]      <span class="comment">//출력: a</span></span><br><span class="line"><span class="keyword">let</span> range = start...end</span><br><span class="line"><span class="keyword">let</span> firstFive = sentence[range]     <span class="comment">//출력:hyuna</span></span><br></pre></td></tr></table></figure>
 <p>start 와 end에 인덱스 정보를 담고, 그것을 통해서 <code>문자열변수[end]</code> 로 접근하여 구간추출을 한다.</p>
 <p>다른방법으로는 메소드를 통해서 제어할 수 있다.</p>
-<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
+<h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"hyuna"</span></span><br><span class="line">name += <span class="string">" jeong"</span></span><br><span class="line"><span class="built_in">print</span>(name)   <span class="comment">//출력: hyuna jeong</span></span><br></pre></td></tr></table></figure>
-<h2><span id="yunikodeu">유니코드</span><a href="#yunikodeu" class="header-anchor">#</a></h2>
+<h2><span id="유니코드">유니코드</span></h2>
 <hr>
 <ul>
 <li>문자들을 같은 방식으로 처리하고 표현할 수 있도록 약속한 국제 표준이다.</li>

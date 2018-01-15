@@ -352,13 +352,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/sort/</loc>
-        <lastmod>2018-01-15T05:45:38.508Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/merge/</loc>
         <lastmod>2018-01-15T05:45:38.508Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -374,6 +367,13 @@
 
     <url>
         <loc>https://hyunnaa.github.io/tags/%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5/</loc>
+        <lastmod>2018-01-15T05:45:38.508Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/sort/</loc>
         <lastmod>2018-01-15T05:45:38.508Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
