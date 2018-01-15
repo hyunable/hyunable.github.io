@@ -231,7 +231,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
+                <!-- toc -->
+<ul>
+<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EA%B5%AC%EC%A1%B0">메모리 저장구조</a>
+<ul>
+<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%9D%98-%ED%95%A0%EB%8B%B9">메모리의 할당</a></li>
+<li><a href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-vs-%EC%93%B0%EB%A0%88%EB%93%9C">프로세스 VS 쓰레드</a></li>
+</ul>
+</li>
+<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EB%B0%A9%EC%8B%9D">메모리 관리 방식</a>
+<ul>
+<li><a href="#mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</a></li>
+<li><a href="#garbage-collection-gc">Garbage Collection (GC)</a></li>
+<li><a href="#arc-automatic-reference-count">ARC (Automatic Reference Count)</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
 <hr>
 <p><img src="/img/ref/memory.png" alt="메모리저장구조"></p>
 <ol>
@@ -271,13 +288,13 @@
 <br>
 <h2><span id="메모리의-할당">메모리의 할당</span></h2>
 <hr>
+<p><img src="/img/ref/memory2.png" alt="메모리할당"></p>
 <ul>
 <li>CODE, DATA, BSS 영역은 프로그램 컴파일시 처음부터 크기가 정해지는 값들이 저장된다. 따라서 프로그램이 종료하기 전까지 메모리의 크기의 변화가 거의 없다. (전역 변수는 값은 변하더라도 타입은 크기는 변하지 않는다.)</li>
 <li>하지만 Stack에서는 지역변수나 함수에 사용되는 인자 등이 할당되는데 CODE 영역에 저장되어 있다가 <strong>런타임 시점</strong>에 할당되었다가 범위가 벗어나면 해제된다. (할당될 위치나 순서, 변수의 타입에 따른 크기 등은 <strong>스택이 차지할 크기는 컴파일 시점에 결정</strong>된다.)</li>
 <li>Heap은 <strong>동적할당된 포인터 변수나 인스턴스</strong> 들이 저장되는 영역이기 때문에 명시적으로 해제하거나 더 이상 사용되지 않아 GC(Garbage Collector)에 의해. 수거되어 런타임 시점에 할당되었다가 해제되게 된다.</li>
 <li>따라서 Heap 과 Stack은 한정된 메모리 공간 내에서, 힙은 빈공간을 사이에 두고 힙은 낮은곳에서 -&gt; 높은메모리 주소로, 스택은 높은 메모리 주소에서 -&gt; 낮은 곳으로 크기를 채우며 메모리 공간을 차지한다. (그러다가 빈공간을 넘어서는 순간 메모리 오버 플로우가 발생된다.)</li>
 </ul>
-<p><img src="/img/ref/memory2.png" alt="메모리할당"></p>
 <br>
 <h2><span id="프로세스-vs-쓰레드">프로세스 VS 쓰레드</span></h2>
 <hr>
@@ -326,7 +343,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2018/01/15/test/" data-toggle="tooltip" data-placement="top" title="Test">Next Post &rarr;</a>
+                            <a href="/2018/01/13/Git-GitFlow/" data-toggle="tooltip" data-placement="top" title="Git Flow">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

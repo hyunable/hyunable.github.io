@@ -236,7 +236,24 @@
             ARC and GC
         </h3>
         <div class="post-content-preview">
-            메모리 저장구조
+            
+
+메모리 저장구조
+
+메모리의 할당
+프로세스 VS 쓰레드
+
+
+메모리 관리 방식
+
+MRR (Manual Retain-Releaase)
+Garbage Collection (GC)
+ARC (Automatic Reference Count)
+
+
+
+
+메모리 저장구조
 
 
 
@@ -245,15 +262,7 @@ Code Segment
 
 프로그램 코드 자체가 기계어로 저장되는 영역
 읽기 전용 데이터
-​
-
-
-Data Segment ( BSS + DATA )
-
-
-프로그램 시작과 동시에 할당되고 프로그램 종료 시 메모리에서 소멸된다.
-전역변수, Static 변수 등과 같이 프로그램이 실행되는 동안 항상 접근 가능한 변수를 위한 공간이다.
-DA......
+​......
         </div>
     </a>
     
@@ -266,35 +275,6 @@ DA......
               <a href="/tags/#memorry" title="memorry">memorry</a>
             
               <a href="/tags/#ARC" title="ARC">ARC</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/15/test/">
-        <h2 class="post-title">
-            Test
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            바보
-바보야
-바보입니다
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by hyunAble on
-            2018-01-15
-        </p>
-        <div class="tags">
             
         </div>
     
@@ -613,6 +593,44 @@ Server Notification (서버 푸시)
 </div>
 <hr>
 
+<div class="post-preview">
+
+    <a href="/2017/11/20/view-dataTrade/">
+        <h2 class="post-title">
+            iOS 화면간 데이터 전달
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            iOS View to View
+화면전환시 Data 전달법
+
+
+직접전달 방식 (동기 방식)
+
+뷰 컨트롤러에 직접 값을 전달하는 방식으로 영속적으로 값을 저장할 필요가 없는 화면 전환에서 사용된다. ( 예: 테이블뷰 -&gt; 디테일뷰 )
+전달 받는 쪽의 뷰컨트롤러가 전달 받을 값의 명세를 모두 파악하고, 대입할 변수를 미리 준비해두어야한다.
+
+
+간접 전......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by hyunAble on
+            2017-11-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#화면전환" title="화면전환">화면전환</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
 
 
 <!-- Pager -->
@@ -828,10 +846,6 @@ Server Notification (서버 푸시)
         </li>
       
         <li>
-          <a href="2018/01/15/test/">Test</a>
-        </li>
-      
-        <li>
           <a href="2018/01/13/Git-GitFlow/">Git Flow</a>
         </li>
       
@@ -843,6 +857,10 @@ Server Notification (서버 푸시)
           <a href="2018/01/06/iOS-GCD/">Swift GCD</a>
         </li>
       
+        <li>
+          <a href="2017/11/27/iOS-api/">네트워크 통신과 API</a>
+        </li>
+      
     </ul>
   </div>
 
@@ -852,7 +870,7 @@ Server Notification (서버 푸시)
 
     <h5>categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/ALGORITHM/">ALGORITHM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="categories/Computer-Science/">Computer Science</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/SWIFT/">SWIFT</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="categories/Technology/">Technology</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="categories/iOS/">iOS</a><span class="category-list-count">9</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/ALGORITHM/">ALGORITHM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="categories/CS/">CS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/SWIFT/">SWIFT</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="categories/Technology/">Technology</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="categories/iOS/">iOS</a><span class="category-list-count">9</span></li></ul>
     </div>
 
         <hr>
