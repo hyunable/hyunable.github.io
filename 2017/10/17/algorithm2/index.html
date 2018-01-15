@@ -229,14 +229,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="a-자료구조">A. 자료구조</span></h1>
+                <h1><span id="a-jaryogujo">A. 자료구조</span></h1>
 <hr>
 <ul>
 <li>프로그램에서 사용하는 자료를 기억장치의 공간 내에 <strong>저장하는 방법</strong>과 저장된 그룹 내에 존재하는 <strong>자료간의 관계,처리 방법</strong> 등을 연구 및 분석하기 위해 쓰인다.</li>
 <li>sort(정렬), 검색(search), 파일 편성 등에 사용된다.</li>
 </ul>
 <br>
-<h2><span id="배열array">배열(Array)</span></h2>
+<h2><span id="baeyeol-array">배열(Array)</span></h2>
 <hr>
 <p>순서대로 번호가 붙어 있는 <em>원소들이 연속적인 형태</em>로 구성되어 있는 형태로 정적인 데이터를 저장하기 위한 가장 기초적인 자료구조이다.<br>
 각 원소에 index라는 번호가 붙는데 이를 통해 데이터를 쉽게 다룰 수 있다는 장점이 있다. 다차원 배열도 구성가능하다.</p>
@@ -244,7 +244,7 @@
 <li>배열은 접근속도가 빠르지만 삭제와 삽입이 번거롭다. (새로 생성해서 통으로 옮겨야 한다.)</li>
 </ul>
 <br>
-<h2><span id="연결된-리스트linked-list">연결된 리스트(Linked List)</span></h2>
+<h2><span id="yeongyeoldoen-riseuteu-linked-list">연결된 리스트(Linked List)</span></h2>
 <hr>
 <p><strong>리스트(List)</strong> 는 가장 단순한 자료구조중 하나로 데이터들이 차례대로 연결되어 있는 <strong>선형구조</strong>로 <em>배열 , 스택, 큐, 트리 , 그래프</em> 등을 구현하는 데 사용할 수 있다.</p>
 <p>연결 리스트(Linked List)는 <u>노드를 선형으로 연결</u>해 놓은 구조이다.</p>
@@ -259,19 +259,19 @@
 <li><code>A-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삽입</strong>하고자 하는 경우에는 A의 포인터는 C를 가리키고 C는 B를 가리키게 하면 노드가 삽입되어 <code>A-C-B</code> 형태의 연결리스트가 된다.</li>
 <li><code>A-C-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삭제</strong>하고자 하는 경우에는 <em>삭제전에 A의 포인터는 B를 가리켜</em> <u>연결이 끊어지지 않게</u> 하는 것이 중요하다.</li>
 </ul>
-<h5><span id="이중연결리스트">이중연결리스트</span></h5>
+<h5><span id="ijungyeongyeolriseuteu">이중연결리스트</span></h5>
 <ul>
 <li>데이터의 앞,뒤를 가리키는 <strong>선포인터</strong>와 <strong>후포인터</strong>를 갖는다.</li>
 <li><em>탐색,삽입,삭제가 용이</em>하지만 포인터가 두개씩 있어서 <em>메모리를 많이 차지</em>하는 단점이 있다.</li>
 </ul>
-<h5><span id="원형-연결리스트">원형 연결리스트</span></h5>
+<h5><span id="weonhyeong-yeongyeolriseuteu">원형 연결리스트</span></h5>
 <ul>
 <li>이중연결리스트에서 마지막 노드의 포인터가 리스트의 종료가 아닌 <u>처음 노드를 다시 가리키는 구조</u>이다.</li>
 <li>이중연결리스트에 비해 모든 성능이 뛰어나지만 <em>구현이 어렵다는 단점</em>이 있다.</li>
 </ul>
 <p><img src="/image/struct_list.png" alt="리스트구조"></p>
 <br>
-<h2><span id="스택stack">스택(Stack)</span></h2>
+<h2><span id="seutaeg-stack">스택(Stack)</span></h2>
 <hr>
 <ul>
 <li>쌓여있는 더미라는 뜻으로 자료구조적인 특징은 <strong>한쪽끝에서만 데이터를 삽입하고 삭제할 수 있다</strong>는 것이다.</li>
@@ -280,7 +280,7 @@
 </ul>
 <p><img src="/image/struct_stack.png" alt="스택구조"></p>
 <br>
-<h2><span id="큐queue">큐(Queue)</span></h2>
+<h2><span id="kyu-queue">큐(Queue)</span></h2>
 <hr>
 <ul>
 <li>양쪽 끝이 뚫려있는 형태로 한쪽은 들어가기만하고, 한쪽은 나오기만 한다.</li>
@@ -295,7 +295,7 @@
 </ul>
 <p><img src="/image/struct_queue.png" alt="큐의구조"></p>
 <br>
-<h2><span id="트리tree">트리(Tree)</span></h2>
+<h2><span id="teuri-tree">트리(Tree)</span></h2>
 <hr>
 <ul>
 <li>
@@ -303,12 +303,12 @@
 </li>
 <li>
 <p>tree는 <strong>root</strong>와 <strong>하위 tree</strong>, 자식 노드가 존재하지 않는<strong>leaf</strong>로 이루어지며 상위 데이터를 <strong>parent</strong>, 하위 데이터를 <strong>children</strong>이라고 부른다.</p>
-<h4><span id="이진트리binary-tree">이진트리(Binary Tree)</span></h4>
+<h4><span id="ijinteuri-binary-tree">이진트리(Binary Tree)</span></h4>
 <ul>
 <li>어떤 노드의 자식 노드의 수는 최대 <strong>2개</strong>인 이진트리</li>
 <li>모든 노드들이 2개의 자식노드를 갖는 트리를 <strong><em>완전이진트리</em></strong> 라고 한다.</li>
 </ul>
-<h4><span id="이진탐색트리binary-search-treebst">이진탐색트리(Binary Search Tree,BST)</span></h4>
+<h4><span id="ijintamsaegteuri-binary-search-tree-bst">이진탐색트리(Binary Search Tree,BST)</span></h4>
 <ul>
 <li>
 <p>부모 노드를 기준으로 <u>왼쪽 노드들의 값은 더 작고 오른쪽 노드들의 값은 더 크게</u> 만들어 놓은 트리형태이다.</p>

@@ -5,16 +5,16 @@
     <entry>
       <title><![CDATA[메모리 저장구조 및 관리]]></title>
       <url>/2018/01/15/CS-memory/</url>
-      <content type="html"><![CDATA[<p>|</p>
+      <content type="html"><![CDATA[<div class="toc">
 <!-- toc -->
 <ul>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EA%B5%AC%EC%A1%B0">메모리 저장구조</a>
+<li><a href="#memori-jeojanggujo">메모리 저장구조</a>
 <ul>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%9D%98-%ED%95%A0%EB%8B%B9">메모리의 할당</a></li>
-<li><a href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-vs-%EC%93%B0%EB%A0%88%EB%93%9C">프로세스 VS 쓰레드</a></li>
+<li><a href="#memoriyi-haldang">메모리의 할당</a></li>
+<li><a href="#peuroseseu-vs-sseuredeu">프로세스 VS 쓰레드</a></li>
 </ul>
 </li>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EB%B0%A9%EC%8B%9D">메모리 관리 방식</a>
+<li><a href="#memori-gwanri-bangsig">메모리 관리 방식</a>
 <ul>
 <li><a href="#mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</a></li>
 <li><a href="#garbage-collection-gc">Garbage Collection (GC)</a></li>
@@ -23,19 +23,8 @@
 </li>
 </ul>
 <!-- tocstop -->
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
+</div>
+<h1><span id="memori-jeojanggujo">메모리 저장구조</span></h1>
 <hr>
 <p><img src="/img/ref/memory.png" alt="메모리저장구조"></p>
 <ol>
@@ -73,7 +62,7 @@
 <li>값 타입 저장 공간이다.</li>
 </ul>
 <br>
-<h2><span id="메모리의-할당">메모리의 할당</span></h2>
+<h2><span id="memoriyi-haldang">메모리의 할당</span></h2>
 <hr>
 <p><img src="/img/ref/memory2.png" alt="메모리할당"></p>
 <ul>
@@ -83,7 +72,7 @@
 <li>따라서 Heap 과 Stack은 한정된 메모리 공간 내에서, 힙은 빈공간을 사이에 두고 힙은 낮은곳에서 -&gt; 높은메모리 주소로, 스택은 높은 메모리 주소에서 -&gt; 낮은 곳으로 크기를 채우며 메모리 공간을 차지한다. (그러다가 빈공간을 넘어서는 순간 메모리 오버 플로우가 발생된다.)</li>
 </ul>
 <br>
-<h2><span id="프로세스-vs-쓰레드">프로세스 VS 쓰레드</span></h2>
+<h2><span id="peuroseseu-vs-sseuredeu">프로세스 VS 쓰레드</span></h2>
 <hr>
 <p><img src="/img/ref/processnthread.png" alt="프로세스와스레드"></p>
 <ol>
@@ -98,7 +87,7 @@
 <li>쓰레드는 [Code, Data, Heap] 영역은 서로 공유하고 Stack 영역만 별도로 소유하여 전환비용이 프로세스에 비해 훨씬 적게 든다.</li>
 </ul>
 <br>
-<h1><span id="메모리-관리-방식">메모리 관리 방식</span></h1>
+<h1><span id="memori-gwanri-bangsig">메모리 관리 방식</span></h1>
 <h2><span id="mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</span></h2>
 <hr>
 <ul>
@@ -144,18 +133,18 @@
       <title><![CDATA[Git Flow]]></title>
       <url>/2018/01/13/Git-GitFlow/</url>
       <content type="html"><![CDATA[<h1><span id="git-flow">Git Flow</span></h1>
-<h2><span id="브랜칭-관리-전략">브랜칭 관리 전략</span></h2>
+<h2><span id="beuraencing-gwanri-jeonryag">브랜칭 관리 전략</span></h2>
 <h3><span id="main-branch">Main Branch</span></h3>
-<h4><span id="배포-master-브랜치">배포 :: master 브랜치</span></h4>
+<h4><span id="baepo-master-beuraenci">배포 :: master 브랜치</span></h4>
 <p>먼저 배포됬거나 배포준비(production-ready)된 코드는 <code>origin/master</code>에 두고 관리한다.</p>
 <p><code>master</code> 브랜치에 병합 한다는 것은 <strong>새버전을 배포한다는 것을 의미</strong>한다. <code>master</code> 브랜치에서 커밋될 때 git hook 스크립트를 걸어서 자동으로 빌드하여 운영서버로 배포하는 형식을 취한다.</p>
 <br>
-<h4><span id="개발-develop-브랜치">개발 :: develop 브랜치</span></h4>
+<h4><span id="gaebal-develop-beuraenci">개발 :: develop 브랜치</span></h4>
 <p>다음에 배포하기 위해 개발하는 코드는 <code>origin/develop</code>에서 관리한다. <strong>프로젝트를 진행하는 개발자들이 함께 보며 업무를 진행하는 브랜치</strong>이며 가장 역동적인 브랜치라고 할 수 있다. <code>develop</code> 브랜치의 코드가 안정화되고 배포할 준비가 되면 <code>master</code>로 병합하고 배포버전으로 태그를 단다.</p>
 <br>
 <h3><span id="assistance-branch">Assistance Branch</span></h3>
 <p>배포를 준비하고, 이미 배포한 제품이나 서비스의 버그를 빠르게 해결(hotfix) 해야한다. 이 모든 것을 동시에 진행하기 위해서 다양한 브랜치가 필요하다.</p>
-<h4><span id="기능feature-브랜치"><strong>기능feature</strong> 브랜치</span></h4>
+<h4><span id="gineungfeature-beuraenci"><strong>기능feature</strong> 브랜치</span></h4>
 <p>기능<code>feature</code> 브랜치는 배포하려고 하는 <strong>기능을 개발하는 브랜치</strong>다. 기능을 개발하기 시작할 때는 언제 배포할 수 있을지 알 수 없다. 프로젝트를 진행하면서 애자일 방법론을 도입했다면, 스프린트 기간 동안에 개발해야할 기능이라면 <em>스프린트 기간동안 개발해야할 브랜치</em>를 말한다. 기능<code>feature</code> 브랜치는 그 기능을 다 완성할 때까지 유지하고 있다가 <strong>다 완성되면 개발<code>develop</code> 브랜치로 병합</strong>한다. 개발된 결과가 실망스럽거나 필요없을 때는 삭제하면 된다. 삭제하는 것에 미련을 가질 필요는 없다.</p>
 <ul>
 <li>git-flow 이용시 <code>feature/{branch-name}</code> 형식</li>
@@ -183,7 +172,7 @@
       <title><![CDATA[CH20. Error Handling]]></title>
       <url>/2018/01/08/chap20-errorHandle/</url>
       <content type="html"><![CDATA[<h1><span id="error-handling">Error Handling</span></h1>
-<h2><span id="오류처리">오류처리</span></h2>
+<h2><span id="oryuceori">오류처리</span></h2>
 <hr>
 <p>스위프트에서 오류를 처리하는 방법은 크게 두가지가 있다.</p>
 <ul>
@@ -192,20 +181,20 @@
 <li><strong>오류 처리 구문</strong></li>
 </ul>
 <br>
-<h3><span id="오류-처리-구문">오류 처리 구문</span></h3>
+<h3><span id="oryu-ceori-gumun">오류 처리 구문</span></h3>
 <hr>
 <p>초반 스위프트에서는 옵셔널만으로 오류를 충분히 처리할 수 있다고 여겨졌으나, 오류가 발생했을 때 <strong><em>오류에 대한 정보를 외부로 전달할 수 없다</em></strong> ( 다양한 오류 상황이 있음에도 불구하고 옵셔널은 모든 오류를 nil 로 반환함 )는 단점을 보완하고자 swift 2.0 부터 오류 처리 구문이 추가되었다.<br>
 최근 객체지향 언어들은 오류가 발생했을 때 오류를 ‘반환(return)’ 하는 것이 아닌 <strong>‘던지는(throws)’</strong> 처리를 할 수 있게끔 지원한다. 왜냐하면 오류를 반환하려면 함수의 반환 타입과 일치해야만 하지만 오류를 던지는 것은 실행 흐름 중간에 오류 객체를 만들어 다른 실행 흐름으로 옮겨가는 것이기 때문이다.</p>
 <br>
-<h4><span id="step1-오류-타입-정의하기">Step1 : 오류 타입 정의하기</span></h4>
+<h4><span id="step1-oryu-taib-jeongyihagi">Step1 : 오류 타입 정의하기</span></h4>
 <p>보통 일관된 오류 주제에 소속된 여러 가지 오류를 정의할 수 있어야 하므로 보통 <strong>열거형</strong>으로 정의한다. 오류 타입으로 열거형을 정의할 때는 반드시 <strong>Error 프로토콜</strong>을 구현해야 한다.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Error</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 빈 프로토콜로 정의해도 된다.</span></span><br><span class="line">  <span class="comment">// 프로토콜을 구현했다는 사실 자체가 중요하기 때문!!</span></span><br><span class="line">  <span class="comment">// 이 프로토콜을 구현한 열거형은 컴파일러가 오류 타입으로 인정한다. </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ParsingError</span> : <span class="title">Error</span> </span>&#123;</span><br><span class="line">  <span class="keyword">case</span> overSizeString</span><br><span class="line">  <span class="keyword">case</span> underSizeString</span><br><span class="line">  <span class="keyword">case</span> incorrectFormat</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="step2-오류-던지기">Step2 : 오류 던지기</span></h4>
+<h4><span id="step2-oryu-deonjigi">Step2 : 오류 던지기</span></h4>
 <p>함수나 메서드를 작성할 때 , 오류 객체를 외부로 던질 수 있다는 것을 컴파일러에게 알려주기 위해 정의 구문을 작성할 때 <strong>throws</strong> 키워드를 명시적으로 추가해주어야 한다. ( -&gt; 앞에 써준다.)</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">throwErrors</span><span class="params">()</span></span> <span class="keyword">throws</span> -&gt; <span class="type">String</span>		<span class="comment">// 오류를 던진다</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">throwErrors</span><span class="params">()</span></span> -&gt; <span class="type">String</span> 			<span class="comment">// 오류 던짐 불가</span></span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="step3-do-~-try-~-catch-구문에서-호출해주기">Step3 : Do ~ try ~ catch 구문에서 호출해주기</span></h4>
+<h4><span id="step3-do-try-catch-gumuneseo-hoculhaejugi">Step3 : Do ~ try ~ catch 구문에서 호출해주기</span></h4>
 <p>오류를 던지는 함수나 메서드를 호출할 때에는 앞에 <code>try</code>를 붙여주어야 한다. 그러나 try는 단순히 함수를 호출할 수 있을 뿐 던지는 오류를 잡아내지는 못한다. 따라서 <code>catch</code> 구문을 사용해서 잡야아 한다. catch 뒤에 오류타입을 기재해줘도된다.<br>
 또한 오류를 던지지 않고 강제로 함수를 실행하고자 할 때는 <code>try!</code> 를 써준다. try 키워드의 경우 함수 실행 도중 에러가 발생하면 멈추고 오류를 던지지만 try! 같은 경우 강제로 함수가 실행되며, 오류가 발생할 경우 런타임 오류가 발생한다. (주의)</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="comment">// 함수 호출 및 오류가 발생하지 않는 상황에서 실행할 구문</span></span><br><span class="line">  <span class="keyword">try</span> throwErrors() <span class="comment">// 오류를 던질 수 있는 함수</span></span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">ParseError</span>.overSizeString &#123;	<span class="comment">//에러가 던져젔을 경우 실행될 구문 </span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"입력된 문자열이 너무 깁니다"</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">ParseError</span>.underSizeString &#123;</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"입력된 문자열이 너무 짧습니다"</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123; <span class="comment">//오류타입이 작성되지 않은 경우는 잡히지 않은 모든 구문을 잡아주는 와일드 카드 역활을 한다.</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"UnKnown Exception Error"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -230,12 +219,12 @@
       <title><![CDATA[Swift GCD]]></title>
       <url>/2018/01/06/iOS-GCD/</url>
       <content type="html"><![CDATA[<h1><span id="gcd-grand-central-dispatch">GCD (Grand Central Dispatch)</span></h1>
-<h2><span id="swift-기반-gcd">swift 기반 GCD</span></h2>
+<h2><span id="swift-giban-gcd">swift 기반 GCD</span></h2>
 <hr>
 <p>GCD는 멀티코어 프로세스를 위한 <strong><em>Thread 프로그래밍 방법</em></strong>이다. 기존의 쓰레드 관리 기법은 개발자가 직접 쓰레드풀을 관리하는 등 수고가 들었지만 GCD에서는 Thread를 OS가 자동 관리 및 분배를 해준다.</p>
 <p>기존에는 쓰레드를 직접 생성하고 관리했으나 GCD를 통해서 <strong>Dispatch Queue</strong>에 Task를 생성해서 집어넣기만 하면 된다.</p>
 <br>
-<h3><span id="멀티스레딩">멀티스레딩</span></h3>
+<h3><span id="meoltiseureding">멀티스레딩</span></h3>
 <hr>
 <p>연산을 병렬적으로 처리할 수 있도록 보조적인 실행 흐름을 여러 개 생성하는 방식이다. 반대되는 개념으로 <strong>싱글스레딩</strong>이 있으며, 이는 나누어지지 않은 단일 실행 단위가 순서대로 코드를 처리하는 것을 뜻한다.</p>
 <p>특정 연산을 처리할 때 여러 개의 작은 단위로 쪼개어 계산하고 <em>최종적으로 이를 합쳐서 완성하는 방식</em> 이 대표적인 멀티 스레딩 방식이다. 또한 보조적인 실행 흐름을 만들어 <em>각각 별도의 실행을 할당</em>하는 것도 멀티 스레딩에 해당한다.</p>
@@ -272,15 +261,15 @@
     <entry>
       <title><![CDATA[네트워크 통신과 API]]></title>
       <url>/2017/11/27/iOS-api/</url>
-      <content type="html"><![CDATA[<h1><span id="네트워크-통신과-api">네트워크 통신과 API</span></h1>
-<h2><span id="네트워크-통신">네트워크 통신</span></h2>
+      <content type="html"><![CDATA[<h1><span id="neteuweokeu-tongsingwa-api">네트워크 통신과 API</span></h1>
+<h2><span id="neteuweokeu-tongsin">네트워크 통신</span></h2>
 <hr>
 <ol>
 <li>TCP/UDP를 사용하는 소켓 방식의 <strong>연결성 통신</strong></li>
 <li>HTTP , HTTPS , SMTP 등 프로토콜을 이용한 <strong>비연결성 통신</strong></li>
 </ol>
 <br>
-<h3><span id="소켓-방식의-연결-지향-통신">소켓 방식의 연결 지향 통신</span></h3>
+<h3><span id="sokes-bangsigyi-yeongyeol-jihyang-tongsin">소켓 방식의 연결 지향 통신</span></h3>
 <hr>
 <ul>
 <li>저수준 통신을 통하여 구현된다</li>
@@ -304,7 +293,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="비연결-지향-통신">비연결 지향 통신</span></h3>
+<h3><span id="biyeongyeol-jihyang-tongsin">비연결 지향 통신</span></h3>
 <hr>
 <ul>
 <li>비연결성 프로토콜은 요청이 들어오면 이에 맞는 응답을 보낸 후 바로 연결을 종료한다. 비연결 방식이라 아예 연결을 하지않는 것이 아니라 <strong>단지 연결을 유지하지 않는다는 뜻</strong>이다.</li>
@@ -354,7 +343,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="restful-api-amp-http-전송-방식">RESTful API &amp; HTTP 전송 방식</span></h3>
+<h3><span id="restful-api-amp-http-jeonsong-bangsig">RESTful API &amp; HTTP 전송 방식</span></h3>
 <hr>
 <ul>
 <li>일반적으로 웹에서 사용되는 HTTP 메서드의 종류는 <u>GET 과 POST</u> 두 가지 이다.
@@ -426,7 +415,7 @@
 <li>데이터가 URL에 표시되지 않더라도 보안에는 취약하므로 암호화 해야한다.</li>
 </ul>
 <br>
-<h3><span id="xml-방식">XML 방식</span></h3>
+<h3><span id="xml-bangsig">XML 방식</span></h3>
 <hr>
 <ul>
 <li>SOAP 방식과 RESTful API 모두 XML 방식으로 결과를 제공할 수 있다.</li>
@@ -435,7 +424,7 @@
 <li>단, 데이터의 의미를 전달하기 위해 마크업 태그를 사용하므로 <strong>주고받아야 할 전체 데이터 용량이 지나치게 커진다는 단점</strong>이 있다.</li>
 </ul>
 <br>
-<h3><span id="json-방식">JSON 방식</span></h3>
+<h3><span id="json-bangsig">JSON 방식</span></h3>
 <hr>
 <ul>
 <li><strong>JSON (JavaScript Object Notation)</strong> : 자바스크립트 언어에서 객체의 속성을 표현하기 위한 방법으로 처음 사용하기 시작했다.</li>
@@ -467,7 +456,7 @@
 <code>기본URL ? key={조건}&amp;key2={조건2}</code> 의 형식으로 작성하여 Request (요청)한다.</li>
 </ul>
 <br>
-<h4><span id="code-영화-api로-데이터-가져오기">CODE :: 영화 API로 데이터 가져오기</span></h4>
+<h4><span id="code-yeonghwa-apiro-deiteo-gajyeoogi">CODE :: 영화 API로 데이터 가져오기</span></h4>
 <hr>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 요청 URI http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="키값"&amp;targetDt=20171116</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = <span class="string">"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="</span>키값<span class="string">"&amp;targetDt=20171116"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//URL 형식으로 변환</span></span><br><span class="line"><span class="keyword">let</span> apiURI : <span class="type">URL</span>! = <span class="type">URL</span>(string: url)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//REST API 호출</span></span><br><span class="line"><span class="keyword">let</span> apiData = <span class="keyword">try</span>! <span class="type">Data</span>(contentsOf: apiURI) </span><br><span class="line"></span><br><span class="line"><span class="comment">//log 찍기</span></span><br><span class="line"><span class="comment">//let log = NSString(data: apiData, encoding: String.Encoding.utf8.rawValue) ?? ""</span></span><br><span class="line"><span class="comment">//NSLog("result = \(log)")</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -488,7 +477,7 @@
 </li>
 </ul>
 <br>
-<h4><span id="code-파싱하기">CODE :: 파싱하기</span></h4>
+<h4><span id="code-pasinghagi">CODE :: 파싱하기</span></h4>
 <hr>
 <ul>
 <li>가져온 데이터는 <code>Data 타입</code> 으로 바로 꺼내쓰기 어렵기 때문에 <code>NSDictionary</code> or <code>NSArray</code> 타입으로 변환시켜주어야 한다.</li>
@@ -521,14 +510,14 @@
       <title><![CDATA[TableView]]></title>
       <url>/2017/11/27/iOS-tableview/</url>
       <content type="html"><![CDATA[<h1><span id="tableview">TableView</span></h1>
-<h2><span id="테이블뷰">테이블뷰</span></h2>
+<h2><span id="teibeulbyu">테이블뷰</span></h2>
 <hr>
 <ul>
 <li>UIKit 프레임워크에 UITableViewController 클래스로 구현되어 있다.</li>
 <li>테이블뷰<strong>컨트롤러</strong> &gt; <strong>테이블뷰</strong> &gt; 여러개의 테이블뷰 <strong>섹션</strong> &gt; 테이블뷰 <strong>셀</strong> &gt; <strong>컨텐츠 뷰</strong></li>
 </ul>
 <br>
-<h3><span id="프로토타입-셀">프로토타입 셀</span></h3>
+<h3><span id="peurototaib-sel">프로토타입 셀</span></h3>
 <hr>
 <ul>
 <li>테이블 뷰의 셀을 원하는 대로 쉽게 디자인할 수 있도록 해주는 객체. Cell content 부분과 Accessory view부분으로 나뉜다.</li>
@@ -657,7 +646,7 @@
 </li>
 </ol>
 <br>
-<h5><span id="참고-ios-프로그래밍-원칙">참고 :: iOS 프로그래밍 원칙</span></h5>
+<h5><span id="camgo-ios-peurogeuraeming-weoncig">참고 :: iOS 프로그래밍 원칙</span></h5>
 <hr>
 <ol>
 <li>반복적으로 호출되는 메서드의 내부에는 네트워크 통신 등 처리 시간이 긴 로직을 포함하지 않아야 한다.</li>
@@ -687,7 +676,7 @@
       <title><![CDATA[Deletage Pattern]]></title>
       <url>/2017/11/26/iOS-Delegate/</url>
       <content type="html"><![CDATA[<h1><span id="delegate-pattern">Delegate Pattern</span></h1>
-<h2><span id="델리게이트-패턴">델리게이트 패턴</span></h2>
+<h2><span id="delrigeiteu-paeteon">델리게이트 패턴</span></h2>
 <br>
 <h3><span id="design-pattern">Design Pattern</span></h3>
 <hr>
@@ -707,7 +696,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="델리게이트-패턴">델리게이트 패턴</span></h3>
+<h3><span id="delrigeiteu-paeteon">델리게이트 패턴</span></h3>
 <hr>
 <ul>
 <li>객체 지향 프로그로그래밍에서 하나의 객체가 모든 일을 처리하는 것이 아니라 처리해야할 일 중 일부를 다른 객체에게 넘기는 것을 말한다. 이를 위임(delegate)한다고 하며, 효율성 관점에서 아주 중요한 역할을 한다.</li>
@@ -736,7 +725,7 @@
 </li>
 </ol>
 <br>
-<h5><span id="참조"># 참조</span></h5>
+<h5><span id="camjo"># 참조</span></h5>
 <hr>
 <p><strong>최초 응답자 (First Responder)</strong></p>
 <ul>
@@ -779,7 +768,7 @@
       <title><![CDATA[iOS Local Push]]></title>
       <url>/2017/11/26/iOS-Localpush/</url>
       <content type="html"><![CDATA[<h1><span id="local-notification">Local Notification</span></h1>
-<h2><span id="로컬-알림">로컬 알림</span></h2>
+<h2><span id="rokeol-alrim">로컬 알림</span></h2>
 <hr>
 <ul>
 <li>앱 내부에서 만든 특정 메세지를 iOS의 알림 센터를 통해 전달하는 방법이다.</li>
@@ -807,16 +796,16 @@
 <li><code>UILocalNotification</code> 객체를 생성후 설정해야할 속성은 <em>발송시각/타임존/메시지/버튼명/배지/사운드/사용자 정의 데이터</em> 등이 있다.</li>
 </ul>
 <br>
-<h4><span id="code-알림-등록하기-for-ios-10-이하">CODE :: 알림 등록하기 (for iOS 10 이하)</span></h4>
+<h4><span id="code-alrim-deungroghagi-for-ios-10-iha">CODE :: 알림 등록하기 (for iOS 10 이하)</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 앱이 처음 실행될때 런치 스크린이 표시되고 있는 동안 호출되는 메서드</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 알림 환경 설정 : 경고창, 배지, 사운드를 통해 알림을 표시해도 되는지 사용자로부터 확인을 받는다.</span></span><br><span class="line">    <span class="keyword">let</span> setting = <span class="type">UIUserNotificationSettings</span>(types: [.alert, .badge, .sound], categories: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 애플리케이션에 설정 저장</span></span><br><span class="line">    application.registerUserNotificationSettings(setting)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//앱이 활성화를 잃었을때 실행되는 메서드 (ex, 전화가 오거나 홈버튼을 눌러 백그라운드로 진입햇을 때)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//if 문으로 플랫폼 버전에 따라서 구분히여 check!!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> #available(iOS <span class="number">11.0</span>, *) &#123;</span><br><span class="line">        <span class="comment">// 새 방식의로컬 알림 구현 코드</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 알림 설정 check</span></span><br><span class="line">        <span class="keyword">let</span> setting = application.currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*  알림이 설정이 거부되면 UIUserNotificationType.none 으로 설정되어 있음</span></span><br><span class="line"><span class="comment">         알림 설정이 되어 있지 않다면 로컬 알림을 보내도 받을 수 없으므로 종료 */</span></span><br><span class="line">        <span class="keyword">guard</span> setting?.types != .<span class="keyword">none</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"can't Schedule"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 로컬 알람 인스턴스 생성</span></span><br><span class="line">        <span class="keyword">let</span> noti = <span class="type">UILocalNotification</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//noti.fireDate = Data(timeIntervalSinceNow :10) //10초후 발송, 메서드 사라짐</span></span><br><span class="line">        noti.timeZone = <span class="type">TimeZone</span>.autoupdatingCurrent    <span class="comment">// 현재위치에 따라 타임존 설정</span></span><br><span class="line">        noti.alertBody = <span class="string">"어서 다시 접속하세요!!"</span>    <span class="comment">//표시될 메세지</span></span><br><span class="line">        noti.alertAction = <span class="string">"접속하기"</span>   <span class="comment">//잠금상태 일때 표시될 액션</span></span><br><span class="line">        noti.applicationIconBadgeNumber = <span class="number">1</span> <span class="comment">//모서리에 표시될 배지</span></span><br><span class="line">        noti.soundName = <span class="type">UILocalNotificationDefaultSoundName</span>    <span class="comment">//로컬 알람 도착시 사운드</span></span><br><span class="line">        noti.userInfo = [<span class="string">"name"</span>:<span class="string">"정현아"</span>]  <span class="comment">//로컬 알람 실행시 함께 전달하고 싶은 값!! (화면에는 표시되지 않음)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알람 객체를 스케쥴러에 등록</span></span><br><span class="line">        <span class="comment">//application.scheduledLocalNotifications(noti)     //메서드 사라짐</span></span><br><span class="line">        application.presentLocalNotificationNow(noti)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-메서드-정리">CODE :: 메서드 정리</span></h4>
+<h4><span id="code-meseodeu-jeongri">CODE :: 메서드 정리</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIApplication</span>.shared( <span class="comment">//앱 델리겡트에서는 application 매개변수)</span></span><br><span class="line">    <span class="comment">//  알림 허용 여부를 사용자에게 확인받고, 선택을 어플리케이션에 등록하는 역할</span></span><br><span class="line">    .registerUserNotificationSettings(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 현재 설정된 알림 허용 여부 정보를 읽어온다</span></span><br><span class="line">        .currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체를 iOS 스케쥴러에 등록한다. 등록된 알림 객체는 fireDate 속성에 설정된 시간에 맞게 발송된다 (iOS 10)</span></span><br><span class="line">        .scheduleLocalNotification(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체의 fireDate 속성을무시하고 즉각 발송한다</span></span><br><span class="line">        .presentLocalNotificationNow(<span class="number">_</span>:)</span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-받은-알림-처리하기">CODE :: 받은 알림 처리하기</span></h4>
+<h4><span id="code-badeun-alrim-ceorihagi">CODE :: 받은 알림 처리하기</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/*  알림이 도착한다면 활성화/비활성화 상태와 관계업싱 해당 메서드가 실행된다.</span></span><br><span class="line"><span class="comment">     따라서 활성화/비활성화 상태에 따라서 로직을 처리해주어야한다. */</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didReceive notification: UILocalNotification)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>((notification.userInfo?[<span class="string">"name"</span>])!)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> application.applicationState == <span class="type">UIApplicationState</span>.active &#123;</span><br><span class="line">            <span class="comment">//앱이 활성화 된 상태일 때 실행할 로직</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> application.applicationState == .inactive &#123;</span><br><span class="line">            <span class="comment">//앱이 비활성화된 상태일 때 실행할 로직</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="usernotifications-프레임워크를-이용한-로컬알림">UserNotifications 프레임워크를 이용한 로컬알림</span></h3>
+<h3><span id="usernotifications-peureimweokeureul-iyonghan-rokeolalrim">UserNotifications 프레임워크를 이용한 로컬알림</span></h3>
 <hr>
 <ul>
 <li><code>UserNotifications</code> 는 <u>사용자 알림을 처리하기위해 iOS 10부터 새롭게 도입된 알림 전용 프레임워크.</u> 알림을 위해 필요한 여러 가지 객체를 포함하고 있으며 User &amp; Notificaiton의 철자를 따서 <strong>UN</strong>으로 객체명을 정의했다.</li>
@@ -878,7 +867,7 @@
       <title><![CDATA[iOS Alert]]></title>
       <url>/2017/11/25/iOS-alert/</url>
       <content type="html"><![CDATA[<h1><span id="alert-message">Alert Message</span></h1>
-<h2><span id="사용자에게-메세지-전달하기">사용자에게 메세지 전달하기</span></h2>
+<h2><span id="sayongjaege-meseji-jeondalhagi">사용자에게 메세지 전달하기</span></h2>
 <hr>
 <ul>
 <li><strong>메세지창 (알림창)</strong><br>
@@ -890,7 +879,7 @@
 </ul>
 <p><img src="/image/serverPush.png" alt="서버푸쉬"></p>
 <br>
-<h3><span id="메세지-알림창">메세지 알림창</span></h3>
+<h3><span id="meseji-alrimcang">메세지 알림창</span></h3>
 <h5><span id="uialertcontroller">UIAlertController</span></h5>
 <hr>
 <p>메시지 창은 앱 실행 도중에 <strong><em>사용자에게 메세지를 전달하고 의사를 입력받기 위한 목적</em></strong>으로 제공되는 객체이며 <em>두가지</em> 형태로 제공된다.</p>
@@ -949,10 +938,10 @@
 <li><code>UILocalNotification</code> 객체를 생성후 설정해야할 속성은 <em>발송시각/타임존/메시지/버튼명/배지/사운드/사용자 정의 데이터</em> 등이 있다.</li>
 </ul>
 <br>
-<h4><span id="code-알림-등록하기-for-ios-10-이하">CODE :: 알림 등록하기 (for iOS 10 이하)</span></h4>
+<h4><span id="code-alrim-deungroghagi-for-ios-10-iha">CODE :: 알림 등록하기 (for iOS 10 이하)</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 앱이 처음 실행될때 런치 스크린이 표시되고 있는 동안 호출되는 메서드</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 알림 환경 설정 : 경고창, 배지, 사운드를 통해 알림을 표시해도 되는지 사용자로부터 확인을 받는다.</span></span><br><span class="line">    <span class="keyword">let</span> setting = <span class="type">UIUserNotificationSettings</span>(types: [.alert, .badge, .sound], categories: <span class="literal">nil</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 애플리케이션에 설정 저장</span></span><br><span class="line">    application.registerUserNotificationSettings(setting)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//앱이 활성화를 잃었을때 실행되는 메서드 (ex, 전화가 오거나 홈버튼을 눌러 백그라운드로 진입햇을 때)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//if 문으로 플랫폼 버전에 따라서 구분히여 check!!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> #available(iOS <span class="number">11.0</span>, *) &#123;</span><br><span class="line">        <span class="comment">// 새 방식의로컬 알림 구현 코드</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 알림 설정 check</span></span><br><span class="line">        <span class="keyword">let</span> setting = application.currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*  알림이 설정이 거부되면 UIUserNotificationType.none 으로 설정되어 있음</span></span><br><span class="line"><span class="comment">         알림 설정이 되어 있지 않다면 로컬 알림을 보내도 받을 수 없으므로 종료 */</span></span><br><span class="line">        <span class="keyword">guard</span> setting?.types != .<span class="keyword">none</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"can't Schedule"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 로컬 알람 인스턴스 생성</span></span><br><span class="line">        <span class="keyword">let</span> noti = <span class="type">UILocalNotification</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//noti.fireDate = Data(timeIntervalSinceNow :10) //10초후 발송, 메서드 사라짐</span></span><br><span class="line">        noti.timeZone = <span class="type">TimeZone</span>.autoupdatingCurrent    <span class="comment">// 현재위치에 따라 타임존 설정</span></span><br><span class="line">        noti.alertBody = <span class="string">"어서 다시 접속하세요!!"</span>    <span class="comment">//표시될 메세지</span></span><br><span class="line">        noti.alertAction = <span class="string">"접속하기"</span>   <span class="comment">//잠금상태 일때 표시될 액션</span></span><br><span class="line">        noti.applicationIconBadgeNumber = <span class="number">1</span> <span class="comment">//모서리에 표시될 배지</span></span><br><span class="line">        noti.soundName = <span class="type">UILocalNotificationDefaultSoundName</span>    <span class="comment">//로컬 알람 도착시 사운드</span></span><br><span class="line">        noti.userInfo = [<span class="string">"name"</span>:<span class="string">"정현아"</span>]  <span class="comment">//로컬 알람 실행시 함께 전달하고 싶은 값!! (화면에는 표시되지 않음)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알람 객체를 스케쥴러에 등록</span></span><br><span class="line">        <span class="comment">//application.scheduledLocalNotifications(noti)     //메서드 사라짐</span></span><br><span class="line">        application.presentLocalNotificationNow(noti)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-메서드-정리">CODE :: 메서드 정리</span></h4>
+<h4><span id="code-meseodeu-jeongri">CODE :: 메서드 정리</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UIApplication</span>.shared( <span class="comment">//앱 델리겡트에서는 application 매개변수)</span></span><br><span class="line">    <span class="comment">//  알림 허용 여부를 사용자에게 확인받고, 선택을 어플리케이션에 등록하는 역할</span></span><br><span class="line">    .registerUserNotificationSettings(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 현재 설정된 알림 허용 여부 정보를 읽어온다</span></span><br><span class="line">        .currentUserNotificationSettings</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체를 iOS 스케쥴러에 등록한다. 등록된 알림 객체는 fireDate 속성에 설정된 시간에 맞게 발송된다 (iOS 10)</span></span><br><span class="line">        .scheduleLocalNotification(<span class="number">_</span>:)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 생성된 알림 객체의 fireDate 속성을무시하고 즉각 발송한다</span></span><br><span class="line">        .presentLocalNotificationNow(<span class="number">_</span>:)</span><br></pre></td></tr></table></figure>
 ]]></content>
       
@@ -977,7 +966,7 @@
       <title><![CDATA[iOS 화면간 데이터 전달]]></title>
       <url>/2017/11/20/view-dataTrade/</url>
       <content type="html"><![CDATA[<h1><span id="ios-view-to-view">iOS View to View</span></h1>
-<h2><span id="화면전환시-data-전달법">화면전환시 Data 전달법</span></h2>
+<h2><span id="hwamyeonjeonhwansi-data-jeondalbeob">화면전환시 Data 전달법</span></h2>
 <hr>
 <ol>
 <li>직접전달 방식 (동기 방식)
@@ -995,7 +984,7 @@
 </ul>
 </li>
 </ol>
-<h3><span id="직접전달-방식-순서">직접전달 방식 순서</span></h3>
+<h3><span id="jigjeobjeondal-bangsig-sunseo">직접전달 방식 순서</span></h3>
 <hr>
 <p>VC1 -&gt; VC2 라고 가정한다.</p>
 <ol>
@@ -1009,21 +998,21 @@
 <li>여러개의 데이터 값을 주고 받을 시에는 <code>NSMutableDictionary</code> 같은 집합 자료형을 사용하면 편리하다.</li>
 </ul>
 <br>
-<h4><span id="code-직접-전달-방식">CODE :: 직접 전달 방식</span></h4>
+<h4><span id="code-jigjeob-jeondal-bangsig">CODE :: 직접 전달 방식</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//outlet 변수</span></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> emailText: <span class="type">UITextField</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> isUpdate: <span class="type">UISwitch</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> interval: <span class="type">UIStepper</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> isUpdateLabel: <span class="type">UILabel</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> intervalLabel: <span class="type">UILabel</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//Action</span></span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">onSwitch</span><span class="params">(<span class="number">_</span> sender: UISwitch)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> sender.isOn &#123;</span><br><span class="line">            <span class="keyword">self</span>.isUpdateLabel.text = <span class="string">"갱신함"</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">self</span>.isUpdateLabel.text = <span class="string">"갱신안함"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">onStepper</span><span class="params">(<span class="number">_</span> sender: UIStepper)</span></span> &#123;</span><br><span class="line">        <span class="comment">//현재수치 프로퍼티에 저장</span></span><br><span class="line">        <span class="keyword">let</span> value = <span class="type">Int</span>(sender.value)</span><br><span class="line">        <span class="keyword">self</span>.intervalLabel.text = <span class="string">"<span class="subst">\(value)</span>분마다"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">submitAction</span><span class="params">(<span class="number">_</span> sender: UIButton)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//rvc 가 옵셔널 타입이므로 guard 구문을 통해서 옵셔널 바인딩 처리</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> rvc = <span class="keyword">self</span>.storyboard?.instantiateViewController(withIdentifier: <span class="string">"RVC"</span>) <span class="keyword">as</span>? <span class="type">ResultViewController</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//아니면 종료</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        rvc.receivedEmail = <span class="keyword">self</span>.emailText.text!</span><br><span class="line">        rvc.receivedUpdate = <span class="keyword">self</span>.isUpdate.isOn <span class="comment">//bool 타입으로 전달해야하므로 .isOn사용</span></span><br><span class="line">        rvc.receivedInterval = <span class="type">Int</span>(<span class="keyword">self</span>.interval.value)</span><br><span class="line">        </span><br><span class="line">      	<span class="comment">//화면전환</span></span><br><span class="line">        <span class="keyword">self</span>.present(rvc, animated: <span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResultViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultUpdate: <span class="type">UILabel</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultInterval: <span class="type">UILabel</span>!</span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultEmail: <span class="type">UILabel</span>!</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//전화면에서 값을 전달해줄때 쓰일 parameter를 만들어준다.</span></span><br><span class="line">    <span class="comment">//중요!!</span></span><br><span class="line">    <span class="keyword">var</span> receivedEmail = <span class="string">""</span></span><br><span class="line">    <span class="keyword">var</span> receivedUpdate = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">var</span> receivedInterval = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        resultEmail.text = <span class="keyword">self</span>.receivedEmail</span><br><span class="line">        resultUpdate.text = (<span class="keyword">self</span>.receivedUpdate == <span class="literal">true</span> ? <span class="string">"자동갱신"</span> : <span class="string">"갱신안함"</span>)</span><br><span class="line">        resultInterval.text! = <span class="string">"<span class="subst">\(<span class="keyword">self</span>.receivedInterval)</span>분마다 갱신"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>instantiateViewController(withIdentifier:)</code> 메소드를 호출하여 생성된 인스턴스는 기본 적으로 <code>UIViewController</code> 타입으로 생성된다. 단순 화면 전환시에는 문제가 되지 않으나, 지금은<u> <code>ResultViewController</code>의 프로퍼티를 참조하고 값을 대입</u>해야 하기 때문에 <code>ResultViewController</code> 타입의 뷰컨트롤러로 <em>다운캐스팅</em>을 해야한다!!</li>
 </ul>
 <br>
-<h4><span id="code-네비게이션을-통한-전달-방식">CODE :: 네비게이션을 통한 전달 방식</span></h4>
+<h4><span id="code-nebigeisyeoneul-tonghan-jeondal-bangsig">CODE :: 네비게이션을 통한 전달 방식</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 네비게이션 방식으로 화면전환!!</span></span><br><span class="line"><span class="comment">// 직접전달방식 : self.present(rvc, animated: true)</span></span><br><span class="line"><span class="keyword">self</span>.navigationController?.pushViewController(rvc, animated: <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>직접 전달방식과는 다르게 <code>present</code>방식이 아닌 <code>pop,push</code>방식으로 화면을 전환해야 한다.</li>
 <li>나머지는 소스는 동일</li>
 </ul>
 <br>
-<h4><span id="code-segue를-통한-전달-방식">CODE :: Segue를 통한 전달 방식</span></h4>
+<h4><span id="code-seguereul-tonghan-jeondal-bangsig">CODE :: Segue를 통한 전달 방식</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 메뉴얼 세그일 경우는 아래 performSegue 메서드 써줘서 활성화시키기</span></span><br><span class="line"><span class="comment">// @IBAction func submitAction(_ sender: UIButton) &#123;</span></span><br><span class="line"><span class="comment">//        self.performSegue(withIdentifier: "ActionSegue", sender: self)</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//세그웨이로 넘겨주기전 전처리단계</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">prepare</span><span class="params">(<span class="keyword">for</span> segue: UIStoryboardSegue, sender: Any?)</span></span> &#123;</span><br><span class="line">        <span class="comment">//destView : UIViewController</span></span><br><span class="line">        <span class="keyword">let</span> destView = segue.destination</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//ResultViewController로 타입캐스팅</span></span><br><span class="line">        <span class="comment">//캐스팅시에는 항상 실패할 상황을 염두하여 옵셔널바인딩을 한다.</span></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> rvc = destView <span class="keyword">as</span>? <span class="type">ResultViewController</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//타입캐스팅 후 값 할당</span></span><br><span class="line">        rvc.receivedEmail = <span class="keyword">self</span>.emailText.text!</span><br><span class="line">        rvc.receivedUpdate = <span class="keyword">self</span>.isUpdate.isOn <span class="comment">//bool 타입으로 전달해야하므로 .isOn사용</span></span><br><span class="line">        rvc.receivedInterval = <span class="type">Int</span>(<span class="keyword">self</span>.interval.value)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li>
@@ -1048,7 +1037,7 @@
 </li>
 </ol>
 <br>
-<h2><span id="이전-화면으로-값을-전달하기">이전 화면으로 값을 전달하기</span></h2>
+<h2><span id="ijeon-hwamyeoneuro-gabseul-jeondalhagi">이전 화면으로 값을 전달하기</span></h2>
 <hr>
 <ol>
 <li>현존하는 뷰 컨트롤러의 인스턴스의 참조값을 얻어온다.</li>
@@ -1060,7 +1049,7 @@
 </li>
 </ol>
 <br>
-<h3><span id="저장소를-사용하여-값을-주고-받기-비동기">저장소를 사용하여 값을 주고 받기 (비동기)</span></h3>
+<h3><span id="jeojangsoreul-sayonghayeo-gabseul-jugo-badgi-bidonggi">저장소를 사용하여 값을 주고 받기 (비동기)</span></h3>
 <hr>
 <ul>
 <li>뷰 컨트롤러들이 모두 접근할 수 있는 공용의 저장소를 이용하여 값을 저장한 후 이전 화면으로 복귀하면 이전 화면에서 적절한 시점에 저장소에 저장된 값을 읽어오는 방식을 구현한다.</li>
@@ -1069,7 +1058,7 @@
 <li>코코아 터치 프레임워크에서 제공하는 <u><strong>UserDefaults</strong>객체와 **코어 데이터(Core Data)**객체</u>를 통해서 반영구적으로 데이터를 저장가능하다.</li>
 </ul>
 <br>
-<h3><span id="appdelegate-객체를-사용하여-값을-주고받기">AppDelegate 객체를 사용하여 값을 주고받기</span></h3>
+<h3><span id="appdelegate-gaegcereul-sayonghayeo-gabseul-jugobadgi">AppDelegate 객체를 사용하여 값을 주고받기</span></h3>
 <hr>
 <p>AppDelegate는 iOS 시스템에 의해서 앱 전체를 통틀어 하나의 인스턴스만 존재하도록 보장된다.  이를 <em>Singleton(싱글톤)</em> 이라고 하는데, 이 때문에 AppDelegate class는 <strong>직접생성할 수 없으며</strong> <code>UIApplication.shared.delegate</code> 구문을 통해 생성되어 있는 객체를  참조해야 한다. 단, AppDelegate 객체는 앱의 생명주기와 함께 하므로 <strong><em>앱이 종료되면 데이터 역시 메모리에서 사라지게 된다.</em></strong></p>
 <p>참조 ) 경우에 따라서는 AppDelegate를 대체할 클래스를 생성한다. 단, 아래 원칙을 지켜서 생성한다.</p>
@@ -1089,11 +1078,11 @@
 <li>화면을 복귀(혹은 전환)와 동시에 AppDelegate 객체에 저장된 <strong>값을 읽어 온다.</strong> <em>(In func viewWillAppear(_ animated: Bool))</em></li>
 </ol>
 <br>
-<h4><span id="code-데이터-받는-쪽-vc">CODE :: 데이터 받는 쪽 VC</span></h4>
+<h4><span id="code-deiteo-badneun-jjog-vc">CODE :: 데이터 받는 쪽 VC</span></h4>
 <hr>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewWillAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</span><br><span class="line">  <span class="comment">//참조 후 AppDelegate타입으로 캐스팅</span></span><br><span class="line">  <span class="comment">//캐스팅이 완료 되어야 해당 객체의 인스턴스를 사용 가능하다.</span></span><br><span class="line">    <span class="keyword">let</span> ad = <span class="type">UIApplication</span>.shared.delegate <span class="keyword">as</span>? <span class="type">AppDelegate</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> email = ad?.receivedEmail &#123;</span><br><span class="line">        emailText.text = email</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="userdefaults-객체를-사용하여-값을-주고-받기">UserDefaults 객체를 사용하여 값을 주고 받기</span></h3>
+<h3><span id="userdefaults-gaegcereul-sayonghayeo-gabseul-jugo-badgi">UserDefaults 객체를 사용하여 값을 주고 받기</span></h3>
 <hr>
 <ul>
 <li>CocoaTouch FW에서 제공하는 <code>UserDefaults</code> 객체를 사용하여 값을 저장하면 앱이 삭제되기 전까지는 저장된 값이 유지된다.</li>
@@ -1148,8 +1137,8 @@
     <entry>
       <title><![CDATA[iOS 화면 전환 기법]]></title>
       <url>/2017/11/18/viewChange/</url>
-      <content type="html"><![CDATA[<h1><span id="화면-전환-기법">화면 전환 기법</span></h1>
-<h2><span id="ios에서의-화면-전환-개념">iOS에서의 화면 전환 개념</span></h2>
+      <content type="html"><![CDATA[<h1><span id="hwamyeon-jeonhwan-gibeob">화면 전환 기법</span></h1>
+<h2><span id="ioseseoyi-hwamyeon-jeonhwan-gaenyeom">iOS에서의 화면 전환 개념</span></h2>
 <hr>
 <ol>
 <li>뷰 컨트롤러의 뷰 위에 다르나 뷰를 가져와 바꿔치기하기 (특수사항/제한적으로 사용)</li>
@@ -1158,14 +1147,14 @@
 <li>화면 전환용 객체 세그웨이(SegueWay)를 사용하여 화면 전환하기</li>
 </ol>
 <br>
-<h4><span id="ios에서-화면-전환-특성">iOS에서 화면 전환 특성</span></h4>
+<h4><span id="ioseseo-hwamyeon-jeonhwan-teugseong">iOS에서 화면 전환 특성</span></h4>
 <hr>
 <ol>
 <li>다음 화면으로 이동하는 방법과 이전화면으로 되돌아가는 방법이 다름</li>
 <li>화면 전환 방식에 따라 이전 화면으로 되돌아가는 방법이 다름</li>
 </ol>
 <br>
-<h3><span id="화면-전환-기법1-뷰를-이용한-화면-전환">화면 전환 기법1 :: 뷰를 이용한 화면 전환</span></h3>
+<h3><span id="hwamyeon-jeonhwan-gibeob1-byureul-iyonghan-hwamyeon-jeonhwan">화면 전환 기법1 :: 뷰를 이용한 화면 전환</span></h3>
 <hr>
 <ul>
 <li>하나의 뷰 컨트롤러에 두개 이상의 루트 뷰를 준비한 다음, 상태에 따라 뷰를 적절히 교체해준다 (완전히 바꿔치기하거나, 기존뷰 위에 덮어쓰기 등)</li>
@@ -1173,7 +1162,7 @@
 <li>뷰를 이용한 화면전환을 하려면 <strong>커스텀 세그</strong>로 해결한다.</li>
 </ul>
 <br>
-<h3><span id="화면-전환-기법2-뷰-컨트롤러-직접-호출에-의한-화면-전환">화면 전환 기법2 :: 뷰 컨트롤러 직접 호출에 의한 화면 전환</span></h3>
+<h3><span id="hwamyeon-jeonhwan-gibeob2-byu-keonteurolreo-jigjeob-hocule-yihan-hwamyeon-jeonhwan">화면 전환 기법2 :: 뷰 컨트롤러 직접 호출에 의한 화면 전환</span></h3>
 <hr>
 <ul>
 <li>
@@ -1192,7 +1181,7 @@
 <li>소스 - 뷰 연결 완료!</li>
 </ol>
 <br>
-<h3><span id="화면-전환-기법2-네비게이션-컨트롤러를-이용한-화면-전환">화면 전환 기법2 :: 네비게이션 컨트롤러를 이용한 화면 전환</span></h3>
+<h3><span id="hwamyeon-jeonhwan-gibeob2-nebigeisyeon-keonteurolreoreul-iyonghan-hwamyeon-jeonhwan">화면 전환 기법2 :: 네비게이션 컨트롤러를 이용한 화면 전환</span></h3>
 <hr>
 <ul>
 <li>
@@ -1218,7 +1207,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="세그웨이를-이용한-화면-전환">세그웨이를 이용한 화면 전환</span></h3>
+<h3><span id="segeuweireul-iyonghan-hwamyeon-jeonhwan">세그웨이를 이용한 화면 전환</span></h3>
 <hr>
 <ul>
 <li>
@@ -1275,7 +1264,7 @@
       <title><![CDATA[App Life Cycle]]></title>
       <url>/2017/11/18/App-lifeCycle/</url>
       <content type="html"><![CDATA[<h1><span id="app-life-cycle">App Life Cycle</span></h1>
-<h2><span id="앱의-생명주기">앱의 생명주기</span></h2>
+<h2><span id="aebyi-saengmyeongjugi">앱의 생명주기</span></h2>
 <hr>
 <p>앱의 상태변화는 다음과 같이 나눌 수 있다.</p>
 <ul>
@@ -1317,20 +1306,20 @@
       <title><![CDATA[Cocoa Touch FrameWork]]></title>
       <url>/2017/11/18/CocoaTouchFW/</url>
       <content type="html"><![CDATA[<h1><span id="cocoa-touch-framework">Cocoa Touch FrameWork</span></h1>
-<h2><span id="코코아-터치-프레임워크">코코아 터치 프레임워크</span></h2>
+<h2><span id="kokoa-teoci-peureimweokeu">코코아 터치 프레임워크</span></h2>
 <hr>
 <p>애플 환경에서 터치 기반의 애플리케이션을 제작하기 위한 도구들의 모음이다.</p>
 <br>
-<h3><span id="프레임-워크-framework">프레임 워크 (Framework)</span></h3>
+<h3><span id="peureim-weokeu-framework">프레임 워크 (Framework)</span></h3>
 <hr>
 <p>&quot;뼈대, 기본구조&quot;를 의미한다.  소프트웨어에서 사용하는 프레임워크는 애플리케이션 제작을 빠르고 편리하게 할 수 있도록 <strong><em>미리 뼈대를 이루는 각종 코드를 제작하여 모아둔 것</em></strong>이다. 따라서 프레임워크를 사용하면 몇 줄의 코드만으로 손쉽게 버튼을 구현할 수 있다.</p>
 <p>집을 짓는 과정으로 예를 들면,  <strong>Framwork</strong>는 철근, 콘크리트, 유리 , 문, 배선 등이고 반면 <strong>Swift</strong>는</p>
 <p>망치, 드라이버, 톱과 같은 도구에 해당한다.</p>
 <br>
-<h4><span id="주요-frameworks">주요 Frameworks</span></h4>
+<h4><span id="juyo-frameworks">주요 Frameworks</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation	<span class="comment">//앱의 핵심 객체와 네트워크, 문자열 처리 등의 서비스를 제공하는 프레임워크(내부)</span></span><br><span class="line"><span class="keyword">import</span> UIkit		<span class="comment">//애플 App에서 실행되는 유저인터페이스를 제공하는 프레임워크(외부)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> AddressBookUI	<span class="comment">//</span></span><br><span class="line"><span class="keyword">import</span> UserNotifications	<span class="comment">//사용자 알림 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> GameKit	<span class="comment">//게임을 만들기위한 프레임워크 </span></span><br><span class="line"><span class="keyword">import</span> iAd	<span class="comment">//앱 내에 베너형태 또는 팝업 형태의 광고를 삽입할 수 있도록 해주는 광고 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> MapKit	<span class="comment">//위치정보나 지도 관련 서비스를 이용할 수 있도록 해주는 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> EventKitUI	<span class="comment">//이벤트 처리에 필요한 유저 인터페이스를 제공하는 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> MessageUI	<span class="comment">//문자관련 프레임워크</span></span><br><span class="line"><span class="keyword">import</span> UserNotifications	<span class="comment">//사용자 알림을 처리하기 위해 필요한 객체들을 제공하는 프레임워크</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프레임워크-계층관계">프레임워크 계층관계</span></h3>
+<h3><span id="peureimweokeu-gyeceunggwangye">프레임워크 계층관계</span></h3>
 <hr>
 <p>하위계층으로 갈수록 추상적이고 하드웨어 쪽에 가까워 우리가 다루기에는 다소 번거롭기 때문에 사용자에 가깝고 구체적으로 구현되어 있는 상위계층 프레임워크를 통해 간접적으로 하드웨어를 제어 가능하게 된다. 상위 프레임워크는 하위 프레임워크에 의존적이며, 하위 프레임워크를 통해 구현된 기능에 보다 구체적인 기능만 붙여진 것이다.</p>
 <p>iOS 프레임워크는 다음과 같다.</p>
@@ -1355,7 +1344,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="프레임워크의-접두어">프레임워크의 접두어</span></h3>
+<h3><span id="peureimweokeuyi-jeobdueo">프레임워크의 접두어</span></h3>
 <hr>
 <p>주요 프레임워크들은 자신들에게 속해있는 <strong><em>객체의 이름에 특정 접두어를 붙이는 경향</em></strong>이 있다. 이를 통해 객체가 어떤 프레임워크에 속해 있는지 쉽게 파악할 수 있다.</p>
 <ul>
@@ -1368,7 +1357,7 @@
 <li>AVFoundation : AV</li>
 </ul>
 <br>
-<h3><span id="view와-window">View와 Window</span></h3>
+<h3><span id="viewwa-window">View와 Window</span></h3>
 <hr>
 <p>iOS에서 실행되는 모든 애플리케이션은 최소한 하나 이상의 윈도우와 뷰를 가진다. 계층상 Window객체가 최상위에 위치하며 여러 view들이 중첩되어 화면을 구성한다.</p>
 <blockquote>
@@ -1425,7 +1414,7 @@
       <title><![CDATA[CH19. Protocol]]></title>
       <url>/2017/11/03/chap19-protocol/</url>
       <content type="html"><![CDATA[<h1><span id="protocol">Protocol</span></h1>
-<h2><span id="프로토콜-객체의-설계도">프로토콜 (객체의 설계도)</span></h2>
+<h2><span id="peurotokol-gaegceyi-seolgyedo">프로토콜 (객체의 설계도)</span></h2>
 <hr>
 <p>스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.</p>
 <ul>
@@ -1442,7 +1431,7 @@
 </blockquote>
 <p><img src="classProtocol.png" alt="클래스와프로토콜의관계"></p>
 <br>
-<h3><span id="프로토콜의-준수conform">프로토콜의 준수(conform)</span></h3>
+<h3><span id="peurotokolyi-junsu-conform">프로토콜의 준수(conform)</span></h3>
 <hr>
 <ol>
 <li>타입은 모두 프로토콜을 준수할 수 있다.</li>
@@ -1471,7 +1460,7 @@
 </li>
 </ol>
 <br>
-<h3><span id="키워드-mutating-statics">키워드 mutating, statics</span></h3>
+<h3><span id="kiweodeu-mutating-statics">키워드 mutating, statics</span></h3>
 <hr>
 <ul>
 <li>클래스와 같은 참조 타입은 mutating 키워드를 붙이지 않아도 메소드 내에서 마음대로 프로퍼티를 수정할 수 있다.</li>
@@ -1501,7 +1490,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="프로토콜과-초기화-메소드">프로토콜과 초기화 메소드</span></h3>
+<h3><span id="peurotokolgwa-cogihwa-mesodeu">프로토콜과 초기화 메소드</span></h3>
 <hr>
 <ul>
 <li>구조체는 멤버와이즈 메소드가 기본적으로 제공되나, 프로토콜에 멤버와이즈 메소드가 선언되었다면 모두 직접 구현해주어야 한다.</li>
@@ -1513,7 +1502,7 @@ ex) <code>override required init()</code></li>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classname</span>: <span class="title">Superclass</span>, <span class="title">Protocol_1</span>,<span class="title">Protocol_1</span> </span>&#123;</span><br><span class="line">  	<span class="comment">// 외부로 드러나는 매개변수명은 일치해야 한다. (내부 변수명은 임시로 변경가능하다)</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">name</span><span class="params">(cmd: String, desc: String)</span></span> -&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="타입으로서의-프로토콜">타입으로서의 프로토콜</span></h3>
+<h3><span id="taibeuroseoyi-peurotokol">타입으로서의 프로토콜</span></h3>
 <hr>
 <ul>
 <li>상수, 변수, 프로퍼티의 타입으로 사용 가능 (<code>Int</code>와 같은 타입을 말하는 것임!)</li>
@@ -1522,7 +1511,7 @@ ex) <code>override required init()</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Wheel</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">spin</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">hold</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> trans:<span class="type">Wheel</span> = <span class="type">Bike</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 컴파일러가 trans를 Wheel 타입으로 읽어들여 두 메서드만 사용 가능하다.</span></span><br><span class="line"><span class="comment">// Delegate 패턴 로직</span></span><br><span class="line">trans.spin()</span><br><span class="line">trans.hold()</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프로토콜-상속">프로토콜 상속</span></h3>
+<h3><span id="peurotokol-sangsog">프로토콜 상속</span></h3>
 <hr>
 <ul>
 <li>여러 프로토콜을 상속받을 수 있는 <strong>다중 프로토콜 상속</strong>을 지원한다.</li>
@@ -1534,7 +1523,7 @@ ex) <code>override required init()</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">C</span>: <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doC</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//실질적 protocol C</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doA</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doB</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doC</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프로토콜-구성">프로토콜 구성</span></h3>
+<h3><span id="peurotokol-guseong">프로토콜 구성</span></h3>
 <hr>
 <ul>
 <li>프로토콜 상속은 기존 프로토콜에 일정 요건이 더해진 새 프로토콜을 쉽게 만들 수 있는 강력한 도구라고 할 수 있지만, <em>타입을 만들 때 잘못된 선택</em>을 할 가능성이 농후해진다. <strong>이를 해결하기 위한 방안</strong>이다.</li>
@@ -1570,9 +1559,9 @@ Ex) <code>var imp: A&amp;B = Do()</code></li>
       <title><![CDATA[CH18. Value vs Reference]]></title>
       <url>/2017/11/03/chap18-valueVSref/</url>
       <content type="html"><![CDATA[<h1><span id="value-vs-reference">Value vs Reference</span></h1>
-<h2><span id="값-타입-vs-참조-타입">값 타입 VS 참조 타입</span></h2>
+<h2><span id="gabs-taib-vs-camjo-taib">값 타입 VS 참조 타입</span></h2>
 <br>
-<h3><span id="값value의-세만틱스">값(Value)의 세만틱스</span></h3>
+<h3><span id="gabs-value-yi-semantigseu">값(Value)의 세만틱스</span></h3>
 <hr>
 <ul>
 <li>
@@ -1603,14 +1592,14 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </li>
 </ul>
 <br>
-<h3><span id="참조reference의-세만틱스">참조(Reference)의 세만틱스</span></h3>
+<h3><span id="camjo-reference-yi-semantigseu">참조(Reference)의 세만틱스</span></h3>
 <hr>
 <ul>
 <li>값 타입과 달리 참조타입의 인스턴스는 <strong><em>같은 인스턴스를 가리키는 참조</em></strong>가 하나 더 만들어진다.</li>
 <li>따라서 같은 인스턴스를 가리키는 참조 중 한쪽에서 그 값을 변경하면 <em>다른쪽에서도 영향을 받게 된다</em>.</li>
 </ul>
 <br>
-<h3><span id="동일성-vs-정체성">동일성 vs 정체성</span></h3>
+<h3><span id="dongilseong-vs-jeongceseong">동일성 vs 정체성</span></h3>
 <hr>
 <ul>
 <li>동일성(equality) : 두 인스턴스가 <strong><em>동일한 값</em></strong>을 가질 때</li>
@@ -1656,7 +1645,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
       <title><![CDATA[CH17. Initializer]]></title>
       <url>/2017/11/02/chap17-initializer/</url>
       <content type="html"><![CDATA[<h1><span id="initializer">Initializer</span></h1>
-<h2><span id="초기화">초기화</span></h2>
+<h2><span id="cogihwa">초기화</span></h2>
 <hr>
 <ul>
 <li>인스턴스를 설정하는 과정으로 <code>Init</code> (Initializer) 키워드로 시작한다.</li>
@@ -1664,14 +1653,14 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>초기화가 완료되었을 때, <u>타입의 프로퍼티에 값이 있다는 것을 보장</u>하는 데 목적이 있다.</li>
 </ul>
 <br>
-<h3><span id="구조체-초기화-기본-이니셜라이저">구조체 초기화 :: 기본 이니셜라이저</span></h3>
+<h3><span id="gujoce-cogihwa-gibon-inisyeolraijeo">구조체 초기화 :: 기본 이니셜라이저</span></h3>
 <hr>
 <ul>
 <li>빈 이니셜라이저를 호출하면 지정한 기본값이 새 인스턴스의 프로퍼티로 설정된다.</li>
 <li><strong>멤버와이즈 이니셜라이저</strong>는 값이 필요한 모든 저장형 프로퍼티의 인수를 담당한다. 자동으로 처리된다.</li>
 </ul>
 <br>
-<h3><span id="구조체-초기화-커스텀-이니셜라이저">구조체 초기화 :: 커스텀 이니셜라이저</span></h3>
+<h3><span id="gujoce-cogihwa-keoseuteom-inisyeolraijeo">구조체 초기화 :: 커스텀 이니셜라이저</span></h3>
 <hr>
 <ul>
 <li>초기화 과정을 세부적으로 건드려야 할 상황일때 사용한다.</li>
@@ -1681,7 +1670,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <br>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomInit</span> </span>&#123; <span class="comment">//참조타임</span></span><br><span class="line">    <span class="keyword">var</span> name:<span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(name:<span class="type">String</span>) &#123; <span class="comment">//parameter</span></span><br><span class="line">        <span class="comment">//statement</span></span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="클래스-초기화-기본">클래스 초기화 :: 기본</span></h3>
+<h3><span id="keulraeseu-cogihwa-gibon">클래스 초기화 :: 기본</span></h3>
 <hr>
 <ul>
 <li>빈 기본 이니셜라이저를 가진다. <code>let mem = Member()</code></li>
@@ -1695,14 +1684,14 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </li>
 </ul>
  <br>
-<h3><span id="클래스-초기화-지정형-이니셜라이저">클래스 초기화 :: 지정형 이니셜라이저</span></h3>
+<h3><span id="keulraeseu-cogihwa-jijeonghyeong-inisyeolraijeo">클래스 초기화 :: 지정형 이니셜라이저</span></h3>
 <hr>
 <ul>
 <li>클래스의 주 이니셜라이저 형태이다. 모두 초기화 완료 전에 값을 받는지 확인한다.</li>
 <li>슈퍼클래스가 지정된 클래스의 지정형 이니셜라이저는 <u>슈퍼클래스의 지정형 이니셜라이저도 함께 호출</u>해야 한다.</li>
 </ul>
  <br>
-<h3><span id="클래스-초기화-편의성-이니셜라이저">클래스 초기화 :: 편의성 이니셜라이저</span></h3>
+<h3><span id="keulraeseu-cogihwa-pyeonyiseong-inisyeolraijeo">클래스 초기화 :: 편의성 이니셜라이저</span></h3>
 <hr>
 <ul>
 <li><code>convenience</code> 키워드를 사용한다.</li>
@@ -1712,7 +1701,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </ul>
 <p><img src="/image/convenience.png" alt="편의성이니셜라이저"></p>
 <br>
-<h3><span id="클래스-초기화-요구형-이니셜라이저">클래스 초기화 :: 요구형 이니셜라이저</span></h3>
+<h3><span id="keulraeseu-cogihwa-yoguhyeong-inisyeolraijeo">클래스 초기화 :: 요구형 이니셜라이저</span></h3>
 <hr>
 <ul>
 <li><code>required</code>키워드를 붙여 이 타입의 모든 서브클래스에서 해당 이니셜라이저를 제공할 수 있다.</li>
@@ -1720,7 +1709,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li><code>override</code> 키워드를 붙일 수 없다.</li>
 </ul>
 <br>
-<h3><span id="해제deinitializer">해제(Deinitializer)</span></h3>
+<h3><span id="haeje-deinitializer">해제(Deinitializer)</span></h3>
 <hr>
 <ul>
 <li>해제는 인스턴스가 더 이상 필요하지 않을 때 <em>메모리에서 제거하는 과정</em>을 가리킨다.</li>
@@ -1732,7 +1721,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>'s memory is Deinitialized"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="실패-기능-이니셜라이저-failable">실패 기능 이니셜라이저 (failable)</span></h3>
+<h3><span id="silpae-gineung-inisyeolraijeo-failable">실패 기능 이니셜라이저 (failable)</span></h3>
 <hr>
 <ul>
 <li>인스턴스를 <em>초기화할 수 없다</em>는 사실을 알리는 기능을 한다.</li>
@@ -1742,7 +1731,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li><code>init!</code> 키워드는 암묵적으로 언래핑되는 옵셔널을 리턴하는 페일어블 이니셜라이저를 만들 수도 있다. (단, 안정성이 떨어지므로 주의요함)</li>
 </ul>
 <br>
-<h3><span id="초기화의-과정">초기화의 과정</span></h3>
+<h3><span id="cogihwayi-gwajeong">초기화의 과정</span></h3>
 <hr>
 <p>1단계. 최종적으로 클래스의 지정형 이니셜라이저가 호출된다.</p>
 <ul>
@@ -1774,7 +1763,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
       <title><![CDATA[CH16. Property]]></title>
       <url>/2017/11/01/chap16-property/</url>
       <content type="html"><![CDATA[<h1><span id="chapter16-property">CHAPTER16 / Property</span></h1>
-<h2><span id="프로퍼티">프로퍼티</span></h2>
+<h2><span id="peuropeoti">프로퍼티</span></h2>
 <hr>
 <ul>
 <li>값과 타입을 연계 내지 연동하는 방식으로 타입이 나타내는 엔터티(entity) 특징을 구체화한다.</li>
@@ -1783,7 +1772,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>프로퍼티 가시성에 관해 규칙을 세울 수도 있다.</li>
 </ul>
 <br>
-<h3><span id="저장형-프로퍼티">저장형 프로퍼티</span></h3>
+<h3><span id="jeojanghyeong-peuropeoti">저장형 프로퍼티</span></h3>
 <hr>
 <ul>
 <li><strong>저장형 프로퍼티</strong>가 하는 일은 데이터 저장이다.</li>
@@ -1792,7 +1781,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>중첩타입은 어떤 타입 안에서 정의된 타입이다. 주로 어떤 타입의 기능을 지원할 목적으로 사용된다.</li>
 </ul>
 <br>
-<h3><span id="지연-저장형-프로퍼티-lazy">지연 저장형 프로퍼티 (lazy)</span></h3>
+<h3><span id="jiyeon-jeojanghyeong-peuropeoti-lazy">지연 저장형 프로퍼티 (lazy)</span></h3>
 <hr>
 <p>경우에 따라서 저장형 프로퍼티의 값이 곧바로 지정될 수 없을 때도 있다.<br>
 혹은 만약 해당 프로퍼티의 인스턴스가 메모리를 많이 먹는다면 필요할 때 생성되도록(lazy) 선언해 두면 <strong>메모리 관리 효율</strong>이 좋아질 것이다.</p>
@@ -1813,15 +1802,15 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 그 이유는 클로저가 안전하게 <code>self.</code>에 엑세스하기 위해서 <em>컴파일러는 <code>self.</code>가 온전히 초기화되었는지</em> 알고 있어야 한다.<br>
 <code>lazy</code>를 붙이므로써 지금 당장 <code>self.</code>에 해당하는 값이 만들어질 필요가 없으며, 처음 엑세스 될 때 만들어 져야한다고 파악하여 <strong>ready</strong>상태에 있게 된다.</p>
 <br>
-<h4><span id="code-액세스">CODE :: 액세스</span></h4>
+<h4><span id="code-aegseseu">CODE :: 액세스</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newBeef = <span class="type">Beef</span>()</span><br><span class="line"><span class="keyword">var</span> newBeefWeight = newBeef.weight</span><br><span class="line">newBeefWeight = <span class="number">50</span></span><br><span class="line"><span class="built_in">print</span>(newBeef.beefSize)     <span class="comment">//출력 : medium</span></span><br></pre></td></tr></table></figure>
 <p>위 와 같이 생성후 인스턴스의 <code>weight</code>값을 변경 시켜 주었으나,<br>
 이미 첫 초기화 될 때 <code>beefSize</code>프로퍼티가 지정되었다.</p>
 <br>
-<h4><span id="code-새-값으로-초기화-후-재설정">CODE :: 새 값으로 초기화 후 재설정</span></h4>
+<h4><span id="code-sae-gabseuro-cogihwa-hu-jaeseoljeong">CODE :: 새 값으로 초기화 후 재설정</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> secondBeef = <span class="type">Beef</span>.<span class="keyword">init</span>(price: <span class="number">2000</span>, weight: <span class="number">50</span>, beefSize: <span class="literal">nil</span>)</span><br><span class="line"><span class="built_in">print</span>(secondBeef.beefSize) <span class="comment">//출력 : large</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="계산형-프로퍼티">계산형 프로퍼티</span></h3>
+<h3><span id="gyesanhyeong-peuropeoti">계산형 프로퍼티</span></h3>
 <hr>
 <ul>
 <li>값을 저장하지 않으며 <strong>게터(getter)</strong>,<strong>세터(setter)</strong> 라는 것을 제공한다.</li>
@@ -1833,7 +1822,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </ul>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line">    <span class="comment">//반드시 타입어노테이션을 해줘야 한다.</span></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> (value)&#123;</span><br><span class="line">            <span class="comment">//self를 통해서 엑세스</span></span><br><span class="line">            <span class="keyword">self</span>.a = value / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = value / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 클로저를 통해 인스턴스가 생성될 때 함께 실해오디어 초기값을 반환하며, 이후 재실행되지 않는다.</span></span><br><span class="line"><span class="keyword">var</span> age :<span class="type">Int</span> = &#123;</span><br><span class="line">  <span class="keyword">let</span> number = now() - birthDate()</span><br><span class="line">  <span class="keyword">return</span> number</span><br><span class="line">&#125;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doubling = <span class="type">Doubling</span>()</span><br><span class="line">doubling.data = <span class="number">80</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"a:<span class="subst">\(doubling.a)</span> , b: <span class="subst">\(doubling.b)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : a:40 , b: 40</span></span><br></pre></td></tr></table></figure>
-<h4><span id="code-축약형-getter-setter">CODE :: 축약형 getter, setter</span></h4>
+<h4><span id="code-cugyaghyeong-getter-setter">CODE :: 축약형 getter, setter</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// getter 축약형</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// setter 축약형 : newValue</span></span><br><span class="line">lass <span class="type">Doubling</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + b</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>getter 축약조건 : read-only로 정의하려는 경우</li>
@@ -1843,7 +1832,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <h4><span id="code-overriding">CODE :: overriding</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubDoubling</span>: <span class="title">Doubling</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">var</span> data: <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (a + b) * <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="keyword">self</span>.a = newValue / <span class="number">2</span></span><br><span class="line">            <span class="keyword">self</span>.b = newValue / <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> subDoubling = <span class="type">SubDoubling</span>()</span><br><span class="line"><span class="built_in">print</span>(subDoubling.data)</span><br><span class="line"><span class="comment">// 출력 : 4</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프로퍼티-관찰자property-observer">프로퍼티 관찰자(Property Observer)</span></h3>
+<h3><span id="peuropeoti-gwancalja-property-observer">프로퍼티 관찰자(Property Observer)</span></h3>
 <hr>
 <ul>
 <li>프로퍼티의 변화를 추적해서 실시간으로 대응하고자 할 때 사용한다.</li>
@@ -1854,7 +1843,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ObserverbingClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(value) &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a will change to <span class="subst">\(value)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="built_in">println</span>(<span class="string">".a did changed to <span class="subst">\(<span class="keyword">self</span>.a)</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = <span class="type">ObserverbingClass</span>()</span><br><span class="line">obj.a = <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="타입-프로퍼티-정적-프로퍼티">타입 프로퍼티 (정적 프로퍼티)</span></h3>
+<h3><span id="taib-peuropeoti-jeongjeog-peuropeoti">타입 프로퍼티 (정적 프로퍼티)</span></h3>
 <hr>
 <ul>
 <li>인스턴스에 소속되지 않고 <strong>클래스와 구조체 자체에 소속</strong>되어 값을 가지는 프로퍼티.</li>
@@ -1882,7 +1871,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <br>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//swift에는 세가지 메서드 타입이 존재한다.</span></span><br><span class="line"><span class="comment">// 인스턴스 메서드, 스태틱메서드, 클래스 매서드</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">instanceMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"instanceMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"staticMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"classMethod"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">KindOfClass</span>.instanceMethod()      <span class="comment">//컴파일에러 -&gt; 인스턴스생성없이 접근불가.</span></span><br><span class="line"><span class="type">KindOfClass</span>.staticMethod()      <span class="comment">//출력 : staticMethod</span></span><br><span class="line"><span class="type">KindOfClass</span>.classMethod()        <span class="comment">//출력 : classMethod</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//override 가능유무</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">subClass</span>: <span class="title">KindOfClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">staticMethod</span><span class="params">()</span></span> &#123;       <span class="comment">// compile error : Cannot override static method</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :staticMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">classMethod</span>() </span>&#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"subClass :classMethod : override성공! "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">subClass.classMethod()      <span class="comment">//출력 : subClass :classMethod : override성공!</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="엑세스-제어">엑세스 제어</span></h3>
+<h3><span id="egseseu-jeeo">엑세스 제어</span></h3>
 <hr>
 <ul>
 <li>필요에 따라 프로퍼티의 가시성을 제어하여 숨기거나 드러낼 수 있다.</li>
@@ -1902,7 +1891,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>게터와 세터에 가시성을 따로따로 제어할 수 있다. BUT, 세터는 게터보다 가시성이 높을 수 없다.</li>
 </ul>
 <br>
-<h3><span id="타입-캐스팅">타입 캐스팅</span></h3>
+<h3><span id="taib-kaeseuting">타입 캐스팅</span></h3>
 <hr>
 <p>제한된 범위 내에서 타입을 캐스팅할 수 있다.</p>
 <ol>
@@ -1912,7 +1901,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>프로토콜 타입이 상속을 받았을 경우 모든 상위 프로토콜</li>
 </ol>
 <br>
-<h3><span id="클래스-전용-프로토콜">클래스 전용 프로토콜</span></h3>
+<h3><span id="keulraeseu-jeonyong-peurotokol">클래스 전용 프로토콜</span></h3>
 <hr>
 <ul>
 <li><code>class</code> 키워드를 사용하여 클래스 전용 프로토콜임을 컴파일러에 알려주면 된다.</li>
@@ -1953,7 +1942,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
       <title><![CDATA[분할정복]]></title>
       <url>/2017/11/01/sort-quick/</url>
       <content type="html"><![CDATA[<h1><span id="divide-and-conquer">Divide and Conquer</span></h1>
-<h2><span id="분할정복">분할정복</span></h2>
+<h2><span id="bunhaljeongbog">분할정복</span></h2>
 <hr>
 <p>전체를 작은 범위로 <em>나누어서(Divide)</em> 각각 처리하고, 다시 <em>병합(Conquer)</em> 하여 문제의 답을 얻는 알고리즘이다.</p>
 <br>
@@ -1965,7 +1954,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 </ol>
 </blockquote>
 <br>
-<h3><span id="합병-정렬merge-sort">합병 정렬(Merge Sort)</span></h3>
+<h3><span id="habbyeong-jeongryeol-merge-sort">합병 정렬(Merge Sort)</span></h3>
 <hr>
 <p>배열을 계속 반으로 <em>분할</em> 하여 각각 따로 정렬한 후, <em>다시 병합</em> 하며 정렬하는 방식이다.</p>
 <br>
@@ -1976,16 +1965,16 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>Combine : 부분배열에 대한 답들을 합병하여 하나의 정렬된 배열을 만든다.</li>
 </ol>
 <br>
-<h4><span id="시간복잡도">시간복잡도</span></h4>
-<h4><span id="공간복잡도">공간복잡도</span></h4>
+<h4><span id="siganbogjabdo">시간복잡도</span></h4>
+<h4><span id="gongganbogjabdo">공간복잡도</span></h4>
 <h4><span id="code-swift">CODE :: swift</span></h4>
 <br>
-<h3><span id="퀵-정렬quick-sort">퀵 정렬(Quick Sort)</span></h3>
+<h3><span id="kwig-jeongryeol-quick-sort">퀵 정렬(Quick Sort)</span></h3>
 <hr>
 <p>기준원소(pivot)을 선정하고, 기준원소보다 작은 원소는 모두 <strong>왼쪽배열</strong>로, 기준원소보다 큰 원소는 모두 <strong>오른쪽배열</strong>로 가도록 분할한다. 분할된 범위를 각각 따로 정렬한 후 다시 병합하여 정렬한다.</p>
 <ul>
 <li>
-<h2><span id="데이터-정렬-상태에-따라-성능의-영향을-받는다">데이터 정렬 상태에 따라 성능의 영향을 받는다.</span></h2>
+<h2><span id="deiteo-jeongryeol-sangtaee-ddara-seongneungyi-yeonghyangeul-badneunda">데이터 정렬 상태에 따라 성능의 영향을 받는다.</span></h2>
 </li>
 </ul>
 <br>
@@ -1995,8 +1984,8 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>Conquer : 정렬함으로써 각 부분을 정복한다(solve). 배열이 충분히 작지 않으면 재귀호출을 한다.</li>
 <li>Combine : 부분배열에 대한 답들을 합병하여 하나의 정렬된 배열을 만든다</li>
 </ol>
-<h4><span id="시간복잡도">시간복잡도</span></h4>
-<h4><span id="공간복잡도">공간복잡도</span></h4>
+<h4><span id="siganbogjabdo">시간복잡도</span></h4>
+<h4><span id="gongganbogjabdo">공간복잡도</span></h4>
 <h4><span id="code-swift">CODE :: swift</span></h4>
 ]]></content>
       
@@ -2027,12 +2016,12 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
       <title><![CDATA[CH15. Structure & Class]]></title>
       <url>/2017/10/30/chap15-struct-Class/</url>
       <content type="html"><![CDATA[<h1><span id="chapter15-structure-amp-class">CHAPTER15 / Structure &amp; Class</span></h1>
-<h2><span id="구조체와-클래스">구조체와 클래스</span></h2>
+<h2><span id="gujocewa-keulraeseu">구조체와 클래스</span></h2>
 <hr>
 <p>구조체와 클래스는 하나의 큰 코드 블록으로써 <u>다른 종류의 객체에 의존하지 않고 자체적으로 값을 저장하거나 함수적인 기능을 구현</u>할 수 있다. 구조체나 클래스 내부에서 정의된 변수는 <strong>프로퍼티(Properties)</strong>, 함수는 **메서드(Method)**라고 불린다. 특별한 성격을 갖게 되기 때문이다. (이 둘을 가리켜 멤버라고 한다.)</p>
 <p>이때 클래스나 구조체를 통해 메모리 공간을 할당받아 생성된 것을 <em>인스턴스</em>라고 한다.</p>
 <br>
-<h3><span id="구조체struc">구조체(Struc)</span></h3>
+<h3><span id="gujoce-struc">구조체(Struc)</span></h3>
 <hr>
 <ul>
 <li>클래스 인스턴스가 전달될 때에는 <strong>복사에 의해 전달</strong>된다. (값타입)</li>
@@ -2049,7 +2038,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Market</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price = <span class="number">1500</span></span><br><span class="line">    <span class="keyword">var</span> product = <span class="string">"Beef"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 값 타입이기 때문에 mutating 키워드가 붙어야 한다.</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">changePrice</span><span class="params">(raise: Int)</span></span>  &#123;</span><br><span class="line">        price += raise</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newMarket = <span class="type">Market</span>()</span><br><span class="line">newMarket.changePrice(raise: <span class="number">500</span>)</span><br><span class="line"><span class="built_in">print</span>(newMarket.product)    <span class="comment">// 출력 :beef</span></span><br><span class="line"><span class="built_in">print</span>(newMarket.price)      <span class="comment">// 출력 :2000</span></span><br></pre></td></tr></table></figure>
 <br>
-<h5><span id="struct를-쓰면-유리한-경우">Struct를 쓰면 유리한 경우</span></h5>
+<h5><span id="structreul-sseumyeon-yurihan-gyeongu">Struct를 쓰면 유리한 경우</span></h5>
 <hr>
 <ul>
 <li>불변성(Immutable)이 필요한 데이터 타입</li>
@@ -2059,7 +2048,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>클래스 타입 등 레퍼런스에 기반한 자료형을 저장용 프로퍼티로 쓰지 않는 경우</li>
 </ul>
 <br>
-<h3><span id="클래스class">클래스(Class)</span></h3>
+<h3><span id="keulraeseu-class">클래스(Class)</span></h3>
 <hr>
 <ul>
 <li>클래스 인스턴스가 전달될 때에는 <strong>참조 형식으로 제공</strong>되며, 이때 참조 가능 개수는 무제한이다.</li>
@@ -2120,7 +2109,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
       <title><![CDATA[CH14. Enumeration]]></title>
       <url>/2017/10/30/chap14-enum/</url>
       <content type="html"><![CDATA[<h1><span id="chapter14-enumeration">CHAPTER14 / Enumeration</span></h1>
-<h2><span id="열거형">열거형</span></h2>
+<h2><span id="yeolgeohyeong">열거형</span></h2>
 <hr>
 <p>swift가 제공하는 자신만의 타입을 만들 수 있는 기능으로 줄여서 <code>enum</code>으로 표기한다.<br>
 <u>리스트 형태로 정의된 여러 케이스(case)로 인스턴스</u>를 만들 수 있는 방법이다.</p>
@@ -2130,7 +2119,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>컴파일러가 타입추론이 가능할 경우 타입을 생략 가능하다</li>
 </ul>
 <br>
-<h3><span id="switch를-사용한-enum">switch를 사용한 Enum</span></h3>
+<h3><span id="switchreul-sayonghan-enum">switch를 사용한 Enum</span></h3>
 <hr>
 <ul>
 <li>모든 경우의 수에 케이스를 하나씩 포함하여 소모적인 <code>switch</code>로 작성하는 것을 권장한다.</li>
@@ -2139,7 +2128,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>새로 케이스를 추가할 경우 컴파일러는 자동으로 업데이트 할 곳을 모두 표시해준다.</li>
 </ul>
 <br>
-<h3><span id="원시값raw-value">원시값(raw Value)</span></h3>
+<h3><span id="weonsigabs-raw-value">원시값(raw Value)</span></h3>
 <hr>
 <ul>
 <li>변수에 일일히 열거형을 담아 처리하는 함수를 만들지 않아도 <code>rawValue</code>를 사용하면 변수를 해당 원시값으로전환할 수 있다.</li>
@@ -2152,23 +2141,23 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <h4><span id="code-basic">CODE :: Basic</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Month</span>: <span class="title">Int</span> </span>&#123;  <span class="comment">//타입은 반드시 기재안해도 됨.</span></span><br><span class="line">    <span class="keyword">case</span> january = <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> feburary</span><br><span class="line">    <span class="keyword">case</span> march</span><br><span class="line">    <span class="keyword">case</span> april</span><br><span class="line">    <span class="keyword">case</span> may</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">toString</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123; <span class="comment">//self = Month 객체자신</span></span><br><span class="line">        <span class="keyword">case</span> .january:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"1월"</span></span><br><span class="line">        <span class="keyword">case</span> .feburary:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"2월"</span></span><br><span class="line">        <span class="keyword">case</span> .march:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"3월"</span></span><br><span class="line">        <span class="keyword">case</span> .april:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"4월"</span></span><br><span class="line">        <span class="keyword">case</span> .may:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"5월"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> whatMonth: <span class="type">Month</span> = .feburary</span><br><span class="line"><span class="built_in">print</span>(whatMonth)    <span class="comment">//출력 : feburary</span></span><br><span class="line"><span class="built_in">print</span>(whatMonth.rawValue)     <span class="comment">//출력 : 2 (원시값)</span></span><br><span class="line"><span class="built_in">print</span>(whatMonth.<span class="built_in">toString</span>())  <span class="comment">// 출력: 2월</span></span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-원시값-gt-enum-case로-전환">CODE :: 원시값 -&gt; Enum Case로 전환</span></h4>
+<h4><span id="code-weonsigabs-gt-enum-casero-jeonhwan">CODE :: 원시값 -&gt; Enum Case로 전환</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 원시값 생성</span></span><br><span class="line"><span class="keyword">let</span> turnToCase = <span class="number">5</span></span><br><span class="line"><span class="comment">// 생성된 원시값에 해당하는 case가 없을 수 있으므로 옵셔널 바인딩</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> toCase = <span class="type">Month</span>(rawValue: turnToCase) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"case : <span class="subst">\(toCase)</span>"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"전환실패"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반 열거형 생성</span></span><br><span class="line"><span class="keyword">let</span> whatMonth: <span class="type">Month</span> = .may</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"case : <span class="subst">\(whatMonth)</span>"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 결과상동 : case : may</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="값타입value-type-메서드">값타입(value type) 메서드</span></h3>
+<h3><span id="gabstaib-value-type-meseodeu">값타입(value type) 메서드</span></h3>
 <hr>
 <p>swift에서 열거형은 <strong>값 타입</strong>이며, 값 타입의 메서드는 <em>self를 변경 불가능</em>하다.<br>
 따라서 메서드가 self를 변경하려고 하면 <code>Cannot assign to value : self is immutable</code> 이라는 컴파일 에러가 발생한다. 즉, 메서드에 <code>mutating</code> 이라는 키워드를 붙여야 한다.</p>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">button</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> on</span><br><span class="line">    <span class="keyword">case</span> off</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">surfaceTemperature</span> <span class="params">(temp: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .on:</span><br><span class="line">            <span class="keyword">return</span> temp + <span class="number">36.5</span></span><br><span class="line">        <span class="keyword">case</span> .off:</span><br><span class="line">            <span class="keyword">return</span> temp * <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// on,off케이스를 전환해주는 함수 생성</span></span><br><span class="line">    <span class="comment">// 값자체를 변경 가능하도록 mutating을 붙여줘야 한다.</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">toggle</span> <span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">switch</span>  <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .on:</span><br><span class="line">            <span class="keyword">self</span> = .off</span><br><span class="line">        <span class="keyword">case</span> .off:</span><br><span class="line">            <span class="keyword">self</span> = .on</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 값이 변경 가능하도록 let이 아닌 var로 선언</span></span><br><span class="line"><span class="keyword">var</span> bulb:button = .on</span><br><span class="line">bulb.toggle()</span><br><span class="line"><span class="built_in">print</span>(bulb) <span class="comment">// case : on -&gt; off</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="연관값associated-values">연관값(Associated Values)</span></h3>
+<h3><span id="yeongwangabs-associated-values">연관값(Associated Values)</span></h3>
 <hr>
 <p>데이터를 열거형의 인스턴스에 연동할 수 있고, 그럼으로써 케이스마다 다른 연동값을 가질 수 있다.</p>
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//연관값</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">dimension</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 점은 연동값이 없다.</span></span><br><span class="line">    <span class="keyword">case</span> point</span><br><span class="line">    <span class="keyword">case</span> square(side: <span class="type">Int</span>)</span><br><span class="line">    <span class="keyword">case</span> rectangle(width: <span class="type">Int</span>, height: <span class="type">Int</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">area</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">          <span class="comment">// self의 연동값을 새 변수들에 바인딩 했다.</span></span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> .square(side: side):</span><br><span class="line">            <span class="keyword">return</span> side * side</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> .rectangle(width: w, height:h):</span><br><span class="line">            <span class="keyword">return</span> w * h</span><br><span class="line">        <span class="keyword">case</span> .point:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rectangleObj:dimension = .rectangle(width: <span class="number">5</span>, height: <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(rectangleObj.area())</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="재귀적-열거형">재귀적 열거형</span></h3>
+<h3><span id="jaegwijeog-yeolgeohyeong">재귀적 열거형</span></h3>
 <hr>
 <p>데이터 구조 중 트리(Tree)에서 쓰일 수 있다.<br>
 case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러는 Enum의 크기를 가늠하기 어려워 지며, <em>메모리를 무한대로 요구</em>하게 된다.<br>
@@ -2176,14 +2165,14 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 즉, 열거형의 인스턴스에 데이터가 담길 충분한 메모리를 제공하지 않고 메모리 내 다른 공간에 데이터를 둔다. 메모리 관리 차원에서 반드시 필요한 부분이다.<br>
 또한 <code>indirect</code> 키워드는 case에 개별적으로 붙일 수있다.</p>
 <br>
-<h3><span id="옵셔널과-enum">옵셔널과 Enum</span></h3>
+<h3><span id="obsyeoneolgwa-enum">옵셔널과 Enum</span></h3>
 <hr>
 <p>옵셔널은 Enum이다.<br>
 옵셔널의 구조를 보면 아래와 같다.</p>
-<h4><span id="code-옵셔널-내부구조">CODE :: 옵셔널 내부구조</span></h4>
+<h4><span id="code-obsyeoneol-naebugujo">CODE :: 옵셔널 내부구조</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Optional</span>&lt;<span class="title">wrapped</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">case</span> some(wrapped)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-옵셔널에서-enum구조-활용">CODE :: 옵셔널에서 Enum구조 활용</span></h4>
+<h4><span id="code-obsyeoneoleseo-enumgujo-hwalyong">CODE :: 옵셔널에서 Enum구조 활용</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> height:<span class="type">Int</span>? = <span class="number">165</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> height &#123;</span><br><span class="line"><span class="keyword">case</span> .<span class="keyword">none</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"nothing"</span>)</span><br><span class="line"><span class="keyword">case</span> .some(<span class="keyword">let</span> x) <span class="keyword">where</span> x &lt; <span class="number">150</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 작습니다"</span>)</span><br><span class="line"><span class="keyword">case</span> .some(<span class="keyword">let</span> x) <span class="keyword">where</span> x &lt; <span class="number">170</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 적당합니다"</span>)</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"키가 큽니다"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>따라서 옵셔널은 Enum 타입이기 때문에 위와 같이 <code>switch</code>문 적용이 가능하다.</p>
 <br>
@@ -2210,9 +2199,9 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <title><![CDATA[함수형 프로그래밍]]></title>
       <url>/2017/10/27/functionalProgramming/</url>
       <content type="html"><![CDATA[<h1><span id="functional-programming">Functional Programming</span></h1>
-<h2><span id="함수형-프로그래밍이란">함수형 프로그래밍이란?</span></h2>
+<h2><span id="hamsuhyeong-peurogeuraemingiran">함수형 프로그래밍이란?</span></h2>
 <br>
-<h3><span id="mutatable-한-상태를-immutable의-상태로-만들어-sideeffect를-없애자"># mutatable 한 상태를 immutable의 상태로 만들어 sideEffect를 없애자</span></h3>
+<h3><span id="mutatable-han-sangtaereul-immutableyi-sangtaero-mandeuleo-sideeffectreul-eobsaeja"># mutatable 한 상태를 immutable의 상태로 만들어 sideEffect를 없애자</span></h3>
 <hr>
 <ul>
 <li>값이 변경되지 않도록 변수(var)보다는 **상수(let)**를 선호한다.</li>
@@ -2220,7 +2209,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 결과값이 달리지면 안된다.</li>
 </ul>
 <br>
-<h3><span id="모든것은-객체이다"># 모든것은 객체이다</span></h3>
+<h3><span id="modeungeoseun-gaegceida"># 모든것은 객체이다</span></h3>
 <hr>
 <ul>
 <li>
@@ -2240,15 +2229,15 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </li>
 </ul>
 <br>
-<h3><span id="코드를-간결하게-하고-가독성을-높여-로직에-집중시켜야-한다"># 코드를 간결하게 하고 가독성을 높여 로직에 집중시켜야 한다.</span></h3>
+<h3><span id="kodeureul-gangyeolhage-hago-gadogseongeul-nopyeo-rojige-jibjungsikyeoya-handa"># 코드를 간결하게 하고 가독성을 높여 로직에 집중시켜야 한다.</span></h3>
 <br>
-<h3><span id="동시성-작업을-보다-쉽고-안전하게-구현하자"># 동시성 작업을 보다 쉽고 안전하게 구현하자.</span></h3>
+<h3><span id="dongsiseong-jageobeul-boda-swibgo-anjeonhage-guhyeonhaja"># 동시성 작업을 보다 쉽고 안전하게 구현하자.</span></h3>
 <hr>
 <ul>
 <li><strong>immutable값</strong>을 통해 여러 쓰레드에서 접근을 하더라도 <strong>sideEffect</strong>를 일으키지 않도록 한다.</li>
 <li>그러면 Lock, unLock 같은 보호 장치가 필요없다.</li>
 </ul>
-<h3><span id="일급-함수first-class-function의-특성">일급 함수(First-class-function)의 특성</span></h3>
+<h3><span id="ilgeub-hamsu-first-class-function-yi-teugseong">일급 함수(First-class-function)의 특성</span></h3>
 <p>함수형 언어에서는 <strong>함수가 일급 객체로 대우</strong>받는다. 따라서 swift에서는 함수가 다음과 같은 특성을 갖게 된다.</p>
 <hr>
 <ul>
@@ -2293,14 +2282,14 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>유연성 높은 클로저의 구조 덕분에 함수의 인수나 리턴값을 쉽게 전달할 수 있다.</li>
 <li>타 언어에서는 <em>람다함수, 익명함수</em> 등으로 불린다.</li>
 </ul>
-<h5><span id="클로저의-형식">클로저의 형식</span></h5>
+<h5><span id="keulrojeoyi-hyeongsig">클로저의 형식</span></h5>
 <ul>
 <li>전역함수 : 이름이 있으며, 주변 환경에서 캡쳐할 어떤 값도 없는 클로저</li>
 <li>중첩함수 : 이름이 있으며, 자신을 둘러싼 함수내부로부터 값을 캡쳐할 수 있는 클로저</li>
 <li>클로저 표현식 : 이름이 없으며, 주변 환경으로 부터 값을 캡쳐할 수 있는 경량 문법으로 작성된 클로저</li>
 </ul>
 <br>
-<h3><span id="클로저-표현식">클로저 표현식</span></h3>
+<h3><span id="keulrojeo-pyohyeonsig">클로저 표현식</span></h3>
 <hr>
 <ul>
 <li>기본적으로 <code>{}</code> 안에 클로저 수식을 두며, <code>in</code> 키워드를 기준으로 파라미터와 리턴 타입을 실행코드와 구별시킨다.</li>
@@ -2327,7 +2316,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <p><code>$0</code>을 통해서도 축약형 인수명 문법 구조를 적용할 수 있다.<br>
 첫번째 인수를 <code>$0</code>으로, 두번째 인수를 <code>$1</code>로 나타내며, 인수가 2개 이상일 경우 <code>$2</code>,<code>$3</code> 등으로도 나타낼 수 있다.</p>
 <br>
-<h3><span id="함수형-프로그래밍">함수형 프로그래밍</span></h3>
+<h3><span id="hamsuhyeong-peurogeuraeming">함수형 프로그래밍</span></h3>
 <hr>
 <p>swift는 함수형 프로그래밍을 지향한다.<br>
 따라서 함수가 <em>리턴타입</em> 및 <em>파라미터</em>의 역활도 한다.</p>
@@ -2338,7 +2327,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code-parameter">CODE :: parameter</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//인수 역활을 하는 함수</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Bake</span><span class="params">()</span></span> -&gt; (<span class="type">Int</span>,<span class="type">Int</span>) -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">ovenEnergy</span> <span class="params">(heat:Int, ea: Int )</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> heat  &gt; ea</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ovenEnergy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> macaroon = <span class="type">Bake</span>()</span><br><span class="line"><span class="keyword">let</span> needEnergy = macaroon(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(needEnergy)</span><br><span class="line"><span class="comment">//출력 : false</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="클로저의-특징">클로저의 특징</span></h3>
+<h3><span id="keulrojeoyi-teugjing">클로저의 특징</span></h3>
 <hr>
 <ol>
 <li>클로저는 값을 붙잡고 있는다 : 자신의 영역에서 정의된 변수에 캡슐화된 내부 정보를 추적할 수 있다.</li>
@@ -2346,7 +2335,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>함수형 프로그래밍 피턴을 일부 도입했다.</li>
 </ol>
 <br>
-<h3><span id="함수형-프로그래밍">함수형 프로그래밍</span></h3>
+<h3><span id="hamsuhyeong-peurogeuraeming">함수형 프로그래밍</span></h3>
 <hr>
 <ul>
 <li>
@@ -2369,12 +2358,12 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </li>
 </ul>
 <br>
-<h3><span id="고차함수higher-order-function">고차함수(higher-order function)</span></h3>
+<h3><span id="gocahamsu-higher-order-function">고차함수(higher-order function)</span></h3>
 <hr>
 <p>인수로 <strong>함수</strong>를 받는 함수.<br>
 아래 대표적 고차함수 세가지를 설명한다.</p>
 <br>
-<h4><span id="map_">map(_:)</span></h4>
+<h4><span id="map">map(_:)</span></h4>
 <hr>
 <ul>
 <li>배열의 내용물을 변형하는 데 사용할 수 있다. 배열의 내용물을 한 값에서 다른 값으로 <strong>매핑하고</strong> 새 값을 새 배열에 넣는다.</li>
@@ -2383,7 +2372,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> unsortedNum = [<span class="number">10</span>,<span class="number">34</span>,<span class="number">22</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">25</span>, <span class="number">21</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//map 함수</span></span><br><span class="line"><span class="keyword">let</span> plusNum = unsortedNum.<span class="built_in">map</span> &#123;</span><br><span class="line">    (number: <span class="type">Int</span>) -&gt; <span class="type">Int</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> number + <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(plusNum)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : [20, 44, 32, 11, 10, 35, 31]</span></span><br></pre></td></tr></table></figure>
 <p><code>plusNum</code>이라는 새로운 배열에 담았다.</p>
 <br>
-<h4><span id="filter_">filter(_:)</span></h4>
+<h4><span id="filter">filter(_:)</span></h4>
 <hr>
 <ul>
 <li>배열을 어떤 기준에 따라 <em>걸러내는</em> 함수이다.</li>
@@ -2424,7 +2413,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <content type="html"><![CDATA[<h1><span id="chapter12-function">CHAPTER12 / Function</span></h1>
 <br>
 <br>
-<h2><span id="함수">함수</span></h2>
+<h2><span id="hamsu">함수</span></h2>
 <hr>
 <ul>
 <li>구체적인 어떤 <u>task를 수행하는 <strong>코드 집합</strong></u>이다.</li>
@@ -2437,7 +2426,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 -&gt; <em>함수에서 <strong>argument</strong>가 <strong>parameter</strong>로써 대입되었다.</em></li>
 </ul>
 <br>
-<h3><span id="파라미터">파라미터</span></h3>
+<h3><span id="paramiteo">파라미터</span></h3>
 <hr>
 <ul>
 <li>파라미터는 <strong>외부 파라미터(extenal parameter)</strong>, **내부 파라미터(inner parameter) 두가지가 있다. 둘다 함께 사용 가능하며 생략도 가능하다.</li>
@@ -2447,7 +2436,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//external parameter를 사용할 경우</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(to name: String, <span class="number">_</span> ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(to: <span class="string">"현아공주"</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아공주에게 딸기를 4개 보낸다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="가변-파라미터">가변 파라미터</span></h3>
+<h3><span id="gabyeon-paramiteo">가변 파라미터</span></h3>
 <hr>
 <ul>
 <li>인수에 해당하는 값을 하나도 전달받지 않을 수도 있고, 여러 개를 받을 수도 있다.</li>
@@ -2461,7 +2450,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(ea: Int, name: String...)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> names <span class="keyword">in</span> name &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(names)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>,<span class="string">"화투"</span>,<span class="string">"병운"</span>,<span class="string">"재석"</span>, ea: <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력:</span></span><br><span class="line">현아에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">화투에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">병운에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">재석에게 딸기를 <span class="number">7</span>개 보낸다.</span><br></pre></td></tr></table></figure>
 <br>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">avg</span><span class="params">(grade: Int...)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> grade &#123;	<span class="comment">//입력받은 학점들을 for문을 돌면서 저장한다</span></span><br><span class="line">    total += i</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (total / grade.<span class="built_in">count</span>) 	<span class="comment">//평균학점</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="파라미터의-기본값">파라미터의 기본값</span></h3>
+<h3><span id="paramiteoyi-gibongabs">파라미터의 기본값</span></h3>
 <hr>
 <p>파라미터에는 기본값을 지정할 수 있다. 함수를 호출할 때 <em>인수를 생략</em>해도 된다. (따라서 입력된 인수가 없으면 설정한 default값으로 설정한다.)<br>
 <code>ea: Int=10</code> 와 같이 기본값을 설정 가능하다.</p>
@@ -2469,7 +2458,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int=<span class="number">10</span>)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아에게 딸기를 10개 보낸다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="인아웃-파라미터">인아웃 파라미터</span></h3>
+<h3><span id="inaus-paramiteo">인아웃 파라미터</span></h3>
 <hr>
 <p>파라미터값은 변경할 수 없는 상수(<code>let</code>)로 값이 복사되어 전달된다. (값에 의한 전달)</p>
 <p>만약 <strong>인아웃 파라미터</strong>를 사용하지 않으면 immutable 값이라 변경불가능하다고 컴파일 에러가 뜬다.</p>
@@ -2487,7 +2476,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inoutParam</span> <span class="params">(param: <span class="keyword">inout</span> Int)</span></span> &#123;</span><br><span class="line">       param += <span class="number">1</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">1</span></span><br><span class="line">inoutParam(param: &amp;<span class="built_in">count</span>)	</span><br><span class="line"></span><br><span class="line"><span class="comment">// count = 1 -&gt; count = 2</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="return값-지정하기">return값 지정하기</span></h3>
+<h3><span id="returngabs-jijeonghagi">return값 지정하기</span></h3>
 <hr>
 <ul>
 <li>return type은 파라미터 옆에 <code>-&gt; String</code> 과 같이 나타내고, return 값은 함수 내부에서 정의한다.</li>
@@ -2498,7 +2487,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int, soldOut:  String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>님, <span class="subst">\(soldOut)</span> 매진 되었습니다."</span>)</span><br><span class="line">        <span class="keyword">return</span> ea</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">10</span>, soldOut: <span class="string">"마카롱"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력: 현아공주님, 마카롱 매진 되었습니다. / 10</span></span><br><span class="line"><span class="comment">// return 값이 있기 때문에, 변수에 담아서 사용해야 한다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//1개 이상의 리턴값을 튜플로 묶어 반환하기.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (<span class="type">Int</span>,<span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name) 	<span class="comment">//튜플 순서에 맞게 반환해 주면 된다.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플로 된 리턴값을 대입받은 변수사용</span></span><br><span class="line"><span class="comment">//방법 1</span></span><br><span class="line"><span class="keyword">var</span> service = sendService()	<span class="comment">//service에 튜블로 된 리턴값이 담긴다.</span></span><br><span class="line">sevice.<span class="number">0</span>	<span class="comment">// 27</span></span><br><span class="line">service.<span class="number">1</span>	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 방법 2 : 튜플에 파싱하기</span></span><br><span class="line"><span class="keyword">var</span> (a,b) = sendService()	<span class="comment">//튜플에 리턴값이 파싱되어 저장된다.</span></span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.b	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//방법 3 : 외부변수명으로 불러오기</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (a: <span class="type">Int</span>, n: <span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> service = sendService()</span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.n	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플에 다른곳에서 여러번 재사용 될 경우엔 편의를 위해서 typealias를 통해서 정의 할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> info = (<span class="type">Int</span>,<span class="type">String</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; info&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="함수의-중첩">함수의 중첩</span></h3>
+<h3><span id="hamsuyi-jungceob">함수의 중첩</span></h3>
 <hr>
 <ul>
 <li>내부 함수와 외부 함수로 구분할 수 있다.</li>
@@ -2511,7 +2500,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>​</li>
 </ul>
 <br>
-<h3><span id="guard-함수에서-중도에-빠져나오기">Guard : 함수에서 중도에 빠져나오기</span></h3>
+<h3><span id="guard-hamsueseo-jungdoe-bbajyeonaogi">Guard : 함수에서 중도에 빠져나오기</span></h3>
 <hr>
 <ul>
 <li>함수의 시작부분에 써서 검사하여 <strong><em>부적절한 조건일 때</em></strong> 함수 실행 도중에 빠져나와 코드가 실행되지 않도록 할 때 사용한다.</li>
@@ -2524,7 +2513,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <h4><span id="code">CODE</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span> <span class="params">(fullName : <span class="params">(first:String, second: String?, third:String)</span></span></span>)  &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> secondName = fullName.second <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"외자 이름"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(secondName)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(fullName: (<span class="string">"정"</span>,<span class="string">"현"</span>,<span class="string">"아"</span>))</span><br><span class="line"><span class="comment">//출력 : 현</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="함수형-프로그래밍의-장점">함수형 프로그래밍의 장점</span></h3>
+<h3><span id="hamsuhyeong-peurogeuraemingyi-jangjeom">함수형 프로그래밍의 장점</span></h3>
 <hr>
 <ol>
 <li>동일한 코드가 여러곳에서 사용될 때 재작성할 필요 없이 함수 호출만으로 처리가 가능하다.</li>
@@ -2532,7 +2521,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>로직을 변경해야할 때 함수 내부만 수정하면 되므로 유지보수가 용이하다.</li>
 </ol>
 <br>
-<h3><span id="defer-block-지연블록">defer Block (지연블록)</span></h3>
+<h3><span id="defer-block-jiyeonbeulrog">defer Block (지연블록)</span></h3>
 <hr>
 <p>메서드에서 코드의 흐름과 상관없이 가장 마지막에 실행되는 블록이다. 작성된 위치와 상관없이 함수의 종료 직전에 실행된다. 종료 시점에 맞추어 처리할 구문이 있다면 <code>defer</code> 구문에 넣어두면 된다.</p>
 <ul>
@@ -2564,7 +2553,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <content type="html"><![CDATA[<h1><span id="chapter11-set">CHAPTER11 / Set</span></h1>
 <br>
 <br>
-<h2><span id="집합set">집합(Set)</span></h2>
+<h2><span id="jibhab-set">집합(Set)</span></h2>
 <hr>
 <ul>
 <li>서로 연관성이 없는 인스턴스들의 컬렉션 타입</li>
@@ -2572,13 +2561,13 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>hashable 프로토콜을 준수해야 한다.</li>
 </ul>
 <br>
-<h3><span id="collection-type-비교">Collection Type 비교</span></h3>
+<h3><span id="collection-type-bigyo">Collection Type 비교</span></h3>
 <p><img src="/image/set.png" alt="컬렉션비교"></p>
 <br>
-<h4><span id="code1-set-생성">CODE1 :: set 생성</span></h4>
+<h4><span id="code1-set-saengseong">CODE1 :: set 생성</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">refrigerator.insert(<span class="string">"bread"</span>)</span><br><span class="line">refrigerator.insert(<span class="string">"fruits"</span>)</span><br><span class="line">refrigerator.insert(<span class="string">"water</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for food in refrigerator &#123;</span></span><br><span class="line"><span class="string">    print(food)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//출력 : fruits , bread , water</span></span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code2-array의-literal-문법-이용하여-생성">CODE2 :: Array의 literal 문법 이용하여 생성</span></h4>
+<h4><span id="code2-arrayyi-literal-munbeob-iyonghayeo-saengseong">CODE2 :: Array의 literal 문법 이용하여 생성</span></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>([<span class="string">"bread"</span>,<span class="string">"fruits"</span>,<span class="string">"water"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> food <span class="keyword">in</span> refrigerator &#123;</span><br><span class="line">    <span class="built_in">print</span>(food)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//출력 : 위와 상동</span></span><br></pre></td></tr></table></figure>
 <br>
 <h4><span id="code-method">CODE :: method</span></h4>
@@ -2605,10 +2594,10 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
     <entry>
       <title><![CDATA[정렬 알고리즘(선택,삽입,버블)]]></title>
       <url>/2017/10/21/sort-selection-insertion/</url>
-      <content type="html"><![CDATA[<h1><span id="정렬-알고리즘">정렬 알고리즘</span></h1>
+      <content type="html"><![CDATA[<h1><span id="jeongryeol-algorijeum">정렬 알고리즘</span></h1>
 <br>
 <br>
-<h2><span id="선택-정렬-알고리즘-selection-sort">선택 정렬 알고리즘 (Selection Sort)</span></h2>
+<h2><span id="seontaeg-jeongryeol-algorijeum-selection-sort">선택 정렬 알고리즘 (Selection Sort)</span></h2>
 <hr>
 <p>기준 위치에 맞는 원소를 <strong>선택</strong>해 자리를 교환하는 방식이다. 그 기준에 따라 <strong>최소 선택 정렬</strong>과 <strong>최대 선택 정렬</strong>로 구분되며, 각각 오름차순과 내림차순으로 정렬된다.<br>
 <em>단순하게 첫 인덱스부터 배열전체를 돌며 가장 작은값을 차례로 찾아서 정렬하는 방법이다.</em></p>
@@ -2621,17 +2610,17 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ol>
 <p><img src="/image/select_sort.png" alt="선택정렬"></p>
 <br>
-<h3><span id="시간-복잡도">시간 복잡도</span></h3>
+<h3><span id="sigan-bogjabdo">시간 복잡도</span></h3>
 <p>선택 정렬 알고리즘은 배열의 인덱스가 n일 경우, n-1번 n번 …1번 (즉 Σ(k-1), 단 k=1부터 n까지) 실행하게 되므로,<br>
 시간 복잡도는 <code>O(n^2)</code> 이다.</p>
 <br>
-<h3><span id="공간-복잡도">공간 복잡도</span></h3>
+<h3><span id="gonggan-bogjabdo">공간 복잡도</span></h3>
 <p>단 하나의 배열에서만 실행되므로 <code>O(n)</code>이다.</p>
 <br>
 <h3><span id="swift-code">SWIFT CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//주어진 배열</span></span><br><span class="line"><span class="keyword">var</span> arr  = [<span class="number">10</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//selection sort</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>...arr.<span class="built_in">count</span>-<span class="number">2</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> minIndex = i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> i+<span class="number">1</span>...arr.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[minIndex] &gt; arr[j] &#123;</span><br><span class="line">            minIndex = j</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr.swapAt(i, minIndex)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(arr)    <span class="comment">//출력 :[1, 2, 4, 5, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="삽입-정렬-알고리즘-insert-sort">삽입 정렬 알고리즘 (Insert Sort)</span></h2>
+<h2><span id="sabib-jeongryeol-algorijeum-insert-sort">삽입 정렬 알고리즘 (Insert Sort)</span></h2>
 <hr>
 <p><em>현재 인덱스값이 어디에 삽입되어야 하는지</em> 해당 위치보다 작은 인덱스값들을 비교하여 찾아가 삽입하는 배열 알고리즘이다.<br>
 이번에 정렬해야 하는 값을 <strong>key</strong>라고 부른다. 결과적으로 큰 값이 오른쪽에 쌓이도록 한다.<br>
@@ -2645,16 +2634,16 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ol>
 <p><img src="/image/insert_sort.png" alt="삽입정렬"></p>
 <br>
-<h3><span id="시간-복잡도">시간 복잡도</span></h3>
+<h3><span id="sigan-bogjabdo">시간 복잡도</span></h3>
 <p>최악의 경우 n-1,n-2 … 1번 비교하게 되므로 시간복잡도는 <code>O(n^2)</code> 이다. 단, 정렬되어 있는 배열일 경우 n-1번씩만 비교해도 되므로 시간복잡도는 <code>Ω(n)</code>이 된다.</p>
 <br>
-<h3><span id="공간-복잡도">공간 복잡도</span></h3>
+<h3><span id="gonggan-bogjabdo">공간 복잡도</span></h3>
 <p>단 하나의 배열에서만 실행되므로 <code>O(n)</code>이다.</p>
 <br>
 <h3><span id="swift-code">SWIFT CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//insertion sort</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...arr.<span class="built_in">count</span>-<span class="number">1</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> minValue = arr[i]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> j = i-<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> j &gt;= <span class="number">0</span> &amp;&amp; minValue &lt; arr[j] &#123;</span><br><span class="line">        arr[j+<span class="number">1</span>] = arr[j]</span><br><span class="line">        j -= <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">     arr[j+<span class="number">1</span>] = minValue</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(arr)   <span class="comment">//출력 :[1, 2, 4, 5, 6, 8, 10]</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="버블-정렬-알고리즘-bubble-sort">버블 정렬 알고리즘 (Bubble Sort)</span></h2>
+<h2><span id="beobeul-jeongryeol-algorijeum-bubble-sort">버블 정렬 알고리즘 (Bubble Sort)</span></h2>
 <hr>
 <p><strong>두 인접한 원소</strong>를 검사하여 정렬하는 방식이다. 시간복잡도는 높으나 <em>코드가 단순</em>하여 많이 쓰인다. 원소의 이동이 거품이 수면위로 올라가는 듯한 모습을 보여서 붙여진 이름이라고 한다 :)</p>
 <br>
@@ -2666,10 +2655,10 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ol>
 <p><img src="/image/bubble_sort.png" alt="버블정렬"></p>
 <br>
-<h3><span id="시간-복잡도">시간 복잡도</span></h3>
+<h3><span id="sigan-bogjabdo">시간 복잡도</span></h3>
 <p>n-1,n-2 … 1번 비교하게 되므로 시간복잡도는 <code>O(n^2)</code> 이다.</p>
 <br>
-<h3><span id="공간-복잡도">공간 복잡도</span></h3>
+<h3><span id="gonggan-bogjabdo">공간 복잡도</span></h3>
 <p>n개의 인덱스에 대해서 n개의 메모리를 사용하므로 공간 복잡도는 <code>O(n)</code>이다.</p>
 <br>
 <h3><span id="swift-code">SWIFT CODE</span></h3>
@@ -2706,7 +2695,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <content type="html"><![CDATA[<h1><span id="chapter10-dictionary">CHAPTER10 / Dictionary</span></h1>
 <br>
 <br>
-<h2><span id="딕셔너리">딕셔너리</span></h2>
+<h2><span id="digsyeoneori">딕셔너리</span></h2>
 <hr>
 <ul>
 <li><code>Key</code> 와 <code>value</code>의 쌍으로 담아두는 컬렉션 타입이다.</li>
@@ -2717,7 +2706,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li><strong>Hash</strong> :: 임이의 크기를 가진 데이터를 고정된 데이터의 크기로 변환시키는 것을 말한다. 이를 이용해 <u>특정한 배열의 인덱스나 인덱스의 데이터값을 이용해 저장하거나 찾을 수 있다.</u></li>
 </ul>
 <br>
-<h3><span id="a-딕셔너리-만들기">A. 딕셔너리 만들기</span></h3>
+<h3><span id="a-digsyeoneori-mandeulgi">A. 딕셔너리 만들기</span></h3>
 <hr>
 <ol>
 <li>선언하기</li>
@@ -2729,7 +2718,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dessert = [<span class="string">"에끌레어"</span>:<span class="number">4</span> , <span class="string">"치즈케이크"</span>:<span class="number">2</span>, <span class="string">"타르트"</span>:<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//사용가능 메서드</span></span><br><span class="line">dessert.<span class="built_in">count</span>   <span class="comment">//3</span></span><br><span class="line">dessert[<span class="string">"에끌레어"</span>]   <span class="comment">//key값으로 value에 접근하기</span></span><br></pre></td></tr></table></figure>
 <p>단, <code>dessert[string:]</code>은 값이 없을 수도 있기 때문에 <code>Int?</code> 를 반환한다.</p>
 <br>
-<h3><span id="b-딕셔너리-수정-및-제거하기">B. 딕셔너리 수정 및 제거하기</span></h3>
+<h3><span id="b-digsyeoneori-sujeong-mic-jegeohagi">B. 딕셔너리 수정 및 제거하기</span></h3>
 <hr>
 <ol>
 <li>value값 업데이트하기</li>
@@ -2740,7 +2729,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ol>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dessert[<span class="string">"마카롱"</span>] = <span class="number">3</span>      <span class="comment">//append</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//삭제된 키의 value의 옵셔널 리턴</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> whatdel = dessert.removeValue(forKey: <span class="string">"치즈케이크"</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(whatdel)</span><br><span class="line">&#125; <span class="comment">//remove</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="c-루프-적용하기">C. 루프 적용하기</span></h3>
+<h3><span id="c-rupeu-jeogyonghagi">C. 루프 적용하기</span></h3>
 <hr>
 <p>Dictionary 타입은 키-값 쌍을 반복 처리할 수 있는 편리한 방법을 제공하고 있다.<br>
 키,값에 해당하는 상수들로 분리 구성하고 이를 <code>for-in</code>루프 안에 <strong>튜플</strong> 형태로 두는 방법이다.</p>
@@ -2774,19 +2763,19 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <content type="html"><![CDATA[<h1><span id="chapter9-array">CHAPTER9 / Array</span></h1>
 <br>
 <br>
-<h2><span id="배열">배열</span></h2>
+<h2><span id="baeyeol">배열</span></h2>
 <hr>
 <p>스위프트의 컬렉션 타입중 하나로 <strong>인덱스</strong>라는 순서가 있는 값들의 컬렉션이다. OJC와 다르게 <em>객체든 비객체든 어떤 종류의 값</em>도 담을 수 있다.</p>
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 명시적 배열선언 -&gt; 초기화를 해야 append 할 수 있다.</span></span><br><span class="line"><span class="keyword">var</span> list: [<span class="type">String</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 타입추론으로 인해 dongBang Array가 String type으로 추론되었다.</span></span><br><span class="line"><span class="keyword">var</span> dongBang = [<span class="string">"최강창민"</span>,<span class="string">"유노윤호"</span>,<span class="string">"영웅재중"</span>]</span><br><span class="line">dongBang.append(<span class="string">"믹키유천"</span>)  <span class="comment">//요소 추가</span></span><br><span class="line">dongBang.append(<span class="string">"시아준수"</span>)</span><br><span class="line">dongBang.remove(at: <span class="number">2</span>)    <span class="comment">//해당 인덱스 요소 삭제</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dongBang)   <span class="comment">//출력 : ["최강창민", "유노윤호", "믹키유천", "시아준수"]</span></span><br><span class="line"><span class="built_in">print</span>(dongBang.<span class="built_in">count</span>)   <span class="comment">//배열의 크기 -&gt; 출력 : 4</span></span><br><span class="line"><span class="built_in">print</span>(dongBang[<span class="number">0</span>...<span class="number">2</span>])  <span class="comment">//범위적용  -&gt; 출력 : ["최강창민", "유노윤호", "믹키유천"]</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="code-a-서브스크립트를-통한-요소값-변경">CODE : A. 서브스크립트를 통한 요소값 변경</span></h3>
+<h3><span id="code-a-seobeuseukeuribteureul-tonghan-yosogabs-byeongyeong">CODE : A. 서브스크립트를 통한 요소값 변경</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dongBang[<span class="number">3</span>] = <span class="string">"박유천"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">2</span>...<span class="number">3</span> &#123;</span><br><span class="line">    dongBang[i] += <span class="string">"_jyj"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dongBang[<span class="number">3</span>])    <span class="comment">//출력 : 박유천_jyj</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="code-b-insert-프로퍼티를-통한-요소값-변경">CODE : B. insert 프로퍼티를 통한 요소값 변경</span></h3>
+<h3><span id="code-b-insert-peuropeotireul-tonghan-yosogabs-byeongyeong">CODE : B. insert 프로퍼티를 통한 요소값 변경</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dongBang.insert(<span class="string">"추가멤버"</span>, at: <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dongBang[<span class="number">4</span>])    <span class="comment">//출력 : 추가멤버</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="code-특정-요소를-포함하고-있는지-검사하는-method">CODE : 특정 요소를 포함하고 있는지 검사하는 method</span></h3>
+<h3><span id="code-teugjeong-yosoreul-pohamhago-issneunji-geomsahaneun-method">CODE : 특정 요소를 포함하고 있는지 검사하는 method</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 해당 요소를 포함하고 있는지 검사하는 method</span></span><br><span class="line"><span class="keyword">if</span> dongBang.<span class="built_in">contains</span>(<span class="string">"최강창민"</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"exist"</span>)</span><br><span class="line">&#125; <span class="comment">// 출력: exist</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>두 배열의 등가가 true로 성립하려면, 배열값뿐만 아니라 인덱스 값도 일치해야 한다.</li>
@@ -2821,14 +2810,14 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
     <entry>
       <title><![CDATA[자료구조]]></title>
       <url>/2017/10/17/algorithm2/</url>
-      <content type="html"><![CDATA[<h1><span id="a-자료구조">A. 자료구조</span></h1>
+      <content type="html"><![CDATA[<h1><span id="a-jaryogujo">A. 자료구조</span></h1>
 <hr>
 <ul>
 <li>프로그램에서 사용하는 자료를 기억장치의 공간 내에 <strong>저장하는 방법</strong>과 저장된 그룹 내에 존재하는 <strong>자료간의 관계,처리 방법</strong> 등을 연구 및 분석하기 위해 쓰인다.</li>
 <li>sort(정렬), 검색(search), 파일 편성 등에 사용된다.</li>
 </ul>
 <br>
-<h2><span id="배열array">배열(Array)</span></h2>
+<h2><span id="baeyeol-array">배열(Array)</span></h2>
 <hr>
 <p>순서대로 번호가 붙어 있는 <em>원소들이 연속적인 형태</em>로 구성되어 있는 형태로 정적인 데이터를 저장하기 위한 가장 기초적인 자료구조이다.<br>
 각 원소에 index라는 번호가 붙는데 이를 통해 데이터를 쉽게 다룰 수 있다는 장점이 있다. 다차원 배열도 구성가능하다.</p>
@@ -2836,7 +2825,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>배열은 접근속도가 빠르지만 삭제와 삽입이 번거롭다. (새로 생성해서 통으로 옮겨야 한다.)</li>
 </ul>
 <br>
-<h2><span id="연결된-리스트linked-list">연결된 리스트(Linked List)</span></h2>
+<h2><span id="yeongyeoldoen-riseuteu-linked-list">연결된 리스트(Linked List)</span></h2>
 <hr>
 <p><strong>리스트(List)</strong> 는 가장 단순한 자료구조중 하나로 데이터들이 차례대로 연결되어 있는 <strong>선형구조</strong>로 <em>배열 , 스택, 큐, 트리 , 그래프</em> 등을 구현하는 데 사용할 수 있다.</p>
 <p>연결 리스트(Linked List)는 <u>노드를 선형으로 연결</u>해 놓은 구조이다.</p>
@@ -2851,19 +2840,19 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li><code>A-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삽입</strong>하고자 하는 경우에는 A의 포인터는 C를 가리키고 C는 B를 가리키게 하면 노드가 삽입되어 <code>A-C-B</code> 형태의 연결리스트가 된다.</li>
 <li><code>A-C-B</code> 로 이루어져있는 연결리스트에 C를 <strong>삭제</strong>하고자 하는 경우에는 <em>삭제전에 A의 포인터는 B를 가리켜</em> <u>연결이 끊어지지 않게</u> 하는 것이 중요하다.</li>
 </ul>
-<h5><span id="이중연결리스트">이중연결리스트</span></h5>
+<h5><span id="ijungyeongyeolriseuteu">이중연결리스트</span></h5>
 <ul>
 <li>데이터의 앞,뒤를 가리키는 <strong>선포인터</strong>와 <strong>후포인터</strong>를 갖는다.</li>
 <li><em>탐색,삽입,삭제가 용이</em>하지만 포인터가 두개씩 있어서 <em>메모리를 많이 차지</em>하는 단점이 있다.</li>
 </ul>
-<h5><span id="원형-연결리스트">원형 연결리스트</span></h5>
+<h5><span id="weonhyeong-yeongyeolriseuteu">원형 연결리스트</span></h5>
 <ul>
 <li>이중연결리스트에서 마지막 노드의 포인터가 리스트의 종료가 아닌 <u>처음 노드를 다시 가리키는 구조</u>이다.</li>
 <li>이중연결리스트에 비해 모든 성능이 뛰어나지만 <em>구현이 어렵다는 단점</em>이 있다.</li>
 </ul>
 <p><img src="/image/struct_list.png" alt="리스트구조"></p>
 <br>
-<h2><span id="스택stack">스택(Stack)</span></h2>
+<h2><span id="seutaeg-stack">스택(Stack)</span></h2>
 <hr>
 <ul>
 <li>쌓여있는 더미라는 뜻으로 자료구조적인 특징은 <strong>한쪽끝에서만 데이터를 삽입하고 삭제할 수 있다</strong>는 것이다.</li>
@@ -2872,7 +2861,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ul>
 <p><img src="/image/struct_stack.png" alt="스택구조"></p>
 <br>
-<h2><span id="큐queue">큐(Queue)</span></h2>
+<h2><span id="kyu-queue">큐(Queue)</span></h2>
 <hr>
 <ul>
 <li>양쪽 끝이 뚫려있는 형태로 한쪽은 들어가기만하고, 한쪽은 나오기만 한다.</li>
@@ -2887,7 +2876,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ul>
 <p><img src="/image/struct_queue.png" alt="큐의구조"></p>
 <br>
-<h2><span id="트리tree">트리(Tree)</span></h2>
+<h2><span id="teuri-tree">트리(Tree)</span></h2>
 <hr>
 <ul>
 <li>
@@ -2895,12 +2884,12 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </li>
 <li>
 <p>tree는 <strong>root</strong>와 <strong>하위 tree</strong>, 자식 노드가 존재하지 않는<strong>leaf</strong>로 이루어지며 상위 데이터를 <strong>parent</strong>, 하위 데이터를 <strong>children</strong>이라고 부른다.</p>
-<h4><span id="이진트리binary-tree">이진트리(Binary Tree)</span></h4>
+<h4><span id="ijinteuri-binary-tree">이진트리(Binary Tree)</span></h4>
 <ul>
 <li>어떤 노드의 자식 노드의 수는 최대 <strong>2개</strong>인 이진트리</li>
 <li>모든 노드들이 2개의 자식노드를 갖는 트리를 <strong><em>완전이진트리</em></strong> 라고 한다.</li>
 </ul>
-<h4><span id="이진탐색트리binary-search-treebst">이진탐색트리(Binary Search Tree,BST)</span></h4>
+<h4><span id="ijintamsaegteuri-binary-search-tree-bst">이진탐색트리(Binary Search Tree,BST)</span></h4>
 <ul>
 <li>
 <p>부모 노드를 기준으로 <u>왼쪽 노드들의 값은 더 작고 오른쪽 노드들의 값은 더 크게</u> 만들어 놓은 트리형태이다.</p>
@@ -2943,7 +2932,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
     <entry>
       <title><![CDATA[알고리즘의 정의]]></title>
       <url>/2017/10/15/algorithm/</url>
-      <content type="html"><![CDATA[<h1><span id="a-컴퓨터-알고리즘의-정의">A. 컴퓨터 알고리즘의 정의</span></h1>
+      <content type="html"><![CDATA[<h1><span id="a-keompyuteo-algorijeumyi-jeongyi">A. 컴퓨터 알고리즘의 정의</span></h1>
 <hr>
 <p>컴퓨터는 주어진 문제(problem)를 해결하기 위해 여러 산술연산 및 논리연산을 수행하는 다목적 장치이다. 컴퓨터 알고리즘은 이러한 컴퓨터를 이용하여 <u>문제를 풀기위한 방법을 <strong>과정</strong>이나 <strong>절차</strong>를 이용</u>하여 만들어 놓은 것이다.</p>
 <ul>
@@ -2955,7 +2944,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </li>
 </ul>
 <br>
-<h2><span id="컴퓨터-알고리즘의-4가지-단계">컴퓨터 알고리즘의 4가지 단계</span></h2>
+<h2><span id="keompyuteo-algorijeumyi-4gaji-dangye">컴퓨터 알고리즘의 4가지 단계</span></h2>
 <ul>
 <li>
 <p><strong>문제 정의 (Program Definition)</strong><br>
@@ -2981,9 +2970,9 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <p>​</p>
 </li>
 </ul>
-<h1><span id="b-알고리즘의-성능분석">B. 알고리즘의 성능분석</span></h1>
+<h1><span id="b-algorijeumyi-seongneungbunseog">B. 알고리즘의 성능분석</span></h1>
 <hr>
-<h2><span id="점근적-표기법-asymptotic-notation">점근적 표기법 (Asymptotic Notation)</span></h2>
+<h2><span id="jeomgeunjeog-pyogibeob-asymptotic-notation">점근적 표기법 (Asymptotic Notation)</span></h2>
 <p>알고리즘이 주어진 데이터의 크기를 기준으로 수행시간 혹은 사용공간이 얼마나 되는지를 객관적으로 비교할 수 있는 기준을 제시해 준다.</p>
 <ul>
 <li>
@@ -3002,7 +2991,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 </ul>
 <p><img src="/image/notation.png" alt="점근적 표기법"></p>
 <br>
-<h2><span id="성능비교의-대상">성능비교의 대상</span></h2>
+<h2><span id="seongneungbigyoyi-daesang">성능비교의 대상</span></h2>
 <ul>
 <li>
 <p>산술 연산 (사칙연산)</p>
@@ -3043,7 +3032,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       <content type="html"><![CDATA[<h1><span id="chapter8-optional">CHAPTER8 / Optional</span></h1>
 <br>
 <br>
-<h2><span id="옵셔널">옵셔널</span></h2>
+<h2><span id="obsyeoneol">옵셔널</span></h2>
 <hr>
 <p>옵셔널(Optional)은 어떤 인스턴스 <em>값이 없을 수도 있다</em>는 일종의 안내다.</p>
 <ul>
@@ -3052,7 +3041,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>값이 없는 인스턴스를 <code>nil</code> 이라 한다.</li>
 </ul>
 <br>
-<h2><span id="옵셔널-타입">옵셔널 타입</span></h2>
+<h2><span id="obsyeoneol-taib">옵셔널 타입</span></h2>
 <hr>
 <ul>
 <li>일종의 <u>안정장치</u>로써, <strong>nil</strong>이 될 수도 있는 인스턴스는 반드시 옵셔널 타입으로 선언해야한다.</li>
@@ -3069,20 +3058,20 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
 그러나 강제 언래핑 시에 해당 값이 nil 일 경우 run-time error로 crash 될수 있다.<br>
 때문에 반드시 <em>nil이 아닌지 검사 후</em> 언래핑 해야 한다.</p>
 <br>
-<h2><span id="옵셔널-바인딩binding">옵셔널 바인딩(binding)</span></h2>
+<h2><span id="obsyeoneol-bainding-binding">옵셔널 바인딩(binding)</span></h2>
 <hr>
 <p>어떤 옵셔널 값의 유무를 판단할 수 있는 유용한 패턴이다.<br>
 옵셔널에 값이 있다면 상수나 변수에 그 값을 지정할 수 있다.<br>
 값이 있다면 변수에 넣고 해당 변수로 코드를 실행할 수 있다.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box : <span class="type">String</span>? = <span class="string">"고양이"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object  = box &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(object)</span>가 들어있다"</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"nil이다"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="옵셔널-체이닝">옵셔널 체이닝</span></h2>
+<h2><span id="obsyeoneol-ceining">옵셔널 체이닝</span></h2>
 <ul>
 <li>옵셔널에 값의 유무를 판단하는 할 수 있다.</li>
 <li>사슬처럼 연달아 이어서 조회할 수 있다.</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emptyPoket:[<span class="type">String</span>]?</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pocket:[<span class="type">String</span>]?</span><br><span class="line">pocket = [<span class="string">"ball"</span>,<span class="string">"candy"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//옵셔널 체이닝</span></span><br><span class="line"><span class="comment">//1. 객체가 nil인 경우</span></span><br><span class="line"><span class="comment">//emptyPocket에 값이 있니?-&gt; nil이 아니면 remove 메서드를 실행해라.</span></span><br><span class="line">emptyPoket?.remove(at: <span class="number">0</span>)</span><br><span class="line">​~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line"><span class="comment">//객체가 nil이므로 nil확인 후 종료, 메서드 실행 x</span></span><br><span class="line"><span class="built_in">print</span>(emptyPoket)  <span class="comment">//출력 :nill</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 객체가 nill이 아닐 경우</span></span><br><span class="line">pocket?.remove(at: <span class="number">0</span>)</span><br><span class="line">​~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(pocket)   <span class="comment">// 인덱스 0이 삭제되어, "candy"출력</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="nil-결합-연산자">nil 결합 연산자</span></h2>
+<h2><span id="nil-gyeolhab-yeonsanja">nil 결합 연산자</span></h2>
 <ul>
 <li>옵셔널을 처리할 때는 값을 가져오거나 옵셔널이 nil일 때 기본값을 사용하는 것이 일반적이다.</li>
 </ul>
@@ -3110,7 +3099,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
       <content type="html"><![CDATA[<h1><span id="chapter7-string">CHAPTER7 / String</span></h1>
 <br>
 <br>
-<h2><span id="문자열">문자열</span></h2>
+<h2><span id="munjayeol">문자열</span></h2>
 <hr>
 <ul>
 <li>문자열은 <code>&quot; &quot;</code>안에 넣어 선언한다.</li>
@@ -3124,7 +3113,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
 <p>다른방법으로는 메소드를 통해서 제어할 수 있다.</p>
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"hyuna"</span></span><br><span class="line">name += <span class="string">" jeong"</span></span><br><span class="line"><span class="built_in">print</span>(name)   <span class="comment">//출력: hyuna jeong</span></span><br></pre></td></tr></table></figure>
-<h2><span id="유니코드">유니코드</span></h2>
+<h2><span id="yunikodeu">유니코드</span></h2>
 <hr>
 <ul>
 <li>문자들을 같은 방식으로 처리하고 표현할 수 있도록 약속한 국제 표준이다.</li>
@@ -3155,7 +3144,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
       <content type="html"><![CDATA[<h1><span id="chapter6-roof">CHAPTER6 / ROOF</span></h1>
 <br>
 <br>
-<h2><span id="for-루프">for 루프</span></h2>
+<h2><span id="for-rupeu">for 루프</span></h2>
 <hr>
 <ul>
 <li>for 루프는 인스턴스의 특정 요소들을 반복 처리해야 하는 상황에서 <em>반복 횟수</em>를 알수 있을 때 이상적으로 사용할 수 있다.</li>
@@ -3167,7 +3156,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inning:<span class="type">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> <span class="keyword">where</span> i % <span class="number">2</span> == <span class="number">0</span>&#123;</span><br><span class="line">    inning += <span class="number">1</span></span><br><span class="line">    inning</span><br><span class="line">    <span class="built_in">print</span>(inning)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//출력: 1 2</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="while-루프">while 루프</span></h2>
+<h2><span id="while-rupeu">while 루프</span></h2>
 <hr>
 <ul>
 <li>어떤 조건이 충족될 때까지 반복 처리한다.</li>
@@ -3177,7 +3166,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">6</span> &#123;</span><br><span class="line">    inning += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(inning)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="repeat-while-루프">repeat-while 루프</span></h2>
+<h2><span id="repeat-while-rupeu">repeat-while 루프</span></h2>
 <hr>
 <ul>
 <li>타 언어의 <strong>do-while</strong> 문과 흡사하다.</li>
@@ -3213,7 +3202,7 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
       <content type="html"><![CDATA[<h1><span id="chapter5-switch">CHAPTER5 / SWITCH</span></h1>
 <br>
 <br>
-<h2><span id="switch-기본문법">Switch 기본문법</span></h2>
+<h2><span id="switch-gibonmunbeob">Switch 기본문법</span></h2>
 <hr>
 <p>if/else는 조건을 boolean값으로만 판단했다면,<br>
 switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단한다.</p>
@@ -3239,7 +3228,7 @@ switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단�
 </li>
 </ul>
 <br>
-<h2><span id="값-바인딩">값 바인딩</span></h2>
+<h2><span id="gabs-bainding">값 바인딩</span></h2>
 <hr>
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"soil"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> food &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"vagitable"</span>:</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"beef"</span>:</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> unkownFood:</span><br><span class="line">    message = <span class="string">"<span class="subst">\(unkownFood)</span> 는 존재하지 않는 음식입니다."</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"음식아님"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)     <span class="comment">//출력 : soil 는 존재하지 않는 음식입니다.</span></span><br></pre></td></tr></table></figure>
@@ -3252,7 +3241,7 @@ switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단�
 <h3><span id="code">CODE</span></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"><span class="keyword">var</span> food:<span class="type">String</span> = <span class="string">"candy"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> food &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">"vagitable"</span>:</span><br><span class="line">    message = <span class="string">"야채"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"beef"</span>:</span><br><span class="line">    message = <span class="string">"소고기"</span></span><br><span class="line">    <span class="comment">// 해당값에 따른 코드 실행</span></span><br><span class="line"><span class="keyword">case</span> <span class="keyword">let</span> unkownFood <span class="keyword">where</span> unkownFood == <span class="string">"candy"</span> || unkownFood == <span class="string">"coffee"</span>:</span><br><span class="line">    message = <span class="string">"<span class="subst">\(unkownFood)</span> 는 존재하지 않는 음식입니다."</span></span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line">    message = <span class="string">"음식아님"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)     <span class="comment">//출력 : candy 는 존재하지 않는 음식입니다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="튜플과-패턴-대조">튜플과 패턴 대조</span></h2>
+<h2><span id="tyupeulgwa-paeteon-daejo">튜플과 패턴 대조</span></h2>
 <hr>
 <ul>
 <li><strong>튜플</strong>은 논리적 <em>연관성이 있는 둘 이상의 값</em>을 한데 묶은 일종의 유한 집합이다. 리턴값은 순서 리스트의 구조를 갖는다.</li>
@@ -3264,7 +3253,7 @@ switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단�
 <p>위와 같이 튜플의 값에 <code>foodType.number</code>와 같이 <em>[튜플변수명.요소이름]</em> 으로 접근하며,<br>
 (_)는 빈칸의 뜻으로 <em>아무 값이 와도 상관없다</em>는 와일드카드다.</p>
 <br>
-<h2><span id="if-case-문">if-case 문</span></h2>
+<h2><span id="if-case-mun">if-case 문</span></h2>
 <hr>
 <ul>
 <li>if문의 조건절에 패턴대조를 사용한다.</li>
@@ -3295,10 +3284,10 @@ switch는 특정 값에 따라 <strong>경우의 수</strong>를 나눠 판단�
     <entry>
       <title><![CDATA[CH4. Number]]></title>
       <url>/2017/10/13/chap4-number/</url>
-      <content type="html"><![CDATA[<h1><span id="chapter4-수number">CHAPTER4 / 수(number)</span></h1>
+      <content type="html"><![CDATA[<h1><span id="chapter4-su-number">CHAPTER4 / 수(number)</span></h1>
 <br>
 <br>
-<h2><span id="정수integer">정수(Integer)</span></h2>
+<h2><span id="jeongsu-integer">정수(Integer)</span></h2>
 <hr>
 <p>macOS에서 Int는 64bit 정수이다.</p>
 <p>Int의 범위를 알아보려면 <code>\(Int.max)</code> 혹은 <code>\(Int.min)</code>으로 최대값,최소값 확인이 가능하다.<br>
@@ -3318,7 +3307,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <li>연산자는 모두 <code>+=</code> 과 <code>-=</code> 와 같은 형태로 줄여쓰기가 가능하다.</li>
 </ul>
 <br>
-<h3><span id="오버플로언더플로-연산자">오버플로/언더플로 연산자</span></h3>
+<h3><span id="obeopeulro-eondeopeulro-yeonsanja">오버플로/언더플로 연산자</span></h3>
 <p>연산 후 결과가 저장되는 변수값의 범위를 벗어난다면(over/under flow), 컴파일러는 오류를 낸다.<br>
 이러한 오류를 최소화하기 위해 <em>오버플로/언더플로 연산자</em>를 쓰면 범위 내에서 <strong>반대방향으로 되돌아가게</strong> 된다.</p>
 <h4><span id="code">CODE</span></h4>
@@ -3329,7 +3318,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 따라서 결과 값은 <strong>-126</strong> 이 된다.<br>
 ( 언더플로의 경우는 언더플로 연산자인 <code>&amp;-</code>를 사용한다. )</p>
 <br>
-<h2><span id="부동소수점수">부동소수점수</span></h2>
+<h2><span id="budongsosujeomsu">부동소수점수</span></h2>
 <hr>
 <ul>
 <li>스위프트에서는 부동소수점수 타입으로 <strong>Float</strong>(32bit)와 <strong>Double</strong>(64bit)를 제공한다.</li>
@@ -3357,7 +3346,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
     <entry>
       <title><![CDATA[CH3. Conditional]]></title>
       <url>/2017/10/13/chap3-conditional/</url>
-      <content type="html"><![CDATA[<h1><span id="chapter3-조건">CHAPTER3 / 조건</span></h1>
+      <content type="html"><![CDATA[<h1><span id="chapter3-jogeon">CHAPTER3 / 조건</span></h1>
 <br>
 <br>
 ## 기본 if/else 문
@@ -3374,7 +3363,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <p><strong>26</strong>살은 아직 어립니다.</p>
 </blockquote>
 <br>
-<h2><span id="삼항연산자">삼항연산자</span></h2>
+<h2><span id="samhangyeonsanja">삼항연산자</span></h2>
 <hr>
 <ul>
 <li><code>A ? B : C</code> 의 형태를 갖으며, <code>A가 참이면 B를, 그렇지 않으면 C를 이행하라</code> 라고 해석한다.</li>
@@ -3386,7 +3375,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = age &lt;= <span class="number">26</span> ?  <span class="string">"<span class="subst">\(age)</span>살은 아직 어립니다."</span> : <span class="string">"<span class="subst">\(age)</span>살은 어른입니다."</span></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
 <p>결과값은 위와 같다.</p>
 <br>
-<h2><span id="이중-if문">이중 if문</span></h2>
+<h2><span id="ijung-ifmun">이중 if문</span></h2>
 <hr>
 <ul>
 <li>경우의 수가 둘 이상일 때는 if문을 중첩해서 사용한다.</li>
@@ -3419,10 +3408,10 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
     <entry>
       <title><![CDATA[CH2. Varialble]]></title>
       <url>/2017/10/13/chap2-variable/</url>
-      <content type="html"><![CDATA[<h1><span id="chapter2-타입-상수-변수">CHAPTER2 / 타입 , 상수, 변수</span></h1>
+      <content type="html"><![CDATA[<h1><span id="chapter2-taib-sangsu-byeonsu">CHAPTER2 / 타입 , 상수, 변수</span></h1>
 <br>
 <br>
-<h2><span id="타입">타입</span></h2>
+<h2><span id="taib">타입</span></h2>
 <hr>
 <ul>
 <li>변수와 상수에는 데이터 타입이 있으며, 데이터 처리방식에 대한 정보를 컴파일러에 제공한다.</li>
@@ -3436,7 +3425,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> numberOfStoplights: <span class="type">Int</span> = <span class="number">6</span></span><br><span class="line">numberOfStoplights += <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>위와 같이 변수의 데이터 타입을 통일시켜 줘야한다.</p>
 <br>
-<h2><span id="상수-vs-변수">상수 vs 변수</span></h2>
+<h2><span id="sangsu-vs-byeonsu">상수 vs 변수</span></h2>
 <hr>
 <ul>
 <li><code>let</code>을 통해 상수를 선언한다. <em>String 타입도 선언 가능하다</em>.</li>
@@ -3448,7 +3437,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> numberOfStoplights: <span class="type">Int</span> = <span class="number">6</span></span><br><span class="line">numberOfStoplights += <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p><code>numberOfStoplights</code>는 <strong>상수</strong>로 선언되었기 때문에 위 코드에서는 에러가 발생한다.</p>
 <br>
-<h2><span id="문자열-삽입">문자열 삽입</span></h2>
+<h2><span id="munjayeol-sabib">문자열 삽입</span></h2>
 <hr>
 <ul>
 <li><code>\()</code> 문법은 어떤 인스턴스 값에 엑세스하여 그값을 새 <em>String 인스턴스</em> 안에 삽입하는 것이다.</li>
@@ -3488,7 +3477,7 @@ Int의 범위를 넘어선 값을 저장하면 <strong>over flow</strong>되기 
     <entry>
       <title><![CDATA[CH1. Swift]]></title>
       <url>/2017/10/13/chap1-Swift/</url>
-      <content type="html"><![CDATA[<h1><span id="chapter1-스위프트-시작하기">CHAPTER1 / 스위프트 시작하기</span></h1>
+      <content type="html"><![CDATA[<h1><span id="chapter1-seuwipeuteu-sijaghagi">CHAPTER1 / 스위프트 시작하기</span></h1>
 <hr>
 <ul>
 <li>설치 및 환경설정은 생략.</li>

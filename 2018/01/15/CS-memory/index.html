@@ -231,16 +231,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>|</p>
+                <div class="toc">
 <!-- toc -->
 <ul>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EA%B5%AC%EC%A1%B0">메모리 저장구조</a>
+<li><a href="#memori-jeojanggujo">메모리 저장구조</a>
 <ul>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%9D%98-%ED%95%A0%EB%8B%B9">메모리의 할당</a></li>
-<li><a href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-vs-%EC%93%B0%EB%A0%88%EB%93%9C">프로세스 VS 쓰레드</a></li>
+<li><a href="#memoriyi-haldang">메모리의 할당</a></li>
+<li><a href="#peuroseseu-vs-sseuredeu">프로세스 VS 쓰레드</a></li>
 </ul>
 </li>
-<li><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EB%B0%A9%EC%8B%9D">메모리 관리 방식</a>
+<li><a href="#memori-gwanri-bangsig">메모리 관리 방식</a>
 <ul>
 <li><a href="#mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</a></li>
 <li><a href="#garbage-collection-gc">Garbage Collection (GC)</a></li>
@@ -249,19 +249,8 @@
 </li>
 </ul>
 <!-- tocstop -->
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
+</div>
+<h1><span id="memori-jeojanggujo">메모리 저장구조</span></h1>
 <hr>
 <p><img src="/img/ref/memory.png" alt="메모리저장구조"></p>
 <ol>
@@ -299,7 +288,7 @@
 <li>값 타입 저장 공간이다.</li>
 </ul>
 <br>
-<h2><span id="메모리의-할당">메모리의 할당</span></h2>
+<h2><span id="memoriyi-haldang">메모리의 할당</span></h2>
 <hr>
 <p><img src="/img/ref/memory2.png" alt="메모리할당"></p>
 <ul>
@@ -309,7 +298,7 @@
 <li>따라서 Heap 과 Stack은 한정된 메모리 공간 내에서, 힙은 빈공간을 사이에 두고 힙은 낮은곳에서 -&gt; 높은메모리 주소로, 스택은 높은 메모리 주소에서 -&gt; 낮은 곳으로 크기를 채우며 메모리 공간을 차지한다. (그러다가 빈공간을 넘어서는 순간 메모리 오버 플로우가 발생된다.)</li>
 </ul>
 <br>
-<h2><span id="프로세스-vs-쓰레드">프로세스 VS 쓰레드</span></h2>
+<h2><span id="peuroseseu-vs-sseuredeu">프로세스 VS 쓰레드</span></h2>
 <hr>
 <p><img src="/img/ref/processnthread.png" alt="프로세스와스레드"></p>
 <ol>
@@ -324,7 +313,7 @@
 <li>쓰레드는 [Code, Data, Heap] 영역은 서로 공유하고 Stack 영역만 별도로 소유하여 전환비용이 프로세스에 비해 훨씬 적게 든다.</li>
 </ul>
 <br>
-<h1><span id="메모리-관리-방식">메모리 관리 방식</span></h1>
+<h1><span id="memori-gwanri-bangsig">메모리 관리 방식</span></h1>
 <h2><span id="mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</span></h2>
 <hr>
 <ul>

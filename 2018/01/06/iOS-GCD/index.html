@@ -232,12 +232,12 @@
                 post-container">
 
                 <h1><span id="gcd-grand-central-dispatch">GCD (Grand Central Dispatch)</span></h1>
-<h2><span id="swift-기반-gcd">swift 기반 GCD</span></h2>
+<h2><span id="swift-giban-gcd">swift 기반 GCD</span></h2>
 <hr>
 <p>GCD는 멀티코어 프로세스를 위한 <strong><em>Thread 프로그래밍 방법</em></strong>이다. 기존의 쓰레드 관리 기법은 개발자가 직접 쓰레드풀을 관리하는 등 수고가 들었지만 GCD에서는 Thread를 OS가 자동 관리 및 분배를 해준다.</p>
 <p>기존에는 쓰레드를 직접 생성하고 관리했으나 GCD를 통해서 <strong>Dispatch Queue</strong>에 Task를 생성해서 집어넣기만 하면 된다.</p>
 <br>
-<h3><span id="멀티스레딩">멀티스레딩</span></h3>
+<h3><span id="meoltiseureding">멀티스레딩</span></h3>
 <hr>
 <p>연산을 병렬적으로 처리할 수 있도록 보조적인 실행 흐름을 여러 개 생성하는 방식이다. 반대되는 개념으로 <strong>싱글스레딩</strong>이 있으며, 이는 나누어지지 않은 단일 실행 단위가 순서대로 코드를 처리하는 것을 뜻한다.</p>
 <p>특정 연산을 처리할 때 여러 개의 작은 단위로 쪼개어 계산하고 <em>최종적으로 이를 합쳐서 완성하는 방식</em> 이 대표적인 멀티 스레딩 방식이다. 또한 보조적인 실행 흐름을 만들어 <em>각각 별도의 실행을 할당</em>하는 것도 멀티 스레딩에 해당한다.</p>

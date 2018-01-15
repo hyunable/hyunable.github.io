@@ -234,7 +234,7 @@
                 <h1><span id="chapter10-dictionary">CHAPTER10 / Dictionary</span></h1>
 <br>
 <br>
-<h2><span id="딕셔너리">딕셔너리</span></h2>
+<h2><span id="digsyeoneori">딕셔너리</span></h2>
 <hr>
 <ul>
 <li><code>Key</code> 와 <code>value</code>의 쌍으로 담아두는 컬렉션 타입이다.</li>
@@ -245,7 +245,7 @@
 <li><strong>Hash</strong> :: 임이의 크기를 가진 데이터를 고정된 데이터의 크기로 변환시키는 것을 말한다. 이를 이용해 <u>특정한 배열의 인덱스나 인덱스의 데이터값을 이용해 저장하거나 찾을 수 있다.</u></li>
 </ul>
 <br>
-<h3><span id="a-딕셔너리-만들기">A. 딕셔너리 만들기</span></h3>
+<h3><span id="a-digsyeoneori-mandeulgi">A. 딕셔너리 만들기</span></h3>
 <hr>
 <ol>
 <li>선언하기</li>
@@ -257,7 +257,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dessert = [<span class="string">"에끌레어"</span>:<span class="number">4</span> , <span class="string">"치즈케이크"</span>:<span class="number">2</span>, <span class="string">"타르트"</span>:<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//사용가능 메서드</span></span><br><span class="line">dessert.<span class="built_in">count</span>   <span class="comment">//3</span></span><br><span class="line">dessert[<span class="string">"에끌레어"</span>]   <span class="comment">//key값으로 value에 접근하기</span></span><br></pre></td></tr></table></figure>
 <p>단, <code>dessert[string:]</code>은 값이 없을 수도 있기 때문에 <code>Int?</code> 를 반환한다.</p>
 <br>
-<h3><span id="b-딕셔너리-수정-및-제거하기">B. 딕셔너리 수정 및 제거하기</span></h3>
+<h3><span id="b-digsyeoneori-sujeong-mic-jegeohagi">B. 딕셔너리 수정 및 제거하기</span></h3>
 <hr>
 <ol>
 <li>value값 업데이트하기</li>
@@ -268,7 +268,7 @@
 </ol>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dessert[<span class="string">"마카롱"</span>] = <span class="number">3</span>      <span class="comment">//append</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//삭제된 키의 value의 옵셔널 리턴</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> whatdel = dessert.removeValue(forKey: <span class="string">"치즈케이크"</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(whatdel)</span><br><span class="line">&#125; <span class="comment">//remove</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="c-루프-적용하기">C. 루프 적용하기</span></h3>
+<h3><span id="c-rupeu-jeogyonghagi">C. 루프 적용하기</span></h3>
 <hr>
 <p>Dictionary 타입은 키-값 쌍을 반복 처리할 수 있는 편리한 방법을 제공하고 있다.<br>
 키,값에 해당하는 상수들로 분리 구성하고 이를 <code>for-in</code>루프 안에 <strong>튜플</strong> 형태로 두는 방법이다.</p>

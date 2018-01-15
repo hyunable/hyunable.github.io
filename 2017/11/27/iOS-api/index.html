@@ -231,15 +231,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="네트워크-통신과-api">네트워크 통신과 API</span></h1>
-<h2><span id="네트워크-통신">네트워크 통신</span></h2>
+                <h1><span id="neteuweokeu-tongsingwa-api">네트워크 통신과 API</span></h1>
+<h2><span id="neteuweokeu-tongsin">네트워크 통신</span></h2>
 <hr>
 <ol>
 <li>TCP/UDP를 사용하는 소켓 방식의 <strong>연결성 통신</strong></li>
 <li>HTTP , HTTPS , SMTP 등 프로토콜을 이용한 <strong>비연결성 통신</strong></li>
 </ol>
 <br>
-<h3><span id="소켓-방식의-연결-지향-통신">소켓 방식의 연결 지향 통신</span></h3>
+<h3><span id="sokes-bangsigyi-yeongyeol-jihyang-tongsin">소켓 방식의 연결 지향 통신</span></h3>
 <hr>
 <ul>
 <li>저수준 통신을 통하여 구현된다</li>
@@ -263,7 +263,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="비연결-지향-통신">비연결 지향 통신</span></h3>
+<h3><span id="biyeongyeol-jihyang-tongsin">비연결 지향 통신</span></h3>
 <hr>
 <ul>
 <li>비연결성 프로토콜은 요청이 들어오면 이에 맞는 응답을 보낸 후 바로 연결을 종료한다. 비연결 방식이라 아예 연결을 하지않는 것이 아니라 <strong>단지 연결을 유지하지 않는다는 뜻</strong>이다.</li>
@@ -313,7 +313,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="restful-api-amp-http-전송-방식">RESTful API &amp; HTTP 전송 방식</span></h3>
+<h3><span id="restful-api-amp-http-jeonsong-bangsig">RESTful API &amp; HTTP 전송 방식</span></h3>
 <hr>
 <ul>
 <li>일반적으로 웹에서 사용되는 HTTP 메서드의 종류는 <u>GET 과 POST</u> 두 가지 이다.
@@ -385,7 +385,7 @@
 <li>데이터가 URL에 표시되지 않더라도 보안에는 취약하므로 암호화 해야한다.</li>
 </ul>
 <br>
-<h3><span id="xml-방식">XML 방식</span></h3>
+<h3><span id="xml-bangsig">XML 방식</span></h3>
 <hr>
 <ul>
 <li>SOAP 방식과 RESTful API 모두 XML 방식으로 결과를 제공할 수 있다.</li>
@@ -394,7 +394,7 @@
 <li>단, 데이터의 의미를 전달하기 위해 마크업 태그를 사용하므로 <strong>주고받아야 할 전체 데이터 용량이 지나치게 커진다는 단점</strong>이 있다.</li>
 </ul>
 <br>
-<h3><span id="json-방식">JSON 방식</span></h3>
+<h3><span id="json-bangsig">JSON 방식</span></h3>
 <hr>
 <ul>
 <li><strong>JSON (JavaScript Object Notation)</strong> : 자바스크립트 언어에서 객체의 속성을 표현하기 위한 방법으로 처음 사용하기 시작했다.</li>
@@ -426,7 +426,7 @@
 <code>기본URL ? key={조건}&amp;key2={조건2}</code> 의 형식으로 작성하여 Request (요청)한다.</li>
 </ul>
 <br>
-<h4><span id="code-영화-api로-데이터-가져오기">CODE :: 영화 API로 데이터 가져오기</span></h4>
+<h4><span id="code-yeonghwa-apiro-deiteo-gajyeoogi">CODE :: 영화 API로 데이터 가져오기</span></h4>
 <hr>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 요청 URI http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="키값"&amp;targetDt=20171116</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> url = <span class="string">"http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key="</span>키값<span class="string">"&amp;targetDt=20171116"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//URL 형식으로 변환</span></span><br><span class="line"><span class="keyword">let</span> apiURI : <span class="type">URL</span>! = <span class="type">URL</span>(string: url)</span><br><span class="line">        </span><br><span class="line"><span class="comment">//REST API 호출</span></span><br><span class="line"><span class="keyword">let</span> apiData = <span class="keyword">try</span>! <span class="type">Data</span>(contentsOf: apiURI) </span><br><span class="line"></span><br><span class="line"><span class="comment">//log 찍기</span></span><br><span class="line"><span class="comment">//let log = NSString(data: apiData, encoding: String.Encoding.utf8.rawValue) ?? ""</span></span><br><span class="line"><span class="comment">//NSLog("result = \(log)")</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -447,7 +447,7 @@
 </li>
 </ul>
 <br>
-<h4><span id="code-파싱하기">CODE :: 파싱하기</span></h4>
+<h4><span id="code-pasinghagi">CODE :: 파싱하기</span></h4>
 <hr>
 <ul>
 <li>가져온 데이터는 <code>Data 타입</code> 으로 바로 꺼내쓰기 어렵기 때문에 <code>NSDictionary</code> or <code>NSArray</code> 타입으로 변환시켜주어야 한다.</li>

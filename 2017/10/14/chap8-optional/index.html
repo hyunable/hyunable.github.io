@@ -232,7 +232,7 @@
                 <h1><span id="chapter8-optional">CHAPTER8 / Optional</span></h1>
 <br>
 <br>
-<h2><span id="옵셔널">옵셔널</span></h2>
+<h2><span id="obsyeoneol">옵셔널</span></h2>
 <hr>
 <p>옵셔널(Optional)은 어떤 인스턴스 <em>값이 없을 수도 있다</em>는 일종의 안내다.</p>
 <ul>
@@ -241,7 +241,7 @@
 <li>값이 없는 인스턴스를 <code>nil</code> 이라 한다.</li>
 </ul>
 <br>
-<h2><span id="옵셔널-타입">옵셔널 타입</span></h2>
+<h2><span id="obsyeoneol-taib">옵셔널 타입</span></h2>
 <hr>
 <ul>
 <li>일종의 <u>안정장치</u>로써, <strong>nil</strong>이 될 수도 있는 인스턴스는 반드시 옵셔널 타입으로 선언해야한다.</li>
@@ -258,20 +258,20 @@ nil이 아니라면 <code>Optional(&quot;&lt;string&gt;&quot;)</code>과 같이 
 그러나 강제 언래핑 시에 해당 값이 nil 일 경우 run-time error로 crash 될수 있다.<br>
 때문에 반드시 <em>nil이 아닌지 검사 후</em> 언래핑 해야 한다.</p>
 <br>
-<h2><span id="옵셔널-바인딩binding">옵셔널 바인딩(binding)</span></h2>
+<h2><span id="obsyeoneol-bainding-binding">옵셔널 바인딩(binding)</span></h2>
 <hr>
 <p>어떤 옵셔널 값의 유무를 판단할 수 있는 유용한 패턴이다.<br>
 옵셔널에 값이 있다면 상수나 변수에 그 값을 지정할 수 있다.<br>
 값이 있다면 변수에 넣고 해당 변수로 코드를 실행할 수 있다.</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box : <span class="type">String</span>? = <span class="string">"고양이"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> object  = box &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(object)</span>가 들어있다"</span>)</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"nil이다"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="옵셔널-체이닝">옵셔널 체이닝</span></h2>
+<h2><span id="obsyeoneol-ceining">옵셔널 체이닝</span></h2>
 <ul>
 <li>옵셔널에 값의 유무를 판단하는 할 수 있다.</li>
 <li>사슬처럼 연달아 이어서 조회할 수 있다.</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emptyPoket:[<span class="type">String</span>]?</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pocket:[<span class="type">String</span>]?</span><br><span class="line">pocket = [<span class="string">"ball"</span>,<span class="string">"candy"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//옵셔널 체이닝</span></span><br><span class="line"><span class="comment">//1. 객체가 nil인 경우</span></span><br><span class="line"><span class="comment">//emptyPocket에 값이 있니?-&gt; nil이 아니면 remove 메서드를 실행해라.</span></span><br><span class="line">emptyPoket?.remove(at: <span class="number">0</span>)</span><br><span class="line">​~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line"><span class="comment">//객체가 nil이므로 nil확인 후 종료, 메서드 실행 x</span></span><br><span class="line"><span class="built_in">print</span>(emptyPoket)  <span class="comment">//출력 :nill</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 객체가 nill이 아닐 경우</span></span><br><span class="line">pocket?.remove(at: <span class="number">0</span>)</span><br><span class="line">​~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(pocket)   <span class="comment">// 인덱스 0이 삭제되어, "candy"출력</span></span><br></pre></td></tr></table></figure>
 <br>
-<h2><span id="nil-결합-연산자">nil 결합 연산자</span></h2>
+<h2><span id="nil-gyeolhab-yeonsanja">nil 결합 연산자</span></h2>
 <ul>
 <li>옵셔널을 처리할 때는 값을 가져오거나 옵셔널이 nil일 때 기본값을 사용하는 것이 일반적이다.</li>
 </ul>
