@@ -184,13 +184,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/%EB%B8%8C%EB%9E%9C%EC%B9%AD%EC%A0%84%EB%9E%B5/</loc>
-        <lastmod>2018-01-14T20:10:40.940Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/delegate/</loc>
         <lastmod>2018-01-14T20:11:12.266Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -367,21 +360,28 @@
 
     <url>
         <loc>https://hyunnaa.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EC%9D%98/</loc>
-        <lastmod>2018-01-15T05:00:52.609Z</lastmod>
+        <lastmod>2018-01-15T05:36:26.033Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hyunnaa.github.io/tags/%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
-        <lastmod>2018-01-15T05:00:52.609Z</lastmod>
+        <lastmod>2018-01-15T05:36:26.033Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hyunnaa.github.io/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
-        <lastmod>2018-01-15T05:00:52.609Z</lastmod>
+        <lastmod>2018-01-15T05:36:26.033Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%EB%B8%8C%EB%9E%9C%EC%B9%AD%EC%A0%84%EB%9E%B5/</loc>
+        <lastmod>2018-01-15T05:36:44.766Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

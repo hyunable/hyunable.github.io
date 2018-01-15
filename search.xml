@@ -2838,7 +2838,9 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <li>
 <p><strong>성능평가 (Performance Analysis)</strong><br>
 알고리즘이 어떤 문제를 풀기 위해서 필요한 시간이나 공간 혹은 그 외의 자원들이 얼마나 되는지를 비교하기 위해 사용한다.</p>
+<p>​</p>
 <br>
+<p>​</p>
 </li>
 </ul>
 <h1><span id="b-알고리즘의-성능분석">B. 알고리즘의 성능분석</span></h1>
@@ -2864,20 +2866,23 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
 <br>
 <h2><span id="성능비교의-대상">성능비교의 대상</span></h2>
 <ul>
-<li>산술 연산 (사칙연산)</li>
-<li>데이터 이동 연산 (copy, move, save, load)</li>
-<li>제어 연산 (if, while ,register)</li>
+<li>
+<p>산술 연산 (사칙연산)</p>
+</li>
+<li>
+<p>데이터 이동 연산 (copy, move, save, load)</p>
+</li>
+<li>
+<p>제어 연산 (if, while ,register)</p>
+<p>​<br>
+<a href="http://openparadigm.tistory.com/20" target="_blank" rel="noopener">* 빅오 표기법 참고 Blog</a></p>
+</li>
 </ul>
-<hr>
-<pre><code>[* 빅오 표기법 참고 Blog](http://openparadigm.tistory.com/20)
-</code></pre>
 ]]></content>
       
         <categories>
             
             <category> ALGORITHM </category>
-            
-            <category> Algo </category>
             
         </categories>
         

@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>https://hyunnaa.github.io/2018/01/13/Git-GitFlow/</loc>
+        <lastmod>2018-01-15T05:36:44.766Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
-        <lastmod>2018-01-15T05:00:52.609Z</lastmod>
+        <lastmod>2018-01-15T05:36:26.033Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -113,14 +121,6 @@
     <url>
         <loc>https://hyunnaa.github.io/2017/11/26/iOS-Delegate/</loc>
         <lastmod>2018-01-14T20:11:12.266Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2018/01/13/Git-GitFlow/</loc>
-        <lastmod>2018-01-14T20:10:40.940Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
