@@ -2875,7 +2875,7 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
       
         <categories>
             
-            <category> ALGORITHM/algo </category>
+            <category> ALGORITHM </category>
             
         </categories>
         
