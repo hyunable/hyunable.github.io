@@ -231,26 +231,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <div class="toc-nav">
-<!-- toc -->
-<ul>
-<li><a href="#memori-jeojanggujo">메모리 저장구조</a>
-<ul>
-<li><a href="#memoriyi-haldang">메모리의 할당</a></li>
-<li><a href="#peuroseseu-vs-sseuredeu">프로세스 VS 쓰레드</a></li>
-</ul>
-</li>
-<li><a href="#memori-gwanri-bangsig">메모리 관리 방식</a>
-<ul>
-<li><a href="#mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</a></li>
-<li><a href="#garbage-collection-gc">Garbage Collection (GC)</a></li>
-<li><a href="#arc-automatic-reference-count">ARC (Automatic Reference Count)</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-</div>
-<h1><span id="memori-jeojanggujo">메모리 저장구조</span></h1>
+                <h1><span id="memori-jeojanggujo">메모리 저장구조</span></h1>
 <hr>
 <p><img src="/img/ref/memory.png" alt="메모리저장구조"></p>
 <ol>
@@ -307,11 +288,12 @@
 <li>각 프로세스 별로 독립적인 [Code, Data, Heap, Stack] 영역을 소유하여 프로세스 전환시(Context Switching) 메모리 전 영역에 대한 전환비용이 발생한다.</li>
 </ul>
 </li>
-<li>쓰레드</li>
-</ol>
+<li>쓰레드
 <ul>
 <li>쓰레드는 [Code, Data, Heap] 영역은 서로 공유하고 Stack 영역만 별도로 소유하여 전환비용이 프로세스에 비해 훨씬 적게 든다.</li>
 </ul>
+</li>
+</ol>
 <br>
 <h1><span id="memori-gwanri-bangsig">메모리 관리 방식</span></h1>
 <h2><span id="mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</span></h2>
@@ -369,6 +351,17 @@
 
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">메모리 저장구조</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">메모리의 할당</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">프로세스 VS 쓰레드</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">메모리 관리 방식</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">MRR (Manual Retain-Releaase)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Garbage Collection (GC)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">ARC (Automatic Reference Count)</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
 
 
