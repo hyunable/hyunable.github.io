@@ -231,13 +231,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter15-structure-amp-class">CHAPTER15 / Structure &amp; Class</span></h1>
-<h2><span id="구조체와-클래스">구조체와 클래스</span></h2>
+                <h1><span id="chapter15-structure-amp-class">CHAPTER15 / Structure &amp; Class</span><a href="#chapter15-structure-amp-class" class="header-anchor">#</a></h1>
+<h2><span id="gujocewa-keulraeseu">구조체와 클래스</span><a href="#gujocewa-keulraeseu" class="header-anchor">#</a></h2>
 <hr>
 <p>구조체와 클래스는 하나의 큰 코드 블록으로써 <u>다른 종류의 객체에 의존하지 않고 자체적으로 값을 저장하거나 함수적인 기능을 구현</u>할 수 있다. 구조체나 클래스 내부에서 정의된 변수는 <strong>프로퍼티(Properties)</strong>, 함수는 **메서드(Method)**라고 불린다. 특별한 성격을 갖게 되기 때문이다. (이 둘을 가리켜 멤버라고 한다.)</p>
 <p>이때 클래스나 구조체를 통해 메모리 공간을 할당받아 생성된 것을 <em>인스턴스</em>라고 한다.</p>
 <br>
-<h3><span id="구조체struc">구조체(Struc)</span></h3>
+<h3><span id="gujoce-struc">구조체(Struc)</span><a href="#gujoce-struc" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>클래스 인스턴스가 전달될 때에는 <strong>복사에 의해 전달</strong>된다. (값타입)</li>
@@ -251,10 +251,10 @@
 <li>캡슐화된 데이터에 상속이 필요하지 않거나, 원본 데이터를 보존해야할 때 쓰인다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Market</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price = <span class="number">1500</span></span><br><span class="line">    <span class="keyword">var</span> product = <span class="string">"Beef"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 값 타입이기 때문에 mutating 키워드가 붙어야 한다.</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">changePrice</span><span class="params">(raise: Int)</span></span>  &#123;</span><br><span class="line">        price += raise</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newMarket = <span class="type">Market</span>()</span><br><span class="line">newMarket.changePrice(raise: <span class="number">500</span>)</span><br><span class="line"><span class="built_in">print</span>(newMarket.product)    <span class="comment">// 출력 :beef</span></span><br><span class="line"><span class="built_in">print</span>(newMarket.price)      <span class="comment">// 출력 :2000</span></span><br></pre></td></tr></table></figure>
 <br>
-<h5><span id="struct를-쓰면-유리한-경우">Struct를 쓰면 유리한 경우</span></h5>
+<h5><span id="structreul-sseumyeon-yurihan-gyeongu">Struct를 쓰면 유리한 경우</span><a href="#structreul-sseumyeon-yurihan-gyeongu" class="header-anchor">#</a></h5>
 <hr>
 <ul>
 <li>불변성(Immutable)이 필요한 데이터 타입</li>
@@ -264,7 +264,7 @@
 <li>클래스 타입 등 레퍼런스에 기반한 자료형을 저장용 프로퍼티로 쓰지 않는 경우</li>
 </ul>
 <br>
-<h3><span id="클래스class">클래스(Class)</span></h3>
+<h3><span id="keulraeseu-class">클래스(Class)</span><a href="#keulraeseu-class" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>클래스 인스턴스가 전달될 때에는 <strong>참조 형식으로 제공</strong>되며, 이때 참조 가능 개수는 무제한이다.</li>
@@ -287,12 +287,12 @@
 </li>
 </ul>
 <br>
-<h4><span id="code-superclass">CODE :: SuperClass</span></h4>
+<h4><span id="code-superclass">CODE :: SuperClass</span><a href="#code-superclass" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">getBaby</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> eyeColor: <span class="type">String</span> = <span class="string">"black"</span></span><br><span class="line">    <span class="keyword">var</span> age = <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">born</span><span class="params">(Color:String)</span></span>  &#123;</span><br><span class="line">        eyeColor = <span class="type">Color</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(eyeColor)</span> 눈동자인 <span class="subst">\(age)</span>살 애기가 태어났습니다."</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4><span id="code-subclass">CODE :: Subclass</span></h4>
+<h4><span id="code-subclass">CODE :: Subclass</span><a href="#code-subclass" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">newBaby</span>: <span class="title">getBaby</span> </span>&#123; <span class="comment">//getBaby 클래스를 상속</span></span><br><span class="line">    <span class="comment">//name 프로퍼티를 추가</span></span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"hyunah"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//born 함수를 override</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">born</span><span class="params">(Color: String)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(Color)</span>색 눈동자 입니다. "</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">//부모class의 born 메소드를 의미한다</span></span><br><span class="line">        <span class="keyword">super</span>.born(<span class="type">Color</span>: <span class="string">"yellow"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> hyun = newBaby()</span><br><span class="line">hyun.born(<span class="type">Color</span>: <span class="string">"pink"</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : pink색 눈동자 입니다.</span></span><br><span class="line"><span class="comment">//ellow 눈동자인 1살 애기가 태어났습니다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="we-use-struct-this-situation">We use <em>Struct</em> this situation</span></h3>
+<h3><span id="we-use-struct-this-situation">We use <em>Struct</em> this situation</span><a href="#we-use-struct-this-situation" class="header-anchor">#</a></h3>
 <hr>
 <ol>
 <li>값을 전달하는 타입이 필요하면</li>

@@ -229,8 +229,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="protocol">Protocol</span></h1>
-<h2><span id="프로토콜-객체의-설계도">프로토콜 (객체의 설계도)</span></h2>
+                <h1><span id="protocol">Protocol</span><a href="#protocol" class="header-anchor">#</a></h1>
+<h2><span id="peurotokol-gaegceyi-seolgyedo">프로토콜 (객체의 설계도)</span><a href="#peurotokol-gaegceyi-seolgyedo" class="header-anchor">#</a></h2>
 <hr>
 <p>스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.</p>
 <ul>
@@ -247,7 +247,7 @@
 </blockquote>
 <p><img src="classProtocol.png" alt="클래스와프로토콜의관계"></p>
 <br>
-<h3><span id="프로토콜의-준수conform">프로토콜의 준수(conform)</span></h3>
+<h3><span id="peurotokolyi-junsu-conform">프로토콜의 준수(conform)</span><a href="#peurotokolyi-junsu-conform" class="header-anchor">#</a></h3>
 <hr>
 <ol>
 <li>타입은 모두 프로토콜을 준수할 수 있다.</li>
@@ -276,7 +276,7 @@
 </li>
 </ol>
 <br>
-<h3><span id="키워드-mutating-statics">키워드 mutating, statics</span></h3>
+<h3><span id="kiweodeu-mutating-statics">키워드 mutating, statics</span><a href="#kiweodeu-mutating-statics" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>클래스와 같은 참조 타입은 mutating 키워드를 붙이지 않아도 메소드 내에서 마음대로 프로퍼티를 수정할 수 있다.</li>
@@ -306,7 +306,7 @@
 </li>
 </ul>
 <br>
-<h3><span id="프로토콜과-초기화-메소드">프로토콜과 초기화 메소드</span></h3>
+<h3><span id="peurotokolgwa-cogihwa-mesodeu">프로토콜과 초기화 메소드</span><a href="#peurotokolgwa-cogihwa-mesodeu" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>구조체는 멤버와이즈 메소드가 기본적으로 제공되나, 프로토콜에 멤버와이즈 메소드가 선언되었다면 모두 직접 구현해주어야 한다.</li>
@@ -315,10 +315,10 @@
 ex) <code>override required init()</code></li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Classname</span>: <span class="title">Superclass</span>, <span class="title">Protocol_1</span>,<span class="title">Protocol_1</span> </span>&#123;</span><br><span class="line">  	<span class="comment">// 외부로 드러나는 매개변수명은 일치해야 한다. (내부 변수명은 임시로 변경가능하다)</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">name</span><span class="params">(cmd: String, desc: String)</span></span> -&gt; <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="타입으로서의-프로토콜">타입으로서의 프로토콜</span></h3>
+<h3><span id="taibeuroseoyi-peurotokol">타입으로서의 프로토콜</span><a href="#taibeuroseoyi-peurotokol" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>상수, 변수, 프로퍼티의 타입으로 사용 가능 (<code>Int</code>와 같은 타입을 말하는 것임!)</li>
@@ -327,7 +327,7 @@ ex) <code>override required init()</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Wheel</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">spin</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">hold</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> trans:<span class="type">Wheel</span> = <span class="type">Bike</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 컴파일러가 trans를 Wheel 타입으로 읽어들여 두 메서드만 사용 가능하다.</span></span><br><span class="line"><span class="comment">// Delegate 패턴 로직</span></span><br><span class="line">trans.spin()</span><br><span class="line">trans.hold()</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프로토콜-상속">프로토콜 상속</span></h3>
+<h3><span id="peurotokol-sangsog">프로토콜 상속</span><a href="#peurotokol-sangsog" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>여러 프로토콜을 상속받을 수 있는 <strong>다중 프로토콜 상속</strong>을 지원한다.</li>
@@ -339,7 +339,7 @@ ex) <code>override required init()</code></li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">C</span>: <span class="title">A</span>, <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doC</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//실질적 protocol C</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doA</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doB</span><span class="params">()</span></span></span><br><span class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doC</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="프로토콜-구성">프로토콜 구성</span></h3>
+<h3><span id="peurotokol-guseong">프로토콜 구성</span><a href="#peurotokol-guseong" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>프로토콜 상속은 기존 프로토콜에 일정 요건이 더해진 새 프로토콜을 쉽게 만들 수 있는 강력한 도구라고 할 수 있지만, <em>타입을 만들 때 잘못된 선택</em>을 할 가능성이 농후해진다. <strong>이를 해결하기 위한 방안</strong>이다.</li>
@@ -348,7 +348,7 @@ ex) <code>override required init()</code></li>
 Ex) <code>var imp: A&amp;B = Do()</code></li>
 </ul>
 <br>
-<h3><span id="delegate-pattern">Delegate Pattern</span></h3>
+<h3><span id="delegate-pattern">Delegate Pattern</span><a href="#delegate-pattern" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>델리게이트 <u>참조를 통해 메소드를 호출할 인스턴스 객체를 전달</u>받고, 이 인스턴스 객체가 구현하고 있는 프로토콜에 선언된 메소드를 호출하는 것이 델리게이션이다.</li>

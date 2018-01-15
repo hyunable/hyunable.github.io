@@ -229,19 +229,19 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="git-flow">Git Flow</span></h1>
-<h2><span id="브랜칭-관리-전략">브랜칭 관리 전략</span></h2>
-<h3><span id="main-branch">Main Branch</span></h3>
-<h4><span id="배포-master-브랜치">배포 :: master 브랜치</span></h4>
+                <h1><span id="git-flow">Git Flow</span><a href="#git-flow" class="header-anchor">#</a></h1>
+<h2><span id="beuraencing-gwanri-jeonryag">브랜칭 관리 전략</span><a href="#beuraencing-gwanri-jeonryag" class="header-anchor">#</a></h2>
+<h3><span id="main-branch">Main Branch</span><a href="#main-branch" class="header-anchor">#</a></h3>
+<h4><span id="baepo-master-beuraenci">배포 :: master 브랜치</span><a href="#baepo-master-beuraenci" class="header-anchor">#</a></h4>
 <p>먼저 배포됬거나 배포준비(production-ready)된 코드는 <code>origin/master</code>에 두고 관리한다.</p>
 <p><code>master</code> 브랜치에 병합 한다는 것은 <strong>새버전을 배포한다는 것을 의미</strong>한다. <code>master</code> 브랜치에서 커밋될 때 git hook 스크립트를 걸어서 자동으로 빌드하여 운영서버로 배포하는 형식을 취한다.</p>
 <br>
-<h4><span id="개발-develop-브랜치">개발 :: develop 브랜치</span></h4>
+<h4><span id="gaebal-develop-beuraenci">개발 :: develop 브랜치</span><a href="#gaebal-develop-beuraenci" class="header-anchor">#</a></h4>
 <p>다음에 배포하기 위해 개발하는 코드는 <code>origin/develop</code>에서 관리한다. <strong>프로젝트를 진행하는 개발자들이 함께 보며 업무를 진행하는 브랜치</strong>이며 가장 역동적인 브랜치라고 할 수 있다. <code>develop</code> 브랜치의 코드가 안정화되고 배포할 준비가 되면 <code>master</code>로 병합하고 배포버전으로 태그를 단다.</p>
 <br>
-<h3><span id="assistance-branch">Assistance Branch</span></h3>
+<h3><span id="assistance-branch">Assistance Branch</span><a href="#assistance-branch" class="header-anchor">#</a></h3>
 <p>배포를 준비하고, 이미 배포한 제품이나 서비스의 버그를 빠르게 해결(hotfix) 해야한다. 이 모든 것을 동시에 진행하기 위해서 다양한 브랜치가 필요하다.</p>
-<h4><span id="기능feature-브랜치"><strong>기능feature</strong> 브랜치</span></h4>
+<h4><span id="gineungfeature-beuraenci"><strong>기능feature</strong> 브랜치</span><a href="#gineungfeature-beuraenci" class="header-anchor">#</a></h4>
 <p>기능<code>feature</code> 브랜치는 배포하려고 하는 <strong>기능을 개발하는 브랜치</strong>다. 기능을 개발하기 시작할 때는 언제 배포할 수 있을지 알 수 없다. 프로젝트를 진행하면서 애자일 방법론을 도입했다면, 스프린트 기간 동안에 개발해야할 기능이라면 <em>스프린트 기간동안 개발해야할 브랜치</em>를 말한다. 기능<code>feature</code> 브랜치는 그 기능을 다 완성할 때까지 유지하고 있다가 <strong>다 완성되면 개발<code>develop</code> 브랜치로 병합</strong>한다. 개발된 결과가 실망스럽거나 필요없을 때는 삭제하면 된다. 삭제하는 것에 미련을 가질 필요는 없다.</p>
 <ul>
 <li>git-flow 이용시 <code>feature/{branch-name}</code> 형식</li>
@@ -291,7 +291,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Git Flow</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">브랜칭 관리 전략</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Main Branch</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">배포 :: master 브랜치</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">개발 :: develop 브랜치</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">Assistance Branch</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.1.</span> <span class="toc-nav-text">기능feature 브랜치</span></a></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Git Flow#</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">브랜칭 관리 전략#</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Main Branch#</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">배포 :: master 브랜치#</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">개발 :: develop 브랜치#</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">Assistance Branch#</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.1.</span> <span class="toc-nav-text">기능feature 브랜치#</span></a></li></ol></li></ol></li></ol></li></ol>
         
         </div>
       </aside>

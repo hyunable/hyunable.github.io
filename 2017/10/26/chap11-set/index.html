@@ -231,10 +231,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter11-set">CHAPTER11 / Set</span></h1>
+                <h1><span id="chapter11-set">CHAPTER11 / Set</span><a href="#chapter11-set" class="header-anchor">#</a></h1>
 <br>
 <br>
-<h2><span id="집합set">집합(Set)</span></h2>
+<h2><span id="jibhab-set">집합(Set)</span><a href="#jibhab-set" class="header-anchor">#</a></h2>
 <hr>
 <ul>
 <li>서로 연관성이 없는 인스턴스들의 컬렉션 타입</li>
@@ -242,16 +242,16 @@
 <li>hashable 프로토콜을 준수해야 한다.</li>
 </ul>
 <br>
-<h3><span id="collection-type-비교">Collection Type 비교</span></h3>
+<h3><span id="collection-type-bigyo">Collection Type 비교</span><a href="#collection-type-bigyo" class="header-anchor">#</a></h3>
 <p><img src="/image/set.png" alt="컬렉션비교"></p>
 <br>
-<h4><span id="code1-set-생성">CODE1 :: set 생성</span></h4>
+<h4><span id="code1-set-saengseong">CODE1 :: set 생성</span><a href="#code1-set-saengseong" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line">refrigerator.insert(<span class="string">"bread"</span>)</span><br><span class="line">refrigerator.insert(<span class="string">"fruits"</span>)</span><br><span class="line">refrigerator.insert(<span class="string">"water</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">for food in refrigerator &#123;</span></span><br><span class="line"><span class="string">    print(food)</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//출력 : fruits , bread , water</span></span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code2-array의-literal-문법-이용하여-생성">CODE2 :: Array의 literal 문법 이용하여 생성</span></h4>
+<h4><span id="code2-arrayyi-literal-munbeob-iyonghayeo-saengseong">CODE2 :: Array의 literal 문법 이용하여 생성</span><a href="#code2-arrayyi-literal-munbeob-iyonghayeo-saengseong" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> refrigerator = <span class="type">Set</span>([<span class="string">"bread"</span>,<span class="string">"fruits"</span>,<span class="string">"water"</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> food <span class="keyword">in</span> refrigerator &#123;</span><br><span class="line">    <span class="built_in">print</span>(food)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//출력 : 위와 상동</span></span><br></pre></td></tr></table></figure>
 <br>
-<h4><span id="code-method">CODE :: method</span></h4>
+<h4><span id="code-method">CODE :: method</span><a href="#code-method" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//특정 요소가 있는지 확인, true,false를 return한다.</span></span><br><span class="line"><span class="keyword">let</span> hasFood = refrigerator.<span class="built_in">contains</span>(<span class="string">"gum"</span>)   <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//합집합</span></span><br><span class="line"><span class="keyword">let</span> commonSet = refrigerator.intersection(freezer)</span><br><span class="line"></span><br><span class="line"><span class="comment">//서로소</span></span><br><span class="line"><span class="comment">// isDisjoint은 교집합이 없을경우 true, 있을경우 false를 return한다.</span></span><br><span class="line"><span class="keyword">let</span> disJoin = refrigerator.isDisjoint(with: freezer)</span><br></pre></td></tr></table></figure>
 
                 

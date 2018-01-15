@@ -229,7 +229,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter3-조건">CHAPTER3 / 조건</span></h1>
+                <h1><span id="chapter3-jogeon">CHAPTER3 / 조건</span><a href="#chapter3-jogeon" class="header-anchor">#</a></h1>
 <br>
 <br>
 ## 기본 if/else 문
@@ -239,14 +239,14 @@
 <p><img src="/image/logical.png" alt="논리연산자"></p>
 <p>기존 타 언어의 논리연산자와 동일하다.</p>
 <br>
-<h3><span id="code">CODE</span></h3>
+<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">26</span></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt;= <span class="number">26</span>&#123;</span><br><span class="line">  message = <span class="string">"<span class="subst">\(age)</span>살은 아직 어립니다."</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">    message = <span class="string">"<span class="subst">\(age)</span>살은 어른입니다."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
-<h3><span id="result">RESULT</span></h3>
+<h3><span id="result">RESULT</span><a href="#result" class="header-anchor">#</a></h3>
 <blockquote>
 <p><strong>26</strong>살은 아직 어립니다.</p>
 </blockquote>
 <br>
-<h2><span id="삼항연산자">삼항연산자</span></h2>
+<h2><span id="samhangyeonsanja">삼항연산자</span><a href="#samhangyeonsanja" class="header-anchor">#</a></h2>
 <hr>
 <ul>
 <li><code>A ? B : C</code> 의 형태를 갖으며, <code>A가 참이면 B를, 그렇지 않으면 C를 이행하라</code> 라고 해석한다.</li>
@@ -254,20 +254,20 @@
 <li>복잡한 조건문은 if/else 문을 사용하는 것이 가독성이 좋다.</li>
 </ul>
 <br>
-<h3><span id="code">CODE</span></h3>
+<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">message = age &lt;= <span class="number">26</span> ?  <span class="string">"<span class="subst">\(age)</span>살은 아직 어립니다."</span> : <span class="string">"<span class="subst">\(age)</span>살은 어른입니다."</span></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
 <p>결과값은 위와 같다.</p>
 <br>
-<h2><span id="이중-if문">이중 if문</span></h2>
+<h2><span id="ijung-ifmun">이중 if문</span><a href="#ijung-ifmun" class="header-anchor">#</a></h2>
 <hr>
 <ul>
 <li>경우의 수가 둘 이상일 때는 if문을 중첩해서 사용한다.</li>
 <li>다수의 조건을 판단할 경우 <strong>switch</strong> 혹은 <strong>else if문</strong>을 사용한다</li>
 </ul>
 <br>
-<h3><span id="code">CODE</span></h3>
+<h3><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h3>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">45</span></span><br><span class="line"><span class="keyword">var</span> message: <span class="type">String</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &lt;= <span class="number">26</span> &#123;</span><br><span class="line">    message = <span class="string">"<span class="subst">\(age)</span>살은 아직 어립니다."</span></span><br><span class="line">&#125;<span class="keyword">else</span>  &#123;</span><br><span class="line">    <span class="keyword">if</span> (age/<span class="number">10</span>) == <span class="number">4</span>  &#123;</span><br><span class="line">      message = <span class="string">"<span class="subst">\(age)</span>살은 40대 입니다."</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      message = <span class="string">"<span class="subst">\(age)</span>살은 40대가 아닙니다."</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
-<h3><span id="result">RESULT</span></h3>
+<h3><span id="result">RESULT</span><a href="#result" class="header-anchor">#</a></h3>
 <blockquote>
 <p><strong>45</strong>살은 40대 입니다.</p>
 </blockquote>

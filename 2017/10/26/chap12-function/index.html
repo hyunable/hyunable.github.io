@@ -229,10 +229,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter12-function">CHAPTER12 / Function</span></h1>
+                <h1><span id="chapter12-function">CHAPTER12 / Function</span><a href="#chapter12-function" class="header-anchor">#</a></h1>
 <br>
 <br>
-<h2><span id="함수">함수</span></h2>
+<h2><span id="hamsu">함수</span><a href="#hamsu" class="header-anchor">#</a></h2>
 <hr>
 <ul>
 <li>구체적인 어떤 <u>task를 수행하는 <strong>코드 집합</strong></u>이다.</li>
@@ -245,17 +245,17 @@
 -&gt; <em>함수에서 <strong>argument</strong>가 <strong>parameter</strong>로써 대입되었다.</em></li>
 </ul>
 <br>
-<h3><span id="파라미터">파라미터</span></h3>
+<h3><span id="paramiteo">파라미터</span><a href="#paramiteo" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>파라미터는 <strong>외부 파라미터(extenal parameter)</strong>, **내부 파라미터(inner parameter) 두가지가 있다. 둘다 함께 사용 가능하며 생략도 가능하다.</li>
 <li>외부 파라미터는 함수를 호출시 이떤 인수를 넣어야 할지 가독성을 높이기 위해서 사용되며, 내부 파라미터는 함수 내부에서 사용될 때 가독성을 높이기 위해 사용된다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//external parameter를 사용할 경우</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(to name: String, <span class="number">_</span> ea: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(to: <span class="string">"현아공주"</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아공주에게 딸기를 4개 보낸다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="가변-파라미터">가변 파라미터</span></h3>
+<h3><span id="gabyeon-paramiteo">가변 파라미터</span><a href="#gabyeon-paramiteo" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>인수에 해당하는 값을 하나도 전달받지 않을 수도 있고, 여러 개를 받을 수도 있다.</li>
@@ -265,19 +265,19 @@
 <li><code>파라미터이름 : String...</code> 형식으로 표현한다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(ea: Int, name: String...)</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> names <span class="keyword">in</span> name &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(names)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>,<span class="string">"화투"</span>,<span class="string">"병운"</span>,<span class="string">"재석"</span>, ea: <span class="number">7</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력:</span></span><br><span class="line">현아에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">화투에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">병운에게 딸기를 <span class="number">7</span>개 보낸다.</span><br><span class="line">재석에게 딸기를 <span class="number">7</span>개 보낸다.</span><br></pre></td></tr></table></figure>
 <br>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">avg</span><span class="params">(grade: Int...)</span></span> -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> total = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> grade &#123;	<span class="comment">//입력받은 학점들을 for문을 돌면서 저장한다</span></span><br><span class="line">    total += i</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (total / grade.<span class="built_in">count</span>) 	<span class="comment">//평균학점</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="파라미터의-기본값">파라미터의 기본값</span></h3>
+<h3><span id="paramiteoyi-gibongabs">파라미터의 기본값</span><a href="#paramiteoyi-gibongabs" class="header-anchor">#</a></h3>
 <hr>
 <p>파라미터에는 기본값을 지정할 수 있다. 함수를 호출할 때 <em>인수를 생략</em>해도 된다. (따라서 입력된 인수가 없으면 설정한 default값으로 설정한다.)<br>
 <code>ea: Int=10</code> 와 같이 기본값을 설정 가능하다.</p>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int=<span class="number">10</span>)</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>에게 딸기를 <span class="subst">\(ea)</span>개 보낸다."</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendService(name: <span class="string">"현아"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력 : 현아에게 딸기를 10개 보낸다.</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="인아웃-파라미터">인아웃 파라미터</span></h3>
+<h3><span id="inaus-paramiteo">인아웃 파라미터</span><a href="#inaus-paramiteo" class="header-anchor">#</a></h3>
 <hr>
 <p>파라미터값은 변경할 수 없는 상수(<code>let</code>)로 값이 복사되어 전달된다. (값에 의한 전달)</p>
 <p>만약 <strong>인아웃 파라미터</strong>를 사용하지 않으면 immutable 값이라 변경불가능하다고 컴파일 에러가 뜬다.</p>
@@ -292,10 +292,10 @@
 </ol>
 <p>** <code>&amp;(엠퍼샌드)</code> : 주소 추출 연산자로, 변수나 상수 앞에 붙어 저장된 메모리의 주소를 읽어오는 역활을 한다.</p>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">inoutParam</span> <span class="params">(param: <span class="keyword">inout</span> Int)</span></span> &#123;</span><br><span class="line">       param += <span class="number">1</span> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">1</span></span><br><span class="line">inoutParam(param: &amp;<span class="built_in">count</span>)	</span><br><span class="line"></span><br><span class="line"><span class="comment">// count = 1 -&gt; count = 2</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="return값-지정하기">return값 지정하기</span></h3>
+<h3><span id="returngabs-jijeonghagi">return값 지정하기</span><a href="#returngabs-jijeonghagi" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>return type은 파라미터 옆에 <code>-&gt; String</code> 과 같이 나타내고, return 값은 함수 내부에서 정의한다.</li>
@@ -303,10 +303,10 @@
 <li>복수 리턴값은 <strong>튜플</strong>의 형태로 저장된다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">(name: String, ea: Int, soldOut:  String)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(name)</span>님, <span class="subst">\(soldOut)</span> 매진 되었습니다."</span>)</span><br><span class="line">        <span class="keyword">return</span> ea</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = sendService(name: <span class="string">"현아공주"</span>, ea: <span class="number">10</span>, soldOut: <span class="string">"마카롱"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">//출력: 현아공주님, 마카롱 매진 되었습니다. / 10</span></span><br><span class="line"><span class="comment">// return 값이 있기 때문에, 변수에 담아서 사용해야 한다.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//1개 이상의 리턴값을 튜플로 묶어 반환하기.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (<span class="type">Int</span>,<span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name) 	<span class="comment">//튜플 순서에 맞게 반환해 주면 된다.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플로 된 리턴값을 대입받은 변수사용</span></span><br><span class="line"><span class="comment">//방법 1</span></span><br><span class="line"><span class="keyword">var</span> service = sendService()	<span class="comment">//service에 튜블로 된 리턴값이 담긴다.</span></span><br><span class="line">sevice.<span class="number">0</span>	<span class="comment">// 27</span></span><br><span class="line">service.<span class="number">1</span>	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 방법 2 : 튜플에 파싱하기</span></span><br><span class="line"><span class="keyword">var</span> (a,b) = sendService()	<span class="comment">//튜플에 리턴값이 파싱되어 저장된다.</span></span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.b	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//방법 3 : 외부변수명으로 불러오기</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; (a: <span class="type">Int</span>, n: <span class="type">String</span>)&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> service = sendService()</span><br><span class="line">sevice.a	<span class="comment">// 27</span></span><br><span class="line">service.n	<span class="comment">// hyunable</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//튜플에 다른곳에서 여러번 재사용 될 경우엔 편의를 위해서 typealias를 통해서 정의 할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typealias</span> info = (<span class="type">Int</span>,<span class="type">String</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sendService</span> <span class="params">()</span></span> -&gt; info&#123;</span><br><span class="line">  <span class="keyword">let</span> age = <span class="number">27</span></span><br><span class="line">  <span class="keyword">let</span> name = <span class="string">"hyunable"</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (age,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="함수의-중첩">함수의 중첩</span></h3>
+<h3><span id="hamsuyi-jungceob">함수의 중첩</span><a href="#hamsuyi-jungceob" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>내부 함수와 외부 함수로 구분할 수 있다.</li>
@@ -319,7 +319,7 @@
 <li>​</li>
 </ul>
 <br>
-<h3><span id="guard-함수에서-중도에-빠져나오기">Guard : 함수에서 중도에 빠져나오기</span></h3>
+<h3><span id="guard-hamsueseo-jungdoe-bbajyeonaogi">Guard : 함수에서 중도에 빠져나오기</span><a href="#guard-hamsueseo-jungdoe-bbajyeonaogi" class="header-anchor">#</a></h3>
 <hr>
 <ul>
 <li>함수의 시작부분에 써서 검사하여 <strong><em>부적절한 조건일 때</em></strong> 함수 실행 도중에 빠져나와 코드가 실행되지 않도록 할 때 사용한다.</li>
@@ -329,10 +329,10 @@
 <li><code>return</code> 혹은 <code>throw</code> 등 종료하는 명령이 존재해야하며, 없을 경우 컴파일 에러가 발생된다.</li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
+<h4><span id="code">CODE</span><a href="#code" class="header-anchor">#</a></h4>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span> <span class="params">(fullName : <span class="params">(first:String, second: String?, third:String)</span></span></span>)  &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> secondName = fullName.second <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"외자 이름"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"<span class="subst">\(secondName)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayHello(fullName: (<span class="string">"정"</span>,<span class="string">"현"</span>,<span class="string">"아"</span>))</span><br><span class="line"><span class="comment">//출력 : 현</span></span><br></pre></td></tr></table></figure>
 <br>
-<h3><span id="함수형-프로그래밍의-장점">함수형 프로그래밍의 장점</span></h3>
+<h3><span id="hamsuhyeong-peurogeuraemingyi-jangjeom">함수형 프로그래밍의 장점</span><a href="#hamsuhyeong-peurogeuraemingyi-jangjeom" class="header-anchor">#</a></h3>
 <hr>
 <ol>
 <li>동일한 코드가 여러곳에서 사용될 때 재작성할 필요 없이 함수 호출만으로 처리가 가능하다.</li>
@@ -340,7 +340,7 @@
 <li>로직을 변경해야할 때 함수 내부만 수정하면 되므로 유지보수가 용이하다.</li>
 </ol>
 <br>
-<h3><span id="defer-block-지연블록">defer Block (지연블록)</span></h3>
+<h3><span id="defer-block-jiyeonbeulrog">defer Block (지연블록)</span><a href="#defer-block-jiyeonbeulrog" class="header-anchor">#</a></h3>
 <hr>
 <p>메서드에서 코드의 흐름과 상관없이 가장 마지막에 실행되는 블록이다. 작성된 위치와 상관없이 함수의 종료 직전에 실행된다. 종료 시점에 맞추어 처리할 구문이 있다면 <code>defer</code> 구문에 넣어두면 된다.</p>
 <ul>
