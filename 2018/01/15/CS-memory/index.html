@@ -233,7 +233,7 @@
 
                 <h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
 <hr>
-<p><img src="/img/memory.png" alt="메모리저장구조"></p>
+<p><img src="/img/ref/memory.png" alt="메모리저장구조"></p>
 <ol>
 <li>Code Segment</li>
 </ol>
@@ -277,10 +277,11 @@
 <li>Heap은 <strong>동적할당된 포인터 변수나 인스턴스</strong> 들이 저장되는 영역이기 때문에 명시적으로 해제하거나 더 이상 사용되지 않아 GC(Garbage Collector)에 의해. 수거되어 런타임 시점에 할당되었다가 해제되게 된다.</li>
 <li>따라서 Heap 과 Stack은 한정된 메모리 공간 내에서, 힙은 빈공간을 사이에 두고 힙은 낮은곳에서 -&gt; 높은메모리 주소로, 스택은 높은 메모리 주소에서 -&gt; 낮은 곳으로 크기를 채우며 메모리 공간을 차지한다. (그러다가 빈공간을 넘어서는 순간 메모리 오버 플로우가 발생된다.)</li>
 </ul>
+<p><img src="/img/ref/memory2.png" alt="메모리할당"></p>
 <br>
 <h2><span id="프로세스-vs-쓰레드">프로세스 VS 쓰레드</span></h2>
 <hr>
-<p><img src="" alt="프로세스와스레드"></p>
+<p><img src="/img/ref/processnthread.png" alt="프로세스와스레드"></p>
 <ol>
 <li>프로세스
 <ul>
@@ -314,6 +315,7 @@
 <li>Apple 기본 메모리 관리 방식으로 현재는 거의 ARC만 쓴다.</li>
 <li>retain 후 release 하지 않는 오류를 방지하고, 개발자가 메모리 관리를 하는 비중이 줄어들어 프로그래밍의 효율성을 높여준다.</li>
 </ul>
+<p><img src="/img/ref/ARC.png" alt="ARC"></p>
 <br>
 
                 
