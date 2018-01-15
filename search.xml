@@ -3,6 +3,112 @@
   
     
     <entry>
+      <title><![CDATA[메모리 저장구조 및 관리]]></title>
+      <url>/2018/01/15/CS-memory/</url>
+      <content type="html"><![CDATA[<h1><span id="메모리-저장구조">메모리 저장구조</span></h1>
+<hr>
+<p><img src="/img/memory.png" alt="메모리저장구조"></p>
+<ol>
+<li>Code Segment</li>
+</ol>
+<ul>
+<li>프로그램 코드 자체가 기계어로 저장되는 영역</li>
+<li>읽기 전용 데이터<br>
+​</li>
+</ul>
+<ol start="2">
+<li>Data Segment ( BSS + DATA )</li>
+</ol>
+<ul>
+<li>프로그램 시작과 동시에 할당되고 프로그램 종료 시 메모리에서 소멸된다.</li>
+<li>전역변수, <strong>Static 변수</strong> 등과 같이 프로그램이 실행되는 동안 항상 접근 가능한 변수를 위한 공간이다.</li>
+<li>DATA에는 <em>초기화된 전역변수</em>가 저장된다</li>
+<li>BSS(Block Stated Symbol)에는 <em>초기화 값이 없는 전역변수</em>를 저장한다.</li>
+<li>함수 내부에 선언된 Static 변수는 프로그램이 실행될 때 공간만 할당되고, <strong>함수가 실행될 때 초기화</strong>된다.</li>
+</ul>
+<ol start="3">
+<li>Heap Segment</li>
+</ol>
+<ul>
+<li><strong>동적 할당 영역</strong>으로 참조타입에 대한 저장 공간이다.</li>
+<li>프로그래머에 의해 할당되는 공간</li>
+<li>소멸 시점은 언어에 따라 <strong><em>GC, ARC</em></strong> 등에 의해 결정된다.</li>
+</ul>
+<ol start="4">
+<li>Stack Segment</li>
+</ol>
+<ul>
+<li>지역 변수, 매개 변수, 리턴 값 등의 <strong>임시 데이터를 저정하는 영역</strong>이다.</li>
+<li>함수 시작과 함께 생성되었다가 종료 시 반환된다.</li>
+<li>값 타입 저장 공간이다.</li>
+</ul>
+<br>
+<h2><span id="메모리의-할당">메모리의 할당</span></h2>
+<hr>
+<ul>
+<li>CODE, DATA, BSS 영역은 프로그램 컴파일시 처음부터 크기가 정해지는 값들이 저장된다. 따라서 프로그램이 종료하기 전까지 메모리의 크기의 변화가 거의 없다. (전역 변수는 값은 변하더라도 타입은 크기는 변하지 않는다.)</li>
+<li>하지만 Stack에서는 지역변수나 함수에 사용되는 인자 등이 할당되는데 CODE 영역에 저장되어 있다가 <strong>런타임 시점</strong>에 할당되었다가 범위가 벗어나면 해제된다. (할당될 위치나 순서, 변수의 타입에 따른 크기 등은 <strong>스택이 차지할 크기는 컴파일 시점에 결정</strong>된다.)</li>
+<li>Heap은 <strong>동적할당된 포인터 변수나 인스턴스</strong> 들이 저장되는 영역이기 때문에 명시적으로 해제하거나 더 이상 사용되지 않아 GC(Garbage Collector)에 의해. 수거되어 런타임 시점에 할당되었다가 해제되게 된다.</li>
+<li>따라서 Heap 과 Stack은 한정된 메모리 공간 내에서, 힙은 빈공간을 사이에 두고 힙은 낮은곳에서 -&gt; 높은메모리 주소로, 스택은 높은 메모리 주소에서 -&gt; 낮은 곳으로 크기를 채우며 메모리 공간을 차지한다. (그러다가 빈공간을 넘어서는 순간 메모리 오버 플로우가 발생된다.)</li>
+</ul>
+<br>
+<h2><span id="프로세스-vs-쓰레드">프로세스 VS 쓰레드</span></h2>
+<hr>
+<p><img src="" alt="프로세스와스레드"></p>
+<ol>
+<li>프로세스
+<ul>
+<li>각 프로세스 별로 독립적인 [Code, Data, Heap, Stack] 영역을 소유하여 프로세스 전환시(Context Switching) 메모리 전 영역에 대한 전환비용이 발생한다.</li>
+</ul>
+</li>
+<li>쓰레드</li>
+</ol>
+<ul>
+<li>쓰레드는 [Code, Data, Heap] 영역은 서로 공유하고 Stack 영역만 별도로 소유하여 전환비용이 프로세스에 비해 훨씬 적게 든다.</li>
+</ul>
+<br>
+<h1><span id="메모리-관리-방식">메모리 관리 방식</span></h1>
+<h2><span id="mrr-manual-retain-releaase">MRR (Manual Retain-Releaase)</span></h2>
+<hr>
+<ul>
+<li>RC (Reference Count) 수동 관리 방식</li>
+</ul>
+<br>
+<h2><span id="garbage-collection-gc">Garbage Collection (GC)</span></h2>
+<hr>
+<ul>
+<li>정기적으로 Garbage Collector가 실행되어 사용되지 않는 메모리를 반환시키는 방식</li>
+<li><s>OS X에서만 지원했었으나 현재는 deprecated</s></li>
+</ul>
+<br>
+<h2><span id="arc-automatic-reference-count">ARC (Automatic Reference Count)</span></h2>
+<hr>
+<ul>
+<li>RC 자동관리 방식. 컴파일러가 알아서 메모리 관리 함수를 적용해준다.</li>
+<li>Apple 기본 메모리 관리 방식으로 현재는 거의 ARC만 쓴다.</li>
+<li>retain 후 release 하지 않는 오류를 방지하고, 개발자가 메모리 관리를 하는 비중이 줄어들어 프로그래밍의 효율성을 높여준다.</li>
+</ul>
+<br>
+]]></content>
+      
+        <categories>
+            
+            <category> Computer Science </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> memorry </tag>
+            
+            <tag> ARC </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Test]]></title>
       <url>/2018/01/15/test/</url>
       <content type="html"><![CDATA[<h1><span id="바보">바보</span></h1>
