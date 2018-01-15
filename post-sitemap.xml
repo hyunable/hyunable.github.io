@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>https://hyunnaa.github.io/2018/01/15/test/</loc>
+        <lastmod>2018-01-15T05:46:11.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/01/sort-quick/</loc>
+        <lastmod>2018-01-15T05:45:38.508Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hyunnaa.github.io/2018/01/13/Git-GitFlow/</loc>
-        <lastmod>2018-01-15T05:36:44.766Z</lastmod>
+        <lastmod>2018-01-15T05:36:48.923Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -65,14 +81,6 @@
     <url>
         <loc>https://hyunnaa.github.io/2017/10/21/sort-selection-insertion/</loc>
         <lastmod>2018-01-14T20:12:26.522Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/11/01/sort-quick/</loc>
-        <lastmod>2018-01-14T20:12:19.190Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
