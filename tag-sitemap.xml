@@ -30,41 +30,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/lifeCycle/</loc>
-        <lastmod>2018-01-14T20:04:06.352Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/Data-Structure/</loc>
-        <lastmod>2018-01-14T20:04:27.383Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EC%9D%98/</loc>
-        <lastmod>2018-01-14T20:04:40.597Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
-        <lastmod>2018-01-14T20:04:40.597Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
-        <lastmod>2018-01-14T20:04:40.597Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/%EB%B0%98%EB%B3%B5%EB%AC%B8/</loc>
         <lastmod>2018-01-14T20:05:11.550Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -382,6 +347,41 @@
     <url>
         <loc>https://hyunnaa.github.io/tags/%ED%95%A8%EC%88%98/</loc>
         <lastmod>2018-01-14T20:13:14.704Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/Data-Structure/</loc>
+        <lastmod>2018-01-15T04:22:59.171Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/lifeCycle/</loc>
+        <lastmod>2018-01-15T04:23:08.445Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%A0%95%EC%9D%98/</loc>
+        <lastmod>2018-01-15T04:23:50.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%EA%B3%B5%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
+        <lastmod>2018-01-15T04:23:50.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84/</loc>
+        <lastmod>2018-01-15T04:23:50.041Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

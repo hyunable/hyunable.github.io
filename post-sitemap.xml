@@ -7,8 +7,24 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/2018/01/15/test/</loc>
-        <lastmod>2018-01-14T22:01:28.738Z</lastmod>
+        <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
+        <lastmod>2018-01-15T04:23:50.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/11/18/App-lifeCycle/</loc>
+        <lastmod>2018-01-15T04:23:08.445Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/17/algorithm2/</loc>
+        <lastmod>2018-01-15T04:22:59.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -233,30 +249,6 @@
     <url>
         <loc>https://hyunnaa.github.io/2017/10/14/chap6-roof/</loc>
         <lastmod>2018-01-14T20:05:11.550Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
-        <lastmod>2018-01-14T20:04:40.597Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/10/17/algorithm2/</loc>
-        <lastmod>2018-01-14T20:04:27.383Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/11/18/App-lifeCycle/</loc>
-        <lastmod>2018-01-14T20:04:06.352Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
