@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>https://hyunnaa.github.io/category/</loc>
+        <lastmod>2018-01-15T05:16:59.961Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://hyunnaa.github.io/about/</loc>
         <lastmod>2018-01-15T04:21:53.753Z</lastmod>
         <changefreq>weekly</changefreq>

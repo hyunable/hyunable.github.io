@@ -14,28 +14,28 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          분할정복 - 현아의 IT Playground
+          Category - 현아의 IT Playground
         
     </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/01/sort-quick/">
+    <link rel="canonical" href="https://hyunnaa.github.io/category/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../../css/beantech.min.css">
+    <link rel="stylesheet" href="../css/beantech.min.css">
 
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="../../../../css/highlight.css">
+    <link rel="stylesheet" href="../css/highlight.css">
 
-    <link rel="stylesheet" href="../../../../css/widget.css">
+    <link rel="stylesheet" href="../css/widget.css">
 
-    <link rel="stylesheet" href="../../../../css/rocket.css">
+    <link rel="stylesheet" href="../css/rocket.css">
 
-    <link rel="stylesheet" href="../../../../css/signature.css">
+    <link rel="stylesheet" href="../css/signature.css">
 
-    <link rel="stylesheet" href="../../../../css/toc.css">
+    <link rel="stylesheet" href="../css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -69,7 +69,7 @@
          searchFunc(path, 'local-search-input', 'local-search-result');
     </script>
 
-    <link rel="stylesheet" href="../../../../assets/css/search.css">
+    <link rel="stylesheet" href="../assets/css/search.css">
 
 </head>
 
@@ -81,8 +81,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('undefined')
-            /*post*/
+            background-image: url('/img/home-bg.jpg')
+            /*page*/
         
     }
     
@@ -95,26 +95,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#merge" title="merge">merge</a>
-                            
-                              <a class="tag" href="/tags/#quick" title="quick">quick</a>
-                            
-                              <a class="tag" href="/tags/#분할정복" title="분할정복">분할정복</a>
-                            
-                              <a class="tag" href="/tags/#sort" title="sort">sort</a>
-                            
-                              <a class="tag" href="/tags/#재귀함수" title="재귀함수">재귀함수</a>
-                            
-                        </div>
-                        <h1>분할정복</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by hyunAble on
-                            2017-11-01
-                        </span>
+                    <div class="site-heading">
+                        <h1>Category</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">Let&#39;s Play IT</span>
                     </div>
                 
 
@@ -224,193 +208,7 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h1><span id="divide-and-conquer">Divide and Conquer</span></h1>
-<h2><span id="분할정복">분할정복</span></h2>
-<hr>
-<p>전체를 작은 범위로 <em>나누어서(Divide)</em> 각각 처리하고, 다시 <em>병합(Conquer)</em> 하여 문제의 답을 얻는 알고리즘이다.</p>
-<br>
-<blockquote>
-<ol>
-<li>Divide : 전체가 분할이 가능한 경우, 2개 이상의 문제로 나눈다.</li>
-<li>Conquer : 나누어진 문제가 여전히 분할이 가능하면, 또 다시 Divide를 수행한다. 그렇지 않으면 문제를 수행한다.</li>
-<li>Combine : Conquer한 문제들을 병합(Merge)하여 원래 구하고자했던 답을 도출한다.</li>
-</ol>
-</blockquote>
-<br>
-<h3><span id="합병-정렬merge-sort">합병 정렬(Merge Sort)</span></h3>
-<hr>
-<p>배열을 계속 반으로 <em>분할</em> 하여 각각 따로 정렬한 후, <em>다시 병합</em> 하며 정렬하는 방식이다.</p>
-<br>
-<h4><span id="logic">LOGIC</span></h4>
-<ol>
-<li>Divde : 배열을 n/2로 분할한다.</li>
-<li>Conquer : 정렬함으로써 각 부분을 정복한다(solve). 배열이 충분히 작지 않으면 재귀호출을 한다.</li>
-<li>Combine : 부분배열에 대한 답들을 합병하여 하나의 정렬된 배열을 만든다.</li>
-</ol>
-<br>
-<h4><span id="시간복잡도">시간복잡도</span></h4>
-<h4><span id="공간복잡도">공간복잡도</span></h4>
-<h4><span id="code-swift">CODE :: swift</span></h4>
-<br>
-<h3><span id="퀵-정렬quick-sort">퀵 정렬(Quick Sort)</span></h3>
-<hr>
-<p>기준원소(pivot)을 선정하고, 기준원소보다 작은 원소는 모두 <strong>왼쪽배열</strong>로, 기준원소보다 큰 원소는 모두 <strong>오른쪽배열</strong>로 가도록 분할한다. 분할된 범위를 각각 따로 정렬한 후 다시 병합하여 정렬한다.</p>
-<ul>
-<li>
-<h2><span id="데이터-정렬-상태에-따라-성능의-영향을-받는다">데이터 정렬 상태에 따라 성능의 영향을 받는다.</span></h2>
-</li>
-</ul>
-<br>
-<h4><span id="logic">LOGIC</span></h4>
-<ol>
-<li>Divde : 배열을</li>
-<li>Conquer : 정렬함으로써 각 부분을 정복한다(solve). 배열이 충분히 작지 않으면 재귀호출을 한다.</li>
-<li>Combine : 부분배열에 대한 답들을 합병하여 하나의 정렬된 배열을 만든다</li>
-</ol>
-<h4><span id="시간복잡도">시간복잡도</span></h4>
-<h4><span id="공간복잡도">공간복잡도</span></h4>
-<h4><span id="code-swift">CODE :: swift</span></h4>
-
-                
-
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2017/11/01/chap16-property/" data-toggle="tooltip" data-placement="top" title="CH16. Property">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2017/10/30/chap15-struct-Class/" data-toggle="tooltip" data-placement="top" title="CH15. Structure & Class">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                
-                <!-- disqus comment end -->
-            </div>
-            
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#merge" title="merge">merge</a>
-                        
-                          <a class="tag" href="/tags/#quick" title="quick">quick</a>
-                        
-                          <a class="tag" href="/tags/#분할정복" title="분할정복">분할정복</a>
-                        
-                          <a class="tag" href="/tags/#sort" title="sort">sort</a>
-                        
-                          <a class="tag" href="/tags/#재귀함수" title="재귀함수">재귀함수</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-
-
-
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "hyunable";
-    var disqus_identifier = "https://hyunnaa.github.io/2017/11/01/sort-quick/";
-    var disqus_url = "https://hyunnaa.github.io/2017/11/01/sort-quick/";
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
+    
 
 
     <!-- Footer -->
@@ -462,13 +260,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="../../../../js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../../../../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../../../../js/hux-blog.min.js"></script>
+<script src="../js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
