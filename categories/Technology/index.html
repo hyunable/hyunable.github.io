@@ -144,13 +144,6 @@
 
                         
                         <li>
-                            <a href="/about/">About Me</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -158,14 +151,21 @@
 
                         
                         <li>
-                            <a href="/category/">Category</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About Me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/category/">Category</a>
                         </li>
                         
                     
@@ -215,13 +215,13 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#iOS" title="iOS" rel="9">iOS</a>
-                
                     <a href="#CS" title="CS" rel="1">CS</a>
                 
-                    <a href="#Technology" title="Technology" rel="3">Technology</a>
+                    <a href="#iOS" title="iOS" rel="9">iOS</a>
                 
-                    <a href="#ALGORITHM" title="ALGORITHM" rel="4">ALGORITHM</a>
+                    <a href="#ALGORISM" title="ALGORISM" rel="5">ALGORISM</a>
+                
+                    <a href="#Technology" title="Technology" rel="3">Technology</a>
                 
                     <a href="#SWIFT" title="SWIFT" rel="20">SWIFT</a>
                 
@@ -229,6 +229,32 @@
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list-list">
+                <span class="fa fa-category listing-seperator" id="CS">
+                    <span class="category-text">CS</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/01/15/CS-memory/">
+                        <h2 class="post-title">
+                            메모리 저장구조 및 관리
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                ARC and GC
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list-list">
                 <span class="fa fa-category listing-seperator" id="iOS">
@@ -345,21 +371,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/20/view-dataTrade/">
-                        <h2 class="post-title">
-                            iOS 화면간 데이터 전달
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2017/11/18/viewChange/">
                         <h2 class="post-title">
                             iOS 화면 전환 기법
@@ -370,11 +381,26 @@
                 </div>
                 <hr>
                 
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/20/view-dataTrade/">
+                        <h2 class="post-title">
+                            iOS 화면간 데이터 전달
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
             </div>
             
             <div class="one-tag-list-list">
-                <span class="fa fa-category listing-seperator" id="CS">
-                    <span class="category-text">CS</span>
+                <span class="fa fa-category listing-seperator" id="ALGORISM">
+                    <span class="category-text">ALGORISM</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -382,14 +408,74 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/15/CS-memory/">
+                     <a href="/2018/02/06/algorism-Stack/">
                         <h2 class="post-title">
-                            메모리 저장구조 및 관리
+                            Stack
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                ARC and GC
+                                스택과 후위표기법
                             </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/10/17/algorithm2/">
+                        <h2 class="post-title">
+                            자료구조
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/10/15/algorithm/">
+                        <h2 class="post-title">
+                            알고리즘의 정의
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/01/sort-quick/">
+                        <h2 class="post-title">
+                            분할정복
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/10/21/sort-selection-insertion/">
+                        <h2 class="post-title">
+                            정렬 알고리즘(선택,삽입,버블)
+                        </h2>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -441,73 +527,6 @@
                      <a href="/2017/11/27/iOS-api/">
                         <h2 class="post-title">
                             네트워크 통신과 API
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list-list">
-                <span class="fa fa-category listing-seperator" id="ALGORITHM">
-                    <span class="category-text">ALGORITHM</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/10/15/algorithm/">
-                        <h2 class="post-title">
-                            알고리즘의 정의
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/10/17/algorithm2/">
-                        <h2 class="post-title">
-                            자료구조
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/01/sort-quick/">
-                        <h2 class="post-title">
-                            분할정복
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/10/21/sort-selection-insertion/">
-                        <h2 class="post-title">
-                            정렬 알고리즘(선택,삽입,버블)
                         </h2>
                         
                     </a>
@@ -602,9 +621,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/10/30/chap14-enum/">
+                     <a href="/2017/10/30/chap15-struct-Class/">
                         <h2 class="post-title">
-                            CH14. Enumeration
+                            CH15. Structure & Class
                         </h2>
                         
                     </a>
@@ -617,9 +636,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/10/30/chap15-struct-Class/">
+                     <a href="/2017/10/30/chap14-enum/">
                         <h2 class="post-title">
-                            CH15. Structure & Class
+                            CH14. Enumeration
                         </h2>
                         
                     </a>
@@ -647,21 +666,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/02/chap17-initializer/">
-                        <h2 class="post-title">
-                            CH17. Initializer
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2017/11/03/chap18-valueVSref/">
                         <h2 class="post-title">
                             CH18. Value vs Reference
@@ -677,9 +681,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/03/chap19-protocol/">
+                     <a href="/2017/11/02/chap17-initializer/">
                         <h2 class="post-title">
-                            CH19. Protocol
+                            CH17. Initializer
                         </h2>
                         
                     </a>
@@ -695,6 +699,21 @@
                      <a href="/2017/10/13/chap2-variable/">
                         <h2 class="post-title">
                             CH2. Varialble
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/03/chap19-protocol/">
+                        <h2 class="post-title">
+                            CH19. Protocol
                         </h2>
                         
                     </a>
@@ -767,9 +786,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/10/14/chap6-roof/">
+                     <a href="/2017/10/14/chap7-string/">
                         <h2 class="post-title">
-                            CH5. Roof
+                            CH6. String
                         </h2>
                         
                     </a>
@@ -782,9 +801,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/10/14/chap7-string/">
+                     <a href="/2017/10/14/chap6-roof/">
                         <h2 class="post-title">
-                            CH6. String
+                            CH5. Roof
                         </h2>
                         
                     </a>

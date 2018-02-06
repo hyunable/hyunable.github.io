@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/2018/01/15/CS-memory/</loc>
-        <lastmod>2018-01-15T12:11:13.097Z</lastmod>
+        <loc>https://hyunnaa.github.io/2018/02/06/algorism-Stack/</loc>
+        <lastmod>2018-02-06T05:53:48.796Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/21/sort-selection-insertion/</loc>
+        <lastmod>2018-02-05T16:46:20.101Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +24,31 @@
 
     <url>
         <loc>https://hyunnaa.github.io/2017/11/01/sort-quick/</loc>
-        <lastmod>2018-01-15T05:45:38.508Z</lastmod>
+        <lastmod>2018-02-05T16:46:17.899Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/17/algorithm2/</loc>
+        <lastmod>2018-02-05T16:46:06.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
+        <lastmod>2018-02-05T16:45:59.581Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/2018/01/15/CS-memory/</loc>
+        <lastmod>2018-01-15T12:11:13.097Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -31,24 +63,8 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/2017/10/15/algorithm/</loc>
-        <lastmod>2018-01-15T05:36:26.033Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/2017/11/18/App-lifeCycle/</loc>
         <lastmod>2018-01-15T04:23:08.445Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/10/17/algorithm2/</loc>
-        <lastmod>2018-01-15T04:22:59.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,14 +89,6 @@
     <url>
         <loc>https://hyunnaa.github.io/2017/11/20/view-dataTrade/</loc>
         <lastmod>2018-01-14T20:12:45.569Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2017/10/21/sort-selection-insertion/</loc>
-        <lastmod>2018-01-14T20:12:26.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
