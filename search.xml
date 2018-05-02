@@ -3,6 +3,245 @@
   
     
     <entry>
+      <title><![CDATA[스케쥴링]]></title>
+      <url>/2018/05/02/CS-OS-3Scheduling/</url>
+      <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
+<h2><span id="seukejulring-algorijeum">스케줄링 알고리즘</span></h2>
+<h3><span id="fcfs-first-come-first-served-seukejyulring">FCFS (First-Come First-Served) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li><strong>비선점 스케쥴링</strong> 알고리즘</li>
+<li>Queue와 같은 작동원리</li>
+<li>준비큐에 도착한 순서에 따라 디스패치(준비-&gt;실행)</li>
+<li>장점 : 가장 간단한 스케쥴링</li>
+<li>단점 : 짧은 프로세스가 긴 프로세스를 기다리거나, 중요한 프로세스가 나중에 수행될 수 있음.</li>
+</ul>
+<br>
+<h3><span id="sjf-shortest-job-first-seukejyulring">SJF (Shortest Job First) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케쥴링 알고리즘</li>
+<li>준비 큐에서 <strong>기다리는 프로세스 중 실행시간이 가장 짧다고 예상된 것</strong>을 먼저 디스패치</li>
+<li>장점 : 일괄처리 환경에서 구현하기 쉬움 , 상위단계 스케쥴링에서 많이 쓰임.</li>
+<li>단점 : 실행 예정 시간 길이를 사용자의 추정치에 의존하기 때문에 실제로는 먼저 처리할 직업의 CPU 시간을 예상할 수 없음.</li>
+</ul>
+<br>
+<h3><span id="str-shortest-remaining-time-seukejyulring">STR(Shortest Remaining Time) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li>실행이 끝날 때 까지 남은 시간 추정치가 가장 짧은 프로세스를 먼저 디스패치 (SJF와 비슷하다)</li>
+<li>프레세싱 도중에 들어온 프로세스의 사이클 시간과 현재 프로세싱 중인 것과 남은 시간을 비교하여 더 짧은 것을 먼저 선점하여 실행한다. 만약 실행중인 프로세스가 더 많은 사이클이 남아있다면 준비큐로 들어가게되고 도중에 들어온 프로세스가 실행되게 된다.</li>
+<li>대기시간 : 준비큐에 들어와서 실행되기 직전까지의 시간</li>
+<li>반환시간 : 준비시간 부터 종료시간까지의 시간</li>
+<li>장점 : SJF보다 평균 대기시간이나 평균 반환시간에서 효율적, 대화형 운영체제에 유용</li>
+<li>단점 : 각 프로세스의 실행시간 추적, 선점을 위한 문맥 교환 등 SJF보다 오버헤드가 큼</li>
+</ul>
+<br>
+<h3><span id="rr-round-robin-seukejyulring">RR (Round Robin) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케쥴링 알고리즘</li>
+<li>준비 큐에 도착한 순서에 따라 디스패치하지만 정해진 시간 할당량에 의해 실행을 제한(FCFS와 비슷한 방식이지만 정해진 할당량이 있다는 차이점이 있다)</li>
+<li>시간 할당량 안에 완료되지 못한 프로세스는 <strong>준비 큐의 맨 뒤에 배치</strong></li>
+<li>시간 할당량 보다 프로세싱 시간이 크게되면 할당량 만큼만 진행하고 남은 프로레싱은 준비 큐의 맨뒤로 배치되어 순서가 되면 진행된다.</li>
+<li>장점 : CPU를 독점하지 않고 공평하게 이용, 대화형 운영체제에서 유용</li>
+<li>단점 : <em>시간 할당량이 너무 크면</em> FCFS 스케줄링과 같아짐. (시간 할당량보다 프로세싱 시간이 더 짧게 걸릴때) , 혹은 <em>시간 할당량이 너무 작으면</em> 문맥 교환에 따른 오버헤드가 크게 증가함</li>
+</ul>
+<p>*** 오버헤드(Overhead) : <em>어떤 처리를 하기 위해 들어가는 간접적인 처리 시간 · 메모리 등을 말한다.</em></p>
+<br>
+<h3><span id="hrn-highest-response-ratio-next-seukejulring">HRN (Highest Response-ratio Next) 스케줄링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케줄링 알고리즘</li>
+<li>준비 큐에서 기다리는 프로세스 중 <strong>응답비율이 가장 큰 것을 먼저</strong> 디스패치</li>
+</ul>
+<p><code>응답비율 = 대기시간 + 예상 실행시간 / 예상 실행시간 = ( 대기시간 / 예상 실행시간 ) + 1</code></p>
+<ul>
+<li>SJF의 단점을 보완(시간이 긴 프로세스에게 불리함)</li>
+</ul>
+<br>
+<h3><span id="dadangye-pideubaeg-kyu-seukejulring">다단계 피드백 큐 스케줄링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li><strong>I/O 중심 프로세스</strong>로 CPU 중심 프로세스의 특성에 따라 서로 다른 시간 할당량 부여</li>
+<li>단계 k의 큐에 있는 프로세스가 CPU를 할당 받으려면 단계 1~ 단계 k-1 까지 모든 큐가 비어있어야만 함</li>
+<li>예를 들어 연산 위주의 CPU 중심 프로세스는 낮은 우선권이지만 긴 시간 할당량을 가진다. (높은 단계의 큐로 가기에 적합)</li>
+<li>각 단계마다 하나씩 큐 존재</li>
+<li>단계가 커질수록 시간 할당량도 커짐</li>
+</ul>
+<h5><span id="process">Process</span></h5>
+<ol>
+<li>새로운 프로세스는 최상위 단계의 준비 큐에 들어간 후 FCFS의 순서로 CPU를 할당받아 실행되다가 그 큐의 시간 할당량이 끝나면 한단계 아래의 준비 큐에 들어감으로써 결과적으로 우선순위가 한 단계 낮아지게 된다.</li>
+<li>각 단계에서도 그 단계 큐의 시간 할당량을 다 사용할 때까지 계속 실행된다면 다음 큐로 들어가게 되며, 마지막 단계에서는 더 내려갈 단계가 없으므로 RR방식으로 실행된다</li>
+</ol>
+<br>
+<h5><span id="jeogeungjeog-dadangye-pideubaeg-kyu-seukejulring">적응적 다단계 피드백 큐 스케줄링</span></h5>
+<ul>
+<li>시간 할당량을 다 쓰기 전에 CPU를 반납하는 경우 하나 작은 단계의 큐로 이동 배치</li>
+<li>연산 위주의 프로세스에서 -&gt; I/O 위주로 바뀐다면 점점 작은 단계로 배치 가능</li>
+</ul>
+<br>
+<h2><span id="summary">Summary</span></h2>
+<hr>
+<p>FCFS -&gt; RR -&gt; 다단계 피드백 큐</p>
+<p>SJF -&gt; HRN</p>
+<p>SJF -&gt; STR</p>
+<p>비선점 -&gt; 선점의 방식으로 보완 차용되어 파생된 방식들이 많다.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> CS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 스케쥴링 </tag>
+            
+            <tag> 프로세스 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[프로세스]]></title>
+      <url>/2018/05/02/CS-OS-2Process/</url>
+      <content type="html"><![CDATA[<h1><span id="peuroseseu">프로세스</span></h1>
+<h2><span id="peuroseseu-process">프로세스 (Process)</span></h2>
+<hr>
+<ul>
+<li>실행중인 프로그램을 의미한다.</li>
+<li>운영체제로 부터 자원을 할당받아 동작한다.</li>
+<li>자원 : CPU, 메모리, 입출력 장치, 파일 등</li>
+<li>동작: CPU가 프로세스의 명령을 실행</li>
+<li>처리의 기본 단위</li>
+<li>자원 소유의 단위(하나의 주소공간) 및 디스패칭의 단위(하나의 제어흐름)</li>
+<li>단일 프로세스 내에서 동시처리 불가능</li>
+</ul>
+<h3><span id="peuroseseu-gwanrijayi-yeoghwal">프로세스 관리자의 역활</span></h3>
+<hr>
+<ul>
+<li>프로세스를 생성 및 삭제</li>
+<li>프로세스 실행(CPU 할당)을 위한 스케줄 결정</li>
+<li>프로세스의 상태를 관리하여 상태 전이를 처리</li>
+</ul>
+<br>
+<h4><span id="5-sangtaemodel">5-상태모델</span></h4>
+<ol>
+<li>생성 : 처음 작업이 시스템에 주어진 상태</li>
+<li>준비 : 실행 준비가 되어 CPU 할당을 기다리는 상태</li>
+<li>실행 : 프로세스가 처리되는 상태</li>
+<li>종료 : 모든 처리가 완료되어 사용자에게 반환되는 상태</li>
+<li>대기 : 프로세스가 특정 자원을 할당받을 때 까지 또는 I/O 작업이 끝날 때까지 작업이 보류되는 상태</li>
+</ol>
+<ul>
+<li><code>준비</code> -&gt; <code>실행</code> 과정을 <strong>Dispatch</strong> 라고한다.</li>
+</ul>
+<h4><span id="peuroseseu-jeeo-beulrog-process-control-block-pcb">프로세스 제어 블록 (Process Control Block , PCB)</span></h4>
+<hr>
+<ul>
+<li>프로세스의 관리를 위한 목적</li>
+<li>프로세스의 정보를 보관</li>
+</ul>
+<br>
+<h4><span id="peuroseseu-saengseonggwa-jongryo">프로세스 생성과 종료</span></h4>
+<hr>
+<ul>
+<li>프로세스의 이름 (PID) 결정</li>
+<li>준비 큐에 삽입</li>
+<li>초기 우선순위 부여</li>
+<li>프로세스 제어 블록(PCB) 생성</li>
+</ul>
+<br>
+<h4><span id="peuroseseu-saengseong-siseutem-hoculgwa-jongryo">프로세스 생성 시스템 호출과 종료</span></h4>
+<hr>
+<ul>
+<li>프로세스 생성 : 하나의 프로세스가 프로세스 생성 시스템 호출을 통해 새로운 프로세스를 생성 (tree 형태)</li>
+<li>fork()</li>
+<li>호출하는 프로세스 : 부모 프로세스</li>
+<li>생성되는 프로세스 : 자식 프로세스</li>
+<li>프로세스 종료 : 프로세스의 마지막 명령이 실행을 마치는 경우, 프로세스 종료 후 부모 프로세스에게 실행결과를 되돌려 줌</li>
+</ul>
+<br>
+<h2><span id="seuredeu-thread">스레드 (Thread)</span></h2>
+<hr>
+<ul>
+<li>프로세스 내에서의 <strong>다중처리</strong>를 위해 제안된 개념</li>
+<li>하나의 프로세스 내에는 하나 이상의 쓰레드가 존재</li>
+<li>하나의 스레드 내에서는 하나의 실행점만 존재 ( 디스패칭의 단위 )</li>
+<li>실행에 필요한 최소한의 정보만을 가지며, 자신이 속해 있는 프로세스의 실행환경을 공유</li>
+</ul>
+<br>
+<h3><span id="dajung-sseuredeuyi-jangjeom">다중 쓰레드의 장점</span></h3>
+<hr>
+<ul>
+<li>멀티 CPU 혹은 멀티코어 시스템에서는 병렬처리 가능</li>
+<li>처리 속도 별로 쓰레드가 나눠진 경우 효율적인 처리 가능</li>
+</ul>
+<br>
+<h2><span id="seukejyulring-scheduling">스케쥴링 (Scheduling)</span></h2>
+<hr>
+<ul>
+<li>공정성 : 모든 프로세스가 적정 수준에서 CPU 작업을 할 수 있게 함</li>
+<li>균형 : 시스템의 자원들의 충분히 활용될 수 있게 함</li>
+</ul>
+<ol>
+<li>상위단계 스케줄링</li>
+</ol>
+<ul>
+<li>시스템에 들어오는 작업들을 선택하여 프로세스를 생성한 후 프로세스 준비 큐에 전달</li>
+<li>선택 기준 : 시스템의 자원을 효율적으로 이용할 수 있도록 하는 것</li>
+<li><u>입출력(I/O) 중심 작업과 연산 중심 작업을 균형 있게 선택</u></li>
+</ul>
+<ol start="2">
+<li>하위단계 스케쥴링</li>
+</ol>
+<ul>
+<li>사용 가능한 CPU를 준비상태의 어느 프로세스에게 배당할지를 결정</li>
+<li>CPU를 배당받은 프로세스는 결국 실행상태가 되어 프로세스가 처리됨</li>
+<li>수행 주체 : Dispatcher</li>
+</ul>
+<ol start="3">
+<li>중간단계 스케쥴링</li>
+</ol>
+<ul>
+<li>프로세스를 일시적으로 메모리에서 제거하여 중지시키거나 다시 활성화 시킴</li>
+<li>시스템에 대한 단기적인 부하를 조절</li>
+</ul>
+<br>
+<h4><span id="seonjeom-preemptive-seukejyulring">선점(Preemptive) 스케쥴링</span></h4>
+<hr>
+<ul>
+<li><em>진행 중인 프로세스에 인터럽트</em>를 걸고 <strong>다른 프로세스에 CPU를 할당</strong>하는 스케쥴링 전략</li>
+<li>높은 우선순위의 프로세스를 긴급하게 처리하는 경우에 유용</li>
+<li>대화식 시분할 시스템에서 빠른 응답시간을 유지하는데 유용</li>
+<li>문맥 교환에 따른 오버헤드 발생</li>
+</ul>
+<br>
+<h4><span id="biseonjeom-nonpreemptive-seukejulring-jeongcaeg">비선점(Nonpreemptive) 스케줄링 정책</span></h4>
+<hr>
+<ul>
+<li>프로세스가 CPU를 할당받아 실행이 시작되면 작업 자체가 I/O 인터럽트를 걸거나 작업을 종료할 때까지 실행상태에 있게 됨</li>
+<li>모든 프로세스가 공정하게 순서에 따라 실행된다 -&gt; 응답시간 예측 가능</li>
+<li>짧은 프로세스가 긴 프로세스를 기다리게 될 수 있다. (비효율적일 수 있다)</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> CS </category>
+            
+        </categories>
+        
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[운영체제]]></title>
       <url>/2018/05/02/CS-Operating-System/</url>
       <content type="html"><![CDATA[<h1><span id="unyeongceje">운영체제</span></h1>

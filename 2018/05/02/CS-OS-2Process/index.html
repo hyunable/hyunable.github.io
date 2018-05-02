@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Let&#39;s Play IT">
+    <meta name="keyword"  content="swift">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          프로세스 - 현아의 IT Playground
+        
+    </title>
+
+    <link rel="canonical" href="https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../../css/beantech.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="../../../../css/highlight.css">
+
+    <link rel="stylesheet" href="../../../../css/widget.css">
+
+    <link rel="stylesheet" href="../../../../css/rocket.css">
+
+    <link rel="stylesheet" href="../../../../css/signature.css">
+
+    <link rel="stylesheet" href="../../../../css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <script type="text/javascript">
+         var search_path = "search.xml";
+         if (search_path.length == 0) {
+         	search_path = "search.xml";
+         }
+         var path = "/" + search_path;
+         searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+    <link rel="stylesheet" href="../../../../assets/css/search.css">
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/header_img/title2.png')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1>프로세스</h1>
+                        <h2 class="subheading">Process</h2>
+                        <span class="meta">
+                            Posted by hyunAble on
+                            2018-05-02
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">IT Playground</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/category/">Category</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About Me</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="peuroseseu">프로세스</span></h1>
+<h2><span id="peuroseseu-process">프로세스 (Process)</span></h2>
+<hr>
+<ul>
+<li>실행중인 프로그램을 의미한다.</li>
+<li>운영체제로 부터 자원을 할당받아 동작한다.</li>
+<li>자원 : CPU, 메모리, 입출력 장치, 파일 등</li>
+<li>동작: CPU가 프로세스의 명령을 실행</li>
+<li>처리의 기본 단위</li>
+<li>자원 소유의 단위(하나의 주소공간) 및 디스패칭의 단위(하나의 제어흐름)</li>
+<li>단일 프로세스 내에서 동시처리 불가능</li>
+</ul>
+<h3><span id="peuroseseu-gwanrijayi-yeoghwal">프로세스 관리자의 역활</span></h3>
+<hr>
+<ul>
+<li>프로세스를 생성 및 삭제</li>
+<li>프로세스 실행(CPU 할당)을 위한 스케줄 결정</li>
+<li>프로세스의 상태를 관리하여 상태 전이를 처리</li>
+</ul>
+<br>
+<h4><span id="5-sangtaemodel">5-상태모델</span></h4>
+<ol>
+<li>생성 : 처음 작업이 시스템에 주어진 상태</li>
+<li>준비 : 실행 준비가 되어 CPU 할당을 기다리는 상태</li>
+<li>실행 : 프로세스가 처리되는 상태</li>
+<li>종료 : 모든 처리가 완료되어 사용자에게 반환되는 상태</li>
+<li>대기 : 프로세스가 특정 자원을 할당받을 때 까지 또는 I/O 작업이 끝날 때까지 작업이 보류되는 상태</li>
+</ol>
+<ul>
+<li><code>준비</code> -&gt; <code>실행</code> 과정을 <strong>Dispatch</strong> 라고한다.</li>
+</ul>
+<h4><span id="peuroseseu-jeeo-beulrog-process-control-block-pcb">프로세스 제어 블록 (Process Control Block , PCB)</span></h4>
+<hr>
+<ul>
+<li>프로세스의 관리를 위한 목적</li>
+<li>프로세스의 정보를 보관</li>
+</ul>
+<br>
+<h4><span id="peuroseseu-saengseonggwa-jongryo">프로세스 생성과 종료</span></h4>
+<hr>
+<ul>
+<li>프로세스의 이름 (PID) 결정</li>
+<li>준비 큐에 삽입</li>
+<li>초기 우선순위 부여</li>
+<li>프로세스 제어 블록(PCB) 생성</li>
+</ul>
+<br>
+<h4><span id="peuroseseu-saengseong-siseutem-hoculgwa-jongryo">프로세스 생성 시스템 호출과 종료</span></h4>
+<hr>
+<ul>
+<li>프로세스 생성 : 하나의 프로세스가 프로세스 생성 시스템 호출을 통해 새로운 프로세스를 생성 (tree 형태)</li>
+<li>fork()</li>
+<li>호출하는 프로세스 : 부모 프로세스</li>
+<li>생성되는 프로세스 : 자식 프로세스</li>
+<li>프로세스 종료 : 프로세스의 마지막 명령이 실행을 마치는 경우, 프로세스 종료 후 부모 프로세스에게 실행결과를 되돌려 줌</li>
+</ul>
+<br>
+<h2><span id="seuredeu-thread">스레드 (Thread)</span></h2>
+<hr>
+<ul>
+<li>프로세스 내에서의 <strong>다중처리</strong>를 위해 제안된 개념</li>
+<li>하나의 프로세스 내에는 하나 이상의 쓰레드가 존재</li>
+<li>하나의 스레드 내에서는 하나의 실행점만 존재 ( 디스패칭의 단위 )</li>
+<li>실행에 필요한 최소한의 정보만을 가지며, 자신이 속해 있는 프로세스의 실행환경을 공유</li>
+</ul>
+<br>
+<h3><span id="dajung-sseuredeuyi-jangjeom">다중 쓰레드의 장점</span></h3>
+<hr>
+<ul>
+<li>멀티 CPU 혹은 멀티코어 시스템에서는 병렬처리 가능</li>
+<li>처리 속도 별로 쓰레드가 나눠진 경우 효율적인 처리 가능</li>
+</ul>
+<br>
+<h2><span id="seukejyulring-scheduling">스케쥴링 (Scheduling)</span></h2>
+<hr>
+<ul>
+<li>공정성 : 모든 프로세스가 적정 수준에서 CPU 작업을 할 수 있게 함</li>
+<li>균형 : 시스템의 자원들의 충분히 활용될 수 있게 함</li>
+</ul>
+<ol>
+<li>상위단계 스케줄링</li>
+</ol>
+<ul>
+<li>시스템에 들어오는 작업들을 선택하여 프로세스를 생성한 후 프로세스 준비 큐에 전달</li>
+<li>선택 기준 : 시스템의 자원을 효율적으로 이용할 수 있도록 하는 것</li>
+<li><u>입출력(I/O) 중심 작업과 연산 중심 작업을 균형 있게 선택</u></li>
+</ul>
+<ol start="2">
+<li>하위단계 스케쥴링</li>
+</ol>
+<ul>
+<li>사용 가능한 CPU를 준비상태의 어느 프로세스에게 배당할지를 결정</li>
+<li>CPU를 배당받은 프로세스는 결국 실행상태가 되어 프로세스가 처리됨</li>
+<li>수행 주체 : Dispatcher</li>
+</ul>
+<ol start="3">
+<li>중간단계 스케쥴링</li>
+</ol>
+<ul>
+<li>프로세스를 일시적으로 메모리에서 제거하여 중지시키거나 다시 활성화 시킴</li>
+<li>시스템에 대한 단기적인 부하를 조절</li>
+</ul>
+<br>
+<h4><span id="seonjeom-preemptive-seukejyulring">선점(Preemptive) 스케쥴링</span></h4>
+<hr>
+<ul>
+<li><em>진행 중인 프로세스에 인터럽트</em>를 걸고 <strong>다른 프로세스에 CPU를 할당</strong>하는 스케쥴링 전략</li>
+<li>높은 우선순위의 프로세스를 긴급하게 처리하는 경우에 유용</li>
+<li>대화식 시분할 시스템에서 빠른 응답시간을 유지하는데 유용</li>
+<li>문맥 교환에 따른 오버헤드 발생</li>
+</ul>
+<br>
+<h4><span id="biseonjeom-nonpreemptive-seukejulring-jeongcaeg">비선점(Nonpreemptive) 스케줄링 정책</span></h4>
+<hr>
+<ul>
+<li>프로세스가 CPU를 할당받아 실행이 시작되면 작업 자체가 I/O 인터럽트를 걸거나 작업을 종료할 때까지 실행상태에 있게 됨</li>
+<li>모든 프로세스가 공정하게 순서에 따라 실행된다 -&gt; 응답시간 예측 가능</li>
+<li>짧은 프로세스가 긴 프로세스를 기다리게 될 수 있다. (비효율적일 수 있다)</li>
+</ul>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/05/02/CS-OS-3Scheduling/" data-toggle="tooltip" data-placement="top" title="스케쥴링">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/05/02/CS-Operating-System/" data-toggle="tooltip" data-placement="top" title="운영체제">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">프로세스</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">프로세스 (Process)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">프로세스 관리자의 역활</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">5-상태모델</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">프로세스 제어 블록 (Process Control Block , PCB)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.3.</span> <span class="toc-nav-text">프로세스 생성과 종료</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.4.</span> <span class="toc-nav-text">프로세스 생성 시스템 호출과 종료</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">스레드 (Thread)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">다중 쓰레드의 장점</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">스케쥴링 (Scheduling)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.0.1.</span> <span class="toc-nav-text">선점(Preemptive) 스케쥴링</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.0.2.</span> <span class="toc-nav-text">비선점(Nonpreemptive) 스케줄링 정책</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "hyunable";
+    var disqus_identifier = "https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/";
+    var disqus_url = "https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hyunnaa">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; hyunAble 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="../../../../js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../../../../js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../../../../js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://hyunnaa.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://hyunnaa.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
