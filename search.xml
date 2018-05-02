@@ -3,6 +3,62 @@
   
     
     <entry>
+      <title><![CDATA[C++_programming]]></title>
+      <url>/2018/05/02/C-programming/</url>
+      <content type="html"></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[iOS_GCCvsLLVM]]></title>
+      <url>/2018/05/02/iOS-GCCvsLLVM/</url>
+      <content type="html"><![CDATA[<h1><span id="ios-gcc-vs-llvm">[iOS] GCC VS LLVM</span></h1>
+<h2><span id="compiler">Compiler</span></h2>
+<hr>
+<p><strong>컴파일 언어</strong>란 작성한 코드를 컴퓨터가 인식하기 위해 row-level 언어로 컴파일을 수행하고 이러한 컴파일 단계를 거쳐야 실행할 수 있는 언어를 말한다. 이때 컴파일러가 <code>Code -&gt; Binary</code> 과정을 통해 변환시킨다.</p>
+<h2><span id="gcc">GCC</span></h2>
+<hr>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Queue]]></title>
+      <url>/2018/02/07/algorism-Queue/</url>
+      <content type="html"><![CDATA[<h1><span id="queue">Queue</span></h1>
+<h2><span id="kyu-jaryogujoyi-adt">큐 자료구조의 ADT</span></h2>
+<ul>
+<li>QueueInit : 큐의 초기화를 진행한다. 큐 생성 후 제일 먼저 호출되어야 하는 함수이다.</li>
+<li>QIsEmpty : 큐가 빈 경우 true , 그렇지 않으면 false를 리턴한다.</li>
+<li>Enqueue : 큐에 데이터를 저장한다. 매개변수 data로 전달된 값을 저장한다.</li>
+<li>Dequeue : 저장순서가 가장 앞선 데이터를 삭제한다. 삭제된 데이터는 반환된다. 함수의 호출을 위해서는 데이터가 하나 이상 존재함이 보장되어야 한다.</li>
+<li>QPeek : 저장순서가 가장 앞선 데이터를 반환하되 삭제하지 않는다. 함수의 호출을 위해서는 데이터가 하나 이상 존재함이 보장되어야 한다.</li>
+</ul>
+<hr>
+<br>
+<h2><span id=""></span></h2>
+]]></content>
+      
+        <categories>
+            
+            <category> ALGORISM </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 알고리즘 </tag>
+            
+            <tag> 큐 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Stack]]></title>
       <url>/2018/02/06/algorism-Stack/</url>
       <content type="html"><![CDATA[<h1><span id="stack">Stack</span></h1>
