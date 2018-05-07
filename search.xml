@@ -3,6 +3,120 @@
   
     
     <entry>
+      <title><![CDATA[ARKit Basic]]></title>
+      <url>/2018/05/07/ARkit-basic/</url>
+      <content type="html"><![CDATA[<h1><span id="arkit-basic">ARKit basic</span></h1>
+<h2><span id="vector">Vector</span></h2>
+<hr>
+<p>Vector3은 x,y,z 로 이루어져 있는 위치값이다. 공간이 인식되면 방향성 및 포즈를 인식하여 해당 공간에  물체의 위치를 수치로 나타낼 수 있다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*IRvOJvHSBOpLxbdGCzck-g.png" alt="vecter"></p>
+<br>
+<p>##Built-in Geometry Types</p>
+<ul>
+<li>SCNText</li>
+<li>SCNShape</li>
+<li>SCNText</li>
+<li>SCNCone</li>
+<li>SCNSphere</li>
+<li>and so on… (<a href="https://developer.apple.com/documentation/scenekit/built_in_geometry_types" target="_blank" rel="noopener">Built-in Geometry Types</a>)</li>
+</ul>
+<br>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = <span class="type">SCNNode</span>()</span><br><span class="line">node.geometry = <span class="type">SCNCapsule</span>(capRadius:<span class="number">0.1</span> , height: <span class="number">0.3</span>)    <span class="comment">//캡슐형 노드 생성</span></span><br><span class="line">node.geometry?.firstMaterial?.specular.contents = <span class="type">UIColor</span>.orange <span class="comment">//빛에 의한 반사되는 것을 정의한다</span></span><br><span class="line">node.geometry?.firstMaterial?.diffuse.contents = <span class="type">UIColor</span>.blue    <span class="comment">//빛에 의한 확산을 정의한다</span></span><br><span class="line">node.position = <span class="type">SCNVector3</span>(<span class="number">0</span>,<span class="number">0</span>,-<span class="number">7</span>)    <span class="comment">//x,y,z</span></span><br><span class="line"><span class="keyword">self</span>.sceneView.scene.rootNode.addChildNode(node)    <span class="comment">//뷰에 노드 추가</span></span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="definition">Definition</span></h2>
+<h3><span id="scnmaterial">SCNMaterial</span></h3>
+<hr>
+<p>랜더링될 때, 물체의 표면의 생김새를 정의하는 특성들의 모음이다.</p>
+<p>내가 물체를 만들때, 물체의 생김새나 특성 등을 정의하고, 그것을 다수의 물체를 만들때 재사용이 가능하다.</p>
+<br>
+<h3><span id="arsession">ARSession</span></h3>
+<hr>
+<p>In ARKit the <strong>ARSession</strong> coordinates the logic and data necessary to create the augmented reality experience. This includes camera and motion data and calculations required to keep track of the world as it moves around.</p>
+<br>
+<h3><span id="arframe">ARFrame</span></h3>
+<hr>
+<p>An <strong>ARFrame</strong> contains a video frame data and position tracking data which gets passed along to the ARSession in the currentFrame property.ARKit marries that image data with the motion tracking data to calculate the iPhone’s position.</p>
+<br>
+<h3><span id="aranchor">ARAnchor</span></h3>
+<hr>
+<p>An <strong>ARAnchor</strong> is a position in the real world that maintained regardless of motion or position of the camera (theoretically). It’s anchored to a specific position, and for the most part will remain there.</p>
+<br>
+<h3><span id="matrix">Matrix</span></h3>
+<hr>
+<p>열과 행으로 이루어진 배열로 다음과 같은 값을 포함하고있다.</p>
+<ul>
+<li>Rotation (changing orientation)</li>
+<li>Scaling (size changes)</li>
+<li>Translation (moving position)</li>
+</ul>
+<h5><span id="byeonhwansig">변환식</span></h5>
+<blockquote>
+<p>Transformed Point = Transformation Matrix × Original Point</p>
+</blockquote>
+<br>
+<h2><span id="relative-positioning">Relative Positioning</span></h2>
+<hr>
+<p>기준이 되는 노드에 <code>addChildNode</code>로 붙이려는 객체노드를 추가하고, position을 설정하면 기준이 되는 노드의 중점을 기준으로 배치가 된다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> box = <span class="type">SCNNode</span>(geometry: <span class="type">SCNBox</span>(width:<span class="number">0.1</span>, height: <span class="number">0.1</span>,lengh: <span class="number">0.1</span>, chamferRadius:<span class="number">0</span>))</span><br><span class="line">box.position = <span class="type">SCNVector3</span>(<span class="number">0</span>,-<span class="number">0.05</span>,<span class="number">0</span>)    <span class="comment">//node의 중심좌료로 부터의 위치</span></span><br><span class="line">node.addChildNode(box)</span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="rotation">Rotation</span></h2>
+<hr>
+<p><code>eulerAngles</code> 메서드를 사용해서 세팅한다. 오일러 각은 객체가 놓인 방향을 3차원 공간에서 표시하기 위해 도입한 세 개의 각도이다.</p>
+<ul>
+<li>𝞪 (or 𝞧) : <strong>z-축</strong>을 회전축으로 하여 회전된 x-y 좌표축의 각도</li>
+<li>𝞫 (or 𝞱) : 회전된 <strong>x-축</strong>을 회전축으로 하여 회전된 z-y 좌표축의 각도</li>
+<li>𝞬 (or 𝟇) : <strong>위에서 회전된 z-축</strong>을 회전축으로 하여 회전된 x-y 좌표축의 각도</li>
+</ul>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Eulerangles.svg/250px-Eulerangles.svg.png" alt="오일러각"></p>
+<p>오일러 각의 범위는 𝞪와 𝞬 는 이상적인 상황에서 2 π radian 까지이며 , 𝞫의 경우 -π/2~π/2 radian 까지이다. 𝞫의 범위가 제한적인 것을 <strong>짐벌 락</strong>  이라고 하는데, 앞서 회전한 두 축의 영향으로 세 번째 회전의 가동 범위가 줄어들기 때문이다.</p>
+<h5><span id="document">Document</span></h5>
+<ul>
+<li>Pitch (the <code>x</code> component) is the rotation about the node’s x-axis.</li>
+<li>Yaw (the <code>y</code> component) is the rotation about the node’s y-axis.</li>
+<li>Roll (the <code>z</code> component) is the rotation about the node’s z-axis.</li>
+</ul>
+<br>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node.eulerAngles = <span class="type">SCNVector3</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="type">Float</span>(degreesToRadians))</span><br></pre></td></tr></table></figure>
+<p>extension을 통해 아래와 같이 쓰면 편리하다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Int</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> degreesToRadians: <span class="type">Double</span> &#123; <span class="keyword">return</span> <span class="type">Double</span>(<span class="keyword">self</span>) * .pi/<span class="number">180</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="rotation">Rotation</span></h2>
+<hr>
+<p>로테이션 값으로는 <code>CGFloat</code> 단위로 쓰이며 degee를 radian으로 변환해서 사용한다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*_NesYbqz4HqX-it5ieB0Lw.png" alt="degreeNradian"></p>
+<br>
+<h5><span id="radian">Radian</span></h5>
+<hr>
+<p>라디안은 각도의 측정 단위이며, 반지름의 길이가 1인 원의 중심으로 부터 호의 길이가 1인 각을 1라디안으로 정의한다.</p>
+<p>따라서 <code>1radian = 180/π degrees</code> 이다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Double</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">toRadians</span><span class="params">()</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span> * .pi / <span class="number">180.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">toDegrees</span><span class="params">()</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span> * <span class="number">180.0</span> / .pi</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h4><span id="matrix-gt-vector">matrix -&gt; vector</span></h4>
+<hr>
+<p>매트릭스 값을 벡터값으로 변환하는 과정은 다음과 같다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">positionFromTransform</span><span class="params">(<span class="number">_</span> transform: matrix_float4x4)</span></span> -&gt; <span class="type">SCNVector3</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    column 0  column 1  column 2  column 3</span></span><br><span class="line"><span class="comment">//         1        0         0       X       </span></span><br><span class="line"><span class="comment">//         0        1         0       Y      </span></span><br><span class="line"><span class="comment">//         0        0         1       Z       </span></span><br><span class="line"><span class="comment">//         0        0         0       1    </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="type">SCNVector3Make</span>(transform.columns.<span class="number">3</span>.x, transform.columns.<span class="number">3</span>.y, transform.columns.<span class="number">3</span>.z)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>source : <a href="https://medium.com/journey-of-one-thousand-apps/arkit-and-corelocation-part-two-7b045fb1d7a1" target="_blank" rel="noopener">ARKit and CoreLocation</a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> iOS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> ARKit </tag>
+            
+            <tag> CoreLocation </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[스케쥴링]]></title>
       <url>/2018/05/02/CS-OS-3Scheduling/</url>
       <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
@@ -419,14 +533,6 @@
             <tag> OS </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[C++_programming]]></title>
-      <url>/2018/05/02/C-programming/</url>
-      <content type="html"></content>
-      
         
     </entry>
     

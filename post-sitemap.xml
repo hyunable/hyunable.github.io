@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://hyunnaa.github.io/2018/05/07/ARkit-basic/</loc>
+        <lastmod>2018-05-07T10:40:35.877Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://hyunnaa.github.io/2018/05/02/CS-OS-3Scheduling/</loc>
         <lastmod>2018-05-02T11:44:18.511Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +41,6 @@
     <url>
         <loc>https://hyunnaa.github.io/2018/05/02/iOS-GCCvsLLVM/</loc>
         <lastmod>2018-05-02T11:02:21.186Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/2018/05/02/C-programming/</loc>
-        <lastmod>2018-05-02T10:49:34.760Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
