@@ -444,14 +444,35 @@
 
     <url>
         <loc>https://hyunnaa.github.io/tags/ARKit/</loc>
-        <lastmod>2018-05-07T10:40:35.877Z</lastmod>
+        <lastmod>2018-05-07T10:44:07.599Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hyunnaa.github.io/tags/CoreLocation/</loc>
-        <lastmod>2018-05-07T10:40:35.877Z</lastmod>
+        <lastmod>2018-05-07T10:44:07.599Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/ReactiveX/</loc>
+        <lastmod>2018-05-30T17:47:54.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/RXSwift/</loc>
+        <lastmod>2018-05-30T17:47:54.630Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/FRP/</loc>
+        <lastmod>2018-05-30T17:47:54.630Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
