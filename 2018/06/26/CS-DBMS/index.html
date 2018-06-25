@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          프로세스 - 현아의 IT Playground
+          DBMS 란? - 현아의 IT Playground
         
     </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/">
+    <link rel="canonical" href="https://hyunnaa.github.io/2018/06/26/CS-DBMS/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -98,12 +98,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#DB" title="DB">DB</a>
+                            
                         </div>
-                        <h1>프로세스</h1>
-                        <h2 class="subheading">Process</h2>
+                        <h1>DBMS 란?</h1>
+                        <h2 class="subheading">database</h2>
                         <span class="meta">
                             Posted by hyunAble on
-                            2018-05-02
+                            2018-06-26
                         </span>
                     </div>
                 
@@ -227,125 +229,53 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="peuroseseu">프로세스</span></h1>
-<h2><span id="peuroseseu-process">프로세스 (Process)</span></h2>
-<hr>
+                <h1><span id="database">Database</span></h1>
+<p>줄여서 DB라고 부르며 여러 사람이 공유하고 사용할 목적으로 통합하여 관리되는 데이터의 집합이다.</p>
 <ul>
-<li>실행중인 프로그램을 의미한다.</li>
-<li>운영체제로 부터 자원을 할당받아 동작한다.</li>
-<li>자원 : CPU, 메모리, 입출력 장치, 파일 등</li>
-<li>동작: CPU가 프로세스의 명령을 실행</li>
-<li>처리의 기본 단위</li>
-<li>자원 소유의 단위(하나의 주소공간) 및 디스패칭의 단위(하나의 제어흐름)</li>
-<li>단일 프로세스 내에서 동시처리 불가능</li>
-</ul>
-<h3><span id="peuroseseu-gwanrijayi-yeoghwal">프로세스 관리자의 역활</span></h3>
-<hr>
-<ul>
-<li>프로세스를 생성 및 삭제</li>
-<li>프로세스 실행(CPU 할당)을 위한 스케줄 결정</li>
-<li>프로세스의 상태를 관리하여 상태 전이를 처리</li>
+<li>똑같은 자료를 중복 없이 통합적으로 저장한다</li>
+<li>컴퓨터가 접근하여 처리할 수 있는 저장장치에 기록된다.</li>
+<li>어떤 조직의 기능을 수행하는 데 없어서는 안 되는 기술로 존재 목적이 뚜렷하다.</li>
+<li>실시간으로 접근하여 데이터를 읽거나 쓸 수있다.</li>
+<li>데이터베이스에 저장된 데이터는 추가,수정,삭제 등 지속적으로 변한다.</li>
 </ul>
 <br>
-<h4><span id="5-sangtaemodel">5-상태모델</span></h4>
+<h2><span id="dbms-database-management-system-deiteobeiseu-gwanrisiseutem">DBMS (Database Management System, 데이터베이스 관리시스템)</span></h2>
+<p>데이터베이스 내에 저장된 데이터에 손쉽게 접근할 수 있도록 해주는 소프트웨어 도구의 모음이다. (Ex, MariaDB, MySQL )</p>
+<h3><span id="oracle">Oracle</span></h3>
+<p>데이터베이스 시장의 절반을 차지하는 큰 규모의 상용 DBMS. 단, 제품 가격이 상당히 비싼 것으로도 유명하다.</p>
+<br>
+<h3><span id="sqlserver">SQLServer</span></h3>
+<p>마이크로소프트가 사이베이스라는 데이터베이스를 기반으로 개발한 관계형 DBMS.  <strong>MS-SQL</strong>이라고도 불린다. 데이터베이스 관리 및 데이터 조작을 위한 전용 GUI 툴을 함께 제공하는 것이 특징이다.</p>
+<br>
+<h3><span id="mysql">mySQL</span></h3>
+<p>세계에서 가장 많이 사용되는 오픈소스 기반 관계형 DBMS로 멀티 스레드 및 멀티 유저 기반으로 운영된다. 특히 웹어플리케이션을 구축할 때 많이 사용되며, APM(PHP + Apache + MySQL) 조합이 가장 많이 쓰인다.<br>
+본래는 오픈소스로 성장 후 썬 마이크로시스템즈에 인수 되었다가 썬이 현재는 오라클에 인수되었다. 오라클은 오픈소스 프로젝트를 엉망으로 만드는 능력이 대단하다. 핵심 개발자들이 오라클의 불확실한 라이선스와 충돌하고, 이를 견디지 못해 새로운 오픈소스 기반 DBMS인 mariaDB를 만들게 되었다.</p>
+<br>
+<h3><span id="sqlite">SQLite</span></h3>
+<p>위 DBMS는 동시에 서버로 분류가 된다. 하지만 SQLite는 응용 프로그램의 부분적인 모듈로 동작한다. 독립적인 서버로 설치해서 사용할 수 없다.<br>
+다른 DBMS처럼 네트워크를 통해 서비스를 제공하지 않고 , 항상 로컬에서 라이브러리에 포함해서만 사용할 수 있다. 시스템에 간편하게 탑재할 수 있어서 애플리케이션의 내장용 데이터베이스로 사용되는 경우가 많다.</p>
+<br>
+<h3><span id="mongodb">MongoDB</span></h3>
+<p>SQL구문을 사용하지 않고 데이터들 사이의 결합 관계를 충분히 지원하지 않는 데이터베이스인 <strong>NoSQL</strong> 타입이 있다. 대표적으로 하둡(Hadoop)과 몽고DB이다.</p>
+<p>몽고DB는 _오픈소스 기반의 크로스 플랫폼 도큐먼트 지향 데이터베이스 관리 시스템_이다. 플랫폼에 상관없이 사용할 수 있도록 문서 기반으로 데이터를 저장하는 DBMS라는 뜻이다. 대부분 관계형 DBMS들이 자신만의 바이너리 코드를 이용하여 데이터 구조를 다루는데 반해 몽고DB는 앞에서 JSON 형태로 데이터를 저장한다. 형식과 구조의 제약으로부터 조금 더 자유롭다는 장점이 있다.</p>
+<p>공통적으로 NoSQL은 단순하면서 병렬적 확장이 용이한 구조이기 때문에  분산 처리에 적합하다. 따라서 빅데이터를 다루는 아키텍쳐에서 NoSQL이 빠지지 않고 포함되는 것은 이 같은 확장성 때문이다.</p>
+<br>
+<h2><span id="transaction">Transaction</span></h2>
+<p>CRUD(Create, Read, Update, Delete)는 DBMS가 제공하는 가장 기본적이면서 핵심적인 기능으로 데이터베이스에서 최소의 작업 단위라고 할 수 있다. 트랜젝션은 하나 이상의 CRUD 작업들을 마치 하나의 실행 단위인 것처럼 묶어주는 기능으로, ATM 기기나 데이터베이스 등의 시스템에서 강조되는 개념이다.</p>
+<ul>
+<li>DBMS가 제공하는 트랙젝션은 연관된 여러 개의 CRUD 작업을 묶어 단일 작업처럼 수행할 수 있도록 해 주는 기능이다.</li>
+<li>논리적 작업단위</li>
+<li>commit : 트렌젝션의 최종 결과가 성공이면 그 결과를 데이터베이스에 반영</li>
+<li>rollback : 일부 작업이 수행되지 않아 트렌젝션 최종 결과가 실패인 경우 아무것도 실행되지 않았던 처음 상태로 되돌린다.</li>
+</ul>
+<br>
+<h5><span id="teurenjegsyeon-4daeweoncig">트렌젝션 4대원칙</span></h5>
 <ol>
-<li>생성 : 처음 작업이 시스템에 주어진 상태</li>
-<li>준비 : 실행 준비가 되어 CPU 할당을 기다리는 상태</li>
-<li>실행 : 프로세스가 처리되는 상태</li>
-<li>종료 : 모든 처리가 완료되어 사용자에게 반환되는 상태</li>
-<li>대기 : 프로세스가 특정 자원을 할당받을 때 까지 또는 I/O 작업이 끝날 때까지 작업이 보류되는 상태</li>
+<li>원자성  : 하나의 트렌젝션 내에 정의된 작업들은 모두 수행되든지, 아니면 아무것도 수행되지 않아야 한다.</li>
+<li>일관성 : 정당한 데이터만을 데이터베이스에 반영해서 무결성을 유지해야한다.</li>
+<li>격리성 : 하나의 트렌젝션이 실행되는 동안 트렌젝션 내부에 다른 트렌젝션이 접근할 수 없어야 한다.</li>
+<li>지속성 : 하드웨어나 소프트웨어에 오류가 발생했더라도 트렌젝션의 결과가 데이터베이스에 계속 보존되어야 한다.</li>
 </ol>
-<ul>
-<li><code>준비</code> -&gt; <code>실행</code> 과정을 <strong>Dispatch</strong> 라고한다.</li>
-</ul>
-<h4><span id="peuroseseu-jeeo-beulrog-process-control-block-pcb">프로세스 제어 블록 (Process Control Block , PCB)</span></h4>
-<hr>
-<ul>
-<li>프로세스의 관리를 위한 목적</li>
-<li>프로세스의 정보를 보관</li>
-</ul>
-<br>
-<h4><span id="peuroseseu-saengseonggwa-jongryo">프로세스 생성과 종료</span></h4>
-<hr>
-<ul>
-<li>프로세스의 이름 (PID) 결정</li>
-<li>준비 큐에 삽입</li>
-<li>초기 우선순위 부여</li>
-<li>프로세스 제어 블록(PCB) 생성</li>
-</ul>
-<br>
-<h4><span id="peuroseseu-saengseong-siseutem-hoculgwa-jongryo">프로세스 생성 시스템 호출과 종료</span></h4>
-<hr>
-<ul>
-<li>프로세스 생성 : 하나의 프로세스가 프로세스 생성 시스템 호출을 통해 새로운 프로세스를 생성 (tree 형태)</li>
-<li>fork()</li>
-<li>호출하는 프로세스 : 부모 프로세스</li>
-<li>생성되는 프로세스 : 자식 프로세스</li>
-<li>프로세스 종료 : 프로세스의 마지막 명령이 실행을 마치는 경우, 프로세스 종료 후 부모 프로세스에게 실행결과를 되돌려 줌</li>
-</ul>
-<br>
-<h2><span id="seuredeu-thread">스레드 (Thread)</span></h2>
-<hr>
-<ul>
-<li>프로세스 내에서의 <strong>다중처리</strong>를 위해 제안된 개념</li>
-<li>하나의 프로세스 내에는 하나 이상의 쓰레드가 존재</li>
-<li>하나의 스레드 내에서는 하나의 실행점만 존재 ( 디스패칭의 단위 )</li>
-<li>실행에 필요한 최소한의 정보만을 가지며, 자신이 속해 있는 프로세스의 실행환경을 공유</li>
-</ul>
-<br>
-<h3><span id="dajung-sseuredeuyi-jangjeom">다중 쓰레드의 장점</span></h3>
-<hr>
-<ul>
-<li>멀티 CPU 혹은 멀티코어 시스템에서는 병렬처리 가능</li>
-<li>처리 속도 별로 쓰레드가 나눠진 경우 효율적인 처리 가능</li>
-</ul>
-<br>
-<h2><span id="seukejyulring-scheduling">스케쥴링 (Scheduling)</span></h2>
-<hr>
-<ul>
-<li>공정성 : 모든 프로세스가 적정 수준에서 CPU 작업을 할 수 있게 함</li>
-<li>균형 : 시스템의 자원들의 충분히 활용될 수 있게 함</li>
-</ul>
-<ol>
-<li>상위단계 스케줄링</li>
-</ol>
-<ul>
-<li>시스템에 들어오는 작업들을 선택하여 프로세스를 생성한 후 프로세스 준비 큐에 전달</li>
-<li>선택 기준 : 시스템의 자원을 효율적으로 이용할 수 있도록 하는 것</li>
-<li><u>입출력(I/O) 중심 작업과 연산 중심 작업을 균형 있게 선택</u></li>
-</ul>
-<ol start="2">
-<li>하위단계 스케쥴링</li>
-</ol>
-<ul>
-<li>사용 가능한 CPU를 준비상태의 어느 프로세스에게 배당할지를 결정</li>
-<li>CPU를 배당받은 프로세스는 결국 실행상태가 되어 프로세스가 처리됨</li>
-<li>수행 주체 : Dispatcher</li>
-</ul>
-<ol start="3">
-<li>중간단계 스케쥴링</li>
-</ol>
-<ul>
-<li>프로세스를 일시적으로 메모리에서 제거하여 중지시키거나 다시 활성화 시킴</li>
-<li>시스템에 대한 단기적인 부하를 조절</li>
-</ul>
-<br>
-<h4><span id="seonjeom-preemptive-seukejyulring">선점(Preemptive) 스케쥴링</span></h4>
-<hr>
-<ul>
-<li><em>진행 중인 프로세스에 인터럽트</em>를 걸고 <strong>다른 프로세스에 CPU를 할당</strong>하는 스케쥴링 전략</li>
-<li>높은 우선순위의 프로세스를 긴급하게 처리하는 경우에 유용</li>
-<li>대화식 시분할 시스템에서 빠른 응답시간을 유지하는데 유용</li>
-<li>문맥 교환에 따른 오버헤드 발생</li>
-</ul>
-<br>
-<h4><span id="biseonjeom-nonpreemptive-seukejulring-jeongcaeg">비선점(Nonpreemptive) 스케줄링 정책</span></h4>
-<hr>
-<ul>
-<li>프로세스가 CPU를 할당받아 실행이 시작되면 작업 자체가 I/O 인터럽트를 걸거나 작업을 종료할 때까지 실행상태에 있게 됨</li>
-<li>모든 프로세스가 공정하게 순서에 따라 실행된다 -&gt; 응답시간 예측 가능</li>
-<li>짧은 프로세스가 긴 프로세스를 기다리게 될 수 있다. (비효율적일 수 있다)</li>
-</ul>
 
 
 
@@ -353,13 +283,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/05/07/ARkit-basic/" data-toggle="tooltip" data-placement="top" title="ARKit Basic">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/05/02/CS-OS-3Scheduling/" data-toggle="tooltip" data-placement="top" title="스케쥴링">Next Post &rarr;</a>
+                            <a href="/2018/05/31/RXSwift-FRP/" data-toggle="tooltip" data-placement="top" title="ReactiveX">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -389,7 +315,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">프로세스</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">프로세스 (Process)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">프로세스 관리자의 역활</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">5-상태모델</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">프로세스 제어 블록 (Process Control Block , PCB)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.3.</span> <span class="toc-nav-text">프로세스 생성과 종료</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.4.</span> <span class="toc-nav-text">프로세스 생성 시스템 호출과 종료</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">스레드 (Thread)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">다중 쓰레드의 장점</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">스케쥴링 (Scheduling)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.0.1.</span> <span class="toc-nav-text">선점(Preemptive) 스케쥴링</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.3.0.2.</span> <span class="toc-nav-text">비선점(Nonpreemptive) 스케줄링 정책</span></a></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Database</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">DBMS (Database Management System, 데이터베이스 관리시스템)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Oracle</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">SQLServer</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">mySQL</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">SQLite</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">MongoDB</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Transaction</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.2.0.0.1.</span> <span class="toc-nav-text">트렌젝션 4대원칙</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -412,6 +338,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#DB" title="DB">DB</a>
+                        
                     </div>
                 </section>
                 
@@ -430,8 +358,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "hyunable";
-    var disqus_identifier = "https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/";
-    var disqus_url = "https://hyunnaa.github.io/2018/05/02/CS-OS-2Process/";
+    var disqus_identifier = "https://hyunnaa.github.io/2018/06/26/CS-DBMS/";
+    var disqus_url = "https://hyunnaa.github.io/2018/06/26/CS-DBMS/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

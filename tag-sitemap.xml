@@ -458,21 +458,28 @@
 
     <url>
         <loc>https://hyunnaa.github.io/tags/ReactiveX/</loc>
-        <lastmod>2018-06-03T05:28:44.991Z</lastmod>
+        <lastmod>2018-06-03T05:56:11.329Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hyunnaa.github.io/tags/RXSwift/</loc>
-        <lastmod>2018-06-03T05:28:44.991Z</lastmod>
+        <lastmod>2018-06-03T05:56:11.329Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://hyunnaa.github.io/tags/FRP/</loc>
-        <lastmod>2018-06-03T05:28:44.991Z</lastmod>
+        <lastmod>2018-06-03T05:56:11.329Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/DB/</loc>
+        <lastmod>2018-06-25T16:33:57.234Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

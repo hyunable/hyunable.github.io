@@ -3,6 +3,73 @@
   
     
     <entry>
+      <title><![CDATA[DBMS 란?]]></title>
+      <url>/2018/06/26/CS-DBMS/</url>
+      <content type="html"><![CDATA[<h1><span id="database">Database</span></h1>
+<p>줄여서 DB라고 부르며 여러 사람이 공유하고 사용할 목적으로 통합하여 관리되는 데이터의 집합이다.</p>
+<ul>
+<li>똑같은 자료를 중복 없이 통합적으로 저장한다</li>
+<li>컴퓨터가 접근하여 처리할 수 있는 저장장치에 기록된다.</li>
+<li>어떤 조직의 기능을 수행하는 데 없어서는 안 되는 기술로 존재 목적이 뚜렷하다.</li>
+<li>실시간으로 접근하여 데이터를 읽거나 쓸 수있다.</li>
+<li>데이터베이스에 저장된 데이터는 추가,수정,삭제 등 지속적으로 변한다.</li>
+</ul>
+<br>
+<h2><span id="dbms-database-management-system-deiteobeiseu-gwanrisiseutem">DBMS (Database Management System, 데이터베이스 관리시스템)</span></h2>
+<p>데이터베이스 내에 저장된 데이터에 손쉽게 접근할 수 있도록 해주는 소프트웨어 도구의 모음이다. (Ex, MariaDB, MySQL )</p>
+<h3><span id="oracle">Oracle</span></h3>
+<p>데이터베이스 시장의 절반을 차지하는 큰 규모의 상용 DBMS. 단, 제품 가격이 상당히 비싼 것으로도 유명하다.</p>
+<br>
+<h3><span id="sqlserver">SQLServer</span></h3>
+<p>마이크로소프트가 사이베이스라는 데이터베이스를 기반으로 개발한 관계형 DBMS.  <strong>MS-SQL</strong>이라고도 불린다. 데이터베이스 관리 및 데이터 조작을 위한 전용 GUI 툴을 함께 제공하는 것이 특징이다.</p>
+<br>
+<h3><span id="mysql">mySQL</span></h3>
+<p>세계에서 가장 많이 사용되는 오픈소스 기반 관계형 DBMS로 멀티 스레드 및 멀티 유저 기반으로 운영된다. 특히 웹어플리케이션을 구축할 때 많이 사용되며, APM(PHP + Apache + MySQL) 조합이 가장 많이 쓰인다.<br>
+본래는 오픈소스로 성장 후 썬 마이크로시스템즈에 인수 되었다가 썬이 현재는 오라클에 인수되었다. 오라클은 오픈소스 프로젝트를 엉망으로 만드는 능력이 대단하다. 핵심 개발자들이 오라클의 불확실한 라이선스와 충돌하고, 이를 견디지 못해 새로운 오픈소스 기반 DBMS인 mariaDB를 만들게 되었다.</p>
+<br>
+<h3><span id="sqlite">SQLite</span></h3>
+<p>위 DBMS는 동시에 서버로 분류가 된다. 하지만 SQLite는 응용 프로그램의 부분적인 모듈로 동작한다. 독립적인 서버로 설치해서 사용할 수 없다.<br>
+다른 DBMS처럼 네트워크를 통해 서비스를 제공하지 않고 , 항상 로컬에서 라이브러리에 포함해서만 사용할 수 있다. 시스템에 간편하게 탑재할 수 있어서 애플리케이션의 내장용 데이터베이스로 사용되는 경우가 많다.</p>
+<br>
+<h3><span id="mongodb">MongoDB</span></h3>
+<p>SQL구문을 사용하지 않고 데이터들 사이의 결합 관계를 충분히 지원하지 않는 데이터베이스인 <strong>NoSQL</strong> 타입이 있다. 대표적으로 하둡(Hadoop)과 몽고DB이다.</p>
+<p>몽고DB는 _오픈소스 기반의 크로스 플랫폼 도큐먼트 지향 데이터베이스 관리 시스템_이다. 플랫폼에 상관없이 사용할 수 있도록 문서 기반으로 데이터를 저장하는 DBMS라는 뜻이다. 대부분 관계형 DBMS들이 자신만의 바이너리 코드를 이용하여 데이터 구조를 다루는데 반해 몽고DB는 앞에서 JSON 형태로 데이터를 저장한다. 형식과 구조의 제약으로부터 조금 더 자유롭다는 장점이 있다.</p>
+<p>공통적으로 NoSQL은 단순하면서 병렬적 확장이 용이한 구조이기 때문에  분산 처리에 적합하다. 따라서 빅데이터를 다루는 아키텍쳐에서 NoSQL이 빠지지 않고 포함되는 것은 이 같은 확장성 때문이다.</p>
+<br>
+<h2><span id="transaction">Transaction</span></h2>
+<p>CRUD(Create, Read, Update, Delete)는 DBMS가 제공하는 가장 기본적이면서 핵심적인 기능으로 데이터베이스에서 최소의 작업 단위라고 할 수 있다. 트랜젝션은 하나 이상의 CRUD 작업들을 마치 하나의 실행 단위인 것처럼 묶어주는 기능으로, ATM 기기나 데이터베이스 등의 시스템에서 강조되는 개념이다.</p>
+<ul>
+<li>DBMS가 제공하는 트랙젝션은 연관된 여러 개의 CRUD 작업을 묶어 단일 작업처럼 수행할 수 있도록 해 주는 기능이다.</li>
+<li>논리적 작업단위</li>
+<li>commit : 트렌젝션의 최종 결과가 성공이면 그 결과를 데이터베이스에 반영</li>
+<li>rollback : 일부 작업이 수행되지 않아 트렌젝션 최종 결과가 실패인 경우 아무것도 실행되지 않았던 처음 상태로 되돌린다.</li>
+</ul>
+<br>
+<h5><span id="teurenjegsyeon-4daeweoncig">트렌젝션 4대원칙</span></h5>
+<ol>
+<li>원자성  : 하나의 트렌젝션 내에 정의된 작업들은 모두 수행되든지, 아니면 아무것도 수행되지 않아야 한다.</li>
+<li>일관성 : 정당한 데이터만을 데이터베이스에 반영해서 무결성을 유지해야한다.</li>
+<li>격리성 : 하나의 트렌젝션이 실행되는 동안 트렌젝션 내부에 다른 트렌젝션이 접근할 수 없어야 한다.</li>
+<li>지속성 : 하드웨어나 소프트웨어에 오류가 발생했더라도 트렌젝션의 결과가 데이터베이스에 계속 보존되어야 한다.</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> CS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DB </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[ReactiveX]]></title>
       <url>/2018/05/31/RXSwift-FRP/</url>
       <content type="html"><![CDATA[<h1><span id="reactivex">ReactiveX</span></h1>
@@ -293,112 +360,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[스케쥴링]]></title>
-      <url>/2018/05/02/CS-OS-3Scheduling/</url>
-      <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
-<h2><span id="seukejulring-algorijeum">스케줄링 알고리즘</span></h2>
-<h3><span id="fcfs-first-come-first-served-seukejyulring">FCFS (First-Come First-Served) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li><strong>비선점 스케쥴링</strong> 알고리즘</li>
-<li>Queue와 같은 작동원리</li>
-<li>준비큐에 도착한 순서에 따라 디스패치(준비-&gt;실행)</li>
-<li>장점 : 가장 간단한 스케쥴링</li>
-<li>단점 : 짧은 프로세스가 긴 프로세스를 기다리거나, 중요한 프로세스가 나중에 수행될 수 있음.</li>
-</ul>
-<br>
-<h3><span id="sjf-shortest-job-first-seukejyulring">SJF (Shortest Job First) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>비선점 스케쥴링 알고리즘</li>
-<li>준비 큐에서 <strong>기다리는 프로세스 중 실행시간이 가장 짧다고 예상된 것</strong>을 먼저 디스패치</li>
-<li>장점 : 일괄처리 환경에서 구현하기 쉬움 , 상위단계 스케쥴링에서 많이 쓰임.</li>
-<li>단점 : 실행 예정 시간 길이를 사용자의 추정치에 의존하기 때문에 실제로는 먼저 처리할 직업의 CPU 시간을 예상할 수 없음.</li>
-</ul>
-<br>
-<h3><span id="str-shortest-remaining-time-seukejyulring">STR(Shortest Remaining Time) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>선점 스케줄링 알고리즘</li>
-<li>실행이 끝날 때 까지 남은 시간 추정치가 가장 짧은 프로세스를 먼저 디스패치 (SJF와 비슷하다)</li>
-<li>프레세싱 도중에 들어온 프로세스의 사이클 시간과 현재 프로세싱 중인 것과 남은 시간을 비교하여 더 짧은 것을 먼저 선점하여 실행한다. 만약 실행중인 프로세스가 더 많은 사이클이 남아있다면 준비큐로 들어가게되고 도중에 들어온 프로세스가 실행되게 된다.</li>
-<li>대기시간 : 준비큐에 들어와서 실행되기 직전까지의 시간</li>
-<li>반환시간 : 준비시간 부터 종료시간까지의 시간</li>
-<li>장점 : SJF보다 평균 대기시간이나 평균 반환시간에서 효율적, 대화형 운영체제에 유용</li>
-<li>단점 : 각 프로세스의 실행시간 추적, 선점을 위한 문맥 교환 등 SJF보다 오버헤드가 큼</li>
-</ul>
-<br>
-<h3><span id="rr-round-robin-seukejyulring">RR (Round Robin) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>선점 스케쥴링 알고리즘</li>
-<li>준비 큐에 도착한 순서에 따라 디스패치하지만 정해진 시간 할당량에 의해 실행을 제한(FCFS와 비슷한 방식이지만 정해진 할당량이 있다는 차이점이 있다)</li>
-<li>시간 할당량 안에 완료되지 못한 프로세스는 <strong>준비 큐의 맨 뒤에 배치</strong></li>
-<li>시간 할당량 보다 프로세싱 시간이 크게되면 할당량 만큼만 진행하고 남은 프로레싱은 준비 큐의 맨뒤로 배치되어 순서가 되면 진행된다.</li>
-<li>장점 : CPU를 독점하지 않고 공평하게 이용, 대화형 운영체제에서 유용</li>
-<li>단점 : <em>시간 할당량이 너무 크면</em> FCFS 스케줄링과 같아짐. (시간 할당량보다 프로세싱 시간이 더 짧게 걸릴때) , 혹은 <em>시간 할당량이 너무 작으면</em> 문맥 교환에 따른 오버헤드가 크게 증가함</li>
-</ul>
-<p>*** 오버헤드(Overhead) : <em>어떤 처리를 하기 위해 들어가는 간접적인 처리 시간 · 메모리 등을 말한다.</em></p>
-<br>
-<h3><span id="hrn-highest-response-ratio-next-seukejulring">HRN (Highest Response-ratio Next) 스케줄링</span></h3>
-<hr>
-<ul>
-<li>비선점 스케줄링 알고리즘</li>
-<li>준비 큐에서 기다리는 프로세스 중 <strong>응답비율이 가장 큰 것을 먼저</strong> 디스패치</li>
-</ul>
-<p><code>응답비율 = 대기시간 + 예상 실행시간 / 예상 실행시간 = ( 대기시간 / 예상 실행시간 ) + 1</code></p>
-<ul>
-<li>SJF의 단점을 보완(시간이 긴 프로세스에게 불리함)</li>
-</ul>
-<br>
-<h3><span id="dadangye-pideubaeg-kyu-seukejulring">다단계 피드백 큐 스케줄링</span></h3>
-<hr>
-<ul>
-<li>선점 스케줄링 알고리즘</li>
-<li><strong>I/O 중심 프로세스</strong>로 CPU 중심 프로세스의 특성에 따라 서로 다른 시간 할당량 부여</li>
-<li>단계 k의 큐에 있는 프로세스가 CPU를 할당 받으려면 단계 1~ 단계 k-1 까지 모든 큐가 비어있어야만 함</li>
-<li>예를 들어 연산 위주의 CPU 중심 프로세스는 낮은 우선권이지만 긴 시간 할당량을 가진다. (높은 단계의 큐로 가기에 적합)</li>
-<li>각 단계마다 하나씩 큐 존재</li>
-<li>단계가 커질수록 시간 할당량도 커짐</li>
-</ul>
-<h5><span id="process">Process</span></h5>
-<ol>
-<li>새로운 프로세스는 최상위 단계의 준비 큐에 들어간 후 FCFS의 순서로 CPU를 할당받아 실행되다가 그 큐의 시간 할당량이 끝나면 한단계 아래의 준비 큐에 들어감으로써 결과적으로 우선순위가 한 단계 낮아지게 된다.</li>
-<li>각 단계에서도 그 단계 큐의 시간 할당량을 다 사용할 때까지 계속 실행된다면 다음 큐로 들어가게 되며, 마지막 단계에서는 더 내려갈 단계가 없으므로 RR방식으로 실행된다</li>
-</ol>
-<br>
-<h5><span id="jeogeungjeog-dadangye-pideubaeg-kyu-seukejulring">적응적 다단계 피드백 큐 스케줄링</span></h5>
-<ul>
-<li>시간 할당량을 다 쓰기 전에 CPU를 반납하는 경우 하나 작은 단계의 큐로 이동 배치</li>
-<li>연산 위주의 프로세스에서 -&gt; I/O 위주로 바뀐다면 점점 작은 단계로 배치 가능</li>
-</ul>
-<br>
-<h2><span id="summary">Summary</span></h2>
-<hr>
-<p>FCFS -&gt; RR -&gt; 다단계 피드백 큐</p>
-<p>SJF -&gt; HRN</p>
-<p>SJF -&gt; STR</p>
-<p>비선점 -&gt; 선점의 방식으로 보완 차용되어 파생된 방식들이 많다.</p>
-]]></content>
-      
-        <categories>
-            
-            <category> CS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 스케쥴링 </tag>
-            
-            <tag> 프로세스 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[프로세스]]></title>
       <url>/2018/05/02/CS-OS-2Process/</url>
       <content type="html"><![CDATA[<h1><span id="peuroseseu">프로세스</span></h1>
@@ -528,6 +489,112 @@
             
         </categories>
         
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[스케쥴링]]></title>
+      <url>/2018/05/02/CS-OS-3Scheduling/</url>
+      <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
+<h2><span id="seukejulring-algorijeum">스케줄링 알고리즘</span></h2>
+<h3><span id="fcfs-first-come-first-served-seukejyulring">FCFS (First-Come First-Served) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li><strong>비선점 스케쥴링</strong> 알고리즘</li>
+<li>Queue와 같은 작동원리</li>
+<li>준비큐에 도착한 순서에 따라 디스패치(준비-&gt;실행)</li>
+<li>장점 : 가장 간단한 스케쥴링</li>
+<li>단점 : 짧은 프로세스가 긴 프로세스를 기다리거나, 중요한 프로세스가 나중에 수행될 수 있음.</li>
+</ul>
+<br>
+<h3><span id="sjf-shortest-job-first-seukejyulring">SJF (Shortest Job First) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케쥴링 알고리즘</li>
+<li>준비 큐에서 <strong>기다리는 프로세스 중 실행시간이 가장 짧다고 예상된 것</strong>을 먼저 디스패치</li>
+<li>장점 : 일괄처리 환경에서 구현하기 쉬움 , 상위단계 스케쥴링에서 많이 쓰임.</li>
+<li>단점 : 실행 예정 시간 길이를 사용자의 추정치에 의존하기 때문에 실제로는 먼저 처리할 직업의 CPU 시간을 예상할 수 없음.</li>
+</ul>
+<br>
+<h3><span id="str-shortest-remaining-time-seukejyulring">STR(Shortest Remaining Time) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li>실행이 끝날 때 까지 남은 시간 추정치가 가장 짧은 프로세스를 먼저 디스패치 (SJF와 비슷하다)</li>
+<li>프레세싱 도중에 들어온 프로세스의 사이클 시간과 현재 프로세싱 중인 것과 남은 시간을 비교하여 더 짧은 것을 먼저 선점하여 실행한다. 만약 실행중인 프로세스가 더 많은 사이클이 남아있다면 준비큐로 들어가게되고 도중에 들어온 프로세스가 실행되게 된다.</li>
+<li>대기시간 : 준비큐에 들어와서 실행되기 직전까지의 시간</li>
+<li>반환시간 : 준비시간 부터 종료시간까지의 시간</li>
+<li>장점 : SJF보다 평균 대기시간이나 평균 반환시간에서 효율적, 대화형 운영체제에 유용</li>
+<li>단점 : 각 프로세스의 실행시간 추적, 선점을 위한 문맥 교환 등 SJF보다 오버헤드가 큼</li>
+</ul>
+<br>
+<h3><span id="rr-round-robin-seukejyulring">RR (Round Robin) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케쥴링 알고리즘</li>
+<li>준비 큐에 도착한 순서에 따라 디스패치하지만 정해진 시간 할당량에 의해 실행을 제한(FCFS와 비슷한 방식이지만 정해진 할당량이 있다는 차이점이 있다)</li>
+<li>시간 할당량 안에 완료되지 못한 프로세스는 <strong>준비 큐의 맨 뒤에 배치</strong></li>
+<li>시간 할당량 보다 프로세싱 시간이 크게되면 할당량 만큼만 진행하고 남은 프로레싱은 준비 큐의 맨뒤로 배치되어 순서가 되면 진행된다.</li>
+<li>장점 : CPU를 독점하지 않고 공평하게 이용, 대화형 운영체제에서 유용</li>
+<li>단점 : <em>시간 할당량이 너무 크면</em> FCFS 스케줄링과 같아짐. (시간 할당량보다 프로세싱 시간이 더 짧게 걸릴때) , 혹은 <em>시간 할당량이 너무 작으면</em> 문맥 교환에 따른 오버헤드가 크게 증가함</li>
+</ul>
+<p>*** 오버헤드(Overhead) : <em>어떤 처리를 하기 위해 들어가는 간접적인 처리 시간 · 메모리 등을 말한다.</em></p>
+<br>
+<h3><span id="hrn-highest-response-ratio-next-seukejulring">HRN (Highest Response-ratio Next) 스케줄링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케줄링 알고리즘</li>
+<li>준비 큐에서 기다리는 프로세스 중 <strong>응답비율이 가장 큰 것을 먼저</strong> 디스패치</li>
+</ul>
+<p><code>응답비율 = 대기시간 + 예상 실행시간 / 예상 실행시간 = ( 대기시간 / 예상 실행시간 ) + 1</code></p>
+<ul>
+<li>SJF의 단점을 보완(시간이 긴 프로세스에게 불리함)</li>
+</ul>
+<br>
+<h3><span id="dadangye-pideubaeg-kyu-seukejulring">다단계 피드백 큐 스케줄링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li><strong>I/O 중심 프로세스</strong>로 CPU 중심 프로세스의 특성에 따라 서로 다른 시간 할당량 부여</li>
+<li>단계 k의 큐에 있는 프로세스가 CPU를 할당 받으려면 단계 1~ 단계 k-1 까지 모든 큐가 비어있어야만 함</li>
+<li>예를 들어 연산 위주의 CPU 중심 프로세스는 낮은 우선권이지만 긴 시간 할당량을 가진다. (높은 단계의 큐로 가기에 적합)</li>
+<li>각 단계마다 하나씩 큐 존재</li>
+<li>단계가 커질수록 시간 할당량도 커짐</li>
+</ul>
+<h5><span id="process">Process</span></h5>
+<ol>
+<li>새로운 프로세스는 최상위 단계의 준비 큐에 들어간 후 FCFS의 순서로 CPU를 할당받아 실행되다가 그 큐의 시간 할당량이 끝나면 한단계 아래의 준비 큐에 들어감으로써 결과적으로 우선순위가 한 단계 낮아지게 된다.</li>
+<li>각 단계에서도 그 단계 큐의 시간 할당량을 다 사용할 때까지 계속 실행된다면 다음 큐로 들어가게 되며, 마지막 단계에서는 더 내려갈 단계가 없으므로 RR방식으로 실행된다</li>
+</ol>
+<br>
+<h5><span id="jeogeungjeog-dadangye-pideubaeg-kyu-seukejulring">적응적 다단계 피드백 큐 스케줄링</span></h5>
+<ul>
+<li>시간 할당량을 다 쓰기 전에 CPU를 반납하는 경우 하나 작은 단계의 큐로 이동 배치</li>
+<li>연산 위주의 프로세스에서 -&gt; I/O 위주로 바뀐다면 점점 작은 단계로 배치 가능</li>
+</ul>
+<br>
+<h2><span id="summary">Summary</span></h2>
+<hr>
+<p>FCFS -&gt; RR -&gt; 다단계 피드백 큐</p>
+<p>SJF -&gt; HRN</p>
+<p>SJF -&gt; STR</p>
+<p>비선점 -&gt; 선점의 방식으로 보완 차용되어 파생된 방식들이 많다.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> CS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 스케쥴링 </tag>
+            
+            <tag> 프로세스 </tag>
+            
+        </tags>
         
     </entry>
     
