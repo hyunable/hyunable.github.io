@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          App Life Cycle - 현아의 IT Playground
+          현아의 IT Playground
         
     </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2017/11/18/App-lifeCycle/">
+    <link rel="canonical" href="https://hyunnaa.github.io/2018/07/28/TDD/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -98,14 +98,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#lifeCycle" title="lifeCycle">lifeCycle</a>
-                            
                         </div>
-                        <h1>App Life Cycle</h1>
+                        <h1></h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by hyunAble on
-                            2017-11-18
+                            2018-07-28
                         </span>
                     </div>
                 
@@ -229,28 +227,177 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="app-life-cycle">App Life Cycle</span></h1>
-<h2><span id="aebyi-saengmyeongjugi">앱의 생명주기</span></h2>
-<hr>
-<p>앱의 상태변화는 다음과 같이 나눌 수 있다.</p>
-<ul>
-<li>Not Running : 앱이 시작되지 않았거나 실행되었지만 시스템에 의해 종료된 상태</li>
-<li>Inactive : 앱이 전면에서 실행 중이지만, 아무런 <strong>이벤트를 받지 않고 있는 상태</strong></li>
-<li>Active : 앱이 전면에서 실행 중이며, 이벤트를 받고 있는 상태</li>
-<li>Background : 앱이 백그라운드에 있지만 여전히 코드가 실행되고 있는 상태. 대부분의 앱은 <strong><em>Suspended</em></strong> 상태로 이행하는 도중에 일시적으로 이 상태에 진입하지만, 파일 다운로드나 업로드, 연산처리 등 여분의 실행 시간이 필요한 앱일 경우 특정 시간동안 이 상태로 남아 있게 되는 경우도 있다.</li>
-<li>Suspended : 앱이 메모리에 유지되지만 <strong>실행되는 코드가 없는 상태</strong>. 메모리가 부족한 상황이 오게되면 iOS시스템은 포그라운드에 있는 앱의 여유 메모리 공간을 확보하기 위해 <u>Suspended 상태에 있는 앱들을 특별한 알림 없이 정리</u>한다.</li>
-</ul>
-<p>앱이 Not Running 상태에서 Suspended를 거처 다시 Not Running 상태로 돌아가기 까지의 과정을 <strong><em>앱 라이프사이클(App Life Cycle, 앱 생명주기)</em></strong> 라고 한다.</p>
+                <h1><span id="tdd-test-driven-development">TDD (Test Driven Development)</span></h1>
+<p>Kent Beck은 Extreme Programming 라는 소프트웨어 개발론을 도입했다. 그 개념에서 쓰인 규칙중 하나는 개발자는 unit test를 작성해야 하며, 소프트웨어의 모든 부분이 테스트되어져야 한다는 것이다. 소프트웨어가 배포되어 커스터머에게 가기전에 모든 테스트는 통과되어야 한다. 그리고 개발코드가 작성되기 전에 테스트가 작성되어야 한다. 이것을 <strong>테스트 주도 개발</strong>이라고 한다.</p>
+<blockquote>
+<p>Test the program before you WRITE IT</p>
+</blockquote>
 <br>
-<p>뷰 컨트롤러는 다음과 같이 네 가지 상태로 나눌 수 있다.</p>
 <ul>
-<li>Appearing : 뷰 컨트롤러가 스크린에 등장하기 시작한 순간부터 등장을 완료하기 직전까지의 상태. 퇴장 중인 다른 뷰 컨트롤러와 교차하기도 하며 , 이때 퇴장중인 다른 뷰 컨트롤러의 상태는 Disappering가 된다.</li>
-<li>Appeared : 뷰 컨트롤러가 스크린 전체에 완전히 등장한 상태</li>
-<li>Disappearing : 뷰 컨트롤러가 스크린에서 가려지기 시작해서 완전히 가려지기 직전까지의 상태, 또는 퇴장하기 시작해서 완전히 퇴장하기 진전까지의 상태.</li>
-<li>Disappeared : 뷰 컨트롤러가 스크린에서 완전히 가려졌거나 혹은 퇴장한 상태를 나타낸다.</li>
+<li>
+<p>실패하기에 충분하지 않은 유닛 테스트는 더이상 쓸 수 없다.</p>
+</li>
+<li>
+<p>실패한 유닛 테스트를 통과하지 않는 한 프로덕션 코드를 작성할 수 없다.</p>
+</li>
+<li>
+<p>실패한 유닛 테스트를 통과하기에 충분한 프로덕션 코드는 더이상 작성하지 않는다.</p>
+</li>
 </ul>
 <br>
-<p><img src="/image/applifecycle.png" alt="앱생명주기"></p>
+<p>위와 같은 규칙이 이상해 보일 지 모르지만, 이러한 규칙을 따르면 실제로 기능을 구현하는 데 필요한 코드만 작성하게 된다. 그리고 그것에 필요한 테스트코드만 작성하게 된다.</p>
+<br>
+<h2><span id="tdd-workflow-red-green-refactor">TDD Workflow - red, green, refactor</span></h2>
+<h3><span id="red-ask">Red : Ask</span></h3>
+<p>작성하고자 하는 메서드나 기능이 무엇인지 선별하고 작성 완료 조건을 정해서 실패하는 테스트 케이시를 작성한다.</p>
+<p>실패하는 테스트를 작성해서 시작해라. 이미 구현되지 않은 기능 혹은 확실하게 구현하려는 엣지 케이스를 테스트해야 한다. <code>red</code> 라는 이름은 대부분 실패한 테스트코드를 표현하는 것에서 유래되었다. Xcode에서도 실패하게 되면 빨간 체크표시가 있는 아이콘이 생긴다.</p>
+<p>이 단계에서 작성하는 테스트가 처음에는 실패하는 것이 매우 중요하다. 그렇지 않으면 이 테스트가 제대로 작동하는지 확인하고 구현할 기능을 실제로 테스트 할 수가없다. 항상 통과하는 쓸모없는 테스트를 작성한 것일 수 있기 때문이다.</p>
+<br>
+<ul>
+<li>테스트 케이스를 하나씩 추가해나가면서 구현 클래스를 점진적으로 만드는 방식 추천<br>
+(모든 테스트케이스가 all green 상태에 이르기까지 긴 시간이 걸릴 수 있다.)</li>
+<li>하나의 테스트 케이스가 하나의 기능을 테스트하도록 만드는 것이 기본 원칙이다.</li>
+<li></li>
+</ul>
+<br>
+<h3><span id="green-respond">Green : Respond</span></h3>
+<p>Green 단계에서 <strong>테스트를 통과시키는 가장 간단한 코드</strong>를 작성한다. 작성한 코드가 깨끗하고 훌륭한지는 중요하지 않다. 모든 테스트가 통과되기만 하면 충분하다.<br>
+Xcode에서 통과한 테스트에서는  초록색 체크표시 아이콘이 생긴다.</p>
+<p>이 단계에서는 테스트를 통과시키는 가장 <em>simple</em>한 코드를 작성하는 것이 매우 중요하다. 즉, 읽기 쉽고 이해하기 쉬우며 쉽게 변할 수 있는 코드를 말한다.</p>
+<ul>
+<li>테스트 케이스를 통한 제품 코드 구현을 하드코딩으로 시작하는 것도 괜찮은 출발점이다. 최대한 간단한 로직이나 하드코딩 값을 이용해서 테스트를 최대한 빨리 통과시킨다.</li>
+</ul>
+<br>
+<h3><span id="refactor-refine">Refactor : Refine</span></h3>
+<p>리팩터 단계에서는 코드를 개선한다. 중복을 제거하고 공통 값을 추출하는 등의 작업을 한다. 코드를 가능한 한 좋게 만든다.</p>
+<ul>
+<li>소스의 가독성</li>
+<li>중복코드</li>
+<li>메서드 및 변수의 네이밍의 적절성</li>
+<li>구조 개선</li>
+</ul>
+<h3><span id="repeat">Repeat</span></h3>
+<br>
+<h2><span id="gijon-gaebal-mic-teseuteuyi-munjejeom">기존 개발 및 테스트의 문제점</span></h2>
+<ol>
+<li>
+<p>특정 모듈의 개발 기간이 길어질수록 개발자의 목표의식이 흐려진다.</p>
+</li>
+<li>
+<p><strong>작업 분량이 늘어날수록 확인이 어려워진다</strong>.</p>
+</li>
+<li>
+<p>개발자의 집중력이 피료해진다.</p>
+</li>
+<li>
+<p>논리적인 오류를 찾기가 어렵다.</p>
+</li>
+<li>
+<p><strong>코드의 사용 방법과 변경 이력을 개발자의 기억력에 의존하게 되는 경우가 많다</strong>.</p>
+</li>
+<li>
+<p>테스트 케이스가 적혀 있는 엑셀 파일을 보며 매번 테스트를 실행하는 게 점점 귀찮아져서는 점차 간소화하는 항목들이 늘어난다.</p>
+</li>
+<li>
+<p><strong>코드 수정 시에 기존 코드의 정상 동작에 대한 보장이 어렵다</strong>.</p>
+</li>
+<li>
+<p>테스트를 해보려면 소스코드에 변경을 가하는 등, 번거로운 선행 작업이 필요할 수 있다.</p>
+</li>
+<li>
+<p>그래서 소스 변경 시 해야 하는 <u>회기 테스트</u>는 곧잘 희귀 테스트가 되기 쉽다.</p>
+<p>*** 회기 테스트 : 이미 개발과 테스트가 완료된 모듈에 수정을 가하게 될 경우, 기존에 동작하던 다른 부분도 정상적으로 동작하는지 확인하기 위해 수행하는 테스트. 해당 모듈 뿐 아니라 그 모듈과 연관되어 있는 다른 모든 모듈도 변함없이 목표대로 작동하는지를 매번 테스트해야 한다.</p>
+</li>
+<li>
+<p>개발자의 귀중한 노동력을 적지 않게 소모한다.</p>
+</li>
+</ol>
+<br>
+<h2><span id="tddyi-mogpyo">TDD의 목표</span></h2>
+<blockquote>
+<p>Clean code that works (잘 동작하는 깔끔한 코드)</p>
+</blockquote>
+<br>
+<h2><span id="tddyi-rule">TDD의 Rule</span></h2>
+<p><em>Given - When - Then</em></p>
+<ul>
+<li>Give: 테스트를 시작하기 위해 주어지는 선조건</li>
+<li>When: 테스트하는 코드의 수행</li>
+<li>Then: assertion (예상결과)</li>
+</ul>
+<br>
+<h2><span id="tddsi-yuyisahang">TDD시 유의사항</span></h2>
+<ul>
+<li>TDD에서는 개발이 시작된 시점부터 <strong>가능한 빠른 시점 내에 그리고 자주 실패</strong>를 경험하도록 유도한다.</li>
+<li>클래스 설계시 클래스를 정의할 때 가장 중요한 건  '속성’이 아닌 ‘<strong>동작</strong>’ 이다. 동작을 먼저 정하고 필요한 속성을 정하는 것이 순차적으로 맞다. 따라서 처음부터 필요한 모든 속성을 생각할 필요가 없다. 추후에 필요하면 추가하면 된다.</li>
+<li>테스트 케이스를 엉성하게 만들면 테스트 자체를 신뢰할 수 없게 된다.</li>
+<li>TDD에서는 실패하는 테스트를 여러 개 만들어놓고 진행하는 걸 권장하지 않는다.</li>
+<li>무엇을 테스트 할 것인가를 체크한다
+<ul>
+<li>결과가 옳은가?</li>
+<li>모든 경계조건이 옳은가?</li>
+<li>역(inverse)관계를 확인할 수 있는가?</li>
+<li>다른 수단을 사용해서 결과를 교차확인할 수 있는가?</li>
+<li>에러 조건을 강제로 만들어낼 수 있는가?</li>
+<li>성능이 한도 내에 있는가?</li>
+</ul>
+</li>
+</ul>
+<br>
+<h2><span id="robeoteu-matinyi-tdd-weoncig">로버트 마틴의 TDD 원칙</span></h2>
+<ul>
+<li>실패하는 테스트를 작서하기 전에는 절대로 제품 코드를 작성하지 않는다.</li>
+<li>실패하는 테스트 코드를 한 번에 하나 이상 작성하지 않는다.</li>
+<li>현재 실패하고 있는 테스트를 통과하기에 충분한 정도를 넘어서는 제품 코드를 작성하지 않는다.</li>
+</ul>
+<br>
+<h2><span id="tddyi-jangjeom">TDD의 장점</span></h2>
+<ul>
+<li>
+<p>개발의 방향을 잃지 않게 유지해준다.<br>
+테스트 케이스들은 자신이 어디까지 왔고 앞으로 나아가야 하는 곳이 어디인지를 알려주는 나침반 같은 역활을 한다.</p>
+</li>
+<li>
+<p>품질 높은 소프트웨어 모듈 보유<br>
+TDD를 통해 만들어진 애플리케이션은 필요한 만큼 테스트를 거친 ’ 품질이 검증된 부품 '을 갖게되는 것이다. 단위 모듈의 품질이 향상되면서 완성된 어플리케이션의 품질도 향상시킨다.<br>
+TDD를 사용하지 않은 개발팀에 비해 TDD를 적용한 팀의  결함률이 최대 1/10 정도까지 감소했다.</p>
+</li>
+<li>
+<p>자동화된 단위 테스트 케이스를 갖게 된다.</p>
+</li>
+<li>
+<p>사용 설명서 &amp; 의사소통의 수단<br>
+TDD로 개발 시 테스트 코드가 개발 종료와 함께 남게 된다. 그리고 미래 개발자에게 제공되는 상세화된 모듈 사용 설명서라는 부분도 포함되어 있다. 기존 코드(legacy code)의 난해함과 문서화 부재가 주는 상실감이 IT 프로젝트에서 많은 악영향을 끼친다.</p>
+</li>
+<li>
+<p>설계 개선<br>
+객체 개설 원리 중 기본에 해당하는 원칙들이 잘못 적용됐거나 충분히 고려되지 않았을 가능성이 높다. 테스트가 가능하도록 설계 구조를 고민하다 보면 자연스럽게 디자인을 개선하게 된다. 미리 고민해보고 작성하는 것과 작성하면서 그때그때 추가하는 것은 모듈의 응집도와 의존성 정도에 큰 차이를 만들어낸다.</p>
+</li>
+<li>
+<p>보다 자주 성공한다<br>
+TDD는 매 주기를 짧게 설정하도록 권장한다. 그때마다 목표를 이뤘다는 성취감을 느낄 수 있다.</p>
+<blockquote>
+<p>Divide and Test, then Conquer</p>
+</blockquote>
+</li>
+</ul>
+<br>
+<h2><span id="teseuteu-keiseu-jagseongbangsig">테스트 케이스 작성방식</span></h2>
+<ol>
+<li>테스트 대상 메소드와 이름을 1:1로 일치</li>
+<li>테스트 대상 메소드의 이름 뒤에 추가적인 정보를 기재<br>
+보통 상세 케이스들은 메소드 이름 뒤에 _을 붙여 구별하는데 이때 주로 한글을 사용한다.<br>
+한글 사용을 적극 권장하는 이유는 메서드 목록을 뽑은 뒤 엑셀에서 _로 구분해넣으면 자연스럽게 테스트케이스 항목이 표로 만들어 지기 때문이다.</li>
+<li>테스트 시나리오에 집중</li>
+</ol>
+<br>
+<h2><span id="tddyi-hangye">TDD의 한계</span></h2>
+<ul>
+<li>동시성 문제</li>
+<li>접근제한자 메서드<br>
+public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메서드가 테스트될 때, 포함된 private 메서드들도 함께 테스트가 이뤄진다고 볼 수 있기 때문이다.</li>
+<li>의존성 모듈 테스트</li>
+</ul>
 
 
 
@@ -258,13 +405,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/18/viewChange/" data-toggle="tooltip" data-placement="top" title="iOS 화면 전환 기법">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/18/CocoaTouchFW/" data-toggle="tooltip" data-placement="top" title="Cocoa Touch FrameWork">Next Post &rarr;</a>
+                            <a href="/2018/06/26/CS-DBMS/" data-toggle="tooltip" data-placement="top" title="DBMS 란?">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -289,17 +432,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">App Life Cycle</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">앱의 생명주기</span></a></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
 
 
@@ -317,8 +449,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#lifeCycle" title="lifeCycle">lifeCycle</a>
-                        
                     </div>
                 </section>
                 
@@ -337,8 +467,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "hyunable";
-    var disqus_identifier = "https://hyunnaa.github.io/2017/11/18/App-lifeCycle/";
-    var disqus_url = "https://hyunnaa.github.io/2017/11/18/App-lifeCycle/";
+    var disqus_identifier = "https://hyunnaa.github.io/2018/07/28/TDD/";
+    var disqus_url = "https://hyunnaa.github.io/2018/07/28/TDD/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
