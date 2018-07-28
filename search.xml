@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title></title>
+      <title><![CDATA[TDD (Test Driven Development)]]></title>
       <url>/2018/07/28/TDD/</url>
       <content type="html"><![CDATA[<h1><span id="tdd-test-driven-development">TDD (Test Driven Development)</span></h1>
 <p>Kent Beck은 Extreme Programming 라는 소프트웨어 개발론을 도입했다. 그 개념에서 쓰인 규칙중 하나는 개발자는 unit test를 작성해야 하며, 소프트웨어의 모든 부분이 테스트되어져야 한다는 것이다. 소프트웨어가 배포되어 커스터머에게 가기전에 모든 테스트는 통과되어야 한다. 그리고 개발코드가 작성되기 전에 테스트가 작성되어야 한다. 이것을 <strong>테스트 주도 개발</strong>이라고 한다.</p>
@@ -84,7 +84,7 @@ Xcode에서 통과한 테스트에서는  초록색 체크표시 아이콘이 �
 </li>
 <li>
 <p>그래서 소스 변경 시 해야 하는 <u>회기 테스트</u>는 곧잘 희귀 테스트가 되기 쉽다.</p>
-<p>*** 회기 테스트 : 이미 개발과 테스트가 완료된 모듈에 수정을 가하게 될 경우, 기존에 동작하던 다른 부분도 정상적으로 동작하는지 확인하기 위해 수행하는 테스트. 해당 모듈 뿐 아니라 그 모듈과 연관되어 있는 다른 모든 모듈도 변함없이 목표대로 작동하는지를 매번 테스트해야 한다.</p>
+<p><strong>회기 테스트</strong> : 이미 개발과 테스트가 완료된 모듈에 수정을 가하게 될 경우, 기존에 동작하던 다른 부분도 정상적으로 동작하는지 확인하기 위해 수행하는 테스트. 해당 모듈 뿐 아니라 그 모듈과 연관되어 있는 다른 모든 모듈도 변함없이 목표대로 작동하는지를 매번 테스트해야 한다.</p>
 </li>
 <li>
 <p>개발자의 귀중한 노동력을 적지 않게 소모한다.</p>
@@ -178,6 +178,20 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
 </ul>
 ]]></content>
       
+        <categories>
+            
+            <category> iOS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> UnitTest </tag>
+            
+            <tag> TDD </tag>
+            
+        </tags>
         
     </entry>
     
