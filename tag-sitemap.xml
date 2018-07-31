@@ -142,6 +142,20 @@
     </url>
 
     <url>
+        <loc>https://hyunnaa.github.io/tags/Framework/</loc>
+        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
+        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://hyunnaa.github.io/tags/delegate/</loc>
         <lastmod>2018-01-14T20:11:12.266Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -485,15 +499,15 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/Framework/</loc>
-        <lastmod>2018-07-31T17:29:06.653Z</lastmod>
+        <loc>https://hyunnaa.github.io/tags/%EC%A0%9C%EB%84%A4%EB%A6%AD/</loc>
+        <lastmod>2018-07-31T17:30:56.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
-        <lastmod>2018-07-31T17:29:06.653Z</lastmod>
+        <loc>https://hyunnaa.github.io/tags/extension/</loc>
+        <lastmod>2018-07-31T17:30:56.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
