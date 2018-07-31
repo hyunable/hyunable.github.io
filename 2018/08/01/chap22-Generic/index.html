@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          CH1. Swift - 현아의 IT Playground
+          제네릭과 익스텐션 - 현아의 IT Playground
         
     </title>
 
-    <link rel="canonical" href="https://hyunnaa.github.io/2017/10/13/chap1-Swift/">
+    <link rel="canonical" href="https://hyunnaa.github.io/2018/08/01/chap22-Generic/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
@@ -81,7 +81,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('undefined')
+            background-image: url('null')
             /*post*/
         
     }
@@ -98,12 +98,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#Framework" title="Framework">Framework</a>
+                            
+                              <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                            
                         </div>
-                        <h1>CH1. Swift</h1>
-                        <h2 class="subheading"></h2>
+                        <h1>제네릭과 익스텐션</h1>
+                        <h2 class="subheading">Generic &amp; Extension</h2>
                         <span class="meta">
                             Posted by hyunAble on
-                            2017-10-13
+                            2018-08-01
                         </span>
                     </div>
                 
@@ -227,18 +231,37 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="chapter1-seuwipeuteu-sijaghagi">CHAPTER1 / 스위프트 시작하기</span></h1>
-<hr>
+                <h1><span id="extension">Extension</span></h1>
+<p>스위프트의 강력한 기능 중 하나로 구조체, 클래스, 열거형, 프로토콜 타입에 새로운 기능을 추가할 수 있다.<em>(단, 기존 기능 재정의 불가</em>). 또한 프로토콜과 함께 사용하면 강력한 기능을 쓸 수 있다.</p>
+<p>추가할 수 있는 기능은 아래와 같다.</p>
 <ul>
-<li>설치 및 환경설정은 생략.</li>
-<li><strong>playground</strong>는 스위프트 코드를 빠르게 개발,점검하기 위한 인터렉티브 환경이다.</li>
-<li>단, Xcode의 모든 기능을 담고 있지 않으므로, 가벼운 테스트에 적합하다.</li>
-<li><strong>import</strong> 문은 프레임 워크를 가져오는 행이다.</li>
+<li>연산 타입 프로퍼티 / 연산 인스턴스 프로퍼티</li>
+<li>타입 메서드 / 인스턴스 메서드</li>
+<li>이니셜라이저</li>
+<li>서브스크립트</li>
+<li>중첩 타입</li>
+<li><strong>특정 프로토콜을 준수할 수 있도록 기능 추가</strong></li>
 </ul>
 <br>
-<h4><span id="code">CODE</span></h4>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"hello, playground"</span></span><br><span class="line">str += <span class="string">"!"</span></span><br></pre></td></tr></table></figure>
+<h1><span id="generic">Generic</span></h1>
+<p>스위프트의 강력한 기능 중 하나로 어떤 타입으로도 유연하게 대응할 수 있다.</p>
+<p>재사용성 및 코드 중복을 줄일 수 있어서 깔끔하고 추상적인 표현을 가능하게 해준다.</p>
+<p>표준 라이브러리는 많은 제네릭 코드로 구성되어 있다.</p>
+<ul>
+<li>Array</li>
+<li>Dictionary</li>
+<li>Set</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 타입 매개변수 - Element</span></span><br><span class="line"><span class="comment">// Array는 Generic type</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array</span>&lt;<span class="title">Element</span>&gt; : <span class="title">RandomAccessCollection</span> </span>&#123;</span><br><span class="line">    ... <span class="comment">//생략</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//generic function</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;T&gt; <span class="params">(<span class="number">_</span> transform: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">T</span>) <span class="keyword">rethrows</span> [<span class="type">T</span>] &#123;</span><br><span class="line">    <span class="comment">//생략</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 익스텐션에서는 제네릭 타입이지만 타입 매개 변수를 따로 명시해주지 않는다.</span></span><br><span class="line"><span class="comment">// 대신 기존에 정의되어 있는 Element라는 타입은 사용가능하다</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> property: <span class="type">Element</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.last</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
+<h2><span id="taib-jeyag">타입 제약</span></h2>
+<p>종종 제네릭 함수가 처리해야 할 기능이 특정 타입에 한정되어야 처리할 수 있는 등 특정 프로토콜을 따르는 타입만 사용할 수 있도록 제약을 두어야 하는 상황이 발생할 수 있다.</p>
+<p>그때 <strong>클래스 타입 혹은 프로토콜</strong>로 제약을 줄 수 있다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Dictionary</span>&lt;<span class="title">Key</span>: <span class="title">Hashable</span>, <span class="title">Value</span>&gt; : <span class="title">Collection</span>, <span class="title">ExpressibleByDictionaryLiteral</span> </span>&#123; <span class="comment">/*생략 ... */</span>&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="peurotokolyi-yeongwantaib-associated-type">프로토콜의 연관타입(Associated Type)</span></h2>
+<p>프로토콜에서 사용할 수 있는 플레이스홀더 이름이다. 즉, 제네릭에서는 어떤 타입이 들어올지 모를때, 타입 매개변수를 통해 ‘종류는 모르지만 <u>어떤 타입이 여기에 쓰일 것</u>이다.’ 라고 표현해주었다면, 연관 타입은 <strong>타입 매개변수의 그 역활을 프로토콜에서 실행할 수 있도록 만들어진 기능</strong>이다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    associatedtype <span class="type">ItemType</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: ItemType)</span></span></span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">ItemType</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
 
 
@@ -247,10 +270,10 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/10/13/chap2-variable/" data-toggle="tooltip" data-placement="top" title="CH2. Varialble">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/2018/07/28/TDD/" data-toggle="tooltip" data-placement="top" title="TDD (Test Driven Development)">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -274,6 +297,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Extension</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Generic</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">타입 제약</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">프로토콜의 연관타입(Associated Type)</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
 
 
 
@@ -291,6 +325,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#Framework" title="Framework">Framework</a>
+                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
                     </div>
                 </section>
                 
@@ -309,8 +347,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "hyunable";
-    var disqus_identifier = "https://hyunnaa.github.io/2017/10/13/chap1-Swift/";
-    var disqus_url = "https://hyunnaa.github.io/2017/10/13/chap1-Swift/";
+    var disqus_identifier = "https://hyunnaa.github.io/2018/08/01/chap22-Generic/";
+    var disqus_url = "https://hyunnaa.github.io/2018/08/01/chap22-Generic/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

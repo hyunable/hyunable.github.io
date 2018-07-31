@@ -114,27 +114,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/getter/</loc>
-        <lastmod>2018-01-14T20:07:29.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/setter/</loc>
-        <lastmod>2018-01-14T20:07:29.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/static/</loc>
-        <lastmod>2018-01-14T20:07:29.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/initalizer/</loc>
         <lastmod>2018-01-14T20:08:01.737Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -156,29 +135,8 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C/</loc>
-        <lastmod>2018-01-14T20:08:16.554Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/%EC%98%A4%EB%A5%98%EC%B2%98%EB%A6%AC/</loc>
         <lastmod>2018-01-14T20:08:20.634Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/Framework/</loc>
-        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
-        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -494,6 +452,48 @@
     <url>
         <loc>https://hyunnaa.github.io/tags/TDD/</loc>
         <lastmod>2018-07-28T07:39:52.354Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/getter/</loc>
+        <lastmod>2018-07-31T16:07:49.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/setter/</loc>
+        <lastmod>2018-07-31T16:07:49.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/static/</loc>
+        <lastmod>2018-07-31T16:07:49.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/Framework/</loc>
+        <lastmod>2018-07-31T17:10:50.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
+        <lastmod>2018-07-31T17:10:50.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C/</loc>
+        <lastmod>2018-07-31T17:25:32.627Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

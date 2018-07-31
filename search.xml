@@ -3,6 +3,60 @@
   
     
     <entry>
+      <title><![CDATA[제네릭과 익스텐션]]></title>
+      <url>/2018/08/01/chap22-Generic/</url>
+      <content type="html"><![CDATA[<h1><span id="extension">Extension</span></h1>
+<p>스위프트의 강력한 기능 중 하나로 구조체, 클래스, 열거형, 프로토콜 타입에 새로운 기능을 추가할 수 있다.<em>(단, 기존 기능 재정의 불가</em>). 또한 프로토콜과 함께 사용하면 강력한 기능을 쓸 수 있다.</p>
+<p>추가할 수 있는 기능은 아래와 같다.</p>
+<ul>
+<li>연산 타입 프로퍼티 / 연산 인스턴스 프로퍼티</li>
+<li>타입 메서드 / 인스턴스 메서드</li>
+<li>이니셜라이저</li>
+<li>서브스크립트</li>
+<li>중첩 타입</li>
+<li><strong>특정 프로토콜을 준수할 수 있도록 기능 추가</strong></li>
+</ul>
+<br>
+<h1><span id="generic">Generic</span></h1>
+<p>스위프트의 강력한 기능 중 하나로 어떤 타입으로도 유연하게 대응할 수 있다.</p>
+<p>재사용성 및 코드 중복을 줄일 수 있어서 깔끔하고 추상적인 표현을 가능하게 해준다.</p>
+<p>표준 라이브러리는 많은 제네릭 코드로 구성되어 있다.</p>
+<ul>
+<li>Array</li>
+<li>Dictionary</li>
+<li>Set</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 타입 매개변수 - Element</span></span><br><span class="line"><span class="comment">// Array는 Generic type</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array</span>&lt;<span class="title">Element</span>&gt; : <span class="title">RandomAccessCollection</span> </span>&#123;</span><br><span class="line">    ... <span class="comment">//생략</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//generic function</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;T&gt; <span class="params">(<span class="number">_</span> transform: <span class="params">(Element)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">T</span>) <span class="keyword">rethrows</span> [<span class="type">T</span>] &#123;</span><br><span class="line">    <span class="comment">//생략</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 익스텐션에서는 제네릭 타입이지만 타입 매개 변수를 따로 명시해주지 않는다.</span></span><br><span class="line"><span class="comment">// 대신 기존에 정의되어 있는 Element라는 타입은 사용가능하다</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> property: <span class="type">Element</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.last</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="taib-jeyag">타입 제약</span></h2>
+<p>종종 제네릭 함수가 처리해야 할 기능이 특정 타입에 한정되어야 처리할 수 있는 등 특정 프로토콜을 따르는 타입만 사용할 수 있도록 제약을 두어야 하는 상황이 발생할 수 있다.</p>
+<p>그때 <strong>클래스 타입 혹은 프로토콜</strong>로 제약을 줄 수 있다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Dictionary</span>&lt;<span class="title">Key</span>: <span class="title">Hashable</span>, <span class="title">Value</span>&gt; : <span class="title">Collection</span>, <span class="title">ExpressibleByDictionaryLiteral</span> </span>&#123; <span class="comment">/*생략 ... */</span>&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h2><span id="peurotokolyi-yeongwantaib-associated-type">프로토콜의 연관타입(Associated Type)</span></h2>
+<p>프로토콜에서 사용할 수 있는 플레이스홀더 이름이다. 즉, 제네릭에서는 어떤 타입이 들어올지 모를때, 타입 매개변수를 통해 ‘종류는 모르지만 <u>어떤 타입이 여기에 쓰일 것</u>이다.’ 라고 표현해주었다면, 연관 타입은 <strong>타입 매개변수의 그 역활을 프로토콜에서 실행할 수 있도록 만들어진 기능</strong>이다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">    associatedtype <span class="type">ItemType</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: ItemType)</span></span></span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">ItemType</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+]]></content>
+      
+        <categories>
+            
+            <category> iOS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Framework </tag>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[TDD (Test Driven Development)]]></title>
       <url>/2018/07/28/TDD/</url>
       <content type="html"><![CDATA[<h1><span id="tdd-test-driven-development">TDD (Test Driven Development)</span></h1>
@@ -2451,17 +2505,35 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
       <title><![CDATA[CH19. Protocol]]></title>
       <url>/2017/11/03/chap19-protocol/</url>
       <content type="html"><![CDATA[<h1><span id="protocol">Protocol</span></h1>
+<p>Swift 는 프로토콜 지향 언어이다. 객체지향 프로그래밍 패러다임에 기반을 둔 언어는 대부분 클래스의 상속을 사용해 공통된 기능을 구현하지만, 프로토콜 프로그래밍에서는 같은 프로토콜을 준수함으로이냏서 공통된 프레임을 가질 수 있다.</p>
 <h2><span id="peurotokol-gaegceyi-seolgyedo">프로토콜 (객체의 설계도)</span></h2>
 <hr>
 <p>스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.</p>
 <ul>
-<li>클래스나 구조체가 어떤 기준을 만족하거나 또는 특수한 목적을 달성하기 위해 구현해야 하는 메소드와 프로퍼티의 목록이다.</li>
-<li>프로토콜에서는 프로퍼티의 종류/이름/변수,상수/타입/읽기or쓰기전용에 대해서만 정의할 뿐 초기값을 할당할 수 없다.</li>
-<li>구체적인 내용이 없는 프로퍼티나 메소드의 단순한 선언 형태로 구성된다. ( 구체적인 내용은 프로토콜을 이용하는 객체에서 담당한다. -&gt; 이것을 <strong>프로토콜을 구현</strong>한다고 한다.)</li>
-<li>프로토콜은 타입이 이런 프로퍼티와 메서드만큼은 가져야 한다는 최소 요건을 정의한다. (제시하는 요건을 모두 만족한다면 추가적으로 프로퍼티나 메서드를 추가할 수 있다.)</li>
-<li>프로토콜을 구현한 객체의 메서드나 속성을 은닉하고 프로토콜에서 선언된 명세의 내용만 제공하는 기능을 하기도 한다.</li>
-<li><code>:Protocol</code> 의 형태로 (superclass 선언하는 방식과 동일)</li>
-<li>프로퍼티나 메서드 뿐만 아니라 이니셜라이저도 가질 수 있다.</li>
+<li>
+<p>클래스나 구조체가 어떤 기준을 만족하거나 또는 특수한 목적을 달성하기 위해 구현해야 하는 메소드와 프로퍼티의 목록이다.</p>
+</li>
+<li>
+<p>프로토콜에서는 프로퍼티의 종류/이름/변수,상수/타입/읽기or쓰기전용에 대해서만 정의할 뿐 초기값을 할당할 수 없다.</p>
+</li>
+<li>
+<p>구체적인 내용이 없는 프로퍼티나 메소드의 단순한 선언 형태로 구성된다. ( 구체적인 내용은 프로토콜을 이용하는 객체에서 담당한다. -&gt; 이것을 <strong>프로토콜을 구현</strong>한다고 한다.)</p>
+</li>
+<li>
+<p>프로토콜은 타입이 이런 프로퍼티와 메서드만큼은 가져야 한다는 최소 요건을 정의한다. (제시하는 요건을 모두 만족한다면 추가적으로 프로퍼티나 메서드를 추가할 수 있다.)</p>
+</li>
+<li>
+<p>프로토콜을 구현한 객체의 메서드나 속성을 은닉하고 프로토콜에서 선언된 명세의 내용만 제공하는 기능을 하기도 한다.</p>
+</li>
+<li>
+<p><code>:Protocol</code> 의 형태로 (superclass 선언하는 방식과 동일)</p>
+</li>
+<li>
+<p>프로퍼티나 메서드 뿐만 아니라 이니셜라이저도 가질 수 있다.</p>
+</li>
+<li>
+<p>프로퍼티는 항상 <code>var</code>  키워드를 사용한 변수 프로퍼티로 정의한다.</p>
+</li>
 </ul>
 <blockquote>
 <p>맥이나 iOS 앱들은 기본적으로 <strong><em>데이터의 표현과 소스를 분리</em></strong>한다. 이러한 패턴은 데이터의 저장 방식을 전적으로 사용자에게 맡길 수 있다는 점에서 대단히 유용하다.</p>
@@ -2497,7 +2569,7 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
 </li>
 </ol>
 <br>
-<h3><span id="kiweodeu-mutating-statics">키워드 mutating, statics</span></h3>
+<h3><span id="kiweodeu-mutating-gabyeon-meseodeu-statics">키워드 mutating (가변 메서드), statics</span></h3>
 <hr>
 <ul>
 <li>클래스와 같은 참조 타입은 mutating 키워드를 붙이지 않아도 메소드 내에서 마음대로 프로퍼티를 수정할 수 있다.</li>
@@ -2532,7 +2604,8 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
 <ul>
 <li>구조체는 멤버와이즈 메소드가 기본적으로 제공되나, 프로토콜에 멤버와이즈 메소드가 선언되었다면 모두 직접 구현해주어야 한다.</li>
 <li><strong>클래스</strong>에서 <strong>초기화 메소드</strong>를 구현할 때는 반드시 <code>required</code> 키워드를 붙여야 한다. (일반 메서드나 프로퍼티에는 붙지않음)</li>
-<li>부모 클래스에서 물려받은 초기화 구문과 프로토콜로 부터 구현해야하는 <em>초기화 메서드가 동일해 충돌하는 경우</em>, 부모 클래스 입장에서 볼 때는 이 이니셜 라이져가 상속된것이므로 <code>override</code> 키워드도 붙여주어야 한다.<br>
+<li>final 클래스는 상속할 수 없기 때문에, <code>required</code> 키워드를 붙이지 않아도 된다. ( 반드시 구현되어야 한다는 점을 알리는게 무의미 하기 때문에!!)</li>
+<li>부모 클래스에서 물려받은 초기화 구문과 프로토콜로 부터 구현해야하는 <em>초기화 메서드가 동일해 충돌하는 경우</em>, 부모 클래스 입장에서 볼 때는 이 이니셜 라이져가 상속된것이므로 <code>override</code> 키워드도 붙여주어야 한다. (키워드 순서는 무관)<br>
 ex) <code>override required init()</code></li>
 </ul>
 <br>
@@ -2567,7 +2640,24 @@ ex) <code>override required init()</code></li>
 <li>다중 프로토콜을 단일 요구사항인 프로토콜 구성으로 결합할 수 있다.</li>
 <li><code>&amp;</code> 중위 연산자를 사용하여 여러 프로토콜을 하나의 요건으로 결합한다.<br>
 Ex) <code>var imp: A&amp;B = Do()</code></li>
+<li>읽기전용, 혹은 저장 프로퍼티, 읽기 쓰기 전용 으로 반드시 구현해야할 때는 지정이 가능하다.</li>
 </ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">AnyProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> settableProperty: <span class="type">String</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;	<span class="comment">//읽기쓰기 전용</span></span><br><span class="line">    <span class="keyword">var</span> notNeedToBeSettableProperty: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;	<span class="comment">//읽기 전용</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="seontaegjeog-peurotokol">선택적 프로토콜</span></h3>
+<ul>
+<li><code>@objc</code> 속성을 부여한다. (이때 Foundation Framework를 임포트 해야한다.)
+<ul>
+<li>단, 위 속성이 부여되려면 Objective-C 클래스를 상속받은 클래스에서만 채택할 수 있다. 따라서 <strong>열거형이나 구조체 등에서는 채택불가</strong>.</li>
+</ul>
+</li>
+<li><code>optional</code> 식별자를 붙인다</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">Moveable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">walk</span><span class="params">()</span></span></span><br><span class="line">    @bjc <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">fly</span><span class="params">()</span></span>	<span class="comment">//특정 타입만 구현해준다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="peurotokol-cogiguhyeon">프로토콜 초기구현</span></h3>
+<p>프로토콜의 요구사항을 익스텐션을 통해 구현하는 것이다.</p>
+<p>단, 저장 프로퍼티는 구현할 수 없다.</p>
 <br>
 <h3><span id="delegate-pattern">Delegate Pattern</span></h3>
 <hr>
@@ -2889,6 +2979,7 @@ deep copy : 객체도 별도 생성, 그 내용도 재귀적으로 복사</p>
 <li>타입 프로퍼티는 메모리 내의 static 공간에 정의되어 있기 때문에</li>
 <li>인스턴스에 소속되어있지 않기 때문에 <code>.</code> 구문으로 접근 불가능하다.</li>
 <li>이름앞에 <code>static</code> 키워드를 붙여준다.</li>
+<li>인스턴트 메서드와는 달리 <code>self</code>가 타입 자체를 가리킨다.</li>
 <li>타입 프로퍼티의 값들은 타입의 인스턴스들 사이에서 모두 똑같이 취급될 정보를 저장한다.</li>
 <li>타입은 이니셜라이저를 가지지 않기 때문에 <em>자신의 값을 콜러에게 전달하기 위해 필요한 모든 정보</em>를 가져야 한다.(초기값을 반드시 할당해야한다는 뜻)</li>
 <li>정적 프로퍼티에는 <strong>정적 타입 프로퍼티</strong><code>static func</code> 와 <strong>클래스 타입 프로퍼티</strong><code>class func</code>가 존재한다.

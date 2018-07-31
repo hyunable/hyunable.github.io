@@ -166,14 +166,14 @@
 
                         
                         <li>
-                            <a href="/category/">Category</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/category/">Category</a>
                         </li>
                         
                     
@@ -230,17 +230,35 @@
                 post-container">
 
                 <h1><span id="protocol">Protocol</span></h1>
+<p>Swift 는 프로토콜 지향 언어이다. 객체지향 프로그래밍 패러다임에 기반을 둔 언어는 대부분 클래스의 상속을 사용해 공통된 기능을 구현하지만, 프로토콜 프로그래밍에서는 같은 프로토콜을 준수함으로이냏서 공통된 프레임을 가질 수 있다.</p>
 <h2><span id="peurotokol-gaegceyi-seolgyedo">프로토콜 (객체의 설계도)</span></h2>
 <hr>
 <p>스위프트가 제고하는 캡슐화 중 한 가지 형태이다. 프로토콜을 적용하면 타입 자체를 몰라도 타입의 인터페이스를 지정하는 등 타입을 다룰 수 있다.</p>
 <ul>
-<li>클래스나 구조체가 어떤 기준을 만족하거나 또는 특수한 목적을 달성하기 위해 구현해야 하는 메소드와 프로퍼티의 목록이다.</li>
-<li>프로토콜에서는 프로퍼티의 종류/이름/변수,상수/타입/읽기or쓰기전용에 대해서만 정의할 뿐 초기값을 할당할 수 없다.</li>
-<li>구체적인 내용이 없는 프로퍼티나 메소드의 단순한 선언 형태로 구성된다. ( 구체적인 내용은 프로토콜을 이용하는 객체에서 담당한다. -&gt; 이것을 <strong>프로토콜을 구현</strong>한다고 한다.)</li>
-<li>프로토콜은 타입이 이런 프로퍼티와 메서드만큼은 가져야 한다는 최소 요건을 정의한다. (제시하는 요건을 모두 만족한다면 추가적으로 프로퍼티나 메서드를 추가할 수 있다.)</li>
-<li>프로토콜을 구현한 객체의 메서드나 속성을 은닉하고 프로토콜에서 선언된 명세의 내용만 제공하는 기능을 하기도 한다.</li>
-<li><code>:Protocol</code> 의 형태로 (superclass 선언하는 방식과 동일)</li>
-<li>프로퍼티나 메서드 뿐만 아니라 이니셜라이저도 가질 수 있다.</li>
+<li>
+<p>클래스나 구조체가 어떤 기준을 만족하거나 또는 특수한 목적을 달성하기 위해 구현해야 하는 메소드와 프로퍼티의 목록이다.</p>
+</li>
+<li>
+<p>프로토콜에서는 프로퍼티의 종류/이름/변수,상수/타입/읽기or쓰기전용에 대해서만 정의할 뿐 초기값을 할당할 수 없다.</p>
+</li>
+<li>
+<p>구체적인 내용이 없는 프로퍼티나 메소드의 단순한 선언 형태로 구성된다. ( 구체적인 내용은 프로토콜을 이용하는 객체에서 담당한다. -&gt; 이것을 <strong>프로토콜을 구현</strong>한다고 한다.)</p>
+</li>
+<li>
+<p>프로토콜은 타입이 이런 프로퍼티와 메서드만큼은 가져야 한다는 최소 요건을 정의한다. (제시하는 요건을 모두 만족한다면 추가적으로 프로퍼티나 메서드를 추가할 수 있다.)</p>
+</li>
+<li>
+<p>프로토콜을 구현한 객체의 메서드나 속성을 은닉하고 프로토콜에서 선언된 명세의 내용만 제공하는 기능을 하기도 한다.</p>
+</li>
+<li>
+<p><code>:Protocol</code> 의 형태로 (superclass 선언하는 방식과 동일)</p>
+</li>
+<li>
+<p>프로퍼티나 메서드 뿐만 아니라 이니셜라이저도 가질 수 있다.</p>
+</li>
+<li>
+<p>프로퍼티는 항상 <code>var</code>  키워드를 사용한 변수 프로퍼티로 정의한다.</p>
+</li>
 </ul>
 <blockquote>
 <p>맥이나 iOS 앱들은 기본적으로 <strong><em>데이터의 표현과 소스를 분리</em></strong>한다. 이러한 패턴은 데이터의 저장 방식을 전적으로 사용자에게 맡길 수 있다는 점에서 대단히 유용하다.</p>
@@ -276,7 +294,7 @@
 </li>
 </ol>
 <br>
-<h3><span id="kiweodeu-mutating-statics">키워드 mutating, statics</span></h3>
+<h3><span id="kiweodeu-mutating-gabyeon-meseodeu-statics">키워드 mutating (가변 메서드), statics</span></h3>
 <hr>
 <ul>
 <li>클래스와 같은 참조 타입은 mutating 키워드를 붙이지 않아도 메소드 내에서 마음대로 프로퍼티를 수정할 수 있다.</li>
@@ -311,7 +329,8 @@
 <ul>
 <li>구조체는 멤버와이즈 메소드가 기본적으로 제공되나, 프로토콜에 멤버와이즈 메소드가 선언되었다면 모두 직접 구현해주어야 한다.</li>
 <li><strong>클래스</strong>에서 <strong>초기화 메소드</strong>를 구현할 때는 반드시 <code>required</code> 키워드를 붙여야 한다. (일반 메서드나 프로퍼티에는 붙지않음)</li>
-<li>부모 클래스에서 물려받은 초기화 구문과 프로토콜로 부터 구현해야하는 <em>초기화 메서드가 동일해 충돌하는 경우</em>, 부모 클래스 입장에서 볼 때는 이 이니셜 라이져가 상속된것이므로 <code>override</code> 키워드도 붙여주어야 한다.<br>
+<li>final 클래스는 상속할 수 없기 때문에, <code>required</code> 키워드를 붙이지 않아도 된다. ( 반드시 구현되어야 한다는 점을 알리는게 무의미 하기 때문에!!)</li>
+<li>부모 클래스에서 물려받은 초기화 구문과 프로토콜로 부터 구현해야하는 <em>초기화 메서드가 동일해 충돌하는 경우</em>, 부모 클래스 입장에서 볼 때는 이 이니셜 라이져가 상속된것이므로 <code>override</code> 키워드도 붙여주어야 한다. (키워드 순서는 무관)<br>
 ex) <code>override required init()</code></li>
 </ul>
 <br>
@@ -346,7 +365,24 @@ ex) <code>override required init()</code></li>
 <li>다중 프로토콜을 단일 요구사항인 프로토콜 구성으로 결합할 수 있다.</li>
 <li><code>&amp;</code> 중위 연산자를 사용하여 여러 프로토콜을 하나의 요건으로 결합한다.<br>
 Ex) <code>var imp: A&amp;B = Do()</code></li>
+<li>읽기전용, 혹은 저장 프로퍼티, 읽기 쓰기 전용 으로 반드시 구현해야할 때는 지정이 가능하다.</li>
 </ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">AnyProtocol</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> settableProperty: <span class="type">String</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;	<span class="comment">//읽기쓰기 전용</span></span><br><span class="line">    <span class="keyword">var</span> notNeedToBeSettableProperty: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;	<span class="comment">//읽기 전용</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="seontaegjeog-peurotokol">선택적 프로토콜</span></h3>
+<ul>
+<li><code>@objc</code> 속성을 부여한다. (이때 Foundation Framework를 임포트 해야한다.)
+<ul>
+<li>단, 위 속성이 부여되려면 Objective-C 클래스를 상속받은 클래스에서만 채택할 수 있다. 따라서 <strong>열거형이나 구조체 등에서는 채택불가</strong>.</li>
+</ul>
+</li>
+<li><code>optional</code> 식별자를 붙인다</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@objc</span> <span class="class"><span class="keyword">protocol</span> <span class="title">Moveable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">walk</span><span class="params">()</span></span></span><br><span class="line">    @bjc <span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">fly</span><span class="params">()</span></span>	<span class="comment">//특정 타입만 구현해준다.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<h3><span id="peurotokol-cogiguhyeon">프로토콜 초기구현</span></h3>
+<p>프로토콜의 요구사항을 익스텐션을 통해 구현하는 것이다.</p>
+<p>단, 저장 프로퍼티는 구현할 수 없다.</p>
 <br>
 <h3><span id="delegate-pattern">Delegate Pattern</span></h3>
 <hr>

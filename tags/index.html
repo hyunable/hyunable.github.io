@@ -158,14 +158,14 @@
 
                         
                         <li>
-                            <a href="/category/">Category</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/category/">Category</a>
                         </li>
                         
                     
@@ -215,27 +215,27 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
+                    <a href="#lifeCycle" title="lifeCycle" rel="1">lifeCycle</a>
+                
                     <a href="#ARKit" title="ARKit" rel="1">ARKit</a>
                 
                     <a href="#CoreLocation" title="CoreLocation" rel="1">CoreLocation</a>
                 
-                    <a href="#lifeCycle" title="lifeCycle" rel="1">lifeCycle</a>
-                
                     <a href="#DB" title="DB" rel="1">DB</a>
                 
-                    <a href="#스케쥴링" title="스케쥴링" rel="1">스케쥴링</a>
-                
-                    <a href="#프로세스" title="프로세스" rel="1">프로세스</a>
-                
                     <a href="#OS" title="OS" rel="1">OS</a>
+                
+                    <a href="#Framework" title="Framework" rel="2">Framework</a>
+                
+                    <a href="#iOS" title="iOS" rel="2">iOS</a>
                 
                     <a href="#memorry" title="memorry" rel="1">memorry</a>
                 
                     <a href="#ARC" title="ARC" rel="1">ARC</a>
                 
-                    <a href="#Framework" title="Framework" rel="1">Framework</a>
+                    <a href="#스케쥴링" title="스케쥴링" rel="1">스케쥴링</a>
                 
-                    <a href="#iOS" title="iOS" rel="1">iOS</a>
+                    <a href="#프로세스" title="프로세스" rel="1">프로세스</a>
                 
                     <a href="#브랜칭전략" title="브랜칭전략" rel="1">브랜칭전략</a>
                 
@@ -244,6 +244,10 @@
                     <a href="#RXSwift" title="RXSwift" rel="1">RXSwift</a>
                 
                     <a href="#FRP" title="FRP" rel="1">FRP</a>
+                
+                    <a href="#UnitTest" title="UnitTest" rel="1">UnitTest</a>
+                
+                    <a href="#TDD" title="TDD" rel="1">TDD</a>
                 
                     <a href="#알고리즘" title="알고리즘" rel="2">알고리즘</a>
                 
@@ -263,9 +267,15 @@
                 
                     <a href="#Dictionary" title="Dictionary" rel="1">Dictionary</a>
                 
+                    <a href="#function" title="function" rel="2">function</a>
+                
                     <a href="#집합" title="집합" rel="1">집합</a>
                 
-                    <a href="#function" title="function" rel="2">function</a>
+                    <a href="#getter" title="getter" rel="1">getter</a>
+                
+                    <a href="#setter" title="setter" rel="1">setter</a>
+                
+                    <a href="#static" title="static" rel="1">static</a>
                 
                     <a href="#closure" title="closure" rel="1">closure</a>
                 
@@ -275,19 +285,13 @@
                 
                     <a href="#structure" title="structure" rel="1">structure</a>
                 
-                    <a href="#getter" title="getter" rel="1">getter</a>
-                
-                    <a href="#setter" title="setter" rel="1">setter</a>
-                
-                    <a href="#static" title="static" rel="1">static</a>
+                    <a href="#프로토콜" title="프로토콜" rel="1">프로토콜</a>
                 
                     <a href="#initalizer" title="initalizer" rel="1">initalizer</a>
                 
                     <a href="#참조타입" title="참조타입" rel="1">참조타입</a>
                 
                     <a href="#값타입" title="값타입" rel="1">값타입</a>
-                
-                    <a href="#프로토콜" title="프로토콜" rel="1">프로토콜</a>
                 
                     <a href="#변수" title="변수" rel="1">변수</a>
                 
@@ -353,14 +357,32 @@
                 
                     <a href="#화면전환" title="화면전환" rel="2">화면전환</a>
                 
-                    <a href="#UnitTest" title="UnitTest" rel="1">UnitTest</a>
-                
-                    <a href="#TDD" title="TDD" rel="1">TDD</a>
-                
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="lifeCycle">
+                    <span class="tag-text">lifeCycle</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/18/App-lifeCycle/">
+                        <h2 class="post-title">
+                            App Life Cycle
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="ARKit">
@@ -415,28 +437,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="lifeCycle">
-                    <span class="tag-text">lifeCycle</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/18/App-lifeCycle/">
-                        <h2 class="post-title">
-                            App Life Cycle
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="DB">
                     <span class="tag-text">DB</span>
                 </span>
@@ -463,58 +463,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="스케쥴링">
-                    <span class="tag-text">스케쥴링</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/05/02/CS-OS-3Scheduling/">
-                        <h2 class="post-title">
-                            스케쥴링
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                scheduling
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="프로세스">
-                    <span class="tag-text">프로세스</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/05/02/CS-OS-3Scheduling/">
-                        <h2 class="post-title">
-                            스케쥴링
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                scheduling
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="OS">
                     <span class="tag-text">OS</span>
                 </span>
@@ -531,6 +479,88 @@
                         
                             <h3 class="post-subtitle">
                                 Operation-System
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Framework">
+                    <span class="tag-text">Framework</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/18/CocoaTouchFW/">
+                        <h2 class="post-title">
+                            Cocoa Touch FrameWork
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/08/01/chap22-Generic/">
+                        <h2 class="post-title">
+                            제네릭과 익스텐션
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                Generic & Extension
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="iOS">
+                    <span class="tag-text">iOS</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/18/CocoaTouchFW/">
+                        <h2 class="post-title">
+                            Cocoa Touch FrameWork
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/08/01/chap22-Generic/">
+                        <h2 class="post-title">
+                            제네릭과 익스텐션
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                Generic & Extension
                             </h3>
                         
                     </a>
@@ -593,8 +623,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Framework">
-                    <span class="tag-text">Framework</span>
+                <span class="fa fa-tag listing-seperator" id="스케쥴링">
+                    <span class="tag-text">스케쥴링</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -602,10 +632,14 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/18/CocoaTouchFW/">
+                     <a href="/2018/05/02/CS-OS-3Scheduling/">
                         <h2 class="post-title">
-                            Cocoa Touch FrameWork
+                            스케쥴링
                         </h2>
+                        
+                            <h3 class="post-subtitle">
+                                scheduling
+                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -615,8 +649,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="iOS">
-                    <span class="tag-text">iOS</span>
+                <span class="fa fa-tag listing-seperator" id="프로세스">
+                    <span class="tag-text">프로세스</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -624,10 +658,14 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/18/CocoaTouchFW/">
+                     <a href="/2018/05/02/CS-OS-3Scheduling/">
                         <h2 class="post-title">
-                            Cocoa Touch FrameWork
+                            스케쥴링
                         </h2>
+                        
+                            <h3 class="post-subtitle">
+                                scheduling
+                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -728,6 +766,50 @@
                             <h3 class="post-subtitle">
                                 RXSwift를 통한 FRP의 대한 이해
                             </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="UnitTest">
+                    <span class="tag-text">UnitTest</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/07/28/TDD/">
+                        <h2 class="post-title">
+                            TDD (Test Driven Development)
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="TDD">
+                    <span class="tag-text">TDD</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/07/28/TDD/">
+                        <h2 class="post-title">
+                            TDD (Test Driven Development)
+                        </h2>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -973,28 +1055,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="집합">
-                    <span class="tag-text">집합</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/10/26/chap11-set/">
-                        <h2 class="post-title">
-                            CH11. Set
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="function">
                     <span class="tag-text">function</span>
                 </span>
@@ -1022,6 +1082,94 @@
                      <a href="/2017/10/26/chap13-closure/">
                         <h2 class="post-title">
                             CH13. Closure
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="집합">
+                    <span class="tag-text">집합</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/10/26/chap11-set/">
+                        <h2 class="post-title">
+                            CH11. Set
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="getter">
+                    <span class="tag-text">getter</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/01/chap16-property/">
+                        <h2 class="post-title">
+                            CH16. Property
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="setter">
+                    <span class="tag-text">setter</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/01/chap16-property/">
+                        <h2 class="post-title">
+                            CH16. Property
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="static">
+                    <span class="tag-text">static</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/01/chap16-property/">
+                        <h2 class="post-title">
+                            CH16. Property
                         </h2>
                         
                     </a>
@@ -1120,8 +1268,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="getter">
-                    <span class="tag-text">getter</span>
+                <span class="fa fa-tag listing-seperator" id="프로토콜">
+                    <span class="tag-text">프로토콜</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -1129,53 +1277,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/01/chap16-property/">
+                     <a href="/2017/11/03/chap19-protocol/">
                         <h2 class="post-title">
-                            CH16. Property
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="setter">
-                    <span class="tag-text">setter</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/01/chap16-property/">
-                        <h2 class="post-title">
-                            CH16. Property
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="static">
-                    <span class="tag-text">static</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/01/chap16-property/">
-                        <h2 class="post-title">
-                            CH16. Property
+                            CH19. Protocol
                         </h2>
                         
                     </a>
@@ -1242,28 +1346,6 @@
                      <a href="/2017/11/03/chap18-valueVSref/">
                         <h2 class="post-title">
                             CH18. Value vs Reference
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="프로토콜">
-                    <span class="tag-text">프로토콜</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/03/chap19-protocol/">
-                        <h2 class="post-title">
-                            CH19. Protocol
                         </h2>
                         
                     </a>
@@ -2013,50 +2095,6 @@
                      <a href="/2017/11/18/viewChange/">
                         <h2 class="post-title">
                             iOS 화면 전환 기법
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="UnitTest">
-                    <span class="tag-text">UnitTest</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/07/28/TDD/">
-                        <h2 class="post-title">
-                            TDD (Test Driven Development)
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="TDD">
-                    <span class="tag-text">TDD</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/07/28/TDD/">
-                        <h2 class="post-title">
-                            TDD (Test Driven Development)
                         </h2>
                         
                     </a>
