@@ -14,13 +14,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/categories/ALGORISM/</loc>
-        <lastmod>2018-02-06T17:13:28.798Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/categories/CS/</loc>
         <lastmod>2018-06-25T16:33:57.234Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -28,15 +21,22 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/categories/iOS/</loc>
-        <lastmod>2018-07-28T07:39:52.354Z</lastmod>
+        <loc>https://hyunnaa.github.io/categories/SWIFT/</loc>
+        <lastmod>2018-07-31T17:30:56.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/categories/SWIFT/</loc>
-        <lastmod>2018-07-31T17:30:56.293Z</lastmod>
+        <loc>https://hyunnaa.github.io/categories/ALGORISM/</loc>
+        <lastmod>2018-08-18T06:51:38.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/categories/iOS/</loc>
+        <lastmod>2018-11-17T10:37:17.309Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

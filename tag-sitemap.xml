@@ -79,14 +79,14 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/function/</loc>
+        <loc>https://hyunnaa.github.io/tags/closure/</loc>
         <lastmod>2018-01-14T20:07:17.113Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/closure/</loc>
+        <loc>https://hyunnaa.github.io/tags/function/</loc>
         <lastmod>2018-01-14T20:07:17.113Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -143,13 +143,6 @@
 
     <url>
         <loc>https://hyunnaa.github.io/tags/Framework/</loc>
-        <lastmod>2018-01-14T20:08:33.621Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
         <lastmod>2018-01-14T20:08:33.621Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -345,13 +338,6 @@
     </url>
 
     <url>
-        <loc>https://hyunnaa.github.io/tags/%EC%A0%95%EB%A0%AC/</loc>
-        <lastmod>2018-02-05T16:46:20.101Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://hyunnaa.github.io/tags/%EC%84%A0%ED%83%9D%EC%A0%95%EB%A0%AC/</loc>
         <lastmod>2018-02-05T16:46:20.101Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -508,6 +494,34 @@
     <url>
         <loc>https://hyunnaa.github.io/tags/extension/</loc>
         <lastmod>2018-07-31T17:30:56.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/DI/</loc>
+        <lastmod>2018-08-11T11:56:36.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/pattern/</loc>
+        <lastmod>2018-08-11T11:56:36.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/%EC%A0%95%EB%A0%AC/</loc>
+        <lastmod>2018-08-18T06:51:38.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://hyunnaa.github.io/tags/iOS/</loc>
+        <lastmod>2018-11-17T10:37:17.309Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -3,6 +3,306 @@
   
     
     <entry>
+      <title><![CDATA[코드사이닝의 이해]]></title>
+      <url>/2018/11/17/Signing/</url>
+      <content type="html"><![CDATA[<h1><span id="injeungseo-jongryu">인증서 종류</span></h1>
+<ul>
+<li><strong>Certificate Signing Request 개발자 인증 요청서</strong></li>
+<li><strong>Development Certificate 개발자 인증서</strong></li>
+<li><strong>Distribution Certificate 배포자 인증서</strong></li>
+<li><strong>Provisioning Profile 개발자 인증서, App ID, 테스트할 Device 정보가 포함되어 있는 파일</strong></li>
+</ul>
+<p>코드 사이닝을 이해하기 위해서는 아래와 같은 사실 때문이다.</p>
+<blockquote>
+<p>단지 애플만이 자신들의 하드웨어에서 어떤 소프트웨어가 동작하도록 허락된 주체이기 때문이다.</p>
+</blockquote>
+<p>실제로 매번 앱이 실행될때마다 앱은 애플로 부터 인증을 받았는지 그래서 앱을 실행할 수 있는 권한이 주어졌는지 확인을 한다.</p>
+<br>
+<h2><span id="apple-injeungseo">Apple 인증서</span></h2>
+<p>애플만이 앱을 실행할 권한을 가지기 때문에 개발자들은 디바이스에서 테스트를 하기 위해서는 애플이 개발자를 신뢰하여 <strong>애플 대신 앱을 실행할 권한을 부여</strong>받아야만 한다.</p>
+<ol>
+<li>KeyChain 앱에서 **Certificate Signing Request(CER)**를 생성한다.</li>
+</ol>
+<ul>
+<li>키체인 앱은 공개키와 개인키를 자동으로 생성한다. (목록은 <code>key</code>카테고리에서 확인할 수 있다) 이 공개키를 통해서 내가 누구인지 애플쪽에서 확인할 키이기 때문에 잃어버리지 않도록 잘 보관해야한다.</li>
+<li>애플에 보낼 CertSigningRequest 파일을 생성한다. 이 파일은 나의 이름, 이메일, 공개키를 포함하고 있으며, 개인키를 이용하여 사이닝된다.</li>
+<li>이 공개키, 개인키 메커니즘을 통해서 정말 내가 만들었는지 확인할 수 있다.</li>
+</ul>
+<ol start="2">
+<li>CSR을 애플에 업로드하면서 인증서를 요청하면 애플측에서는 간단한 확인 작업 후 개발 인증서를 발급해준다.  이 인증서를 받아서 키체인앱에 드래그앤드롭으로 추가하면 <code>my certificate</code> 카테고리에 추가됨을 확인할 수 있다.</li>
+</ol>
+<ul>
+<li>더블클릭해서 내용을 보면 애플을 통해서 발급받았으며, 애플은 나를 신뢰한다는 정보를 담고 있다.</li>
+<li><strong>이 인증서는 앱을 사인할 때 사용된다.</strong></li>
+<li>여기까지 진행하면 내가 누구인지를 애플에 알림으로써 애플이 나에게 인증서를 발급하고 앱을 사인할 수 있도록 허락밭은 상태이다.</li>
+</ul>
+<br>
+<h2><span id="provisioning-profile">Provisioning Profile</span></h2>
+<p>추가적으로 필요한 요청은 나의 디바이스(iphone/ipad)가 나를 신뢰할 수 있는지를 알아야 앱을 설치할 수가 있다.<br>
+이때 필요한 것이 <strong>PP(Provisioning Profile)파일</strong> 이다.</p>
+<ul>
+<li>
+<p>프로비저닝 프로파일을 만든다는 것은 나의 iOS 디바이스들을 <u>앞 단계에서 만든 인증서와 연결하는 것</u>을 의미한다. 그 결과로 만들어진 <code>*.mobileprovision</code> 파일은 나의 iOS 앱을 컴파일하는 과정에서 사용되며 또한 앱을 테스트하려고 하는 디바이스에 설치가 되어야 한다.</p>
+</li>
+<li>
+<p>프로비저닝 프로파일을 생성할 때 연동한 AppID와 실제 컴파일하려는 앱의 ID가 일치해야만 빌드되므로 각 프로젝트마다 각각의 PP파일을 갖게 된다.</p>
+</li>
+<li>
+<p>프로젝트를 생성하면 자동으로 <code>automatic manage signing</code>에 체크가 되어 자동으로 pp가 생성된다. 이것을 해제하여 자동생성을 막는 것이 좋다.! 되도록이면 직접 생성하고 관리하는 버릇을 들이자</p>
+</li>
+<li>
+<p>설치방법</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Identifier &gt; AppIDs  — 새로운 앱추가</p>
+</li>
+<li>
+<p>Certificates &gt; Development — 개발용 인증서 추가</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>키체인 접근 &gt; 인증서 지원 &gt; 인증 기관에서 인증서 요청</p>
+</li>
+<li>
+<p>사용자 이메일, 이름, 디스크에 저장됨을 누른후 생성</p>
+</li>
+<li>
+<p><a href="http://comxp.tistory.com/298" target="_blank" rel="noopener">CER 생성</a></p>
+</li>
+<li>
+<p>생성 후에 *.cer 파일을 저장한다 (일반적으로 ios_development.cer)</p>
+</li>
+</ul>
+<ol start="3">
+<li>Provisioning Profiles &gt; Development — pp파일 생성</li>
+</ol>
+<ul>
+<li>우측 상단의 + 버튼을 누른 후 <strong>iOS App Development</strong> 를 체크해준다.</li>
+<li>Select App ID에서 아까 추가해준 App ID를 선택한다.</li>
+<li>Select Device를 선택해주고 만약 등록되어있지 않다면 Device &gt; iPhone(or another Deviece)를 선택 후 등록해준다.</li>
+<li>XS or XS Max의 경우 UDID가 아이튠즈에 나오지 않으므로 Xcode 에서 window &gt; Device and Simulators 를 누른후 <code>identifier</code>의 넘버를 긁어온다 (넘버사이에 - 가 있는게 기존넘버와 다른점이랄까…당황)</li>
+<li>이름은 대부분 <em>XX의 iPhone XS</em> 이런식으로 등록</li>
+<li>iphone의 경우 한 아이디당 100대까지 등록 가능하다.</li>
+<li>pp 파일이름을 정해주고 등록하면 pp 파일이 생성된다 (*.mobileprovision)</li>
+<li>다운로드</li>
+</ul>
+<ol start="4">
+<li>Xcode의 프로젝트로 들어와서 &gt; general &gt; signing 에 import 해준다.</li>
+</ol>
+<ul>
+<li>debug 와 release가 있다. (development / distribution)</li>
+</ul>
+<ol start="5">
+<li>Distribution도 위와같이 진행해주면된다 .</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> iOS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>/2018/11/17/%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B4%E1%84%8B%E1%85%B5%E1%84%92%E1%85%A2/</url>
+      <content type="html"><![CDATA[<h1><span id="injeungseo-jongryu">인증서 종류</span></h1>
+<ul>
+<li><strong>Certificate Signing Request 개발자 인증 요청서</strong></li>
+<li><strong>Development Certificate 개발자 인증서</strong></li>
+<li><strong>Distribution Certificate 배포자 인증서</strong></li>
+<li><strong>Provisioning Profile 개발자 인증서, App ID, 테스트할 Device 정보가 포함되어 있는 파일</strong></li>
+</ul>
+<p>코드 사이닝을 이해하기 위해서는 아래와 같은 사실 때문이다.</p>
+<blockquote>
+<p>단지 애플만이 자신들의 하드웨어에서 어떤 소프트웨어가 동작하도록 허락된 주체이기 때문이다.</p>
+</blockquote>
+<p>실제로 매번 앱이 실행될때마다 앱은 애플로 부터 인증을 받았는지 그래서 앱을 실행할 수 있는 권한이 주어졌는지 확인을 한다.</p>
+<br>
+<h2><span id="apple-injeungseo">Apple 인증서</span></h2>
+<p>애플만이 앱을 실행할 권한을 가지기 때문에 개발자들은 디바이스에서 테스트를 하기 위해서는 애플이 개발자를 신뢰하여 <strong>애플 대신 앱을 실행할 권한을 부여</strong>받아야만 한다.</p>
+<ol>
+<li>KeyChain 앱에서 **Certificate Signing Request(CER)**를 생성한다.
+<ul>
+<li>키체인 앱은 공개키와 개인키를 자동으로 생성한다. (목록은 <code>key</code>카테고리에서 확인할 수 있다) 이 공개키를 통해서 내가 누구인지 애플쪽에서 확인할 키이기 때문에 잃어버리지 않도록 잘 보관해야한다.</li>
+<li>애플에 보낼 CertSigningRequest 파일을 생성한다. 이 파일은 나의 이름, 이메일, 공개키를 포함하고 있으며, 개인키를 이용하여 사이닝된다.
+<ul>
+<li>이 공개키, 개인키 메커니즘을 통해서 정말 내가 만들었는지 확인할 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSR을 애플에 업로드하면서 인증서를 요청하면 애플측에서는 간단한 확인 작업 후 개발 인증서를 발급해준다.  이 인증서를 받아서 키체인앱에 드래그앤드롭으로 추가하면 <code>my certificate</code> 카테고리에 추가됨을 확인할 수 있다.
+<ul>
+<li>더블클릭해서 내용을 보면 애플을 통해서 발급받았으며, 애플은 나를 신뢰한다는 정보를 담고 있다.</li>
+<li><strong>이 인증서는 앱을 사인할 때 사용된다.</strong></li>
+<li>여기까지 진행하면 내가 누구인지를 애플에 알림으로써 애플이 나에게 인증서를 발급하고 앱을 사인할 수 있도록 허락밭은 상태이다.</li>
+</ul>
+</li>
+</ol>
+<br>
+<h2><span id="provisioning-profile">Provisioning Profile</span></h2>
+<p>추가적으로 필요한 요청은 나의 디바이스(iphone/ipad)가 나를 신뢰할 수 있는지를 알아야 앱을 설치할 수가 있다.<br>
+이때 필요한 것이 <strong>PP(Provisioning Profile)파일</strong> 이다.</p>
+<ul>
+<li>
+<p>프로비저닝 프로파일을 만든다는 것은 나의 iOS 디바이스들을 <u>앞 단계에서 만든 인증서와 연결하는 것</u>을 의미한다. 그 결과로 만들어진 <code>*.mobileprovision</code> 파일은 나의 iOS 앱을 컴파일하는 과정에서 사용되며 또한 앱을 테스트하려고 하는 디바이스에 설치가 되어야 한다.</p>
+</li>
+<li>
+<p>프로비저닝 프로파일을 생성할 때 연동한 AppID와 실제 컴파일하려는 앱의 ID가 일치해야만 빌드되므로 각 프로젝트마다 각각의 PP파일을 갖게 된다.</p>
+</li>
+<li>
+<p>프로젝트를 생성하면 자동으로 <code>automatic manage signing</code>에 체크가 되어 자동으로 pp가 생성된다. 이것을 해제하여 자동생성을 막는 것이 좋다.! 되도록이면 직접 생성하고 관리하는 버릇을 들이자</p>
+</li>
+<li>
+<p>설치방법</p>
+<ol>
+<li>
+<p>Identifier &gt; AppIDs  — 새로운 앱추가</p>
+</li>
+<li>
+<p>Certificates &gt; Development — 개발용 인증서 추가</p>
+<ul>
+<li>
+<p>키체인 접근 &gt; 인증서 지원 &gt; 인증 기관에서 인증서 요청</p>
+</li>
+<li>
+<p>사용자 이메일, 이름, 디스크에 저장됨을 누른후 생성</p>
+</li>
+<li>
+<p><a href="http://comxp.tistory.com/298" target="_blank" rel="noopener">CER 생성</a></p>
+</li>
+<li>
+<p>생성 후에 *.cer 파일을 저장한다 (일반적으로 ios_development.cer)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Provisioning Profiles &gt; Development — pp파일 생성</p>
+<ul>
+<li>우측 상단의 + 버튼을 누른 후 <strong>iOS App Development</strong> 를 체크해준다.</li>
+<li>Select App ID에서 아까 추가해준 App ID를 선택한다.</li>
+<li>Select Device를 선택해주고 만약 등록되어있지 않다면 Device &gt; iPhone(or another Deviece)를 선택 후 등록해준다.
+<ul>
+<li>XS or XS Max의 경우 UDID가 아이튠즈에 나오지 않으므로 Xcode 에서 window &gt; Device and Simulators 를 누른후 <code>identifier</code>의 넘버를 긁어온다 (넘버사이에 - 가 있는게 기존넘버와 다른점이랄까…당황)</li>
+<li>이름은 대부분 <em>XX의 iPhone XS</em> 이런식으로 등록</li>
+<li>iphone의 경우 한 아이디당 100대까지 등록 가능하다.</li>
+</ul>
+</li>
+<li>pp 파일이름을 정해주고 등록하면 pp 파일이 생성된다 (*.mobileprovision)</li>
+<li>다운로드</li>
+</ul>
+</li>
+<li>
+<p>Xcode의 프로젝트로 들어와서 &gt; general &gt; signing 에 import 해준다.</p>
+<ul>
+<li>debug 와 release가 있다. (development / distribution)</li>
+</ul>
+</li>
+<li>
+<p>Distribution도 위와같이 진행해주면된다 .</p>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Quick Sort]]></title>
+      <url>/2018/08/18/algo-quickSort/</url>
+      <content type="html"><![CDATA[<h1><span id="kwig-jeongryeol">퀵 정렬</span></h1>
+<ul>
+<li>
+<p>기준 값(pivot)을 중심으로 전체 원소를 왼쪽 부분집합과 오른쪽 부분집합으로 분할(Divide)한다. =&gt; partitioning이라고 한다.</p>
+</li>
+<li>
+<p>전체 원소에 대해서 정렬을 수행하지 않는다.</p>
+</li>
+<li>
+<p>피봇을 정하는 기준 : 첫 인덱스, 마지막 인덱스, 가운데 인덱스 (풀이자의 자유)</p>
+</li>
+<li>
+<p>피봇을 어떤 것을 정하느냐( &amp; partitioning) 에 따라서 성능에 큰 영향을 미친다. (경우에 따라 시간복잡도가 달라진다.)</p>
+</li>
+<li>
+<p>Divede -and -Conquer paradigm</p>
+</li>
+</ul>
+<h2><span id="solution">solution</span></h2>
+<ol>
+<li>피봇을 정한다.</li>
+<li>첫번째 인덱스는 <strong>L</strong>,  마지막인덱스는 <strong>R</strong>로 지정한다.</li>
+<li>피봇을 기준으로 작은값은 앞으로 , 큰값은 뒤로 보낸다.</li>
+<li>나눠진 파트에서 다시 재귀적으로 파티셔닝을 한다. (각 부분의 크기가 1이 될 때 까지)</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> ALGORISM </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 정렬 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Dependency Injection,DI]]></title>
+      <url>/2018/08/11/iOS-DependencyInjection/</url>
+      <content type="html"><![CDATA[<h1><span id="dependency-injection">Dependency Injection</span></h1>
+<p>OOP 패러다임 베이스에서 application을 개발할 때, 소프트웨어를 테스트하려면 IoC(Inversion of Control) 원칙을 따르게 된다. 그래서 일반적으로 각 클래스에 필요한 종속성을 제공하는 것으로 <strong>DI 패턴</strong>을 사용합니다.</p>
+<p>이 포스팅에서는 Swift에서의 DI의 구현에 초점을 맞춰서 작성한다.</p>
+<br>
+<h4><span id="ioc-jeeoyi-yeogjeon">IoC :: 제어의 역전</span></h4>
+<blockquote>
+<p>마틴 파울러의 “IoC Inversion of Control” 문서에서 다룬 내용을 기반으로 설명합니다.</p>
+</blockquote>
+<p>프로그래밍을 할 때, 관련이 깊은 제어와 속성들을 하나로 묶어 객체를 만들고, 그 객체들이 서로 상호작용 하도록 하는 것이 OOP의 주된 개념이다. 또한 단위 제어를 객체에 묶었더라도 여전히 객체들을 제어해야한다. 결과적으로 프로그래머가 작성하는 코드를 최소화 시키기 위해 나온 개념이라고 볼 수 있다.</p>
+<p>IoC란 간단히 말하자면 어떤 일을 하도록 만들어진 프레임워크에 제어의 권한을 넘김으로써 클라이언트 코드가 신경 써야 할 것을 줄이는 전략이다. 따라서 <u>제어가 역전</u>되었다고 표현한다.</p>
+<p>가장 간단한 방법은 delegate 혹은 event에 나의 메서드를 등록시키는 것이다.</p>
+<p>이때 마틴파울러는 IoC라는 용어가 일반적이여서 의미가 모호하게되자 <strong>Dependency Injection</strong>이라는 구체적인 용어를 사용한다고 언급하면서 의존성 주입이라는 개념이 등장하게된다.</p>
+<blockquote>
+<p>참조 : <a href="https://martinfowler.com/articles/injection.html" target="_blank" rel="noopener">https://martinfowler.com/articles/injection.html</a></p>
+</blockquote>
+<br>
+<h2><span id="1-saengseongjaeseo-gibongabs-sayong">1. 생성자에서 기본값 사용</span></h2>
+<p>Swift 에서는 생성자의 인자를 사용하여 의존성을 주입할 수 있다.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CoffeMachine</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> coffeBean: <span class="type">CofeeBean</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(bean: <span class="type">CofeeBean</span> = <span class="type">CofeeBean</span>() ) &#123;</span><br><span class="line">        <span class="keyword">self</span>.coffeBean = bean</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> DI </tag>
+            
+            <tag> pattern </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[제네릭과 익스텐션]]></title>
       <url>/2018/08/01/chap22-Generic/</url>
       <content type="html"><![CDATA[<h1><span id="extension">Extension</span></h1>
@@ -607,6 +907,112 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
     </entry>
     
     <entry>
+      <title><![CDATA[스케쥴링]]></title>
+      <url>/2018/05/02/CS-OS-3Scheduling/</url>
+      <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
+<h2><span id="seukejulring-algorijeum">스케줄링 알고리즘</span></h2>
+<h3><span id="fcfs-first-come-first-served-seukejyulring">FCFS (First-Come First-Served) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li><strong>비선점 스케쥴링</strong> 알고리즘</li>
+<li>Queue와 같은 작동원리</li>
+<li>준비큐에 도착한 순서에 따라 디스패치(준비-&gt;실행)</li>
+<li>장점 : 가장 간단한 스케쥴링</li>
+<li>단점 : 짧은 프로세스가 긴 프로세스를 기다리거나, 중요한 프로세스가 나중에 수행될 수 있음.</li>
+</ul>
+<br>
+<h3><span id="sjf-shortest-job-first-seukejyulring">SJF (Shortest Job First) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케쥴링 알고리즘</li>
+<li>준비 큐에서 <strong>기다리는 프로세스 중 실행시간이 가장 짧다고 예상된 것</strong>을 먼저 디스패치</li>
+<li>장점 : 일괄처리 환경에서 구현하기 쉬움 , 상위단계 스케쥴링에서 많이 쓰임.</li>
+<li>단점 : 실행 예정 시간 길이를 사용자의 추정치에 의존하기 때문에 실제로는 먼저 처리할 직업의 CPU 시간을 예상할 수 없음.</li>
+</ul>
+<br>
+<h3><span id="str-shortest-remaining-time-seukejyulring">STR(Shortest Remaining Time) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li>실행이 끝날 때 까지 남은 시간 추정치가 가장 짧은 프로세스를 먼저 디스패치 (SJF와 비슷하다)</li>
+<li>프레세싱 도중에 들어온 프로세스의 사이클 시간과 현재 프로세싱 중인 것과 남은 시간을 비교하여 더 짧은 것을 먼저 선점하여 실행한다. 만약 실행중인 프로세스가 더 많은 사이클이 남아있다면 준비큐로 들어가게되고 도중에 들어온 프로세스가 실행되게 된다.</li>
+<li>대기시간 : 준비큐에 들어와서 실행되기 직전까지의 시간</li>
+<li>반환시간 : 준비시간 부터 종료시간까지의 시간</li>
+<li>장점 : SJF보다 평균 대기시간이나 평균 반환시간에서 효율적, 대화형 운영체제에 유용</li>
+<li>단점 : 각 프로세스의 실행시간 추적, 선점을 위한 문맥 교환 등 SJF보다 오버헤드가 큼</li>
+</ul>
+<br>
+<h3><span id="rr-round-robin-seukejyulring">RR (Round Robin) 스케쥴링</span></h3>
+<hr>
+<ul>
+<li>선점 스케쥴링 알고리즘</li>
+<li>준비 큐에 도착한 순서에 따라 디스패치하지만 정해진 시간 할당량에 의해 실행을 제한(FCFS와 비슷한 방식이지만 정해진 할당량이 있다는 차이점이 있다)</li>
+<li>시간 할당량 안에 완료되지 못한 프로세스는 <strong>준비 큐의 맨 뒤에 배치</strong></li>
+<li>시간 할당량 보다 프로세싱 시간이 크게되면 할당량 만큼만 진행하고 남은 프로레싱은 준비 큐의 맨뒤로 배치되어 순서가 되면 진행된다.</li>
+<li>장점 : CPU를 독점하지 않고 공평하게 이용, 대화형 운영체제에서 유용</li>
+<li>단점 : <em>시간 할당량이 너무 크면</em> FCFS 스케줄링과 같아짐. (시간 할당량보다 프로세싱 시간이 더 짧게 걸릴때) , 혹은 <em>시간 할당량이 너무 작으면</em> 문맥 교환에 따른 오버헤드가 크게 증가함</li>
+</ul>
+<p>*** 오버헤드(Overhead) : <em>어떤 처리를 하기 위해 들어가는 간접적인 처리 시간 · 메모리 등을 말한다.</em></p>
+<br>
+<h3><span id="hrn-highest-response-ratio-next-seukejulring">HRN (Highest Response-ratio Next) 스케줄링</span></h3>
+<hr>
+<ul>
+<li>비선점 스케줄링 알고리즘</li>
+<li>준비 큐에서 기다리는 프로세스 중 <strong>응답비율이 가장 큰 것을 먼저</strong> 디스패치</li>
+</ul>
+<p><code>응답비율 = 대기시간 + 예상 실행시간 / 예상 실행시간 = ( 대기시간 / 예상 실행시간 ) + 1</code></p>
+<ul>
+<li>SJF의 단점을 보완(시간이 긴 프로세스에게 불리함)</li>
+</ul>
+<br>
+<h3><span id="dadangye-pideubaeg-kyu-seukejulring">다단계 피드백 큐 스케줄링</span></h3>
+<hr>
+<ul>
+<li>선점 스케줄링 알고리즘</li>
+<li><strong>I/O 중심 프로세스</strong>로 CPU 중심 프로세스의 특성에 따라 서로 다른 시간 할당량 부여</li>
+<li>단계 k의 큐에 있는 프로세스가 CPU를 할당 받으려면 단계 1~ 단계 k-1 까지 모든 큐가 비어있어야만 함</li>
+<li>예를 들어 연산 위주의 CPU 중심 프로세스는 낮은 우선권이지만 긴 시간 할당량을 가진다. (높은 단계의 큐로 가기에 적합)</li>
+<li>각 단계마다 하나씩 큐 존재</li>
+<li>단계가 커질수록 시간 할당량도 커짐</li>
+</ul>
+<h5><span id="process">Process</span></h5>
+<ol>
+<li>새로운 프로세스는 최상위 단계의 준비 큐에 들어간 후 FCFS의 순서로 CPU를 할당받아 실행되다가 그 큐의 시간 할당량이 끝나면 한단계 아래의 준비 큐에 들어감으로써 결과적으로 우선순위가 한 단계 낮아지게 된다.</li>
+<li>각 단계에서도 그 단계 큐의 시간 할당량을 다 사용할 때까지 계속 실행된다면 다음 큐로 들어가게 되며, 마지막 단계에서는 더 내려갈 단계가 없으므로 RR방식으로 실행된다</li>
+</ol>
+<br>
+<h5><span id="jeogeungjeog-dadangye-pideubaeg-kyu-seukejulring">적응적 다단계 피드백 큐 스케줄링</span></h5>
+<ul>
+<li>시간 할당량을 다 쓰기 전에 CPU를 반납하는 경우 하나 작은 단계의 큐로 이동 배치</li>
+<li>연산 위주의 프로세스에서 -&gt; I/O 위주로 바뀐다면 점점 작은 단계로 배치 가능</li>
+</ul>
+<br>
+<h2><span id="summary">Summary</span></h2>
+<hr>
+<p>FCFS -&gt; RR -&gt; 다단계 피드백 큐</p>
+<p>SJF -&gt; HRN</p>
+<p>SJF -&gt; STR</p>
+<p>비선점 -&gt; 선점의 방식으로 보완 차용되어 파생된 방식들이 많다.</p>
+]]></content>
+      
+        <categories>
+            
+            <category> CS </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 스케쥴링 </tag>
+            
+            <tag> 프로세스 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[프로세스]]></title>
       <url>/2018/05/02/CS-OS-2Process/</url>
       <content type="html"><![CDATA[<h1><span id="peuroseseu">프로세스</span></h1>
@@ -736,112 +1142,6 @@ public으로 되어 있는 메서드만 테스트해도 무방하다. Public 메
             
         </categories>
         
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[스케쥴링]]></title>
-      <url>/2018/05/02/CS-OS-3Scheduling/</url>
-      <content type="html"><![CDATA[<h1><span id="seukejyulring-algorijeum">스케쥴링 알고리즘</span></h1>
-<h2><span id="seukejulring-algorijeum">스케줄링 알고리즘</span></h2>
-<h3><span id="fcfs-first-come-first-served-seukejyulring">FCFS (First-Come First-Served) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li><strong>비선점 스케쥴링</strong> 알고리즘</li>
-<li>Queue와 같은 작동원리</li>
-<li>준비큐에 도착한 순서에 따라 디스패치(준비-&gt;실행)</li>
-<li>장점 : 가장 간단한 스케쥴링</li>
-<li>단점 : 짧은 프로세스가 긴 프로세스를 기다리거나, 중요한 프로세스가 나중에 수행될 수 있음.</li>
-</ul>
-<br>
-<h3><span id="sjf-shortest-job-first-seukejyulring">SJF (Shortest Job First) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>비선점 스케쥴링 알고리즘</li>
-<li>준비 큐에서 <strong>기다리는 프로세스 중 실행시간이 가장 짧다고 예상된 것</strong>을 먼저 디스패치</li>
-<li>장점 : 일괄처리 환경에서 구현하기 쉬움 , 상위단계 스케쥴링에서 많이 쓰임.</li>
-<li>단점 : 실행 예정 시간 길이를 사용자의 추정치에 의존하기 때문에 실제로는 먼저 처리할 직업의 CPU 시간을 예상할 수 없음.</li>
-</ul>
-<br>
-<h3><span id="str-shortest-remaining-time-seukejyulring">STR(Shortest Remaining Time) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>선점 스케줄링 알고리즘</li>
-<li>실행이 끝날 때 까지 남은 시간 추정치가 가장 짧은 프로세스를 먼저 디스패치 (SJF와 비슷하다)</li>
-<li>프레세싱 도중에 들어온 프로세스의 사이클 시간과 현재 프로세싱 중인 것과 남은 시간을 비교하여 더 짧은 것을 먼저 선점하여 실행한다. 만약 실행중인 프로세스가 더 많은 사이클이 남아있다면 준비큐로 들어가게되고 도중에 들어온 프로세스가 실행되게 된다.</li>
-<li>대기시간 : 준비큐에 들어와서 실행되기 직전까지의 시간</li>
-<li>반환시간 : 준비시간 부터 종료시간까지의 시간</li>
-<li>장점 : SJF보다 평균 대기시간이나 평균 반환시간에서 효율적, 대화형 운영체제에 유용</li>
-<li>단점 : 각 프로세스의 실행시간 추적, 선점을 위한 문맥 교환 등 SJF보다 오버헤드가 큼</li>
-</ul>
-<br>
-<h3><span id="rr-round-robin-seukejyulring">RR (Round Robin) 스케쥴링</span></h3>
-<hr>
-<ul>
-<li>선점 스케쥴링 알고리즘</li>
-<li>준비 큐에 도착한 순서에 따라 디스패치하지만 정해진 시간 할당량에 의해 실행을 제한(FCFS와 비슷한 방식이지만 정해진 할당량이 있다는 차이점이 있다)</li>
-<li>시간 할당량 안에 완료되지 못한 프로세스는 <strong>준비 큐의 맨 뒤에 배치</strong></li>
-<li>시간 할당량 보다 프로세싱 시간이 크게되면 할당량 만큼만 진행하고 남은 프로레싱은 준비 큐의 맨뒤로 배치되어 순서가 되면 진행된다.</li>
-<li>장점 : CPU를 독점하지 않고 공평하게 이용, 대화형 운영체제에서 유용</li>
-<li>단점 : <em>시간 할당량이 너무 크면</em> FCFS 스케줄링과 같아짐. (시간 할당량보다 프로세싱 시간이 더 짧게 걸릴때) , 혹은 <em>시간 할당량이 너무 작으면</em> 문맥 교환에 따른 오버헤드가 크게 증가함</li>
-</ul>
-<p>*** 오버헤드(Overhead) : <em>어떤 처리를 하기 위해 들어가는 간접적인 처리 시간 · 메모리 등을 말한다.</em></p>
-<br>
-<h3><span id="hrn-highest-response-ratio-next-seukejulring">HRN (Highest Response-ratio Next) 스케줄링</span></h3>
-<hr>
-<ul>
-<li>비선점 스케줄링 알고리즘</li>
-<li>준비 큐에서 기다리는 프로세스 중 <strong>응답비율이 가장 큰 것을 먼저</strong> 디스패치</li>
-</ul>
-<p><code>응답비율 = 대기시간 + 예상 실행시간 / 예상 실행시간 = ( 대기시간 / 예상 실행시간 ) + 1</code></p>
-<ul>
-<li>SJF의 단점을 보완(시간이 긴 프로세스에게 불리함)</li>
-</ul>
-<br>
-<h3><span id="dadangye-pideubaeg-kyu-seukejulring">다단계 피드백 큐 스케줄링</span></h3>
-<hr>
-<ul>
-<li>선점 스케줄링 알고리즘</li>
-<li><strong>I/O 중심 프로세스</strong>로 CPU 중심 프로세스의 특성에 따라 서로 다른 시간 할당량 부여</li>
-<li>단계 k의 큐에 있는 프로세스가 CPU를 할당 받으려면 단계 1~ 단계 k-1 까지 모든 큐가 비어있어야만 함</li>
-<li>예를 들어 연산 위주의 CPU 중심 프로세스는 낮은 우선권이지만 긴 시간 할당량을 가진다. (높은 단계의 큐로 가기에 적합)</li>
-<li>각 단계마다 하나씩 큐 존재</li>
-<li>단계가 커질수록 시간 할당량도 커짐</li>
-</ul>
-<h5><span id="process">Process</span></h5>
-<ol>
-<li>새로운 프로세스는 최상위 단계의 준비 큐에 들어간 후 FCFS의 순서로 CPU를 할당받아 실행되다가 그 큐의 시간 할당량이 끝나면 한단계 아래의 준비 큐에 들어감으로써 결과적으로 우선순위가 한 단계 낮아지게 된다.</li>
-<li>각 단계에서도 그 단계 큐의 시간 할당량을 다 사용할 때까지 계속 실행된다면 다음 큐로 들어가게 되며, 마지막 단계에서는 더 내려갈 단계가 없으므로 RR방식으로 실행된다</li>
-</ol>
-<br>
-<h5><span id="jeogeungjeog-dadangye-pideubaeg-kyu-seukejulring">적응적 다단계 피드백 큐 스케줄링</span></h5>
-<ul>
-<li>시간 할당량을 다 쓰기 전에 CPU를 반납하는 경우 하나 작은 단계의 큐로 이동 배치</li>
-<li>연산 위주의 프로세스에서 -&gt; I/O 위주로 바뀐다면 점점 작은 단계로 배치 가능</li>
-</ul>
-<br>
-<h2><span id="summary">Summary</span></h2>
-<hr>
-<p>FCFS -&gt; RR -&gt; 다단계 피드백 큐</p>
-<p>SJF -&gt; HRN</p>
-<p>SJF -&gt; STR</p>
-<p>비선점 -&gt; 선점의 방식으로 보완 차용되어 파생된 방식들이 많다.</p>
-]]></content>
-      
-        <categories>
-            
-            <category> CS </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 스케쥴링 </tag>
-            
-            <tag> 프로세스 </tag>
-            
-        </tags>
         
     </entry>
     
@@ -3527,9 +3827,9 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
         
         <tags>
             
-            <tag> function </tag>
-            
             <tag> closure </tag>
+            
+            <tag> function </tag>
             
         </tags>
         
@@ -3803,9 +4103,9 @@ case에서 연관값으로 자기 자신타입이 재귀된다면 컴파일러�
         
         <tags>
             
-            <tag> sort </tag>
-            
             <tag> 정렬 </tag>
+            
+            <tag> sort </tag>
             
             <tag> 선택정렬 </tag>
             
